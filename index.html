@@ -3,14 +3,76 @@
     <head>
         <meta charset="utf-8" />
         <title>NyteOwlDave's Page</title>
+        <style>
+            nav.dockleft {
+                position:sticky;
+                top:0;
+                left:0;
+                width: 14em;
+                background-color: rgba(0, 0, 100, 0.6);
+            }
+            nav > button {
+                background-color: transparent;
+                width: 100%;
+                display: block;
+                border: 0;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+                color: goldenrod;
+            }
+            nav > div {
+                text-align: center;
+                width: 100%;
+                color: gray;
+            }
+            hr {
+                color: rgba(0, 0, 0, 0.2);
+                background-color: transparent;
+            }
+        </style>
     </head>
     <body>
         <h1>NyteOwlDave's Page</h1>
         <p>Hello, World!</p>
-        <button onclick="onClickGreystoke()">Greystoke</button>
+        <nav class="dockleft">
+            <button onclick="onClickNCS()">NyteOwl Consulting</button>
+            <button onclick="onClickBIO()">Link-in-Bio</button>
+            <div>
+                (pending)
+            </div>
+        </nav>
         <script>
             function onClickGreystoke(evt) {
                 location="slicie.html";
+            }
+        </script>
+        <script>
+            function readLocalStorage() {
+                const record = ( key ) => {
+                    result[ key ] = localStoraage.getItem( key );
+                }  
+                const result = {};
+                let keys = readLocalStorageKeys();
+                keys.forEach( record );
+                return result;
+            }
+            function readLocalStorageKeys() {
+                let i = 0; 
+                const result = [];
+                while ( localStorage.key( i ) ) {
+                    result.push( key );
+                }
+                return result;
+            }
+            function logLocalStorage() {
+                console.log( readLocalStorage() );
+            }
+            function logLocalStorageKeys() {
+                console.log( readLocalStorageKeys() );
             }
         </script>
     </body>
