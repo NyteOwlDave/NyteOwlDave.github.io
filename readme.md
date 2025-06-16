@@ -12,9 +12,10 @@ but Dave. There are maintenance notes for internal use.
 
 # Recent Changes
 
-| Date         | Description      |
-|--------------|------------------|
-| 2025-JUN-16  | Ryzen Repo Clone |
+| Date         | Description       |
+|--------------|-------------------|
+| 2025-JUN-16  | Ryzen Repo Clone  |
+| 2025-JUN-16  | Legacy Repo Clone |
 
 ---
 
@@ -22,5 +23,5 @@ but Dave. There are maintenance notes for internal use.
 
 - Tower (primary)
 - Ryzen (alternate)
-- Legacy (pending)
+- Legacy (tertiary)
 
