@@ -1,5 +1,6 @@
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="./art/3p.ico">
 <script>
 document.title = "Third Party Content";
 </script>
