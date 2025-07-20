@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design DevOps Icons</title>
+    <link rel="icon" href="./favicon.ico">
+    <script src="https://kit.fontawesome.com/f257fbebb0.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            text-align : center;
+        }
+        .container img {
+            width  : 64px;
+            height : 64px;
+        }
+        fieldset {
+            display : inline-block;
+            margin : 10px;
+            border-radius : 24px;
+            text-align : center;
+        }
+        header, footer, main, section#bub {
+            position : fixed;
+            width : 100%;
+            left : 0;
+        }
+        main {
+            top : 61px;
+            height : calc( 100vh - 141px );
+            overflow-y : scroll;
+            padding-bottom : 80px;
+        }
+        header {
+            top : 0;
+            line-height : 60px;
+            background : rgba(255, 215, 10, 0.7);
+        }
+        footer, section#bub {
+            bottom : 0;
+        }
+        section#bub {
+            filter: blur( 8px );
+            height : 80px;
+            border-top : 4px solid gold;
+            background : rgba(255, 215, 10, 0.7);
+        }
+        a, button, 
+        [onclick], [href] {
+            cursor : pointer;
+            border : none;
+            text-decoration : none;
+            border-radius : 1.42ch;
+            color : black;
+            background : rgba( 82, 82, 42, 0.4242 );
+        }
+        [src] {
+            cursor : pointer;
+        }
+        a {
+            padding : 7px 11px;
+        }
+        a:visited {
+            color : unset;
+        }
+        [dot] {
+            border : none;
+            background : transparent;            
+        }
+        a:hover, 
+        button:hover, 
+        [onclick]:hover, 
+        [href]:hover {
+            background : white;
+            box-shadow : 0px 0px 21px black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./">Workspace</a>
+            <a href="http://dave-ryzen/iconic/design-dev-icons/main.html">Home</a>
+            <a href="./../iconic.html">Iconic</a>
+            <a href="./dots/dot.whiteboard.html">Whiteboard</a>
+            <a href="./dots/dot.chachi.html">Chachi</a>
+        </nav>
+    </header>
+    <main>
+    <h1>Design DevOps Icons</h1>
+    <div class="container" id="bossman">
+        <fieldset>
+            <img src="./art/dev-icon-1.svg">
+            <div>dev-icon-1</div>
+        </fieldset>
+    </div>
+    <section id="bub"></section>
+    </main>
+    <footer>
+        <input placeholder="First" id="viewIndex" type="number" min="1">
+        <span>✖️</span>
+        <input placeholder="Count" id="viewCount" type="number" min="4">
+        <span>♻️</span>
+        <input placeholder="Limit" id="viewLimit" type="number" min="4">
+        <menu>
+            <button onclick="update()">Update</button>
+            <button onclick="unwind()">Reset</button>
+            <button dot onclick="prevPage()">⏪</button> 
+            <button dot onclick="prev()">◀️</button>
+            <button dot onclick="home()">⏺️</button>
+            <button dot onclick="next()">▶️</button>
+            <button dot onclick="nextPage()">⏩</button>
+        </menu>
+    </footer>
+    <script src="./api/tigg.js"></script>
+    <script src="./api/thor.js"></script>
+    <script src="./api/legends.js"></script>
+    <script details="Icon Preview Gadgets">
+        function composePreviewDetails( index ) {
+            const limit = read( viewLimit ) || 300;
+            let i = (index-1) % limit;
+            i = 1 + ( (i < 0) ? (i + limit) : i );
+            const title = `dev-icon-${i}`;
+            const url = `./art/${title}.svg`;
+            return { title, url };
+        }
+        function addPreview( index ) {
+            const CE = "contenteditable";
+            const fse = ella( 'fieldset' );
+            const ime = ella( 'img' );
+            ime.onclick = function(e) {
+                const x = e.screenX;
+                const y = e.screenY;
+                
+                window.open( 
+                    this.src, "_BLANK", 
+                    `top=${y},left=${x},width=360,height=380` 
+                );
+            }
+            const dve = ella( 'div' );
+            fse.appendChild( ime );
+            fse.appendChild( dve );
+            bossman.appendChild( fse );
+            const details = composePreviewDetails( index );
+            dve.textContent = details.title;
+            dve.setAttribute( CE, "" );
+            ime.src = details.url;
+        }
+        function showPreviews( first, count ) {
+            bossman.innerHTML = "";
+            while ( count-- > 0 ) {
+                addPreview( first++ );
+            }
+        }
+    </script>
+    <script details="Navigation">
+        const read  = e => parseInt( e.value );
+        const write = (e, n) => e.value = parseInt( n );
+        function unwind() {
+            write( viewIndex, 1 );
+            write( viewCount, 4 );
+            write( viewLimit, 300 );
+            update();
+        }
+        function home() {
+            write( viewIndex, 1 );
+            update();
+        }
+        function next() {
+            const e = viewIndex;
+            write( e, read( e ) + 1 );
+            update();
+        }
+        function prev() {
+            const e = viewIndex;
+            write( e, read( e ) - 1 );
+            update();
+        }
+        function nextPage() {
+            const e = viewIndex;
+            write( e, read( e ) + read( viewCount) );
+            update();
+        }
+        function prevPage() {
+            const e = viewIndex;
+            write( e, read( e ) - read( viewCount) );
+            update();            
+        }
+        function update() {
+            const first = read( viewIndex );
+            const count = read( viewCount );
+            showPreviews( first, count );
+        }
+    </script>
+    <script details="Persistent State">
+        function persist() {
+            const key = document.title;
+            const cache = localStorage;
+            const state = {
+                "viewIndex" : read( viewIndex ),
+                "viewCount" : read( viewCount ),
+                "viewLimit" : read( viewLimit )
+            };
+            const json = JSON.stringify( state );
+            cache.setItem( key, json );
+            console.log( "Persistent state saved" );
+        }
+        function restore() {
+            const key = document.title;
+            const cache = localStorage;
+            const json = cache.getItem( key );
+            if ( json === null ) {
+                console.log( "Persistent state not found" );
+                unwind();
+            } else {
+                const state = JSON.parse( json );
+                const zap = (e,k) => write( e, state[ k ] );
+                zap( viewIndex, "viewIndex" );
+                zap( viewCount, "viewCount" );
+                zap( viewLimit, "viewLimit" );
+                update();
+                console.log( "Persistent state loaded" );
+            }
+            if ( persist.hooked ) return;
+            persist.hooked = true;
+            addEventListener( 'beforeunload', persist );
+            console.log( "Persistent state unload hook set" );
+        }
+    </script>
+    <script details="Page Load Handler">
+        function main() {
+            restore();
+        }
+        addEventListener( 'load', main );
+    </script>
+</body>
+</html>
+
