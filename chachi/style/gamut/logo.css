@@ -1,0 +1,113 @@
+
+/* 
+
+    Top Slab ~ Logo   
+    Icon and Title
+
+    font : 24pt sans-serif;
+
+*/
+
+
+:root {
+
+    /*  Height  */
+    --top-slab-size : 80px;
+
+    /*  Depth  */
+    --top-slab-z : 1000;
+
+    /*  Padding  */
+    --top-slab-pad : 20px;
+
+    /*  Font  */
+    --top-slab-font : 54px sans-serif;
+
+    /*  Border  */
+    --top-slab-bdr : 2px solid rgba( 64, 42, 11, 0.9753 );
+
+    /*  Color  */
+    --top-slab-fg  : midnightblue;
+
+    /*  Background  */
+    --top-slab-bg  : mintcream;
+}
+
+
+div[logo] {
+
+    --z   : var( --top-slab-z    );
+    --h   : var( --top-slab-size );
+    --f   : var( --top-slab-font );
+    --pad : var( --top-slab-pad  );
+
+    z-index  : var( --z );
+
+    position : fixed;
+    display  : block;
+
+    top      : 0;
+    left     : 0;
+
+    width    : calc( 100vw );
+    height   : var( --h );
+
+    font     : var( --f );
+
+    margin   : 0;
+
+    padding  : 0;
+    padding-left  : var( --pad );
+    padding-right : var( --pad );
+
+    border : 0;
+    border-bottom : var( --top-slab-bdr );
+    vertical-align : top;
+}
+
+
+div[logo] > * {
+
+    display : inline-block;
+    font    : inherit;
+    vertical-align : top;
+    background : transparent;
+}
+
+
+div[icon] {
+
+    --h   : var( --top-slab-size );
+    --pad : var( --top-slab-pad  );
+
+    margin-top : calc( var( --pad ) * 0.5 );
+    height : calc( var( --h ) * 0.5 );
+    background : transparent;
+}
+
+
+img[icon] {
+    --sz   : calc( var( --top-slab-size ) * 0.7 );
+    width  : var( --sz );
+    height : var( --sz );
+    margin-top : 10px;
+    border : 1px solid gold;
+    background : inherit;
+}
+
+
+div[title] {
+    --sz : var( --top-slab-size );
+    top       : 10;
+    height    : calc( var( --sz ) * 0.75 );
+    font      : var( --top-slab-font );
+    border    : 0;
+    padding   : 0;
+    padding-top : 8px;
+    vertical-align : top;
+}
+
+
+
+
+

@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>NyteOwlDave's Page</title>
+        <link rel="icon" href="./favicon.ico">
         <style>
             nav.dockleft {
                 position:sticky;
@@ -39,6 +40,8 @@
         <h1>NyteOwlDave's Page</h1>
         <p>Hello, World!</p>
         <nav class="dockleft">
+            <button onclick="onClickChachi()">Chachi</button>
+            <button onclick="onClickGreystoke()">Greystoke</button>
             <button onclick="onClickNCS()">NyteOwl Consulting</button>
             <button onclick="onClickBIO()">Link-in-Bio</button>
             <div>
@@ -46,8 +49,17 @@
             </div>
         </nav>
         <script>
+            function onClickChachi(evt) {
+                location="./chachi/chachi.html";
+            }
             function onClickGreystoke(evt) {
-                location="slicie.html";
+                location="https://198.91.25.240/";
+            }
+            function onClickNCS(evt) {
+                location="https://www.facebook.com/david.wellsted.5/";
+            }
+            function onClickBIO(evt) {
+                location="https://bit.ly/m/nyteowldave";
             }
         </script>
         <script>
