@@ -1,0 +1,1658 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>chachi-help</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<p><head>
+<meta charset="utf-8"></p>
+<script>
+document.title = "Chachi Help";
+</script>
+<script src="./../api/editables.js"></script>
+<style>
+@import url("./style/docs.css");
+h1 {
+    text-align : center;
+    margin-top : 64px;
+}
+header {
+    height : 68px;
+    line-height : 30px;
+}
+</style>
+<p></head></p>
+<header>
+<nav>
+<a href="./">Workspace</a>
+<a href="http://dave-legacy/stereogram/docs/chachi-help.html">Home</a>
+<a href="http://dave-legacy/stereogram/docs/biblio.html">Bibliography</a>
+</nav>
+</header>
+
+<h1>Hotkeys</h1>
+<p>The following hotkeys are defined when the Editor
+has input focus:</p>
+<div id="t_hotkeys"></div>
+
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Modifier</th>
+<th>Action</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enter</td>
+<td>Alt</td>
+<td>Run</td>
+<td></td>
+</tr>
+<tr>
+<td>Scroll Lock</td>
+<td></td>
+<td>Toggle Math Menu</td>
+<td></td>
+</tr>
+<tr>
+<td>Scroll Lock</td>
+<td>Alt</td>
+<td>Toggle Canvas</td>
+<td></td>
+</tr>
+<tr>
+<td>I</td>
+<td>Alt</td>
+<td>Draw Isometric Grid</td>
+<td></td>
+</tr>
+<tr>
+<td>C</td>
+<td>Alt</td>
+<td>Draw Cartesian Grid</td>
+<td></td>
+</tr>
+<tr>
+<td>E</td>
+<td>Alt</td>
+<td>Erase Canvas</td>
+<td></td>
+</tr>
+<tr>
+<td>X</td>
+<td>Alt</td>
+<td>Swap Input with Output</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<script>
+_K_ = t_hotkeys.nextElementSibling;
+_K_.id = "hotkeyTable";
+function tables() {
+    const batch = document.querySelectorAll( 'table' );
+    return Array.from( batch );
+}
+</script>
+
+<h1>Command Buttons</h1>
+<p>These are exposed by the <code>chachi.js</code> module.</p>
+<div id="t_cmdbtn"></div>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Symbol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run</td>
+<td>Evaluate Editor Input</td>
+<td>runInput</td>
+</tr>
+<tr>
+<td>🗑️</td>
+<td>Clear Output</td>
+<td>clearOutput</td>
+</tr>
+<tr>
+<td>❑ Editor</td>
+<td>Full Screen Editor</td>
+<td>zoomEditor</td>
+</tr>
+<tr>
+<td>❑ Output</td>
+<td>Full Screen Output</td>
+<td>zoomOutput</td>
+</tr>
+<tr>
+<td>❑ Canvas</td>
+<td>Full Screen Canvas</td>
+<td>(see Canvas Ops)</td>
+</tr>
+<tr>
+<td>ⓘ</td>
+<td>Show Help</td>
+<td>showMathHelp</td>
+</tr>
+<tr>
+<td>📋</td>
+<td>Online Clipboard</td>
+<td>onlineClipboard</td>
+</tr>
+<tr>
+<td>📽️</td>
+<td>Math Olympiad Videos</td>
+<td>mathOlympiad</td>
+</tr>
+<tr>
+<td>CE</td>
+<td>Clear Editor</td>
+<td>(internal)</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Memory Write</td>
+<td>(internal)</td>
+</tr>
+<tr>
+<td>R</td>
+<td>Memory Read</td>
+<td>(internal)</td>
+</tr>
+</tbody>
+</table>
+<script>
+_K_ = t_cmdbtn.nextElementSibling;
+_K_.id = "cmdbtnTable";
+</script>
+
+<h1>Examples</h1>
+<p>If you need to see some examples of <code>Chachi</code> source code,
+check out these links.</p>
+<ul>
+<li><a href="./chachi-examples.html">Examples</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas" title="Canvas Reference ~ MDN">Canvas Reference</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D" title="Context Reference ~ MDN">Context Reference</a></li>
+</ul>
+<h1>Canvas Operations</h1>
+<p>These are exposed by the <code>graph.js</code> module.</p>
+<div id="t_canvas"></div>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_rgb</td>
+<td>Compose CSS rgb tuplet</td>
+</tr>
+<tr>
+<td>_rgba</td>
+<td>Compose CSS rgba tuplet</td>
+</tr>
+<tr>
+<td>getContext</td>
+<td>Get Canvas 2D Context</td>
+</tr>
+<tr>
+<td>clearCanvas</td>
+<td>Fill Canvas w/ Color</td>
+</tr>
+<tr>
+<td>showCanvas</td>
+<td>Make the Canvas Visible</td>
+</tr>
+<tr>
+<td>hideCanvas</td>
+<td>Make the Canvas Invisible</td>
+</tr>
+<tr>
+<td>toggleCanvas</td>
+<td>Toggle Canvas Visibility</td>
+</tr>
+<tr>
+<td>zoomCanvas</td>
+<td>Request Canvas Full Screen</td>
+</tr>
+<tr>
+<td>rotateXY</td>
+<td>Rotate a Point in 2D Space</td>
+</tr>
+<tr>
+<td>drawIsometricGrid</td>
+<td>Draw Isometric Grid (3 axis)</td>
+</tr>
+<tr>
+<td>drawCartesianGrid</td>
+<td>Draw Isometric Grid (2 axis)</td>
+</tr>
+<tr>
+<td>drawGridLines</td>
+<td>Draw Partial Grid (1 axis)</td>
+</tr>
+<tr>
+<td>getCanvasCenter</td>
+<td>Centerpoint for canvas</td>
+</tr>
+<tr>
+<td>lineSeg</td>
+<td>Draw line segment</td>
+</tr>
+<tr>
+<td>ray</td>
+<td>Draw ray</td>
+</tr>
+<tr>
+<td>spoke</td>
+<td>Draw radial spoke</td>
+</tr>
+<tr>
+<td>circle</td>
+<td>Draw circle outline</td>
+</tr>
+<tr>
+<td>circleFill</td>
+<td>Draw circle w/ filled interior</td>
+</tr>
+<tr>
+<td>rectangle</td>
+<td>Draw rectangle outline</td>
+</tr>
+<tr>
+<td>rectangleFill</td>
+<td>Draw rectangle w/ filled interior</td>
+</tr>
+</tbody>
+</table>
+<script>
+_K_ = t_canvas.nextElementSibling;
+_K_.id = "canvasTable";
+</script>
+
+<h1>Math Operations</h1>
+<p>These are exposed by various modules.</p>
+<div id="t_math"></div>
+
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Module</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td>
+<td>Cast to Integer</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>float</td>
+<td>Cost to Floating Point</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>ceil</td>
+<td>Next More Positive Integer</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>floor</td>
+<td>Next More Negative Integer</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>round</td>
+<td>Nearest Integer</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>trunc</td>
+<td>Truncate Fractional Digits</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>snap</td>
+<td>Adjust Numerical Precision</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>abs</td>
+<td>Absolute Value</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>sgn</td>
+<td>Algebraic Sign [-1, +1]</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>sgnz</td>
+<td>Algebraic Sign [-1, 0, +1]</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>rnd</td>
+<td>Random Real Number</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>irnd</td>
+<td>Random Integer</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>pow</td>
+<td>Raise to Exponent</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>pow2</td>
+<td>Powers of 2</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>pow10</td>
+<td>Powers of 10</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>sqrt</td>
+<td>Square Root</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>cbrt</td>
+<td>Cube Root</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>exp</td>
+<td>Natural Exponential</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>Natural Logarithm</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>log2</td>
+<td>Base-2 Logarithm</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>log10</td>
+<td>Base-10 Logarithm</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>logn</td>
+<td>Base-N Logarithm</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>rootn</td>
+<td>Primary Nth Root</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>square</td>
+<td>N-squared</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>cube</td>
+<td>N-cubed</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>cruxx</td>
+<td>Difference of Squares</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>crux</td>
+<td>Squared Difference</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>zeta</td>
+<td>Self Dot Product</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>zulu</td>
+<td>Absolute Difference</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>d2r</td>
+<td>Degrees to Radians</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>r2d</td>
+<td>Radians to Degrees</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>sin</td>
+<td>Sine</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>cos</td>
+<td>Cosine</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>tan</td>
+<td>Tangent</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>asin</td>
+<td>Inverse Sine</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>acos</td>
+<td>Inverse Cosine</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>atan</td>
+<td>Inverse Tangent (two quadrant)</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>hypot</td>
+<td>Hypotenuse</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>atan2</td>
+<td>Inverse Tangent (four quadrant)</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>euler</td>
+<td>Modulus and Argument</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>normal</td>
+<td>Normalize Vector</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>now</td>
+<td>Current Date and Time</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>time</td>
+<td>Current Time</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>Current Date</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>clock</td>
+<td>System Clock</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>stamp</td>
+<td>Cool Date Stamp</td>
+<td>math.js</td>
+<td></td>
+</tr>
+<tr>
+<td>disc</td>
+<td>b<em>b - 4</em>a*c</td>
+<td>mathplus.js</td>
+<td></td>
+</tr>
+<tr>
+<td>quadratic</td>
+<td>Roots of Quadratic Equation</td>
+<td>mathplus.js</td>
+<td></td>
+</tr>
+<tr>
+<td>lambertW</td>
+<td>Lambert W</td>
+<td>mathplus.js</td>
+<td></td>
+</tr>
+<tr>
+<td>xpx</td>
+<td>X to the power of X</td>
+<td>mathplus.js</td>
+<td></td>
+</tr>
+<tr>
+<td>sqrti</td>
+<td>Integer Square Root</td>
+<td>factor.js</td>
+<td></td>
+</tr>
+<tr>
+<td>gcf</td>
+<td>Greatest Common Factor</td>
+<td>factor.js</td>
+<td></td>
+</tr>
+<tr>
+<td>lcm</td>
+<td>Least Common Multiple</td>
+<td>factor.js</td>
+<td></td>
+</tr>
+<tr>
+<td>acf</td>
+<td>All Common Factors</td>
+<td>factor.js</td>
+<td></td>
+</tr>
+<tr>
+<td>apf</td>
+<td>All Prime Factors</td>
+<td>factor.js</td>
+<td></td>
+</tr>
+<tr>
+<td>multiples</td>
+<td>First N Multiples</td>
+<td>factor.js</td>
+<td></td>
+</tr>
+<tr>
+<td>factors</td>
+<td>Factors of N</td>
+<td>factor.js</td>
+<td></td>
+</tr>
+<tr>
+<td>fact</td>
+<td>Factorial</td>
+<td>factor.js</td>
+<td></td>
+</tr>
+<tr>
+<td>isect</td>
+<td>Interection of Sets</td>
+<td>factor.js</td>
+<td></td>
+</tr>
+<tr>
+<td>vec</td>
+<td>Construct Cartesian Vector</td>
+<td>mathvec.js</td>
+<td></td>
+</tr>
+<tr>
+<td>polar</td>
+<td>Construct Polar Vector</td>
+<td>mathvec.js</td>
+<td></td>
+</tr>
+<tr>
+<td>size</td>
+<td>Construct 2D Size</td>
+<td>mathvec.js</td>
+<td></td>
+</tr>
+<tr>
+<td>rect</td>
+<td>Construct Rectangle</td>
+<td>mathvec.js</td>
+<td></td>
+</tr>
+<tr>
+<td>eratosthenes</td>
+<td>Sieve of Eratosthenese</td>
+<td>factor.js</td>
+<td></td>
+</tr>
+<tr>
+<td>math.evaluate</td>
+<td>Evaluate Math Expression</td>
+<td>math.js</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2>Notes</h2>
+<ol>
+<li>Third Party Module</li>
+</ol>
+<script>
+_K_ = t_math.nextElementSibling;
+_K_.id = "mathTable";
+</script>
+
+<h1>Math Helper Functions</h1>
+<!--
+<div id="t_canvas"></div>
+<script>
+_K_ = t_canvas.nextElementSibling;
+_K_.id = "canvasTable";
+</script>
+-->
+
+<p>These are exposed internally by the <code>jasoom.js</code>
+module, using the <code>__</code> accessor.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__.vec</td>
+<td>6D Vector { x, y, z, u, v, w }</td>
+<td>1, 2</td>
+</tr>
+<tr>
+<td>__.square</td>
+<td>N-Squared</td>
+<td>5</td>
+</tr>
+<tr>
+<td>__.delta</td>
+<td>Squared Difference</td>
+<td>6</td>
+</tr>
+<tr>
+<td>__.lerp</td>
+<td>Linear Interpotion</td>
+<td></td>
+</tr>
+<tr>
+<td>__.split</td>
+<td>Half-Split</td>
+<td></td>
+</tr>
+<tr>
+<td>__.project</td>
+<td>Project 1D Ray</td>
+<td></td>
+</tr>
+<tr>
+<td>__.combine</td>
+<td>Combine Scalars</td>
+<td></td>
+</tr>
+<tr>
+<td>__.range</td>
+<td>Create Range Limits</td>
+<td></td>
+</tr>
+<tr>
+<td>__.clamp</td>
+<td>Clamp</td>
+<td>7</td>
+</tr>
+<tr>
+<td>__.wrap</td>
+<td>Wrap</td>
+<td>8</td>
+</tr>
+<tr>
+<td>__.gamma</td>
+<td>Gamma Correction</td>
+<td></td>
+</tr>
+<tr>
+<td>__.pr</td>
+<td>Probability</td>
+<td>4</td>
+</tr>
+<tr>
+<td>__.npr</td>
+<td>Permutations</td>
+<td></td>
+</tr>
+<tr>
+<td>__.ncr</td>
+<td>Combinations</td>
+<td></td>
+</tr>
+<tr>
+<td>__.fact</td>
+<td>Factorial</td>
+<td>3</td>
+</tr>
+<tr>
+<td>__.fibo</td>
+<td>Fibonnaci</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2>Notes</h2>
+<ol>
+<li>{ x, y=f(x), z=xx, u=yy, v=xy, w=0 }</li>
+<li>Generated by <code>kantos</code></li>
+<li>Uses recursion</li>
+<li>Incomplete</li>
+<li>Same as <code>square</code></li>
+<li>Same as <code>crux</code> and <code>sarkoja</code></li>
+<li>Same as <code>mid</code></li>
+<li>Modulo, but guaranteed <code>n &gt;= 0</code></li>
+</ol>
+<h1>Event Logging</h1>
+<p>These are exposed internally by the <code>jasoom.js</code>
+module, using the <code>__</code> accessor.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__.add</td>
+<td>Add log entry</td>
+<td>Function</td>
+</tr>
+<tr>
+<td>__.reset</td>
+<td>Reset log</td>
+<td>Function</td>
+</tr>
+<tr>
+<td>__.status</td>
+<td>Show log status</td>
+<td>Function</td>
+</tr>
+<tr>
+<td>__.track</td>
+<td>Log Entries</td>
+<td>Array</td>
+</tr>
+</tbody>
+</table>
+<h1>Numerical Methods</h1>
+<p>These are exposed by the <code>transcend.js</code>
+module.</p>
+<p>They're well-known versions of functions exposed
+by the <code>jasoom.js</code> module for numerical analysis.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Related</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bisection</td>
+<td>Search by Half-Split</td>
+<td>hunt</td>
+</tr>
+<tr>
+<td>newtonRaphson</td>
+<td>Search by Newton</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>These are exposed by the <code>jasoom.js</code> module.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Related</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tardos</td>
+<td>Verify Argument is a Function</td>
+<td></td>
+</tr>
+<tr>
+<td>tarkas</td>
+<td>Verify Argument is a Number</td>
+<td></td>
+</tr>
+<tr>
+<td>sola</td>
+<td>Difference Squared (scalar)</td>
+<td></td>
+</tr>
+<tr>
+<td>sarkoja</td>
+<td>Difference Squared (vector)</td>
+<td></td>
+</tr>
+<tr>
+<td>dejah</td>
+<td>Series Generator (iterator)</td>
+<td></td>
+</tr>
+<tr>
+<td>carter</td>
+<td>Series Set Builder</td>
+<td></td>
+</tr>
+<tr>
+<td>sniff</td>
+<td>Linear Search for Best Guess</td>
+<td></td>
+</tr>
+<tr>
+<td>hunt</td>
+<td>Binary Search for Best Guess</td>
+<td></td>
+</tr>
+<tr>
+<td>foray</td>
+<td>Try-Catch Wrapper</td>
+<td>han</td>
+</tr>
+<tr>
+<td>kantos</td>
+<td f_x_="f(x)" x_="x,">Generate sample point</td>
+<td></td>
+</tr>
+<tr>
+<td>Woola</td>
+<td>Set Builder / Search Arguments</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>Miscellaneous</h1>
+<p>These functions are exposed by various modules.</p>
+<p>They're used primarily by the system.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>includes</td>
+<td>Report imported module</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>cls</td>
+<td>Clear Console</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>again</td>
+<td>Reload Page</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>main</td>
+<td>Page Initialization</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>han</td>
+<td>Try-Catch Wrapper</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>persist</td>
+<td>Memory Write</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>recover</td>
+<td>Memory Read</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>memory</td>
+<td>Memory Read/Write</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>button</td>
+<td>Find Button by Caption</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>modified</td>
+<td>Modified Indication ON/OFF</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>show</td>
+<td>Replace Output Text</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>clearOutput</td>
+<td>Clear Output Text</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>clearInput</td>
+<td>Clear Input Text</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>appendInput</td>
+<td>Append Input Text</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>appendMathFunction</td>
+<td>Math Button Event Handler</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>runInput</td>
+<td>Evaluate Input as JavaScript</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>solveInput</td>
+<td>Alias for runInput</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>solve</td>
+<td>AutoRun Event Handler</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>autoRun</td>
+<td>Read AutoRun Checkbox State</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>fullScreen</td>
+<td>Request Full Screen</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>zoomEditor</td>
+<td>Request Full Screen (sip)</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>zoomOutput</td>
+<td>Request Full Screen (sop)</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>preserveState</td>
+<td>Write State to Cache</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>restoreState</td>
+<td>Read State from Cache</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>showMathMenu</td>
+<td>Make the Math Menu Visible</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>hideMathMenu</td>
+<td>Make the Math Menu Invisible</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>toggleMathMenu</td>
+<td>Toggle Math Menu Visibility</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>initMathMenu</td>
+<td>Generate Math Button Menu</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>mathPlusHelp</td>
+<td>Show MathPlusDoc in Console</td>
+<td>mathplus.js</td>
+</tr>
+<tr>
+<td>thor</td>
+<td>Script / Cache Management</td>
+<td>thor.js</td>
+</tr>
+<tr>
+<td>editables</td>
+<td>Set Editability for Gadgets</td>
+<td>editables.js</td>
+</tr>
+<tr>
+<td>editable</td>
+<td>Set Editability for Gadget</td>
+<td>editables.js</td>
+</tr>
+<tr>
+<td>kvp</td>
+<td>Compose Key-Value Pair</td>
+<td>editables.js</td>
+</tr>
+<tr>
+<td>jarvis</td>
+<td>Code Analysis Assistant</td>
+<td>jarvis.js</td>
+</tr>
+<tr>
+<td>keisha</td>
+<td>Keyboard Event Handler</td>
+<td>keisha.js</td>
+</tr>
+<tr>
+<td>insertText</td>
+<td>Insert Text into Editor</td>
+<td>keisha.js</td>
+</tr>
+<tr>
+<td>initEditor</td>
+<td>Initialize Editor</td>
+<td>keisha.js</td>
+</tr>
+<tr>
+<td>degToRad</td>
+<td>Same as d2r</td>
+<td>mathvec.js</td>
+</tr>
+<tr>
+<td>radToDeg</td>
+<td>Same as r2d</td>
+<td>mathvec.js</td>
+</tr>
+<tr>
+<td>json</td>
+<td>Format object as JSON</td>
+<td>prep.js</td>
+</tr>
+<tr>
+<td>prep</td>
+<td>Prepare an object for display as plain text</td>
+<td>prep.js</td>
+</tr>
+<tr>
+<td>zara</td>
+<td>Helper for recursive formatting</td>
+<td>prep.js</td>
+</tr>
+<tr>
+<td>TiGG</td>
+<td>Tiny GUID Generator</td>
+<td>tigg.js</td>
+</tr>
+</tbody>
+</table>
+<h1>Accessors</h1>
+<p>Accessors are global singleton objects used to
+aggregate related methods and/or properties.</p>
+<p>Oftentimes, the methods exposed by accessors are
+also exposed as global functions, constants, variables,
+or even other accessors.</p>
+<p>Accessors are supposed to be registed at load time,
+but this isn't guaranteed for all.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AppModules</td>
+<td>chachi.html</td>
+</tr>
+<tr>
+<td>ChachiApp</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>ChachiGadgets</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>ClassList</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>HostRoutes</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>CoreDoc</td>
+<td>coredoc.js</td>
+</tr>
+<tr>
+<td>Editables</td>
+<td>editables.js</td>
+</tr>
+<tr>
+<td>FactorAPI</td>
+<td>factor.js</td>
+</tr>
+<tr>
+<td>GraphAPI</td>
+<td>graph.js</td>
+</tr>
+<tr>
+<td>CanvasOptions</td>
+<td>graph.js</td>
+</tr>
+<tr>
+<td>JasoomAPI</td>
+<td>jasoom.js</td>
+</tr>
+<tr>
+<td>__</td>
+<td>jasoom.js</td>
+</tr>
+<tr>
+<td>MathPlus</td>
+<td>mathplus.js</td>
+</tr>
+<tr>
+<td>TiGG</td>
+<td>tigg.js</td>
+</tr>
+<tr>
+<td>thor</td>
+<td>thor.js</td>
+</tr>
+</tbody>
+</table>
+<h1>Special Accessors</h1>
+<p>Some objects are special cases. These are both a function and
+an accessor for related methods.</p>
+<p>These include <code>TiGG</code> and <code>thor</code>.</p>
+<h1>GUID Generations</h1>
+<p>As a function, <code>TiGG</code> generates a single GUID.</p>
+<p>Listed below are features accessible by <code>TiGG</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>raw</td>
+<td>Function</td>
+<td>Generate Text Document w/ one GUID per line</td>
+</tr>
+<tr>
+<td>bulkTitles</td>
+<td>Function</td>
+<td>Generate List of GUIDs (one per entry)</td>
+</tr>
+<tr>
+<td>bulk</td>
+<td>Function</td>
+<td>Alias for 'bulkTitles' (deprecated)</td>
+</tr>
+<tr>
+<td>decalRange</td>
+<td>Function</td>
+<td>Generate Range of Decal Definitions w/ tikeys</td>
+</tr>
+<tr>
+<td>decalTable</td>
+<td>Function</td>
+<td>Generate Table of Decal Definitions w/ tikeys</td>
+</tr>
+<tr>
+<td>codePoints</td>
+<td>Function</td>
+<td>Generate String w/ List of Decal Code Points</td>
+</tr>
+<tr>
+<td>friends</td>
+<td>Array</td>
+<td>List of Friend Names</td>
+</tr>
+<tr>
+<td>keyDef</td>
+<td>Array</td>
+<td>Module Key   Definition [ decal, codePoint, tikey, tidate ]</td>
+</tr>
+<tr>
+<td>decalDef</td>
+<td>Array</td>
+<td>Module Decal Definition [ decal, tikey, tidate ]</td>
+</tr>
+<tr>
+<td>linkDefs</td>
+<td>Object</td>
+<td>Module Link Definitions (resources)</td>
+</tr>
+<tr>
+<td>details</td>
+<td>Object</td>
+<td>Module Details (title, version, etc.)</td>
+</tr>
+<tr>
+<td>manifest</td>
+<td>Object</td>
+<td>Module Manifest</td>
+</tr>
+</tbody>
+</table>
+<h1>Thor Script Manager</h1>
+<p>As a function, <code>thor</code> imports a script. This causes
+a new <code>script</code> element to be created and appended to
+the document's <code>head</code> element.</p>
+<p>Listed below are features accessible by <code>thor</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>decals</td>
+<td>Array</td>
+<td>Decal Definitions (Arrays)</td>
+</tr>
+<tr>
+<td>findScript</td>
+<td>Function</td>
+<td>Lookup Script Module by URL</td>
+</tr>
+<tr>
+<td>removeScript</td>
+<td>Function</td>
+<td>Remove Script Module by URL</td>
+</tr>
+<tr>
+<td>getScripts</td>
+<td>Function</td>
+<td>Get all Script Modules as Array</td>
+</tr>
+<tr>
+<td>getScriptURLs</td>
+<td>Function</td>
+<td>List of Source URLs for Imported Scripts</td>
+</tr>
+<tr>
+<td>getScriptAttribs</td>
+<td>Function</td>
+<td>List with same Attribute from all Scripts</td>
+</tr>
+<tr>
+<td>getScriptDetails</td>
+<td>Function</td>
+<td>Table with one or more Attribute(s) per Script module</td>
+</tr>
+<tr>
+<td>getCacheKeys</td>
+<td>Function</td>
+<td>List of Cache Keys</td>
+</tr>
+<tr>
+<td>getCacheHints</td>
+<td>Function</td>
+<td>Table with Cache Keys and Partial Values</td>
+</tr>
+<tr>
+<td>getCacheHints.SCHEMA</td>
+<td>Array</td>
+<td>List of Column Names for Cache Hints</td>
+</tr>
+<tr>
+<td>describe</td>
+<td>Function</td>
+<td member_="member," type_="type," value>List of Object Descriptors</td>
+</tr>
+<tr>
+<td>mjolnir</td>
+<td>Function</td>
+<td>String Containing JSON for an Object</td>
+</tr>
+<tr>
+<td>hammer</td>
+<td>Function</td>
+<td>String Containing JSON for any Data Type</td>
+</tr>
+<tr>
+<td>perceive</td>
+<td>Function</td>
+<td>Show Object Descriptors in Debug Console</td>
+</tr>
+<tr>
+<td>perceiveCacheHints</td>
+<td>Function</td>
+<td>Show Cache Hints in Debug Console</td>
+</tr>
+<tr>
+<td>keys</td>
+<td>Object</td>
+<td>Module Key Definitions</td>
+</tr>
+<tr>
+<td>details</td>
+<td>Object</td>
+<td>Module Details</td>
+</tr>
+<tr>
+<td>manifest</td>
+<td>Object</td>
+<td>Module Manifest</td>
+</tr>
+</tbody>
+</table>
+<h2>References</h2>
+<p>NEW! Thor has his own help file.</p>
+<ul>
+<li><a href="./thor-help.html">Thor Help</a></li>
+</ul>
+<h1>Core Documents</h1>
+<p>The global <code>CoreDoc</code> accessor parses and composes core documents.</p>
+<p>At present, it exposes a single method: <code>report</code>. This method
+parses a core document and displays it as a table in the console.</p>
+<p>Several other modules expose core documents that can be examined
+using this method.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EditablesDoc</td>
+<td>editables.js</td>
+</tr>
+<tr>
+<td>FactorDoc</td>
+<td>factor.js</td>
+</tr>
+<tr>
+<td>GraphDoc</td>
+<td>graph.js</td>
+</tr>
+<tr>
+<td>JasoomDoc</td>
+<td>jasoom.js</td>
+</tr>
+<tr>
+<td>Juba.manifest.doc</td>
+<td>juba.js</td>
+</tr>
+<tr>
+<td>KeishaDoc</td>
+<td>keisha.js</td>
+</tr>
+<tr>
+<td>MathPlusDoc</td>
+<td>mathplus.js</td>
+</tr>
+<tr>
+<td>VectorDoc</td>
+<td>mathvec.js</td>
+</tr>
+<tr>
+<td>vec.coreDoc</td>
+<td>mathvec.js</td>
+</tr>
+<tr>
+<td>polar.coreDoc</td>
+<td>mathvec.js</td>
+</tr>
+<tr>
+<td>size.coreDoc</td>
+<td>mathvec.js</td>
+</tr>
+<tr>
+<td>PrepDoc</td>
+<td>prep.js</td>
+</tr>
+<tr>
+<td>thor.manifest.doc</td>
+<td>thor.js</td>
+</tr>
+<tr>
+<td>TiGG.manifest.doc</td>
+<td>tigg.js</td>
+</tr>
+</tbody>
+</table>
+<h1>ClassList</h1>
+<p>The <code>ClassList</code> accessor is used to determine whether
+a global object should be treated as a class when
+a command for it is inserted into the editor.</p>
+<p>This is important because function calls don't
+require the <code>new</code> keyword for invocation.</p>
+<p>Constructing instances of object does require this.</p>
+<h1>Gadgets</h1>
+<p>Chachi has an accessor to the most important gadgets
+(HTML elements). This singleton is named <code>ChachiGadgets</code>.</p>
+<p>This concludes:</p>
+<ul>
+<li>Editor</li>
+<li>Output</li>
+<li>Canvas</li>
+<li>Math Menu Container</li>
+<li>Auto Run Checkbox</li>
+</ul>
+<p>The actual code is as follows:</p>
+<pre><code class="language-javascript">const ChachiGadgets = {
+    sip,            // Editor
+    sop,            // Output
+    canvas,         // Canvas
+    menuContainer,  // Math Menu Container 
+    autoRunEnable   // Auto Run Checkbox
+};
+</code></pre>
+<h1>Host Routes</h1>
+<p>Multiple hosts on the LAN have instances of <code>Chachi</code>.
+To make navigation simpler between hosts, <code>Chachi</code> now
+offers the <code>HostRoutes</code> accessor.</p>
+<p>This object contains keys, which can be uses to obtain
+a partial path for each host, as well as methods to
+compose full URLs and open popup windows for any host.
+There's also a method for obtaining keys.</p>
+<p>The <code>HostRoutes</code> accessor has the following members:</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>legacy</td>
+<td>String</td>
+<td>http://dave-legacy/42/app/</td>
+</tr>
+<tr>
+<td>tower</td>
+<td>String</td>
+<td>http://dave-tower/42/app/</td>
+</tr>
+<tr>
+<td>ryzen</td>
+<td>String</td>
+<td>http://dave-ryzen/</td>
+</tr>
+<tr>
+<td>primary</td>
+<td>String</td>
+<td>http://dave-ryzen/</td>
+</tr>
+<tr>
+<td>keys</td>
+<td>Method</td>
+<td>Read keys for HostRoutes</td>
+</tr>
+<tr>
+<td>composeURL</td>
+<td>Method</td>
+<td>Compose Complete URL for Chachi</td>
+</tr>
+<tr>
+<td>redirect</td>
+<td>Method</td>
+<td>Show remote Chachi instance</td>
+</tr>
+<tr>
+<td>report</td>
+<td>Method</td>
+<td>Show this table</td>
+</tr>
+</tbody>
+</table>
+<p>There are a couple of things to be aware of when using
+this object.</p>
+<p>First is that the <code>keys</code> method only returns string properties.
+These all contain partial URLs, which make them ideal for
+passing to the <code>composeURL</code> or <code>redirect</code> method.</p>
+<p>This leads into the second consideration. Both <code>composeURL</code>
+and <code>redirect</code> can accept a key or the value associated
+with that key.</p>
+<p>For example:</p>
+<pre><code>// Pass by value
+HostRoutes.redirect( HostRoutes.legacy );
+// Pass by key
+HostRoutes.redirect( &quot;legacy&quot; );
+</code></pre>
+<p>The <code>redirect</code> method looks for <code>http://</code> at the start
+of the argument. If missing, the argument is treated
+as a self-referential key. If present, the argument
+is taken literally.</p>
+<h1>Module Registry</h1>
+<p>The module registry is a key component shared by
+a variety of projects. The implementation details
+vary at times, but the central concept remains
+the same.</p>
+<p>The registry is available for externally loaded
+script modules to register themselves in a consistent
+way. This simplifies debugging tasks like module load
+failures and helps power users glean more information
+about which features are available.</p>
+<p>The accessor for registry features is named <code>AppModules</code>.</p>
+<p>In general, the pattern is as follows:</p>
+<ol>
+<li>Each module calls the <code>add</code> method on <code>AppModules</code> as it's being loaded.</li>
+<li>Core Documents can be registered with the <code>doc</code> method.</li>
+<li>The user may examine loaded modules with the <code>report</code> method.</li>
+</ol>
+<p>Registered modules are stored in a property named <code>map</code>. This is an
+instance of a <code>Map</code> object.</p>
+<p>Core documents are stored in the property named <code>core</code>. This is an
+instance of <code>Array</code>.</p>
+<p>The <code>report</code> method should be invoked from the debug console, since
+the results are displayed there in table form.</p>
+<p>These same rules apply to <code>composeURL</code>, since it's called by <code>redirect</code>
+internally.</p>
+<hr>
+<blockquote>
+<p>Last Update : 2025-JUN-25</p>
+</blockquote>
+<script>
+addEventListener( 'load', () => { 
+    editables( 'td'  );
+    editables( 'pre' );
+    editables( 'h1'  );
+} );
+</script>
+
+</body>
+</html>
