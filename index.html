@@ -5,6 +5,9 @@
         <title>NyteOwlDave's Page</title>
         <link rel="icon" href="./favicon.ico">
         <style>
+            body {
+                text-align : center;
+            }
             nav.dockleft {
                 position:sticky;
                 top:0;
@@ -47,15 +50,17 @@
             <button onclick="onClickGreystoke()">Greystoke</button>
             <button onclick="onClickNCS()">NyteOwl Consulting</button>
             <button onclick="onClickBIO()">Link-in-Bio</button>
-            <div>
-                (pending)
-            </div>
+            <button onclick="onClickLAN()">LAN (Private)</button>
         </nav>
         <script>
+            function onClickLAN(evt) {
+                location="http://dave-omega/std/app/morpheus/";
+            }
             function onClickChachi(evt) {
                 location="./chachi/chachi.html";
             }
             function onClick3P(evt) {
+
                 location="./chachi/app-content.html";
             }
             function onClickDevIcons(evt) {
