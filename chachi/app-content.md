@@ -119,13 +119,10 @@ hr {
 # <i beep>🎁</i> Third Party Content
 
 <menu>
-<a href="./" title="Workspace">
-    <i class="si-folders"></i>
-</a>
-<a href="http://dave-legacy/42/app/stereogram/app/app-content.html" title="Home Page">
+<a href="https://nyteowldave.github.io" title="Home Page">
     <i class="si-globe"></i>
 </a>
-<a href="http://dave-ryzen/iconic/design-dev-icons/main.html" title="Design DevOps Icons">
+<a href="https://nyteowldave.github.io/dev-icons/main.html" title="Design DevOps Icons">
     <i class="si-coffee"></i>
 </a>
 </menu>
@@ -259,8 +256,8 @@ hr {
     <i class="si-home""></i>
     <br><br>Popper
 </a>
-<a href="http://dave-ryzen/iconic/design-dev-icons/main.html" title="Design Icons">
-    <i class="si-home""></i>
+<a href="https://nyteowldave.github.io/dev-icons/main.html" title="Design DevOps Icons">
+    <i class="si-coffee"></i>
     <br><br>Design Icons
 </a>
 </menu>
@@ -549,15 +546,18 @@ hr {
 # <i beep>☕</i> Design DevOps Icons {.section}
 
 <menu>
-<a href="http://dave-ryzen/iconic/design-dev-icons/main.html" title="Design DevOps Icons">
+<a href="https://nyteowldave.github.io/dev-icons/main.html" title="Design DevOps Icons">
+    <i class="si-coffee"></i>
+</a>
+<a href="http://dave-ryzen/iconic/design-dev-icons/main.html" title="LAN (Private)">
     <i class="si-coffee"></i>
 </a>
 </menu>
 
 <div class="spread">
-<img width="100" src="http://dave-ryzen/iconic/design-dev-icons/art/dev-icon-1.svg">
-<img width="100" src="http://dave-ryzen/iconic/design-dev-icons/art/dev-icon-2.svg">
-<img width="100" src="http://dave-ryzen/iconic/design-dev-icons/art/dev-icon-3.svg">
+<img width="100" src="./art/dev-icon-1.svg">
+<img width="100" src="./art/dev-icon-2.svg">
+<img width="100" src="./art/dev-icon-3.svg">
 </div>
 
 <pre>
@@ -751,7 +751,7 @@ instructions carefully.
 
 ---
 
-> Last Update : 2025-JUN-27
+> Last Update : 2025-JUL-20
 
 <script src="./api/editables.js"></script>
 
