@@ -20,12 +20,12 @@ header {
 
 <header>
 <nav>
-<a href="./">Workspace</a>
-<a href="http://dave-legacy/stereogram/docs/chachi-help.html">Home</a>
-<a href="http://dave-legacy/stereogram/docs/biblio.html">Bibliography</a>
+    <a href="https://nyteowldave.github.io">Home</a>
+    <a href="./chachi.html">Chachi</a>
+    <a href="https://whiteboard.office.com/me/whiteboards/9e35193f-649f-4a64-8322-58a27273aaa6">Whiteboard</a>
+    <a href="./app-content.html">3P</a>
 </nav>
 </header>
-
 
 # Hotkeys
 
@@ -622,7 +622,7 @@ The `HostRoutes` accessor has the following members:
 | legacy      | String | http://dave-legacy/  |
 | tower       | String | http://dave-tower/   |
 | ryzen       | String | http://dave-ryzen/   |
-| primary     | String | http://dave-ryzen/   |
+| primary     | String | https://nyteowldave.github.io/ |
 | keys        | Method | Read keys for HostRoutes    |
 | composeURL  | Method | Compose Complete URL for Chachi |
 | redirect    | Method | Show remote Chachi instance |

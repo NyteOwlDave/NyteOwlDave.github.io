@@ -297,7 +297,7 @@ function toggleMathMenu() {
 
 
 function showMathHelp( evt ) {
-    window.open( "./../docs/chachi-help.html", "_BLANK" );
+    window.open( "./chachi-help.html", "_BLANK" );
 }
 
 function onlineClipboard() {
@@ -315,7 +315,7 @@ const HostRoutes = {
     legacy  : 'http://dave-legacy/' ,
     tower   : 'http://dave-tower/' ,
     ryzen   : 'http://dave-ryzen/' ,
-    primary : 'http://dave-ryzen/'
+    primary : 'https://nyteowldave/github.io/'
 };
 
 HostRoutes.keys = () => {
@@ -328,9 +328,17 @@ HostRoutes.keys = () => {
 
 HostRoutes.composeURL = function( key ) {
     const me = HostRoutes;
-    const ok = key.startsWith( "http://" );
-    const host = ok ? host : me[ key ];
-    return host + "stereogram/app/chachi.html";
+    const lan = key.startsWith( "http://" );
+    if ( lan ) {
+        const host = me[ key ];
+        return host + "stereogram/app/chachi.html";
+    } 
+    const www = key.startsWith( "https://" );
+    if ( www ) {
+        const host = me[ key ];
+        return host + "chachi/chachi.html";
+    } 
+    return key + "stereogram/app/chachi.html";
 }
 
 HostRoutes.redirect = function( key ) {
@@ -353,7 +361,7 @@ omega      | http://dave-omega/
 legacy     | http://dave-legacy/
 tower      | http://dave-tower/
 ryzen      | http://dave-ryzen/
-primary    | http://dave-ryzen/
+primary    | https://nyteowldave/github.io/
 keys       | Read keys for HostRoutes
 composeURL | Compose Complete URL for Chachi
 redirect   | Show remote Chachi instance

@@ -33,9 +33,10 @@ header {
 <p></head></p>
 <header>
 <nav>
-<a href="./">Workspace</a>
-<a href="http://dave-legacy/stereogram/docs/chachi-help.html">Home</a>
-<a href="http://dave-legacy/stereogram/docs/biblio.html">Bibliography</a>
+    <a href="https://nyteowldave.github.io">Home</a>
+    <a href="./chachi.html">Chachi</a>
+    <a href="https://whiteboard.office.com/me/whiteboards/9e35193f-649f-4a64-8322-58a27273aaa6">Whiteboard</a>
+    <a href="./app-content.html">3P</a>
 </nav>
 </header>
 
@@ -947,6 +948,7 @@ by the <code>jasoom.js</code> module for numerical analysis.</p>
 <h1>Miscellaneous</h1>
 <p>These functions are exposed by various modules.</p>
 <p>They're used primarily by the system.</p>
+<h2>chachi.js</h2>
 <table>
 <thead>
 <tr>
@@ -994,6 +996,11 @@ by the <code>jasoom.js</code> module for numerical analysis.</p>
 <tr>
 <td>memory</td>
 <td>Memory Read/Write</td>
+<td>chachi.js</td>
+</tr>
+<tr>
+<td>server</td>
+<td>Choose Server</td>
 <td>chachi.js</td>
 </tr>
 <tr>
@@ -1096,16 +1103,35 @@ by the <code>jasoom.js</code> module for numerical analysis.</p>
 <td>Generate Math Button Menu</td>
 <td>chachi.js</td>
 </tr>
+</tbody>
+</table>
+<h2>mathplus.js</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Module</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>mathPlusHelp</td>
 <td>Show MathPlusDoc in Console</td>
 <td>mathplus.js</td>
 </tr>
+</tbody>
+</table>
+<h2>editables.js</h2>
+<table>
+<thead>
 <tr>
-<td>thor</td>
-<td>Script / Cache Management</td>
-<td>thor.js</td>
+<th>Function</th>
+<th>Description</th>
+<th>Module</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td>editables</td>
 <td>Set Editability for Gadgets</td>
@@ -1121,11 +1147,18 @@ by the <code>jasoom.js</code> module for numerical analysis.</p>
 <td>Compose Key-Value Pair</td>
 <td>editables.js</td>
 </tr>
+</tbody>
+</table>
+<h2>keisha.js</h2>
+<table>
+<thead>
 <tr>
-<td>jarvis</td>
-<td>Code Analysis Assistant</td>
-<td>jarvis.js</td>
+<th>Function</th>
+<th>Description</th>
+<th>Module</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td>keisha</td>
 <td>Keyboard Event Handler</td>
@@ -1141,6 +1174,18 @@ by the <code>jasoom.js</code> module for numerical analysis.</p>
 <td>Initialize Editor</td>
 <td>keisha.js</td>
 </tr>
+</tbody>
+</table>
+<h2>mathvec.js</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Module</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>degToRad</td>
 <td>Same as d2r</td>
@@ -1151,6 +1196,18 @@ by the <code>jasoom.js</code> module for numerical analysis.</p>
 <td>Same as r2d</td>
 <td>mathvec.js</td>
 </tr>
+</tbody>
+</table>
+<h2>prep.js</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Module</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>json</td>
 <td>Format object as JSON</td>
@@ -1166,6 +1223,52 @@ by the <code>jasoom.js</code> module for numerical analysis.</p>
 <td>Helper for recursive formatting</td>
 <td>prep.js</td>
 </tr>
+</tbody>
+</table>
+<h2>jarvis.js</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jarvis</td>
+<td>Code Analysis Assistant</td>
+<td>jarvis.js</td>
+</tr>
+</tbody>
+</table>
+<h2>thor.js</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>thor</td>
+<td>Script / Cache Management</td>
+<td>thor.js</td>
+</tr>
+</tbody>
+</table>
+<h2>tigg.js</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Module</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>TiGG</td>
 <td>Tiny GUID Generator</td>
@@ -1255,7 +1358,7 @@ but this isn't guaranteed for all.</p>
 <p>Some objects are special cases. These are both a function and
 an accessor for related methods.</p>
 <p>These include <code>TiGG</code> and <code>thor</code>.</p>
-<h1>GUID Generations</h1>
+<h1>GUID Generation</h1>
 <p>As a function, <code>TiGG</code> generates a single GUID.</p>
 <p>Listed below are features accessible by <code>TiGG</code>.</p>
 <table>
@@ -1326,6 +1429,113 @@ an accessor for related methods.</p>
 <td>manifest</td>
 <td>Object</td>
 <td>Module Manifest</td>
+</tr>
+</tbody>
+</table>
+<h1>Jubilee from Transcenders</h1>
+<p>These are exposed by the <code>juba.js</code>
+module.</p>
+<p>Jubilee helps export APIs that are developed on the fly using
+the browser's debug console.</p>
+<p>Jubilee is officially part of the <code>Transcenders</code> project. The copy
+maintained here is a fork.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Juba</td>
+<td>Object</td>
+<td>Module Accessor</td>
+</tr>
+<tr>
+<td>entry</td>
+<td>Function</td>
+<td>List of Member Properties [ key, type, value ]</td>
+</tr>
+<tr>
+<td>json</td>
+<td>Function</td>
+<td>Compose API as JSON Document</td>
+</tr>
+<tr>
+<td>slurp</td>
+<td>Function</td>
+<td>Compose as JSON and Assign to Editor Gadget</td>
+</tr>
+<tr>
+<td>decalDef</td>
+<td>Array</td>
+<td>List of Decal Properties [ decal, codepoint, description ]</td>
+</tr>
+<tr>
+<td>keyDef</td>
+<td>Array</td>
+<td>List of Module Key Properties [ decal, tikey, tidate ]</td>
+</tr>
+<tr>
+<td>keys</td>
+<td>Object</td>
+<td>Map of Module Resource Key/Value Pairs</td>
+</tr>
+<tr>
+<td>linkDef</td>
+<td>Object</td>
+<td>Map of Home URL Key/Value Pairs</td>
+</tr>
+<tr>
+<td>details</td>
+<td>Object</td>
+<td>Map of Module Details Key/Value Pairs</td>
+</tr>
+<tr>
+<td>friends</td>
+<td>Array</td>
+<td>List of Friend Names</td>
+</tr>
+<tr>
+<td>manifest</td>
+<td>Object</td>
+<td doc schema_="schema," title_="title,">Module Manifest</td>
+</tr>
+</tbody>
+</table>
+<h1>Cache Documents</h1>
+<p>These are exposed by the <code>joni.js</code>
+module.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>load</td>
+<td>Function</td>
+<td>Load Cache Document</td>
+</tr>
+<tr>
+<td>save</td>
+<td>Function</td>
+<td>Save Cache Document</td>
+</tr>
+<tr>
+<td>keys</td>
+<td>Function</td>
+<td>Get Cache Keys</td>
+</tr>
+<tr>
+<td>joni</td>
+<td>Function</td>
+<td>Run Joni Command</td>
 </tr>
 </tbody>
 </table>
@@ -1510,6 +1720,10 @@ using this method.</p>
 <td>TiGG.manifest.doc</td>
 <td>tigg.js</td>
 </tr>
+<tr>
+<td>joni.cdoc</td>
+<td>joni.js</td>
+</tr>
 </tbody>
 </table>
 <h1>ClassList</h1>
@@ -1558,14 +1772,19 @@ There's also a method for obtaining keys.</p>
 </thead>
 <tbody>
 <tr>
+<td>omega</td>
+<td>String</td>
+<td>http://dave-omega/</td>
+</tr>
+<tr>
 <td>legacy</td>
 <td>String</td>
-<td>http://dave-legacy/42/app/</td>
+<td>http://dave-legacy/</td>
 </tr>
 <tr>
 <td>tower</td>
 <td>String</td>
-<td>http://dave-tower/42/app/</td>
+<td>http://dave-tower/</td>
 </tr>
 <tr>
 <td>ryzen</td>
@@ -1575,7 +1794,7 @@ There's also a method for obtaining keys.</p>
 <tr>
 <td>primary</td>
 <td>String</td>
-<td>http://dave-ryzen/</td>
+<td>https://nyteowldave.github.io/</td>
 </tr>
 <tr>
 <td>keys</td>
@@ -1644,7 +1863,7 @@ the results are displayed there in table form.</p>
 internally.</p>
 <hr>
 <blockquote>
-<p>Last Update : 2025-JUN-25</p>
+<p>Last Update : 2025-JUN-28</p>
 </blockquote>
 <script>
 addEventListener( 'load', () => { 
