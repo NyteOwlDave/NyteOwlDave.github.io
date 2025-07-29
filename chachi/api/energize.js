@@ -140,10 +140,21 @@ thirdPartyContent | Third Party Content
 chachiCalculator  | Chachi Calculator
 `;
 
-_title = "Energize for Greystoke";
-_tikey = "1cfac376-3580-4004-a817-21f67ae781cb";
 
-console.log( "📃", _title, _tikey );
+// 👋 Register Module
+if ( "object" === typeof AppModules ) {
+    const add = AppModules.add;
+    if ( "function" === typeof add ) {
+        add( "energize", { energize } );
+    }
+    const doc = AppModules.doc;
+    if ( "function" === typeof doc ) {
+        doc( { EditablesDoc } );
+    }
+} else {
+    console.log( '📃', 'Loaded Local Module:', 'energize.js' );
+}
+
 
 /* 
 🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 : 2028-JUL-28
