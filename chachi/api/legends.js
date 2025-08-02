@@ -108,7 +108,15 @@ function clark( url ) {
     ae.click();
 }
 
-const bullfrog = () => clark( "./" );
+function bruce( url, options ) {
+    if ( isReText ) { 
+        clark( url );
+    } else { 
+        window.open( url, url, options || "top=100,left=100,width=800,height=600" );
+    }
+}
+
+const bullfrog = () => bruce( "./" );
 
 function destroy( evil ) {
     if ( evil instanceof Error ) {
@@ -155,6 +163,16 @@ function crusoe( cdoc, title, schema=[ "Symbol", "Description"] ) {
     return table;
 }
 
+function tizzy( doc, type = "text/plain") {
+    doc  = doc || "";
+    type = type || "text/plain";
+    return new Blob( [ doc ], { type } );
+}
+
+function oswald( doc, type ) {
+    return URL.createObjectURL( tizzy( doc, type ) );
+}
+
 function rollcall() {
     return Object.keys( Legends );
 }
@@ -182,6 +200,7 @@ ethel       | Confirm Class List Contains Name
 ester       | Add/Remove/Toggle Name in Class List
 bullfrog    | Open Workspace
 clark       | Open Page
+bruce       | Open Tab or Popup Window
 rico        | Download Text
 thoris      | Load Script
 keith       | Copy Text to Clipboard
@@ -189,6 +208,8 @@ weezie      | Create Data URL from Text
 wilbur      | Read Text from an Object Property
 rollcall    | Get Member Names
 crusoe      | Inspect Core Document
+tizzy       | Blobify Text
+oswald      | Create Object URL for Text
 agent       | Navigator User Agent (lowercase)
 isReText    | Confirm ReText was Detected
 isChrome    | Confirm Chrome was Detected
@@ -206,6 +227,7 @@ const Legends = {
     clark, bullfrog, rico,
     thoris, keith, 
     weezie, wilbur, 
+    bruce, tizzy, oswald,   // NEW! 2025-AUG-02
     rollcall, crusoe 
 };
 
