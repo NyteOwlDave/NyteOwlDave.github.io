@@ -1,0 +1,128 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>TIGG</title>
+<link rel="icon" href="./favicon.ico">
+<style>
+/* @import url(""); */
+head, body {
+    text-align : center;
+}
+input#tikey {
+    width : 80%;
+}
+input#keyCount {
+    border : 2px solid transparent;
+}
+.error {
+    border : 2px solid red;
+}
+</style>
+<script src="./tigg.js"></script>
+</head>
+<body>
+<header>    
+    <figure>
+        <img src="./favicon.ico" alt="Logo" title="TiGG">
+    </figure>
+    <h1>Tiny GUID Generator</h1>
+</header>
+
+<h2>Single Key</h2>
+<div>
+    <input id="tikey" placeholder="(tikey)">
+</div>
+<div>
+<menu>
+    <button onclick="singleKey()">Generate</button>
+</menu>
+</div>
+
+<h2>Multiple Keys</h2>
+<div>
+    <textarea id="sip" wrap="off" rows="11">
+    </textarea>
+</div>
+<div>
+<menu>
+    <button onclick="multiKey()">Generate</button>
+    &nbsp;
+    <input id="keyCount" value="10" placeholder="How Many Keys?">
+</menu> 
+</div>
+<div>
+<span id="hint"></span>
+</div>
+
+<script details="Gadget References" group="🦇">
+  const sip   = document.getElementById( 'sip' );
+  const hint  = document.getElementById( 'hint' );
+  const tikey = document.getElementById( 'tikey' );
+  const keyCount = document.getElementById( 'keyCount' );
+</script>
+
+<script details="Generate Single Key" group="🦇">
+    function singleKey() {
+        try {
+            tikey.value = TiGG();
+        } catch ( e ) {
+            alert( e );
+            throw e;
+        }
+    }
+</script>
+
+<script details="Generate Multiple Keys" group="🦇">
+    function multiKey() {
+        try {
+            TiGG.raw( getCount(), sip.value );
+        } catch ( e ) {
+            if ( e instanceof KeyCountError ) throw e;
+            alert( e );
+            throw e;
+        }
+    }
+    function getCount() {
+        function error( s ) {
+            throw new KeyCountError( s );
+        }
+        try {
+            keyCount.classList.remove( "error" )
+            let n = parseInt( keyCount.value );
+            if (! isFinite( n ) ) {
+                error( "Please enter an integer" );
+            }
+            if ( n < 1  ) error( "Range is 1 to 42 keys " );
+            if ( n > 42 ) error( "Range is 1 to 42 keys " );
+            return n;
+        } catch ( e ) {
+            throw e; 
+        }
+    }
+</script>
+
+<script details="Key Count Error Class" group="🔴">
+    class KeyCountError extends Error {
+        constructor( message ) {
+            super( message );
+            keyCount.classList.add( "error" );
+            hint.innerText = message;
+        }
+        get hintGadget() {
+            return hint;
+        }
+        get hint() {
+            return hint.innerHTML;
+        }
+        get inputGadget() {
+            return keyCount;
+        }
+        get proposedCount() {
+            return this.gadget.value;
+        }
+    }
+</script>
+
+
+</body>
+</html>
