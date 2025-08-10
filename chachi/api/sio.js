@@ -40,3 +40,18 @@ function selectSSS() {
     };
 }
 
+async function fetchSavedScript( url, action, error ) {
+    const ok = ( o ) => ( "function" === typeof o );
+    function cool( payload ) {
+        console.log( { payload } );
+        if ( ok( action ) ) { action( payload ); }
+    }
+    function oops( payload ) {
+        console.log( { payload } );
+        if ( ok( error ) ) { error( payload ); }
+    }
+    return await fetch( url )
+        .then( resp => resp.text() )
+        .then( cool )
+        .catch( oops );
+}

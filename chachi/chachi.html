@@ -167,6 +167,46 @@ TODO:   See chachi.js
 -->
 
 <script>
+const sip = document.getElementById( 'sip' );
+const sop = document.getElementById( "sop" );
+</script>
+
+<script>
+sip.fetchAPI = async function( url, target ) {
+    if (! sip ) {
+        throw new Error( "Missing SIP reference" );
+    }
+    if (! sop ) {
+        throw new Error( "Missing SOP reference" );
+    }
+    function run( script ) { 
+        try {
+            if ( target instanceof HTMLElement ) {
+                console.log( "Assigning Fetched Script to Gadget" );
+                if ( "string" === typeof target.value ) {
+                    target.value = script;
+                } else {
+                    target.innerText = script;
+                }
+                return;
+            }
+            console.log( "Evaluating Fetched Script" );
+            sop.innerText = window.eval( script );
+        } catch ( e ) {
+            sop.innerText = e;
+            throw e;
+        }
+    }
+    url = url ? url.trim() : "";
+    url = url || "./api/sip-ops.js";
+    return await fetchSavedScript( url , run, null );
+}
+</script>
+
+<script>
+sip.memoFetch = async function( target ) {
+    sip.fetchAPI( "./api/memo.js" ), 
+}
 </script>
 
 <script>
@@ -191,6 +231,8 @@ function main() {
     initEditor( sip );
     // Make PRE elements editable
     editables( 'pre' );
+    // Load SIP API Script (sip-ops.js)
+    sip.fetchAPI();
 }
 </script>
 
