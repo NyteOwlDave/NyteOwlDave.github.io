@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Zeek</title>
+<style>
+@import url("./style/zeek.css");
+body {
+    margin-bottom : 42vh;
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="sleek" contenteditable>Zeek</h1>
+
+<p id="bleak" contenteditable>Zeekier</p>
+
+<pre id="sop" contenteditable>
+Zeekolamist
+</pre>
+
+<textarea id="sip">
+Zeekeist of all...
+</textarea>
+
+<hr>
+
+<h1>LAN</h1>
+
+<nav>
+<a href="http://localhost/">Local Host</a>
+<a href="http://dave-omega/std/app/morpheus/chachi/zeek.html">Omega</a>
+<a href="http://dave-tower/std/app/morpheus/chachi/zeek.html">Tower</a>
+<a href="http://dave-ryzen/morpheus/chachi/zeek.html">Ryzen</a>
+</nav>
+
+<h1>Port 4242</h1>
+
+<nav>
+<a href="http://dave-tower:4242">Tower (EZ-Table)</a>
+<a href="http://dave-omega:4242">Omega (nada)</a>
+<a href="http://dave-ryzen:4242">Ryzen (nada)</a>
+</nav>
+
+<h1>Port 5309</h1>
+
+<nav>
+<a href="http://dave-tower:5309">Tower (Chachi)</a>
+<a href="http://dave-omega:5309">Omega (BASIC)</a>
+<a href="http://dave-ryzen:5309">Ryzen (nada)</a>
+</nav>
+
+<h1>Port 6464</h1>
+
+<nav>
+<a href="http://dave-tower:6464">Tower (BUZZ OFF!)</a>
+<a href="http://dave-omega:6464">Omega (nada)</a>
+<a href="http://dave-ryzen:6464">Ryzen (nada)</a>
+</nav>
+
+<h1>Port 11111</h1>
+
+<nav>
+<a href="http://dave-tower:11111">Tower (Mount)</a>
+<a href="http://dave-omega:11111">Omega (nada)</a>
+<a href="http://dave-ryzen:11111">Ryzen (nada)</a>
+</nav>
+
+<h1>WWW</h1>
+
+<nav>
+<a href="https://voice.google.com/u/0/messages?itemId=t.%2B13379989226">Voice</a>
+<a href="http://dave-tower/std/app/morpheus/chachi/zeek.html">Keep</a>
+<a href="https://outlook.live.com/mail/0/notes">Outlook</a>
+<a href="https://script.google.com/home/projects/1On4NuMVqP_HLb3_9eE04-kWviHD9d6haYOdyHX06qhR-EtF5FnzoPJgM">Chippy Snippets</a>
+</nav>
+
+<script src="./api/thor.js"></script>
+<script src="./api/tigg.js"></script>
+<script src="./api/joni.js"></script>
+<script src="./api/legends.js"></script>
+<script src="./api/energize.js"></script>
+<script src="./api/sio.js"></script>
+
+<script>
+function main() {
+    function run( doc ) {
+        let s = window.eval( doc );
+        // console.log( s );
+        throw s;
+    }
+    try {
+        fetchSavedScript( "./api/sio-ops.js", run, null );
+    } catch ( e ) { 
+        alert( e );
+        throw e;
+    }
+}
+</script>
+<script>
+addEventListener( 'load', main );
+</script>
+
+</body>
+</html>
+
