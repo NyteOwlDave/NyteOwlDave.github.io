@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -6,16 +7,33 @@
 <style>
 /* @import url(""); */
 head, body {
+    margin  : 0;
+    padding : 0;
     text-align : center;
 }
+body {
+    margin-bottom : 42vh;
+    border  : 4px solid transparent;
+    font-family : sans-serif;
+}
+textarea#sip ,
 input#tikey {
     width : 80%;
 }
 input#keyCount {
     border : 2px solid transparent;
+    text-align : center;
+    width : 8ch;
 }
 .error {
-    border : 2px solid red;
+    border : 2px solid red !important;
+}
+menu {
+    margin-left : 0;
+    padding : 4px;
+}
+img[alt="Logo"] {
+    width : 100px;
 }
 </style>
 <script src="./tigg.js"></script>
@@ -25,29 +43,35 @@ input#keyCount {
     <figure>
         <img src="./favicon.ico" alt="Logo" title="TiGG">
     </figure>
-    <h1>Tiny GUID Generator</h1>
+    <h1>🦇 TiGG</h1>
+    <h4>Your Tiny GUID Generator</h4>
 </header>
 
-<h2>Single Key</h2>
+<h2>🔑 Single Key</h2>
 <div>
     <input id="tikey" placeholder="(tikey)">
 </div>
 <div>
 <menu>
-    <button onclick="singleKey()">Generate</button>
+    <button onclick="singleKey()">🪄 Generate</button>
 </menu>
 </div>
 
-<h2>Multiple Keys</h2>
+<h2>📦 Multiple Keys</h2>
 <div>
     <textarea id="sip" wrap="off" rows="11">
     </textarea>
 </div>
 <div>
 <menu>
-    <button onclick="multiKey()">Generate</button>
-    &nbsp;
-    <input id="keyCount" value="10" placeholder="How Many Keys?">
+ &nbsp;
+    <button title="Open" onclick="importFile()">📤 </button>
+    <button title="Save" onclick="exportFile()">📥 </button>
+    <input type="filename" id="filename">
+ &nbsp;
+    <button onclick="multiKey()">🪄 Generate</button>
+ &nbsp;
+    <input type="number" id="keyCount" value="10" placeholder="How Many Keys?">
 </menu> 
 </div>
 <div>
@@ -75,9 +99,12 @@ input#keyCount {
 <script details="Generate Multiple Keys" group="🦇">
     function multiKey() {
         try {
-            TiGG.raw( getCount(), sip.value );
+            TiGG.raw( getCount(), sip );
         } catch ( e ) {
-            if ( e instanceof KeyCountError ) throw e;
+            if ( e instanceof KeyCountError ) {
+                e.report();
+                return;
+            }
             alert( e );
             throw e;
         }
@@ -105,24 +132,37 @@ input#keyCount {
     class KeyCountError extends Error {
         constructor( message ) {
             super( message );
-            keyCount.classList.add( "error" );
-            hint.innerText = message;
+            this.hintGadget.innerText = message;
+            this.inputGadget.classList.add( "error" );
         }
         get hintGadget() {
-            return hint;
+            return document.getElementById( 'hint' );
         }
         get hint() {
-            return hint.innerHTML;
+            return this.hintGadget.innerText;
         }
         get inputGadget() {
-            return keyCount;
+            return document.getElementById( 'keyCount' );
         }
         get proposedCount() {
-            return this.gadget.value;
+            return this.inputGadget.value;
+        }
+        report() {
+            const hint = this.hint;
+            const hintGadget = this.hintGadget;
+            const inputGadget = this.inputGadget;
+            const proposedCount = this.proposedCount;
+            console.table(
+                [
+        [ "Hint"           , hint          ] ,
+        [ "Hint Gadget"    , hintGadget    ] ,
+        [ "Proposed Count" , proposedCount ] ,
+        [ "Input Gadget"   , inputGadget   ]
+                ]
+            );
         }
     }
 </script>
-
 
 </body>
 </html>
