@@ -55,3 +55,9 @@ async function fetchSavedScript( url, action, error ) {
         .then( cool )
         .catch( oops );
 }
+
+
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/
+

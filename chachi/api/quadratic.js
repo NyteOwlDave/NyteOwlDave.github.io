@@ -75,3 +75,9 @@ function quadratic(a,b,c) {
 	}
 	return 'The numRoots function returned an invalid result.';
 }
+
+
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/
+

@@ -28,3 +28,7 @@ if ( "object" === typeof AppModules ) {
     console.log( '📃', 'Loaded Local Module:', 'coredoc.js' );
 }
 
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/
+

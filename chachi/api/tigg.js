@@ -1,11 +1,11 @@
 
 /*
-    + TiGG (Tiny GUID Gen) ~ 2025-MAR-21
+
+    + TiGG (Tiny GUID Gen) ~ 2025-APR-22
     @ /42/api/gem
     * tigg.js
     # Grok @ https://x.com/i/grok?conversation=1903141909637541947
-    # Hosted @ dave-legacy
-    # Updated: 2025-APR-08
+
 */
 
 
@@ -158,9 +158,15 @@ TiGG.codePoints = function( s ) {
 }
 
 
+//[ date ]
+//⋄ Returns a Cool Date String
+//⋄ Returns String
+TiGG.date = function() {
+
+}
+
 // IIFE for Details
 ;( we => {
-
 
 //[ linkDefs ]
 // Link Definitions
@@ -178,7 +184,7 @@ const keyDef =
 we.keyDef = [
     "🦇"                                    // decal
 ,   "0325530b-be5a-46fb-8dc6-89658363155a"  // tikey
-,   "4/22/2015"                             // tidate
+,   "2025-APR-22"                           // tidate
 ];
 
 
@@ -201,7 +207,7 @@ we.details = {
 ,    tikey   : keyDef[ 1 ]
 ,    title   : "Tiny GUID Generator"
 ,    id      : "tigg"
-,    version : "1.3.0"
+,    version : "2.1.0"
 ,    date    : "2025-APR-22"
 ,    home    : "http://dave-legacy/42/api/core/tigg.js"
 };
@@ -265,6 +271,7 @@ TiGG        | Function | Accessor and Generator Function
 raw         | Function | Generate Text Document w/ one GUID per line
 bulkTitles  | Function | Generate List of GUIDs (one per entry)
 bulk        | Function | Alias for 'bulkTitles' (deprecated)
+date        | Function | Format a Cool Date (tidate)
 decalRange  | Function | Generate Range of Decal Definitions w/ tikeys
 decalTable  | Function | Generate Table of Decal Definitions w/ tikeys
 codePoints  | Function | Generate String w/ List of Decal Code Points
@@ -279,4 +286,9 @@ manifest    | Object   | Module Manifest
 
 } ) 
 ( TiGG.manifest );
+
+
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/
 

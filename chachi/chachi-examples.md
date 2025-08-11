@@ -138,7 +138,8 @@ render();
 
 ---
 
-> Last Update : 2025-JUN-25
+> 🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+
 
 <script>
 addEventListener( 'load', () => { 
@@ -147,6 +148,5 @@ addEventListener( 'load', () => {
     editables( 'h1'  );
 } );
 </script>
-
 
 

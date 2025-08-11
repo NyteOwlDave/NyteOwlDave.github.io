@@ -877,4 +877,8 @@ createDetailsTable  | Create HTML Table Gadget for Element Details
 */
 
 
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/
+
 

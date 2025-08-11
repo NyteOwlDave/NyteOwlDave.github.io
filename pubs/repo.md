@@ -15,6 +15,9 @@
 - Festus
 - Universal-Q
 - EmmaLee
+- Gallery
+
+> BE SURE TO SYNC w/ GREYSTOKE
 
 ---
 
@@ -27,5 +30,5 @@
 
 ---
 
-> Last Updated ~ 2025-AUG-09 ~ Ryzen
+> Last Updated ~ 2025-AUG-11 ~ Ryzen
 

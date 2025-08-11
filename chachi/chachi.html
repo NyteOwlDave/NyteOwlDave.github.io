@@ -2,6 +2,10 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta content="version" value="🏷️ v2.1.0">
+<meta content="repo" value="Morpheus">
+<meta content="tikey" value="382adcd3-aa05-4ab9-885e-6caedf702bfe">
+<meta content="tidate" value="2025-AUG-11">
 <script>
     document.title = "Chachi Calculator";
 </script>
@@ -33,7 +37,34 @@ header {
 </nav>
 </header>
 
+<style>
+.version {
+    position : fixed;
+    left : 1ch;
+    bottom: 0.11ch;
+    cursor : pointer;
+    padding-left : 1ch;
+    padding-right : 1ch;
+    font-family : sans-serif;
+    font-size : 9pt;
+}
+.version summary {
+    border-radius : 17px;
+    padding-left : 1ch;
+    padding-right : 1ch;
+}
+.version summary:hover {
+    box-shadow : 0px 0px 7px midnightblue;
+}
+</style>
+
 <footer>
+<details class="version">
+    <summary>🏷️</summary>
+    <span id="appVersion">
+        v2.1.0 ~ 2025-AUG-11
+    </span>
+</details>
 <menu>
     <button onclick="runInput()" title="Run Javascript">Run</button>
     <button onclick="clearOutput()" title="Clear Output"><i class="si-trash"></i></button>
@@ -205,7 +236,7 @@ sip.fetchAPI = async function( url, target ) {
 
 <script>
 sip.memoFetch = async function( target ) {
-    sip.fetchAPI( "./api/memo.js" ), 
+    sip.fetchAPI( "./api/memo.js" ); 
 }
 </script>
 
@@ -225,6 +256,8 @@ function main() {
     }
     // Initial Editor Width
     sip.style.width = "80%";
+    // Application Version Gadget
+    initAppVersion();
     // Math Menu
     initMathMenu();
     // Initialize sip editor

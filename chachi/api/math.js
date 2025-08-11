@@ -118,3 +118,7 @@ console.log( '📃', 'Loaded Local Module:', 'math.js' );
 
 // NOTE: See mathplus.js for registration and API accessor
 
+
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/

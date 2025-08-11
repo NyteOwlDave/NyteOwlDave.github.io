@@ -296,6 +296,17 @@ function toggleMathMenu() {
 }
 
 
+// Application Version Gadget
+function initAppVersion() {
+    const ve  = gid( 'appVersion' );
+    const mve = selma( 'meta[content="version"]' ); 
+    const mde = selma( 'meta[content="tidate"]'  );
+    const version = artie( mve, 'value' );
+    const tidate = artie( mde, 'value' );
+    ve.innerText = `${version} ~ ${tidate}`;
+}
+
+
 function showMathHelp( evt ) {
     window.open( "./chachi-help.html", "_BLANK" );
 }
@@ -450,3 +461,8 @@ if ( "object" === typeof AppModules ) {
 } else {
     console.log( '📃', 'Loaded Local Module:', 'chachi.js' );
 }
+
+/* 
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/
+

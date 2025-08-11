@@ -1,10 +1,13 @@
 
-/* 
+/*
+
     Chachi Saved Script ~ Omega
-    2025-AUG-09
+
     SIP Memo Operations
 
 - [Omega](file:///home/dave/Mount/MORPHEUS/)
+
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
 
 */
 
@@ -33,7 +36,7 @@ sip.manifest = {
     wbkey      : "cee00952-f1c2-4c24-814f-622ab833b81d" ,
     home       : "https://nyteowldave.github.io/chachi/chachi.html" ,
     repo       : "https://github.com/NyteOwlDave/NyteOwlDave.github.io"
-}
+};
 
 sip.filename = function() {
     function readTitleInput() {
@@ -108,7 +111,8 @@ sip.keys = () => ( Object.keys( sip ) );
 
 sip.memoSave = () => { sip.memo  = sip.value; return sip; };
 sip.memoLoad = () => { sip.value = sip.memo;  return sip; };
-sip.memoSwap = () => {
+
+sip.memoSwap = function() {
 	const tmp = sip.value
 	sip.memoLoad().memo = temp;
 	return sip;  
@@ -199,6 +203,43 @@ sip.toggle = function() {
 }
 
 sip.parent = () => ( sip.parentElement );
+
+sip.submit = function( result ) {
+    sip.memo = sip.value;
+    sip.stack.push( sip.memo );
+    if ( "string" === typeof result ) {
+      return result;
+    }
+    return sip.stack;    
+}
+
+sip.submit = function( result ) {
+    sip.memo = sip.value;
+    sip.stack.push( sip.memo );
+    if ( "string" === typeof result ) {
+      return result;
+    }
+    return sip.stack;    
+}
+
+sip.backup = function( filename ) {
+	const memo    = sip.memo;
+	const value   = sip.value;
+	const stack   = sip.stack;
+	const tikey   = TiGG();
+	const tidate  = TiGG.date();
+	const subject = location.href;
+	const author  = "NyteOwlDave";
+	filename = filename || "chachi-backup.json";
+	const payload = { 
+		heading : { author, subject, filename } ,
+		tigg    : { tikey, tidate } ,
+		sip     : { memo, value, stack }
+	};
+	const json = JSON.stringify( payload, null, 2 );
+    rico( json, filename );
+	return ( "Backup Complete : " + filename );
+}
 
 "Loaded SIP Operations";
 

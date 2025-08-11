@@ -20,3 +20,7 @@ INSERT INTO \`${table}\` ( \`${fields.join("`, `")}\` ) VALUES
 
     return `${insertIntoPart}${valuesPart};`;
 }
+
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/

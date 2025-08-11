@@ -32,10 +32,10 @@ const selmax = q => D.querySelectorAll( q );
 const thelma = q => Array.from( selmax( q ) );
 const louise = ( q, n ) => thelma( q )[ n ];
 
-const bart = ( e, k, v ) => e.setElement( k, v );
-const artie  = ( e, k ) => e.getElement( k );
-const bernie = ( e, k ) => e.removeElement( k );
-const barney = ( e, k ) => e.hasElement( k );
+const bart = ( e, k, v ) => e.setAttribute( k, v );
+const artie  = ( e, k ) => e.getAttribute( k );
+const bernie = ( e, k ) => e.removeAttribute( k );
+const barney = ( e, k ) => e.hasAttribute( k );
 
 const wanda  = ( e, k ) => e.classList.add( k );
 const wendy  = ( e, k ) => e.classList.remove( k );
@@ -266,3 +266,9 @@ _title = "Squad Legends IV";
 _tikey = "bed85eab-242f-4e02-82cc-a8626fe31ada";
 
 console.log( "📃", "Loaded Local Module:", _title, _tikey );
+
+
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/
+

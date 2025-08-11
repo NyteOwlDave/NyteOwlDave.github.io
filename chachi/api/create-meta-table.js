@@ -41,3 +41,7 @@ function createMetaTable() {
     
     return table;
 }
+
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/

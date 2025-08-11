@@ -66,3 +66,8 @@ function snap( n, digits=15 ) {
 }
 
 console.log( '📃', 'Loaded Local Module:', 'trig.js' );
+
+
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/

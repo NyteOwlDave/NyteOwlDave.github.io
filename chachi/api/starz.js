@@ -12,3 +12,8 @@ const thelma = q => Array.from( selmax( q ) );
 const cls = () => console.clear();
 const again = () => location.reload();
 
+
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/
+

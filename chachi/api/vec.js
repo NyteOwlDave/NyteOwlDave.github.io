@@ -181,3 +181,7 @@ size.normal = function() {
 }
 
 
+/*
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+*/
+
