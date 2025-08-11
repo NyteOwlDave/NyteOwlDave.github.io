@@ -1,0 +1,122 @@
+
+"Starting ...";
+
+// sip.keys = () => Object.keys( sip );
+// sop.keys = () => Object.keys( sop );
+// sip.push = function() {
+// 	sip.stack.push( sip.value );
+// 	return sip;
+// }
+// sip.pop = function() {
+// 	   const s = sip.stack.pop();
+//     if ( s ) s = String( s ).trim();
+//     if ( s ) {
+// 		sip.value = s;
+//     }
+//     return sip;	
+// }
+// sip.stack = [];
+// sip.stack.push( sip.value );
+// sip.stack.shift();
+// doc = json( sip.stack );
+// save( "Chachi SIP Stack", doc );
+// load( "Chachi SIP Stack" );
+// sip.stack;
+// sip.stack.length;
+// k = sip.cache.key( 4 );
+// sip.cache.removeItem( k );
+// keys();
+// sip.memo = sip.value;
+// sip.stack.push( sip.memo );
+// sip.memo;
+
+// sip.keys()
+// menu  = () => sip.keys();
+// files = () => joni().keys();
+// menu();
+// files.cache = localStorage;
+// files.remove = function(n) { 
+//   files.cache.removeItem( files.cache.key( n ) ); 
+//   return files(); 
+// }
+// files.touch = function( k ) {
+//   k = ( k || TiGG() );
+//   files.cache.setItem( k, "(pending)" );
+//   return k;
+// }
+// files.touch();
+// files();
+// files.verbose = function() {
+//    const items = [];
+//    function add( k ) {
+//        let n = files.cache.getItem( k ).length;
+//        items.push( [ k, n ] );
+//    }
+//    const list = files();
+//    list.forEach( add );
+//    return items;
+//    return list;
+// }
+// files.verbose();
+// TiGG();
+// "Finished!";
+
+
+/*
+1 paper 7 : ink 0 : cls : dim g(3.3)
+2 for j = 1 to 3 : for i = 1 to 3 : read( i, j ) : next i : next j
+3 for i = 0 to 175 : for x = 0 to 255 
+4 let i = 2 * (2/255) : let j = 2 * (y/175) - 1 : let r = sqr( i*i + j*j ) : let v = abs( 0.5 * sin( 9*i*r)+ cos( 6*j*r) ) ) : let c = int(9.9999*v)
+5 plot inverse g(1 + x - 3*int(x/3), 1 + y - 3*int( y/3 )) <=c; x,y
+6 next y : next x : pause 0 
+9 data 4,9,6,5,1,2,8,3,7
+*/
+
+sip.memo = sip.value;
+sip.stack.push( sip.memo );
+sip.stack;
+
+,
+/*
+1 paper 7 : ink 0 : cls : dim g(3.3)
+2 for j = 1 to 3 : for i = 1 to 3 : read( i, j ) : next i : next j
+3 for i = 0 to 175 : for x = 0 to 255 
+4 let i = 2 * (2/255) : let j = 2 * (y/175) - 1 : let r = sqr( i*i + j*j ) : let v = abs( 0.5 * sin( 9*i*r)+ cos( 6*j*r) ) ) : let c = int(9.9999*v)
+5 plot inverse g(1 + x - 3*int(x/3), 1 + y - 3*int( y/3 )) <=c; x,y
+6 next y : next x : pause 0 
+9 data 4,9,6,5,1,2,8,3,7
+*/
+
+sip.memo = sip.value;
+sip.stack.push( sip.memo );
+sip.stack;
+
+,
+basicDemo = `
+1 paper 7 : ink 0 : cls : dim g(3.3)
+2 for j = 1 to 3 : for i = 1 to 3 : read( i, j ) : next i : next j
+3 for i = 0 to 175 : for x = 0 to 255 
+4 let i = 2 * (2/255) : let j = 2 * (y/175) - 1 : let r = sqr( i*i + j*j ) : let v = abs( 0.5 * sin( 9*i*r)+ cos( 6*j*r) ) ) : let c = int(9.9999*v)
+5 plot inverse g(1 + x - 3*int(x/3), 1 + y - 3*int( y/3 )) <=c; x,y
+6 next y : next x : pause 0 
+9 data 4,9,6,5,1,2,8,3,7
+`
+rico( basicDemo ,"basic-demo-2025-AUG-10.js" );
+
+sip.memo = sip.value;
+sip.stack.push( sip.memo );
+sip.stack;
+
+,
+function submit( output ) {
+   sip.output = output;
+   sip.memo = sip.value;
+   sip.stack.push( sip.memo );
+   if ( "undefined" === typeof output ) {
+      return sip.stack;
+   }
+   return output;
+}
+
+submit( keys() );
+
