@@ -1,0 +1,51 @@
+
+/* 
+
+    biblio.css
+    2025-JUN-09
+
+    From the STEREOGRAM Project
+
+*/
+
+@import url("./rimrod.css");
+@import url("./embed.css" );
+
+h1:before {
+    padding-right : 12px;
+    content : "〖☉";
+}
+
+h1:after {
+    padding-left : 12px;
+    content : "☉〗";
+}
+
+[underline] {
+    text-decoration : underline;
+}
+
+aside {
+    margin-top : 5ch;
+}
+
+ul li {
+    display : block;
+    margin-top    : 9px;
+    margin-bottom : 9px;
+}
+
+header {
+    margin-bottom : 20px;
+}
+
+hr {
+    margin-top : 3em;
+}
+
+nav,
+header,
+h1, h2 {
+    text-align : center;
+}
+

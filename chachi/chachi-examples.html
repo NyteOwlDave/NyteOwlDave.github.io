@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>chachi-examples</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<p><head>
+<meta charset="utf-8"></p>
+<script>
+document.title = "Chachi Examples";
+</script>
+<style>
+@import url("./style/docs.css");
+h1 {
+    text-align : center;
+    margin-top : 64px;
+}
+header {
+    height : 68px;
+    line-height : 30px;
+}
+</style>
+<script src="./../api/editables.js"></script>
+<p></head></p>
+<header>
+<nav>
+<a href="./">Workspace</a>
+<a href="http://dave-legacy/stereogram/docs/chachi-examples.html">Home</a>
+<a href="http://dave-legacy/stereogram/docs/biblio.html">Bibliography</a>
+</nav>
+</header>
+
+<h1>Wheel</h1>
+<pre><code class="language-chachi">canvas.width = canvas.height = 800;
+canvas.style.transform = &quot;scale(1, -1)&quot;;
+
+ctx = getContext();
+
+drawCartesianGrid( d2r(0), 20 );
+
+rho = 300;
+origin = getCanvasCenter();
+
+ctx.fillStyle = &quot;green&quot;;
+circleFill( origin, rho );
+ctx.fillStyle = &quot;blue&quot;;
+
+pv = new polar( 1, 0 );
+
+step = 15
+
+for ( let theta = 0; theta &lt; 360; theta += step ) {
+   pv.t = d2r( theta + 7.5 );
+   norm = pv.cartes().normal();
+   spoke( rho, norm );
+   point( origin.project( norm, rho ) );
+}
+</code></pre>
+<hr>
+<h1>Random Lines</h1>
+<pre><code class="language-chachi">function randomLine() {
+   pt0 = new vec( irnd(1200), irnd(1200) );
+   pt1 = new vec( irnd(1200), irnd(1200) );
+   lineSeg( pt0, pt1 );
+}
+for (n=0; n&lt;100; n+=1) {
+   randomLine();
+}
+</code></pre>
+<h1>Rectangles</h1>
+<pre><code class="language-chachi">w = 800;
+canvas.width = canvas.height = w;
+
+drawCartesianGrid( 0, 20 );
+
+ctx = getContext();
+ctx.lineWidth = 20;
+ctx.strokeStyle = &quot;gold&quot;;
+ctx.fillStyle = &quot;blue&quot;;
+
+rc = rect( 10, 10, w-20, w-20 );
+rectangle( rc );
+
+rc.x     += 20; rc.y += 20;
+rc.width -= 40; rc.height -= 40;
+rectangleFill( rc );
+</code></pre>
+<h1>Spirograph</h1>
+<pre><code class="language-chachi">function render() {
+    const w = 1024;
+    canvas.width = canvas.height = w;
+    ctx = getContext();
+    clearCanvas( &quot;#000000&quot; );
+    const xx = [];
+    const yy = [];
+    let i = 360, j = 360;
+    let r, g, b, u, v;
+    let x1, y1, x2, y2;
+    for ( let h = 1; h &lt;= 6; h += 1 ) {
+        let nm1;
+        for ( let n = 1; n &lt;= 36; n += 1 ) {
+            nm1 = n - 1;
+            let k = nm1 / 18 * Math.PI;
+            xx[ nm1 ] = 512 + i * cos( k );
+            yy[ nm1 ] = 512 + j * sin( k );
+        }
+        for ( let n = 1; n &lt;= 36; n += 1 ) {
+            let m = n + 12;
+            if ( m &gt; 36 ) m -= 36;
+            u = n - 1;
+            v = m - 1;
+            x1 = xx[ u ]; y1 = yy[ u ];
+            x2 = xx[ v ]; y2 = yy[ v ];
+            r = j * 4;
+            g = i * 2;
+            b = m * 6;
+            ctx.strokeStyle = _rgb( r, g, b );
+            ctx.beginPath();
+            ctx.moveTo( x1, y1 );
+            ctx.lineTo( x2, y2 );
+            ctx.stroke();
+        }
+        i *= 0.5;
+        j *= 0.5;
+    }
+}
+render();
+
+</code></pre>
+<hr>
+<blockquote>
+<p>Last Update : 2025-JUN-25</p>
+</blockquote>
+<script>
+addEventListener( 'load', () => { 
+    editables( 'td'  );
+    editables( 'pre' );
+    editables( 'h1'  );
+} );
+</script>
+
+</body>
+</html>
