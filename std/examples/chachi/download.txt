@@ -1,0 +1,8 @@
+load( _Chachi API Module_ );
+rico( sop.value, _Chachi-API-Module.js_ );
+sip.download.toString();
+sip.filename().split(" ").join("-");
+sip.filename.toString();
+sip.filename();
+keys();
+k.download();

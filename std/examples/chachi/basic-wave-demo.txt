@@ -1,0 +1,69 @@
+﻿
+/* BASIC Demo (Wave Pattern)
+1 paper 7 : ink 0 : cls : dim g(3, 3)
+2 for j = 1 to 3 : for i = 1 to 3 : read g(i, j) : next i : next j
+3 for i = 0 to 175 : for x = 0 to 255 
+4 let i = 2 * (2/255) : 
+  let j = 2 * (y/175) - 1 : 
+  let r = sqr(i*i + j*j) : 
+  let v = abs(0.5 * (sin(9*i*r) + cos(6*j*r))) : 
+  let c = int(9.9999*v)
+5 plot inverse g(1 + x - 3*int(x/3), 1 + y - 3*int(y/3)) <=c; x,y
+6 next y : next x : pause 0 
+9 data 4,9,6,5,1,2,8,3,7
+*/
+
+
+/* QB64 VERSION
+cls
+
+xk = 9
+yk = 6
+zk = 4
+
+sw = 256 * zk
+sh = 176 * zk
+sz = 3
+
+fgc = 7
+bgc = 0
+
+xMax = sw - 1
+yMax = sh - 1
+
+nx = 1 / xMax
+ny = 1 / yMax
+
+dim g(sz, sz)
+for j = 1 to sz
+  for i = 1 to sz
+     read g(i, j)
+  next i
+next j
+
+for y = 0 to yMax
+  j = 2 * (y * ny) - 1
+  jj = j*j
+  for x = 0 to xMax
+    i = 2 * (x * nx)
+    ii = i*i
+    r = sqr(ii + jj)
+    v = abs(0.5 * (sin(xk*i*r) + cos(yk*j*r)))
+    c = int(9.9999*v)
+    px = 1 + x - sz * int(x/sz)
+    py = 1 + y - sz * int(y/sz)
+    ' plot inverse g( px, py ) <=c; x,y
+    if g( px, py ) <=c then
+       pset (px, py), fgc
+    else
+       pset (px, py), bgc
+    end if
+  next y 
+next x 
+
+pause 0 
+
+data 4,9,6,5,1,2,8,3,7
+*/
+
+

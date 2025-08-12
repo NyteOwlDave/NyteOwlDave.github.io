@@ -26,6 +26,11 @@ if ( ( "function" !== typeof rico ) ||
 
 if (! sip ) sip = document.getElementByID( 'sip' );
 
+sip.cache  = localStorage;
+sip.output = "";
+sip.memo   = "";
+sip.stack  = [];
+
 sip.manifest = {
     title      : "Chachi's SIP Editor" ,
     version    : "1.0.0" ,
@@ -39,6 +44,16 @@ sip.manifest = {
 };
 
 sip.filename = function() {
+    return sip.title()
+              .split( " " )
+              .map( s=> s,rim() )
+              .filter( s => (!! s()  ) );
+    ext = ext ? s.trim() : ".txt";
+    ext = ext || ".txt";
+    return sip.title + ext;
+}
+
+sip.title = function() {
     function readTitleInput() {
         const o = ( gid( 'sip-title' ) || gid( 'sipTitle' ) );
         if (! o ) return;
@@ -54,18 +69,34 @@ sip.filename = function() {
     function readCachedTitle() {
         return joni().load( "Chachi SIP Title" );
     }
-    const s = sip.title.trim()
+    return ( sip.title.trim()
             || readTitleInput()
             || readCachedTitle()
             || readDocTitle()
-            || "untitled";
-    return ( s + ".txt" );
+            || "untitled" ).trim();
 }
 
 sip.download = function() {
-    rico( sip.filename(), sip.value );
-    return sip;
+    return rico( sip.value, sip.filename() );
 };
+
+sip.voice = function() {
+    const P = "";
+    const S = "";
+    const K = "";
+    const U = [ P, S, K ].join( "/" );
+    console.log( "Opening Google Voice", U );
+    return bruce( U );
+}
+
+sip.notes = function() {
+    const P = "";
+    const S = "";
+    const K = "";
+    const U = [ P, S, K ].join( "/" );
+    console.log( "Opening Outlook Notes", U );
+    return bruce( U );
+}
 
 sip.whiteboard = function( key ) {
     const P = "https://whiteboard.cloud.microsoft";
@@ -73,28 +104,18 @@ sip.whiteboard = function( key ) {
     const K = ( key || sip.manifest.wbkey );
     const U = [ P, S, K ].join( "/" );
     console.log( "Opening Whiteboard", U );
-    bruce( U );
-    return sip;
+    return bruce( U );
 }
-
-sip.stack = [];
 
 sip.push = function() {
-    sip.stack.push( sip.value );
-    return sip;
+    return sip.stack.push( sip.value );
 }
 sip.pop  = function() {
-    if ( sip.stack.length ) {
-        value = sip.stack.pop( sip.value );
-    }
-    return sip;
+    return sip.stack.pop( sip.value );
 }
 
-sip.cache = localStorage;
-
 sip.save = () => {
-    joni().save( sip.filename(), sip.value );
-    return sip;
+    return joni().save( sip.filename(), sip.value );
 };
 
 sip.load = () => {
@@ -102,7 +123,7 @@ sip.load = () => {
     if ( payload !== null ) {
         sip.value = payload;
     }
-    return sip;
+    return sip.value;
 }
 
 sip.cacheKeys = () => ( joni().keys() );   // joni.js
@@ -213,15 +234,6 @@ sip.submit = function( result ) {
     return sip.stack;    
 }
 
-sip.submit = function( result ) {
-    sip.memo = sip.value;
-    sip.stack.push( sip.memo );
-    if ( "string" === typeof result ) {
-      return result;
-    }
-    return sip.stack;    
-}
-
 sip.backup = function( filename ) {
 	const memo    = sip.memo;
 	const value   = sip.value;
@@ -241,6 +253,23 @@ sip.backup = function( filename ) {
 	return ( "Backup Complete : " + filename );
 }
 
-"Loaded SIP Operations";
+sip.swap = function( target ) {
+    if (! target ) {
+        return sip.swap( sop );
+    }
+    if ( target instanceof HTMLElement ) {
+        let tmp = sip.value;
+        if ( "string" === typeof target.value ) {
+            sip.value = target.value;
+            target.value = tmp;
+        } else {
+            sip.value = target.innerText;
+            target.innerText = tmp;
+        }
+        return;
+    }
+    throw new TypeError( "Swapping requires a partner HTML element" );
+}
 
+"Loaded SIP Operations";
 

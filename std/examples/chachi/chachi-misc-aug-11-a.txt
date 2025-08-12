@@ -1,0 +1,126 @@
+// "sop.keep = " + sop.keep;
+function add( gadget ) {
+	let msg = gadget.getAttribute( 'details' );
+    if ( msg && msg.length ) {
+    	sop.append(  msg, "\nDETAILS=" );
+    } else if ( gadget.src ) {
+		sop.append( gadget.src, "\nSOURCE=" );
+    }
+    return sop;
+}
+sop.clear = ( s ) => ( sop.innerText = ""; sop; )
+sop.read = ( prefix="" ) => ( prefix + sop.innerText );
+sop.write = ( s, prefix="" ) => ( sop.innerText = ( prefix + s ); sop; );
+sop.append = function( s, prefix="" ) {
+    if ( s && s.length ) {
+    	sop.innerText += ( prefix + s );
+    }
+    return sop;
+}
+sop.modules = function() {
+   	sop.write( "\n[Chachi Modules]" );
+   	const q = "script";
+	const list = Array.from( document.querySelectorAll( q ) );
+    list.forEach( add );
+	return sop.read();
+}
+// sop.modules();
+sip.value;
+
+
+"Starting ...";
+
+// sip.keys = () => Object.keys( sip );
+// sop.keys = () => Object.keys( sop );
+// sip.push = function() {
+// 	sip.stack.push( sip.value );
+// 	return sip;
+// }
+// sip.pop = function() {
+// 	   const s = sip.stack.pop();
+//     if ( s ) s = String( s ).trim();
+//     if ( s ) {
+// 		sip.value = s;
+//     }
+//     return sip;	
+// }
+// sip.stack = [];
+// sip.stack.push( sip.value );
+// sip.stack.shift();
+// doc = json( sip.stack );
+// save( "Chachi SIP Stack", doc );
+// load( "Chachi SIP Stack" );
+// sip.stack;
+// sip.stack.length;
+// k = sip.cache.key( 4 );
+// sip.cache.removeItem( k );
+// keys();
+// sip.memo = sip.value;
+// sip.stack.push( sip.memo );
+// sip.memo;
+
+// sip.keys()
+// menu  = () => sip.keys();
+// files = () => joni().keys();
+// menu();
+// files.cache = localStorage;
+// files.remove = function(n) { 
+//   files.cache.removeItem( files.cache.key( n ) ); 
+//   return files(); 
+// }
+// files.touch = function( k ) {
+//   k = ( k || TiGG() );
+//   files.cache.setItem( k, "(pending)" );
+//   return k;
+// }
+// files.touch();
+// files();
+// files.verbose = function() {
+//    const items = [];
+//    function add( k ) {
+//        let n = files.cache.getItem( k ).length;
+//        items.push( [ k, n ] );
+//    }
+//    const list = files();
+//    list.forEach( add );
+//    return items;
+//    return list;
+// }
+// files.verbose();
+// TiGG();
+// "Finished!";
+// rico.toString();
+
+// sip.stack.push( sip.value );
+// sip.memo = json( { SIP : [ sip.value, sip.memo, sip.stack ] } );
+// sip.memo;
+
+fn = "chachi-save-AUG-2025-A.txt";
+rico( sip.memo, fn );
+
+
+
+
+chachi = {};
+chachi.title    = "Chachi API Module";
+chachi.filename = "Chachi-API-Module.js";
+chachi.version  = "1.0.0";
+chachi.tidate   = "2025-AUG-11";
+chachi.tikey    = "2025-AUG-11";
+
+chachi.hints = function( max=60 ) {
+   let out = [];
+   let list = keys();
+   max = Math.min( Math.max( 10, max ), 320 );
+   list.forEach( k => {
+      let v = ( load( k ) || "" ).trim().slice( 0, max );
+      v = ( v.length >= 19 ) ? ( v + "..." ) : v;
+      k = `\n[[ ${k} ]]\n`;
+      out.push( k + v );
+   } );
+   return out.join( "\n" );
+}
+
+// chachi.hints( 160 );
+
+
