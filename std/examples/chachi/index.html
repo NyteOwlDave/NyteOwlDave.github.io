@@ -1,4 +1,62 @@
-<script>
-location="./main.html";
-</script>
+<style>
+html, body {
+    text-align : center;
+    margin  : 0;
+    padding : 0;
+    border  : none;
+}
+body {
+    min-width  : 100vw;
+    min-height : 100vh;
+    background-image : url("favicon.ico");
+    background-size: cover;
+    background-position: center;
+}
+[onclick] {
+    cursor : pointer;
+}
+img, div {
+    display : inline-block;
+    border-radius : 42px !important;
+}
+[onclick]:hover {
+    box-shadow : 0px 0px 60px gold;
+}
+img, [chopper], figure {
+    width  : 256px;
+    height : 256px;
+    border-radius 42px !important;
+}
+img, [chopper], figure {
+    background : transparent !important;
+}
+figure {
+    position : absolute;
+    top : 50vh;
+    transform : translate( 0px, -128px );
+    width : 100%;
+    display : block;
+    padding : 0;
+    margin  : 0;
+    background : transparent !important;
+}
+div, [chopper], div[chopper] {
+    padding : 0;
+    border : 2px solid red;
+    border-radius : 42px !important;
+}
+</style>
 
+<figure>
+    <div chopper>
+        <img src="favicon.ico" title="Click for Access" onclick="access()">
+    </div>
+</figure>
+
+<script>
+function access() {
+    const ae = document.createElement( 'a' );
+    ae.href = "main.html";
+    ae.click();
+}
+</script>

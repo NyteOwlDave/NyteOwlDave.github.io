@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>NyteOwlDave's Page</title>
+        <link rel="icon" href="./favicon.ico">
+        <style>
+            body {
+                text-align : center;
+            }
+            nav.dockleft {
+                position:sticky;
+                top:0;
+                left:0;
+                width: 14em;
+                background-color: rgba(0, 0, 100, 0.6);
+            }
+            nav > button {
+                background-color: transparent;
+                width: 100%;
+                display: block;
+                border: 0;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+                color: goldenrod;
+            }
+            nav > div {
+                text-align: center;
+                width: 100%;
+                color: gray;
+            }
+            hr {
+                color: rgba(0, 0, 0, 0.2);
+                background-color: transparent;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>NyteOwlDave's Page</h1>
+        <p>Hello, World!</p>
+        <nav class="dockleft">
+            <button onclick="onClickChachi()">Chachi</button>
+            <button onclick="onClick3P()">Third Party Content</button>
+            <button onclick="onClickDevIcons()">Developer Icons</button>
+            <button onclick="onClickLegends()">Squad Legends</button>
+            <button onclick="onClickGreystoke()">Greystoke</button>
+            <button onclick="onClickNCS()">NyteOwl Consulting</button>
+            <button onclick="onClickBIO()">Link-in-Bio</button>
+            <button onclick="onClickLAN()">LAN (Private)</button>
+        </nav>
+        <script>
+            function onClickLAN(evt) {
+                location="http://dave-omega/std/app/morpheus/";
+            }
+            function onClickChachi(evt) {
+                location="./chachi/chachi.html";
+            }
+            function onClick3P(evt) {
+
+                location="./chachi/app-content.html";
+            }
+            function onClickDevIcons(evt) {
+                location="./dev-icons/main.html";
+            }
+            function onClickLegends(evt) {
+                location="./dev-icons/help/members.html";
+            }
+            function onClickGreystoke(evt) {
+                // location="http://198.91.25.240/";
+                location="https://nyteowldave.work/";
+            }
+            function onClickNCS(evt) {
+                location="https://www.facebook.com/david.wellsted.5/";
+            }
+            function onClickBIO(evt) {
+                location="https://bit.ly/m/nyteowldave";
+            }
+        </script>
+        <script>
+            function readLocalStorage() {
+                const record = ( key ) => {
+                    result[ key ] = localStoraage.getItem( key );
+                }  
+                const result = {};
+                let keys = readLocalStorageKeys();
+                keys.forEach( record );
+                return result;
+            }
+            function readLocalStorageKeys() {
+                let i = 0; 
+                const result = [];
+                while ( localStorage.key( i ) ) {
+                    result.push( key );
+                }
+                return result;
+            }
+            function logLocalStorage() {
+                console.log( readLocalStorage() );
+            }
+            function logLocalStorageKeys() {
+                console.log( readLocalStorageKeys() );
+            }
+        </script>
+    </body>
+    <!--
+        🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+    -->
+</html>
+ 
+ 
