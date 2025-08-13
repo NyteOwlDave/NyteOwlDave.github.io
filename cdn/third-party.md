@@ -1,13 +1,13 @@
 <head>
 <meta charset="utf-8">
-<link rel="icon" href="./art/3p.ico">
+<link rel="icon" href="./favicon.ico">
 <script>
 document.title = "Third Party Content";
 </script>
 <style>
 </style>
 <style>  
-@import url("./style/docs.css");
+@import url("./../chachi/style/docs.css");
 [beep] {
     font-size : unset;
     text-shadow : 0px 0px 5px black;
