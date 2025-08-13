@@ -7,7 +7,7 @@
 
 - [Omega](file:///home/dave/Mount/MORPHEUS/)
 
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-12 ~ Omega
 
 */
 
@@ -33,27 +33,27 @@ sip.stack  = [];
 
 sip.manifest = {
     title      : "Chachi's SIP Editor" ,
-    version    : "1.0.0" ,
+    version    : "1.1.0" ,
     edition    : "Morpheus Edition" ,
     decal      : "👨‍🏫" ,
     tikey      : "cee00952-f1c2-4c24-814f-622ab833b81d" ,
-    tidate     : "2025-AUG-09" ,
+    tidate     : "2025-AUG-12" ,
     wbkey      : "cee00952-f1c2-4c24-814f-622ab833b81d" ,
     home       : "https://nyteowldave.github.io/chachi/chachi.html" ,
     repo       : "https://github.com/NyteOwlDave/NyteOwlDave.github.io"
 };
 
-sip.filename = function() {
-    return sip.title()
-              .split( " " )
-              .map( s=> s,rim() )
-              .filter( s => (!! s()  ) );
+sip.fileName = function() {
+    let s = sip.fileTitle()
+               .split( " " )
+               .map( s=> s,rim() )
+               .filter( s => (!! s()  ) );
     ext = ext ? s.trim() : ".txt";
     ext = ext || ".txt";
-    return sip.title + ext;
+    return s + ext;
 }
 
-sip.title = function() {
+sip.fileTitle = function() {
     function readTitleInput() {
         const o = ( gid( 'sip-title' ) || gid( 'sipTitle' ) );
         if (! o ) return;
@@ -66,12 +66,8 @@ sip.title = function() {
     function readDocTitle() {
         return document.title.trim();
     }
-    function readCachedTitle() {
-        return joni().load( "Chachi SIP Title" );
-    }
     return ( sip.title.trim()
             || readTitleInput()
-            || readCachedTitle()
             || readDocTitle()
             || "untitled" ).trim();
 }
@@ -129,6 +125,12 @@ sip.load = () => {
 sip.cacheKeys = () => ( joni().keys() );   // joni.js
 
 sip.keys = () => ( Object.keys( sip ) );
+
+sip.globals = function() {
+    const fn = o => ( "function" === typeof window[o] );
+    return Object.keys( window )
+        .filter( k => fn( k ) );
+}
 
 sip.memoSave = () => { sip.memo  = sip.value; return sip; };
 sip.memoLoad = () => { sip.value = sip.memo;  return sip; };

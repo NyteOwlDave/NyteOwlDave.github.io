@@ -6,139 +6,90 @@
     tidate  2025-JUL-28    
 */
 
+const _404_ = "./(404)/";
+
 function deenergized() {
     throw new Error( "Function not implemented" );
 }
 
+
+function otherFriends() {
+    return {}; // Persistent (cache, file, idb, ...)
+}
+
+function persistOtherFriends() {
+    deenergized();
+}
+
+function recoverOtherFriends() {
+    deenergized();
+}
+
+
 function energize( url ) {
-    bruce( url );   // legends.js
-}
-
-function whiteboards() {
-    energize( `https://whiteboard.cloud.microsoft/` );
-}
-
-function notebooks() {
-    energize( `https://www.onenote.com/notebooks` );
-}
-
-function sites() {
-    energize( `https://sites.google.com/` );
-}
-
-function editors() {
-    energize( `https://sites.google.com/view/morning-swill/links/editors` );
-}
-
-function swill() {
-    energize( `https://sites.google.com/view/morning-swill/` );
-}
-
-function commandCentral() {
-    energize( `https://sites.google.com/view/dww-commands/` );
-}
-
-function wellsteds() {
-    energize( `https://sites.google.com/view/wellsted-family/` );
-}
-
-function johnny5() {
-    energize( `https://sites.google.com/view/johnny-five/` );
-}
-
-function festus() {
-    energize( `http://173.217.64.99:4242/` );
-}
-
-function system42() {
-    energize( `http://173.217.64.99:4242/42/system-42.html` );
-}
-
-function morpheus() {
-    energize( `https://nyteowldave.github.io` );
-}
-
-function greystoke() {
-    energize( `https://nyteowldave.work` );
-}
-
-function greystokeIP() {
-    energize( `http://198.91.25.240` );
-}
-
-function localHost() {
-    energize( `http://localhost` );
-}
-
-function emojiKeyboard() {
-    energize( `https://emojigraph.org/copy-keyboard/` );
-}
-
-function simpleIcons() {
-    energize( `https://siimple.xyz/icons/` );
-}
-
-function thirdPartyContent() {
-    energize( `https://nyteowldave.github.io/chachi/app-content.html` );
-}
-
-function chachiCalculator() {
-    energize( `https://nyteowldave.github.io/chachi/chachi.html` );
-}
-
-function mathJax() {
-    energize( `https://docs.mathjax.org/en/latest/` );
-}
-
-function mathJS() {
-    energize( `https://mathjs.org/examples/index.html` );
-}
-
-function clipboardApp() {
-    energize( `https://live-clipboard.netlify.app` );
+    const key = url;
+    const known = FriendMap[ key ] || FriendIP[ key ];
+    return bruce( known || url );   // legends.js
 }
 
 energize.api = {
     self : energize,
     todo : deenergized,
-    whiteboards, notebooks,
-    swill, editors, 
-    commandCentral, wellsteds,
-    festus, system42,
-    johnny5,     
-    greystoke, greystokeIP,
-    localHost, 
-    mathJax, mathJS,
-    simpleIcons, thirdPartyContent,
-    morpheus, chachiCalculator,
-    clipboardApp
+    otherFriends ,
+    persistOtherFriends ,
+    recoverOtherFriends
 };
 
-energize.coreDoc = `
-energize        | Open Tab or Popup Window
-deenergized     | Throw Not Implemented Exception
-clipboardApp    | Online Clipboard App
-whiteboards     | MS Whiteboards
-notebooks       | MS Notebooks
-sites           | Google Sites
-swill           | Morning Swill Page
-editors         | Editors Page
-commandCentral  | Command Centrl Page
-johnny5         | Johnny5 Page
-wellsteds       | Wellsted Family Page
-festus          | Festus (Optimum IP)
-system42        | System 42 (via Festus)
-morpheus        | Morpheus Host
-greystoke       | Greystoke Host (DNS)
-greystokeIP     | Greystoke Host (IP4)
-localHost       | Local Host
-mathJax         | 📔 MathJax Documentation
-mathJS          | 📔 MathJS Documentation
-emojiKeyboard   | Emoji Keyboard
-simpleIcons     | Simple Icons
-thirdPartyContent | Third Party Content
-chachiCalculator  | Chachi Calculator
-`;
+
+const FriendIP = {
+  greystoke  : 'https://198.91.25.240/'
+, private    : 'http://173.217.64.99/'
+, system42   : 'http://173.217.64.99:4242/42/'
+};
+
+
+const FriendMap = {
+  olympiad    : 'https://www.youtube.com/playlist?list=PLKLt4UEdBs1nFQ0jSgN5EK6OAGSym1YQ0 ' 
+, whiteboards : 'https://whiteboard.cloud.microsoft/' 
+, notebooks   : 'https://www.onenote.com/notebooks/' 
+, gsites      : 'https://site.google.com/'
+, gdocs       : 'https://docs.google.com/'
+, gsheets     : 'https://docs.google.com/spreadsheets/'
+, gforms      : 'https://sites.google.com/'
+, gvoice      : 'https://voice.google.com/'
+, gkeep       : 'https://keep.google.com/'
+, gdrive      : 'https://sites.google.com/'
+, onedrive    : 'https://ondrive.live.com'
+, pastebin    : _404_
+, dropbox     : 'https://dropbox.com'
+, dbpaper     : 'https://dropbox.com/paper/'
+, copilot     : _404_
+, codepen     : 'https://codepen.io/'
+, editors     : 'https://sites.google.com/view/morning-swill/links/editors/'
+, panel42     : 'https://sites.google.com/view/morning-swill/links/panel42/'
+, links       : 'https://sites.google.com/view/morning-swill/links/'
+, swill       : 'https://sites.google.com/view/morning-swill/'
+, commands    : 'https://sites.google.com/view/dww-commands/'
+, johnny5     : 'https://sites.google.com/view/johnny-five/'
+, greystoke   : 'https://nyteowldave.work/'
+, emojikeybd  : 'https://emojigraph.org/copy-keyboard/'
+, simpleicons : 'https://siimple.xyz/icons/'
+, devicons    : 'https://nyteowldave.github.io/dev-icons/'
+, cdn         : 'https://nyteowldave.github.io/cdn/'
+, tigg        : 'https://nyteowldave.github.io/tigg/'
+, chachi      : 'https://nyteowldave.github.io/chachi/'
+, morpheus    : 'https://nyteowldave.github.io/'
+, mathJax     : 'https://docs.mathjax.org/en/latest/'
+, mathJS      : 'https://mathjs.org/examples/index.html'
+, clipboard   : 'https://online-clipboard.online/online-clipboard'
+, clipboard2  : 'https://live-clipboard.netlify.app'
+, desmos      : 'https://www.desmos.com/calculator'
+, others : otherFriends()
+};
+
+// https://mathnotepad.com/
+// https://www.geogebra.org/geometry
+// https://www.mathcha.io/editor
 
 
 // 👋 Register Module
@@ -155,7 +106,6 @@ if ( "object" === typeof AppModules ) {
     console.log( '📃', 'Loaded Local Module:', 'energize.js' );
 }
 
-
 /*
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-12 ~ Omega
 */

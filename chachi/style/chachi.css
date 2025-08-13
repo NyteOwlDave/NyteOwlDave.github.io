@@ -137,6 +137,7 @@ menu {
 
 button {
     display : inline-block;
+    margin       : 3px;
     margin-left  : 2px;
     margin-right : 2px;
 }
@@ -202,7 +203,26 @@ menu, .menuContainer {
     display : var( --menu-display );
 }
 
+.version {
+    position : fixed;
+    left : 1ch;
+    bottom: 0.11ch;
+    cursor : pointer;
+    padding-left : 1ch;
+    padding-right : 1ch;
+    font-family : sans-serif;
+    font-size : 9pt;
+}
+.version summary {
+    border-radius : 17px;
+    padding-left : 1ch;
+    padding-right : 1ch;
+}
+.version summary:hover {
+    box-shadow : 0px 0px 7px midnightblue;
+}
+
 /*
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-12 ~ Omega
 */
 

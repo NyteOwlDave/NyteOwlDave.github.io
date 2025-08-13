@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta content="version" value="🏷️ v2.1.0">
+<meta content="version" value="🏷️ v2.2.0">
 <meta content="repo" value="Morpheus">
 <meta content="tikey" value="382adcd3-aa05-4ab9-885e-6caedf702bfe">
-<meta content="tidate" value="2025-AUG-11">
+<meta content="tidate" value="2025-AUG-12">
 <script>
     document.title = "Chachi Calculator";
 </script>
@@ -15,8 +15,8 @@
 </style>
 <style>
 header {
-    font-size : 18px;
-    line-height : 28px;
+    font-size : 12px;
+    line-height : 22px;
 }
 </style>
 <link rel="icon" href="./favicon.ico" />
@@ -26,37 +26,17 @@ header {
 <nav>
     <a href="https://nyteowldave.github.io" 
        title="⋄ Home Page ⋄">⋄ Home ⋄</a>
-    <a href="https://whiteboard.office.com/me/whiteboards/9e35193f-649f-4a64-8322-58a27273aaa6"
+    <a href="https://whiteboard.microsoft.cloud/me/whiteboards/cee00952-f1c2-4c24-814f-622ab833b81d"
        title="⋄ Whiteboard ⋄">⋄ Whiteboard ⋄</a>
-    <a href="./app-content.html"
-       title="⋄ 3P ⋄">⋄ 3P ⋄</a>
-    <a href="https://mathjs.org/examples/index.html" 
-       title="⋄ MathJS ⋄">⋄ MathJS ⋄</a>
-    <a href="http://dave-omega/std/app/morpheus/chachi/chachi.html" 
-       title="⋄ 🔐 Chachi LAN ⋄">⋄ 🔐 LAN ⋄</a>
+    <a href="https://sites.google.com/view/chachi-calculator/home"
+       title="⋄ Google Site ⋄">⋄ G-Site ⋄</a>
+    <a href="https://1drv.ms/o/c/A698F7622548FA93/ArLr_UCaYllAvqLpNpmsDJM?e=hpMdum"
+       title="⋄ Notebook ⋄">⋄ Notebook ⋄</a>
+    <a href="https://nyteowldave.github.io" 
+       title="⋄ Home Page ⋄">⋄ Morpheus ⋄</a>
 </nav>
 </header>
 
-<style>
-.version {
-    position : fixed;
-    left : 1ch;
-    bottom: 0.11ch;
-    cursor : pointer;
-    padding-left : 1ch;
-    padding-right : 1ch;
-    font-family : sans-serif;
-    font-size : 9pt;
-}
-.version summary {
-    border-radius : 17px;
-    padding-left : 1ch;
-    padding-right : 1ch;
-}
-.version summary:hover {
-    box-shadow : 0px 0px 7px midnightblue;
-}
-</style>
 
 <footer>
 <details class="version">
@@ -66,16 +46,31 @@ header {
     </span>
 </details>
 <menu>
-    <button onclick="runInput()" title="Run Javascript">Run</button>
-    <button onclick="clearOutput()" title="Clear Output"><i class="si-trash"></i></button>
-    <button onclick="zoomEditor()" title="Zoom Editor"><i class="si-fullscreen"></i> Editor</button>
-    <button onclick="zoomCanvas()" title="Zoom Canvas"><i class="si-fullscreen"></i> Canvas</button>
-    <button onclick="zoomOutput()" title="Zoom Output"><i class="si-fullscreen"></i> Output</button>
-    <button onclick="showMathHelp()" title="Reference"><i class="si-info-circle"></i></button>
-    <button onclick="onlineClipboard()" title="Online Clipboard"><i class="si-clipboard"></i></button>
-    <button onclick="mathOlympiad()" title="Math Olympiad"><i class="si-video"></i></button>
+    <button onclick="runInput()" title="Run Javascript\n[ALT]+[ENTER]">Run</button>
+    <button onclick="clearOutput()" title="Clear Output\n[ALT]+[T]"><i class="si-trash"></i></button>
+    <button onclick="zoomEditor()" title="Zoom Editor\n[ALT]+[Z]"><i class="si-fullscreen"></i> Editor</button>
+    <button onclick="zoomOutput()" title="Zoom Output\n[ALT]+[Z]"><i class="si-fullscreen"></i> Output</button>
+    <button onclick="zoomCanvas()" title="Zoom Canvas\n[ALT]+[Z]"><i class="si-fullscreen"></i> Canvas</button>
+    <button onclick="showMathHelp()" title="Reference\n[ALT]+[?]"><i class="si-info-circle"></i></button>
 </menu>
 </footer>
+
+<!-- [ 
+    run             [ALT]+[ENTER]
+    clear           [ALT]+[T]
+    help            [ALT]+[?]
+    download        [ALT]+[S]
+    upload          [ALT]+[L]
+    swap            [ALT]+[X]
+    zoom            [ALT]+[Z]
+    methods         [ALT]+[/]
+    push            [ALT]+[.]
+    pop             [ALT]+[,]
+    peek            [ALT]+[@]
+    poke            [ALT]+[!]
+    toggleCanvas    [ALT]+[G] or [ALT]+[SCRLK]
+    toggleButtons   [ALT]+[M] or [SCRLCK]
+] -->
 
 <main>
 
@@ -274,6 +269,8 @@ addEventListener( 'load', () => {
     han( main );
 } );
 </script>
-
+<!--
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-12 ~ Omega
+-->
 </body>
 </html>

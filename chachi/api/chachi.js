@@ -37,21 +37,29 @@ includes( "tabulator.js" );
 const ClassList = { vec, size, polar, Woola };
 
 
-// SEE: legends.js
-// let cls = () => console.clear();
-// let again = () => location.reload();
 
-// SEE: legends.js
-/*
-function han( falcon, payload ) {
-    try {
-        return falcon( payload );
-    } catch ( e ) {
-        alert( e );
-        return e;
-    }
+if (! "object" === typeof FriendMap ) {
+    throw new Error( "Missing energize.js");
 }
-*/
+
+
+FriendMap.help = "./chachi-help.html";
+
+
+function showMathHelp( evt ) {
+    window.open( FriendMap.help, "_BLANK" );
+}
+
+function onlineClipboard() {
+    const url = FriendMap.clipboard;
+    window.open( url, "_BLANK" );
+}
+
+function mathOlympiad() {
+    const url = FriendMap.olympiad;
+    window.open( url, "_BLANK" );
+}
+
 
 // Clear O/P Text
 function clearOutput() {
@@ -306,21 +314,6 @@ function initAppVersion() {
     ve.innerText = `${version} ~ ${tidate}`;
 }
 
-
-function showMathHelp( evt ) {
-    window.open( "./chachi-help.html", "_BLANK" );
-}
-
-function onlineClipboard() {
-    const url = "https://online-clipboard.online/online-clipboard";
-    window.open( url, "_BLANK" );
-}
-
-function mathOlympiad() {
-    const url = "https://www.youtube.com/playlist?list=PLKLt4UEdBs1nFQ0jSgN5EK6OAGSym1YQ0";
-    window.open( url, "_BLANK" );
-}
-
 const HostRoutes = {
     omega   : 'http://dave-omega/' ,
     legacy  : 'http://dave-legacy/' ,
@@ -342,14 +335,14 @@ HostRoutes.composeURL = function( key ) {
     const lan = key.startsWith( "http://" );
     if ( lan ) {
         const host = me[ key ];
-        return host + "stereogram/app/chachi.html";
+        return host + "chachi.html";
     } 
     const www = key.startsWith( "https://" );
     if ( www ) {
         const host = me[ key ];
         return host + "chachi/chachi.html";
     } 
-    return key + "stereogram/app/chachi.html";
+    return key + "chachi.html";
 }
 
 HostRoutes.redirect = function( key ) {
@@ -444,7 +437,6 @@ button         | Find Button by Caption
 modified       | Modified Indication ON/OFF
 `;
 
-
 // 👋 Register Module
 if ( "object" === typeof AppModules ) {
     const add = AppModules.add;
@@ -463,6 +455,6 @@ if ( "object" === typeof AppModules ) {
 }
 
 /* 
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-12 ~ Omega
 */
 
