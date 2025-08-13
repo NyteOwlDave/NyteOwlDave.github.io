@@ -1,5 +1,5 @@
-load( _Chachi API Module_ );
-rico( sop.value, _Chachi-API-Module.js_ );
+load( "Chachi API Module" );
+rico( sop.value, "Chachi-API-Module.js" );
 sip.download.toString();
 sip.filename().split(" ").join("-");
 sip.filename.toString();

@@ -1,0 +1,33 @@
+o = ChachiToDo = {};
+o.name = "ChachiToDo";
+o.key  = "Chachi TODO";
+o.mime = "text/plain";
+o.ext  = ".txt";
+o.gadget = document.getElementById( 'sop' );
+o.persist = function() {
+   const me = ChachiToDo;
+   return save( me.key, me.read() );
+}
+o.recover  = function() {
+   const me = ChachiToDo;
+   return me.write( load( me.key ) );
+}
+o.download = function() {
+   const me = ChachiToDo;
+   const filename = me.name.toLowerCase() + me.ext;
+   return rico( me.read(), filename );
+}
+o.read = function() {
+   const me = ChachiToDo;
+   return me.gadget.innerText;
+}
+o.write = function( s ) {
+   const me = ChachiToDo;
+   if ( null === s ) return s;
+   if ( "undefined" === typeof s ) return s;
+   return ( me.gadget.innerText = s );
+}
+o.keys  = () => Object.keys( ChachiToDo );
+o.memo  = "";
+o.stack = [];
+o.props = {};

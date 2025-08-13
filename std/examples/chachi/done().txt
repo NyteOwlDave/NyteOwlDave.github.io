@@ -1,0 +1,12 @@
+function done() {
+  const k = "Hot Flapjack Stack!!!";
+  sip.memo = sip.value;
+  sip.stack.push( sip.memo );
+  save( k, sip.stack );
+  console.clear();
+  console.group( k );
+  console.table( sip.stack );
+  console.groupEnd();
+  return sip.stack;
+}
+
