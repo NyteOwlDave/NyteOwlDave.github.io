@@ -59,11 +59,11 @@ const FriendMap = {
 , gvoice      : 'https://voice.google.com/'
 , gkeep       : 'https://keep.google.com/'
 , gdrive      : 'https://sites.google.com/'
-, onedrive    : 'https://ondrive.live.com'
-, pastebin    : _404_
-, dropbox     : 'https://dropbox.com'
+, onedrive    : 'https://ondrive.live.com/'
+, pastebin    : 'https://pastebin.com/'
+, dropbox     : 'https://dropbox.com/'
 , dbpaper     : 'https://dropbox.com/paper/'
-, copilot     : _404_
+, copilot     : 'https://m365.cloud.microsoft/search/'
 , codepen     : 'https://codepen.io/'
 , editors     : 'https://sites.google.com/view/morning-swill/links/editors/'
 , panel42     : 'https://sites.google.com/view/morning-swill/links/panel42/'
@@ -81,9 +81,9 @@ const FriendMap = {
 , morpheus    : 'https://nyteowldave.github.io/'
 , mathJax     : 'https://docs.mathjax.org/en/latest/'
 , mathJS      : 'https://mathjs.org/examples/index.html'
-, clipboard   : 'https://online-clipboard.online/online-clipboard'
-, clipboard2  : 'https://live-clipboard.netlify.app'
-, desmos      : 'https://www.desmos.com/calculator'
+, clipboard   : 'https://online-clipboard.online/online-clipboard/'
+, clipboard2  : 'https://live-clipboard.netlify.app/'
+, desmos      : 'https://www.desmos.com/calculator/'
 , others : otherFriends()
 };
 
