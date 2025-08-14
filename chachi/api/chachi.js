@@ -10,7 +10,7 @@
 
 
 function includes( s ) {
-    console.log( "📲 Includes Module:", s );
+    console.log( "📲 Includes Third Party Module:", s );
 }
 
 includes( "math.js" );
