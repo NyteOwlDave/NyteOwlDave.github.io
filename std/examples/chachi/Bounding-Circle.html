@@ -1,0 +1,301 @@
+<html>
+<head>
+
+<title>Bounding Circle</title>
+<scrift src="https://nyteowldave.work/greystoke/api/thor.js"></script>
+<script src="https://nyteowldave.work/greystoke/api/joni.js"></script>
+<style>
+html, body {
+    margin  : 0;
+    padding : 0;
+    border  : none;
+}
+#sip {
+    margin      : 0;
+    display     : block; 
+    position    : fixed; 
+    left        : 0px; 
+    top         : 0px; 
+    width       : 100%; 
+    height      : 48%; 
+    font-family : monospace;
+    padding     : 1ch;
+    z-index     : 42;
+}
+#canvas {
+    margin      : 0;
+    display     : block; 
+    position    : fixed; 
+    left        : 0px; 
+    bottom      : 0px; 
+    width       : calc( 100% - 87px ); 
+    height      : 48%; 
+    z-index     : 42;
+    border      : 1px solid black;
+}
+menu {
+    margin      : 0;
+    padding     : 6px;
+    display     : block; 
+    position    : fixed; 
+    bottom      : 0px; 
+    right       : 0px; 
+    min-width   : 72px; 
+    max-width   : 72px; 
+    height      : calc( 48% - 12px ); 
+    z-index     : 420;
+    background  : #CCEEFF;
+    text-align  : center;
+}
+menu button {
+    display : inline-block;
+    width   : 64px;
+    height  : 64px;
+    line-height : 48px;
+    margin : 2px;
+    padding : 4px;
+    font-size : 32px;
+    border : none;
+    border-radius : 100%;
+    color      : #CCEEFF;
+    background : #040422;
+}
+</style>
+</head>
+<body>
+
+<textarea id="sip" style=""></textarea>
+
+<canvas id="canvas" onclick="newPoint(event)"></canvas>
+
+<menu>
+<button title="Draw Scene" onclick="dot(this)">🚀</button>
+<button title="Recycle and Draw" onclick="dot(this)">♼</button>
+</menu>
+
+<script>
+
+/* 
+    + Bounding Circle ~ 2025-MAR-21
+    @ /42/examples/graphics/js
+    + bounding-circle
+    # Grok @ https://x.com/i/grok?conversation=1903141909637541947
+    # Hosted @ dave-legacy
+*/
+
+function getBoundingCircle( points ) {
+
+    // Centroid
+    const n = points.length;
+    const centroid = { x: 0, y: 0 };
+
+    for (const p of points) {
+        centroid.x += p.x;
+        centroid.y += p.y;
+    }
+
+    centroid.x /= n;
+    centroid.y /= n;
+
+    // Farthest point
+    let maxDist = 0;
+    points.forEach( p => {
+        const dx = p.x - centroid.x;
+        const dy = p.y - centroid.y;
+        const dist = Math.hypot( dx, dy );
+        maxDist = Math.max( maxDist, dist );
+    } );
+
+    return { center: centroid, radius: maxDist };
+}
+
+// Test with points
+let initialPoints = [
+    { x: 50,  y:  50 },  // Centers
+    { x: 100, y:  80 },
+    { x: 30,  y: 120 }
+];
+
+let points = [];
+
+let rendered = false;
+let center = {};
+
+function do_test1() {
+
+    const circle = getBoundingCircle( points );
+    center = circle.center;
+    rendered = true;
+
+    // console.log(`Center: (${circle.center.x}, ${circle.center.y}), Radius: ${circle.radius}`);
+
+    // Canvas setup (from your earlier task)
+    const canvas = document.getElementById( 'canvas' );
+
+    let radius = circle.radius;
+    let cx = circle.center.x;
+    let cy = circle.center.y;
+
+    let w = radius * 2;  // Diameter
+    let h = radius * 2;
+
+    const rc = canvas.getBoundingClientRect();
+    const aspect = rc.width / rc.height;
+
+    let ox = rc.width  / 2;
+    let oy = rc.height / 2;
+
+    canvas.width  = 2 * w * aspect;
+    canvas.height = 2 * h;
+
+    const ctx = canvas.getContext( '2d' );
+    // ctx.reset();
+
+    // Erase old stuff
+    ctx.clearRect( 0, 0, w, h );
+
+    ctx.strokeStyle = "navy";
+    ctx.lineWidth = 1;
+
+    ctx.translate( ox - 2 * radius, oy - 2 * radius );
+
+    // Draw Circle Outline
+    ctx.beginPath();
+    ctx.ellipse( cx, cy, radius, radius, 0, 2*Math.PI, 0 );
+    ctx.stroke();
+    ctx.closePath();
+
+    // Draw points
+    points.forEach( p => {
+    
+        r = 5;
+        ctx.fillStyle = "rgba( 0, 0, 0, 0.2 )";
+
+        ctx.beginPath();
+        ctx.ellipse( p.x, p.y, r, r, 0, 2*Math.PI, 0 );
+        ctx.fill();
+        ctx.closePath();
+
+        r = 2;
+        ctx.fillStyle = "#808012";
+
+        ctx.beginPath();
+        ctx.ellipse( p.x, p.y, r, r, 0, 2*Math.PI, 0 );
+        ctx.fill();
+        ctx.closePath();
+
+    } );
+
+}
+
+</script>
+
+<script>
+
+function newPoint( event ) {
+    event.preventDefault();
+    event.stopPropagation();
+/*
+    if (! rendered ) return;
+    const rc = canvas.getBoundingClientRect();
+    const x = event.clientX - rc.left - center.x;
+    const y = event.clientY - rc.top  - center.y;
+    const pt = { x, y };
+    points.push( pt );
+    console.log( { pt, points } );
+    do_test1();
+*/
+}
+
+</script>
+
+<script>
+
+function dot( btn ) {
+    function test1() {
+        try {
+            acceptPoints(); 
+            do_test1(); 
+        }
+        catch ( e ) { 
+            alert( e );
+        }
+    }
+    function recycle() {
+        try {
+            resetPoints();
+            editPoints();
+            test1();
+        }
+        catch ( e ) { 
+            alert( e );
+        }
+    }
+    const key = btn.innerText.trim();
+    switch ( key ) {
+    case "🚀" : return test1();
+    case "♼" : return recycle();
+    }
+}
+
+</script>
+
+<script>
+
+function acceptPoints() {
+    try {
+        const sip = document.getElementById( 'sip' );
+        points = JSON.parse( sip.value );
+    }
+    catch ( e ) {
+        alert( e );
+    }
+}
+
+</script>
+
+<script>
+
+function resetPoints() {
+    points = [];
+    initialPoints.forEach( p => { 
+        const x = p.x;
+        const y = p.y;
+        points.push( { x, y } );
+    } );
+}
+
+</script>
+
+<script>
+
+function editPoints() {
+    try {
+        const sip = document.getElementById( 'sip' );
+        sip.value = JSON.stringify( points, null, 2 );
+    }
+    catch ( e ) {
+        alert( e );
+    }
+}
+
+</script>
+
+<script>
+
+function main() {
+    try {
+        resetPoints(); 
+        editPoints(); 
+    }
+    catch ( e ) { 
+        alert( e );
+    }
+}
+
+addEventListener( 'load', main );
+
+</script>
+
+</body>
+</html>

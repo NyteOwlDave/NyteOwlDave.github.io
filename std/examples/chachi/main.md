@@ -6,25 +6,36 @@
 - [LambertW-Explorations](LambertW-Explorations.js){download} ~ Original
 - [LambertW-Explorations](LambertW-Explorations%20(1).js){download} ~ Revision #1
 - [LambertW-Explorations](LambertW-Explorations%20(2).js){download} ~ Revision #2
-- [basic-demo-2025-AUG-10.js](basic-demo-2025-AUG-10.js){download}
+- [basic-demo-2025-AUG-10](basic-demo-2025-AUG-10.js){download}
 
+## Plain Text
 
-# Plain Text
+- [basic-wave-demo](basic-wave-demo.txt){download "true"}
+- [chachi-misc-aug-11-a](chachi-misc-aug-11-a.txt){download "true"}
+- [chachi-save-AUG-2025-A](chachi-save-AUG-2025-A.txt){download "true"}
+- [stack-aug-10-ryzen](stack-aug-10-ryzen.txt){download}
+- [rico-download](rico-download.txt){download}
+- [first-download](first-download.txt){download}
 
-- [basic-wave-demo.txt](basic-wave-demo.txt){download "true"}
-- [chachi-misc-aug-11-a.txt](chachi-misc-aug-11-a.txt){download "true"}
-- [chachi-save-AUG-2025-A.txt](chachi-save-AUG-2025-A.txt){download "true"}
-- [download.txt](download.txt){download}
-- [rico-download.txt](rico-download.txt){download}
-- [stack-aug-10-ryzen.txt](stack-aug-10-ryzen.txt){download}
-
-# HTML
+## HTML
 
 - [Bounding Circle.html](Bounding Circle.html)
 - [Untitled Table.html](Untitled Table.html)
 
 ---
 
-> Last Updated ~ 2025-AUG-12 ~ Tower
+# Coming Soon!
+
+At the moment, this is a static page. There are plans to make this
+page more intelligent. We plan to redisign the page so that new
+content is immediately reflected on the page.
+
+Furthermore, we'll make it easier to enter the name of any
+example file for previewing, download, or passing to other
+apps on the site (especially Chachi).
+
+---
+
+> Last Updated ~ 2025-AUG-13 ~ Tower
 
 
