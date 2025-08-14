@@ -19,16 +19,16 @@
 
 ## HTML
 
-- [Bounding Circle.html](Bounding Circle.html)
-- [Untitled Table.html](Untitled Table.html)
+- [Bounding Circle](Bounding-Circle.html)
+- [EZ Table](EZ-Table.html)
 
 ---
 
 # Coming Soon!
 
 At the moment, this is a static page. There are plans to make this
-page more intelligent. We plan to redisign the page so that new
-content is immediately reflected on the page.
+page more intelligent. We plan to redesign the page so that new
+content is immediately reflected here.
 
 Furthermore, we'll make it easier to enter the name of any
 example file for previewing, download, or passing to other

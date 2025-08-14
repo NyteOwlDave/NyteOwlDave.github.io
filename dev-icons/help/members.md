@@ -23,7 +23,8 @@
 | ethel       | Confirm Class List Contains Name |
 | ester       | Add/Remove/Toggle Name in Class List |
 | bullfrog    | Open Workspace |
-| clark       | Open Page |
+| clark       | Emulate Anchor Click |
+| bruce       | Open New Tab or Popup Window |
 | rico        | Download Text |
 | thoris      | Load Script |
 | keith       | Copy Text to Clipboard |
