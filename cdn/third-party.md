@@ -753,7 +753,7 @@ instructions carefully.
 
 > 🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
 
-<script src="./api/editables.js"></script>
+<script src="./../chachi/api/editables.js"></script>
 
 <script>
 editables( "pre" );
