@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta content="version" value="🏷️ v2.2.0">
+<meta content="version" value="🏷️ v2.3.0">
 <meta content="repo" value="Morpheus">
 <meta content="tikey" value="382adcd3-aa05-4ab9-885e-6caedf702bfe">
-<meta content="tidate" value="2025-AUG-12">
+<meta content="tidate" value="2025-AUG-15">
 <script>
     document.title = "Chachi Calculator";
 </script>
@@ -17,6 +17,40 @@
 header {
     font-size : 12px;
     line-height : 22px;
+}
+menu button {
+    z-index : 2000;
+}
+.version {
+    z-index : 1000;
+    background-color: transparent;
+    width : 30ch;
+    bottom : 1ch !important;
+    right  : 3ch !important;    
+    left   : unset !important;    
+    margin  : 0 !important;
+}
+.version * {
+    z-index : 0;
+    width : 100%;
+    background-color: cadetblue;
+    padding : 0.2ch;
+    padding-left  : 1.2ch;
+    padding-right : 1.2ch;
+    border-radius : 3ch;
+    height : 2.8ch;
+    line-height : 2.8ch;
+}
+.version summary {
+    display : block;
+    font-weight: 900;
+}
+#appVersion {
+    display : inline-block;
+    margin  : 0 !important;
+}
+#appVersion:before {
+    content : "✨" !important;
 }
 </style>
 <link rel="icon" href="./favicon.ico" />
@@ -40,7 +74,7 @@ header {
 
 <footer>
 <details class="version">
-    <summary>🏷️</summary>
+    <summary>🏷️ Version</summary>
     <span id="appVersion">
         v2.1.0 ~ 2025-AUG-11
     </span>

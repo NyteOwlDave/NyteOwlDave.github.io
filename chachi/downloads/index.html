@@ -1,12 +1,116 @@
 <style>
+html, body {
+    padding : 0;
+    margin  : 0;
+    border  : none;
+    font-family : sans-serif;
+    height : calc( 100vh - 20px );
+}
 body {
     text-align : center;
     background-image : url("favicon.ico");
     background-size: cover;
     background-position: center;
-  }
+}
+figure {  
+    padding-top : 10ch;
+}
+img {  
+    width : 220px;
+    box-shadow : 0px 0px 11px black;
+    border-radius : 42px;
+}
+div {
+    text-align : center !important;
+    width : 100vw;
+}
+select, menu {
+    text-align : center;
+    padding : 2ch;
+    border : none;
+    display : inline-block;
+}
+menu {
+    padding : 7px;
+    margin  : 0;
+    margin-top : 2ch;
+    width : calc( 100% - 20px );
+    background : transparent;
+}
+option {
+    display : block;
+    width : 100%;
+    color      : inherit;
+    background : inherit;
+}
+select, 
+button {
+    width : 30ch;
+} 
+a, select, button {
+    padding : 0.42ch;
+    padding-left  : 1.42ch;
+    padding-right : 1.42ch;
+    border : none;
+    border : none;
+    border-radius : 3ch;
+    background : mintcream;
+}
+a {
+    width : 12ch;
+}
+a:hover ,  
+button:hover {
+    box-shadow : 0px 0px 11px midnightblue;
+    color : #040442;
+    background : gold;
+}
+*:focus {
+    outline : none;
+    box-shadow : 0px 0px 7px midnightblue;
+    color : #040442;
+        background : lime;
+}
+a, button {  
+    cursor : pointer;
+    text-decoration : none;
+}
+a:visited {
+    color : unset !important;
+}
 </style>
 
 <figure>
     <img src="favicon.ico">
 </figure>
+
+<div>
+<select id="downloadGroups">
+    <option>2025-AUG-10</option>
+    <option>2025-AUG-11</option>
+    <option>2025-AUG-12</option>
+    <option>2025-AUG-13</option>
+    <option>2025-AUG-15</option>
+</select>
+</div>
+
+<div>
+<menu>
+    <button onclick="view(event)">View Downloads</button>
+</menu>
+</div>
+
+<script details="Button Event Handlers">
+
+function view( event ) {
+    try {
+        const groups = document.getElementById( 'downloadGroups' );
+        const url = groups.value;
+        window.open( url, "_BLANK" );
+    } catch ( e ) {
+        alert( e );
+        throw e;
+    }
+}
+
+</script>
