@@ -236,6 +236,144 @@ Status.report = function( what ) {
 }
 
 
+
+const ChachiKeyHandler = {};
+
+;( (me) => { 
+
+function insertText( s, gadget ) {
+    gadget = ( gadget || document.activeElement );
+    if ( gadget.nodeName !== "TEXTAREA" ) { return; }
+    const len = s.length;
+    const old = gadget.value;
+    const head = gadget.selectionStart;
+    const tail = gadget.selectionEnd;
+    const prefix = old.slice( 0, head );
+    const suffix = old.slice( tail );
+    gadget.value = ( prefix + s + suffix );
+    gadget.selectionStart = gadget.selectionEnd = ( head + len );
+    gadget.focus();
+}
+
+me.insertText = insertText;
+
+
+function metaKey( event ) {
+    return [ 16, 17, 18, 92, 93 ].includes( event.keyCode );
+}
+
+me.metaKey = metaKey;
+
+
+function editorAction( event ) {
+    const target = event.target;
+    if ( target.nodeName !== "TEXTAREA" ) { return false; }
+    const code = event.keyCode;
+    if ( code === 9 ) {
+        handled( event );
+        insertText( "\t", target );
+        return true;
+    }
+    if (! event.altKey ) { return false; }
+    switch ( event.keyCode ) {
+    case 13 : return exec();
+    case ascii( 's' ) : return download();
+    default : return false;
+    }
+    function download() {
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        // TODO ...
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        throw new Error( "Download method is incomplete" );
+    }
+    function exec() {
+        if ( target.id !== 'sce' ) { return false; }
+        handled( event );
+        try {
+            Gadgets.write( 'sop', window.eval( sce.value ) );
+        } catch ( e ) {
+            Gadgets.report( e );
+        }
+        return true;
+    }
+}
+
+me.editorAction = editorAction;
+
+
+function tableAction( event ) {
+    const target = event.target;
+    if ( target.nodeName !== "TABLE" ) { return false; }
+    if (! event.altKey ) { return false; }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // TODO ...
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    return false;
+}
+
+me.tableAction = tableAction;
+
+function keisha( event ) {
+    if ( metaKey( event ) ) { return; }
+    const code = event.keyCode;
+    if ( editorAction( event ) ) { return; }
+    if ( tableAction( event ) ) { return; }
+    const target = event.target;
+    if (! target.classList.contains( "container" ) ) {
+        return;
+    }
+    switch ( code ) {
+        case ascii( 'z' ) : {
+            handled( event );
+            target.requestFullscreen();
+            return;
+        }
+    }
+}
+
+me.keisha = keisha;
+
+
+addEventListener( 'keydown', keisha );
+
+
+function initAction( gadget, type, action ) {
+    gadget.addEventListener( type, action );
+}
+
+me.initAction = initAction;
+
+
+function initTabClick( tab ) {
+    const key = 'pressed';
+    function toggle() {
+        if ( barney( tab, key ) ) {
+            bernie( tab, key );
+        } else { 
+            bart( tab, key, '' );
+        }
+    }
+    function action( event ) {
+        tab = event.target;
+        requestAnimationFrame( toggle );
+    }
+    initAction( tab, 'mousedown', toggle );
+    initAction( tab, 'mouseup'  , toggle );
+}
+
+me.initTabClick = initTabClick;
+
+
+function initMouseActions() {
+    const tabs = thelma( 'field legend div.tab' );
+    tabs.forEach( initTabClick );
+}
+
+me.initMouseActions = initMouseActions;
+
+} ) ( ChachiKeyHandler );
+
+
 /*
     > Last Updated : 2025-AUG-21 ~ Omega
 */
