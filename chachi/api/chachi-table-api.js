@@ -347,18 +347,18 @@ me.initAction = initAction;
 function initTabClick( tab ) {
     const key = 'pressed';
     function toggle() {
-        if ( barney( tab, key ) ) {
-            bernie( tab, key );
+        if ( barney( tab, key ) ) { // has attribute?
+            bernie( tab, key );     // remove attribute
         } else { 
-            bart( tab, key, '' );
+            bart( tab, key, '' );   // set attribute
         }
     }
     function action( event ) {
         tab = event.target;
         requestAnimationFrame( toggle );
     }
-    initAction( tab, 'mousedown', toggle );
-    initAction( tab, 'mouseup'  , toggle );
+    initAction( tab, 'mousedown', action );
+    initAction( tab, 'mouseup'  , action );
 }
 
 me.initTabClick = initTabClick;
@@ -370,6 +370,8 @@ function initMouseActions() {
 }
 
 me.initMouseActions = initMouseActions;
+
+addEventListener( 'load', initMouseActions );
 
 } ) ( ChachiKeyHandler );
 
