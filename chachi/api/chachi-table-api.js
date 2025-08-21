@@ -199,6 +199,43 @@ console.log( "📃 Loaded chachi-table.js" );
 } ) ( ChachiTable );
 
 
+const Status = {};
+
+Status.report = function( what ) {
+    const gadget = gid( 'statusGadget' );
+    if ( what instanceof Error ) {
+        console.error( what );
+        if ( gadget ) {
+            gadget.style.background = "rgb( 240, 180, 180 )";
+            gadget.style.color = "rgb( 10, 22, 22 )";
+            gadget.innerText = what;
+            oneshot( 4200, reset );
+        } else {
+            alert( what );
+        }
+    } else {
+        console.log( what );
+        if ( gadget ) {
+            gadget.style.background = "";
+            gadget.style.color = "";
+            gadget.innerText = what;
+            oneshot( 4200, reset );
+        }
+    }
+    function reset( mSec, action ) {
+        gadget.style.background = "";
+        gadget.style.color = "";
+        gadget.innerText = "Ready";
+    }
+    function oneshot( mSec, action ) {
+        if ( oneshot.id ) {
+            clearTimeout( oneshot.id );
+        }
+        oneshot.id = setTimeout( action, mSec );
+    }
+}
+
+
 /*
     > Last Updated : 2025-AUG-21 ~ Omega
 */
