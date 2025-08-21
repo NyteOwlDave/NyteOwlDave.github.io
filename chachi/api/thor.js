@@ -432,6 +432,41 @@ manifest             | Object   | Module Manifest
 } ) ( thor );
 
 
+const steve = async function( k, s, p ) {
+    const U = steve.recentURL = steve.psk( p, s, k );
+    return await fetch( U ).then( r => r.text() );
+}
+
+steve.recentURL="";
+
+steve.psk = function( p, s, k ) {
+    p = ( p || "https://nyteowldave.github.io" );
+    s = ( s || "chachi/api" ); 
+    k = ( k || "module.list" );
+    return [p,s,k].join("/");
+}
+
+const rogers = async function( o, k, s, p ) {
+    if (! ( o instanceof Object ) ) { 
+       o = document.createElement( 'textarea' );
+       document.body.appendChild( o ); 
+    }
+    if (! o.id ) {
+       o.id = rogers.randomID();        
+    }
+    o.title = ( k || "module.list" );
+    return await steve( k, s, p ).then( s => {
+        return o.value = s;
+    } );
+}
+
+rogers.randomID = function( prefix = "rogers-" ) {
+    const id = ( "function" === typeof TiGG ) 
+        ? TiGG() 
+        : (Date.now() + Math.random()).toString( 36 );
+    return ( prefix + id );
+}
+
 
 /*
 </textarea>
