@@ -78,6 +78,7 @@ me.create = function( title, id, parent ) {
     table.zoom = zoom;
     table.save = save;
     table.load = load;
+    table.title = ( title || "Chachi Table" );
     table.download = download;
    	if ( parent instanceof HTMLElement ) {
       	if ( table.parentElement instanceof HTMLElement ) {
@@ -281,18 +282,22 @@ function editorAction( event ) {
     default : return false;
     }
     function download() {
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // TODO ...
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        throw new Error( "Download method is incomplete" );
+        handled( event );
+        try {
+            target.download();
+        } catch ( e ) {
+            Status.report( e );
+        }
+        return true;
     }
     function exec() {
         if ( target.id !== 'sce' ) { return false; }
         handled( event );
         try {
-            Gadgets.write( 'sop', window.eval( sce.value ) );
+            const sop = gid( 'sop' );
+            sop.value = window.eval( sce.value );
         } catch ( e ) {
-            Gadgets.report( e );
+            Status.report( e );
         }
         return true;
     }
