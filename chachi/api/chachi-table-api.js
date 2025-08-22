@@ -1,4 +1,22 @@
 
+
+/*
+    ==>> IMPORTANT!!! <<==
+
+    This module is a work in progress. It has some interdependencies with
+    another work in progress named "chachi-tabbed-gadgets.js". There's are
+    copies of that module in two places:
+
+    1) Chachi Downloads.
+    2) The X-Module-List.md file @ Chippy (Omega).
+
+    The first one may not be pushed to the repo yet, so check that as well.
+
+    The second is being used as a test case for dependency issues and other
+    potential bugs.
+
+*/
+
 /* 
     chachi-table.js 
 */
@@ -7,42 +25,42 @@ const ChachiTable = {};
 
 ( ( me ) => {
 
-const cacheKey = function() {
+me.cacheKey = function() {
     const table = me.state.table;
     return ( table.title || "Chachi Table" ) + " (HTML)";
 }
 
-const filename = function() {
+me.filename = function() {
     const table = me.state.table;
     return ( table.id || "chachi-table" ) + ".html";
 }
 
-const hide = function() {
+me.hide = function() {
     const table = me.state.table;
     table.style.display = "none";
 }
 
-const show = function() {
+me.show = function() {
     const table = me.state.table;
     table.style.display = "block";
     editables( 'td' );
     table.tBodies[ 0 ].rows[ 0 ].cells[ 0 ].focus();
 }
 
-const zoom = function() {
+me.zoom = function() {
     const table = me.state.table;
 	table.show();
     table.requestFullscreen();
 };
 
-const save = function() {
+me.save = function() {
     const table = me.state.table;
     const doc = table.innerHTML;
     const key = cacheKey();
     localStorage.setItem( key, doc );
 };
 
-const load = function() {  
+me.load = function() {  
     const table = me.state.table;
     const key = cacheKey();
     const doc = localStorage.getItem( key );
@@ -50,7 +68,7 @@ const load = function() {
     table.innerHTML;
 }
 
-const download = function() {
+me.download = function() {
     const table = me.state.table;
     rico( table.outerHTML, filename() );
 }
@@ -68,32 +86,42 @@ me.parseCoreDoc = function( coreDoc ) {
 		   .map( o => split( o, FS ) );	
 }
 
+me.tableCoreDoc = ( `
+Index | Key          | Value
+0     | SAT          | 100 %
+1     | Brad Pitt    | Actor 
+2     | Ada Lovelace | Famous Inventor
+` );
+
 me.create = function( title, id, parent ) { 
-   	const table = ( gid( id ) || ella( 'table' ) );
-    table.id = ( table.id || id || ( "table-" + TiGG() ) );
+   	let table = gid( id );
+    if (! table ) { 
+        table = ella( 'table' ) 
+        table.id = id;
+    }
+    table.id = ( table.id || ( "table-" + TiGG() ) );
    	table.innerHTML = "";
     table.editable = ( enabled ) => editables( 'td', enabled );
-    table.show = show;
-    table.hide = hide;
-    table.zoom = zoom;
-    table.save = save;
-    table.load = load;
+    table.show = me.show;
+    table.hide = me.hide;
+    table.zoom = me.zoom;
+    table.save = me.save;
+    table.load = me.load;
     table.title = ( title || "Chachi Table" );
     table.download = download;
-   	if ( parent instanceof HTMLElement ) {
-      	if ( table.parentElement instanceof HTMLElement ) {
-         	table.remove();
-      	}
-      	parent.appendChild( table );
-   	}
-   	me.state = {};
+    parent = ( parent || document.body );
+  	if ( table.parentElement instanceof HTMLElement ) {
+     	table.remove();
+  	}
+  	parent.appendChild( table );
+	me.state = {};
    	me.state.table = table;
 }
 
 me.repopulate = function( coreDoc, schema, title, id, parent ) {
 	me.create( title, id, parent );
 	const table = me.state.table;
-   	const rawTable = me.parseCoreDoc( coreDoc );
+   	const rawTable = me.parseCoreDoc( coreDoc || me.tableCoreDoc );
    	me.state.rawTable = rawTable;
    	me.state.args = { coreDoc, schema, title, id, parent };
    	if (! Array.isArray( schema ) ) {
@@ -195,47 +223,49 @@ dude | Brad Pitt    | Actor
 gal  | Ada Lovelace | Famous Inventor
 `;
 
-console.log( "📃 Loaded chachi-table.js" );
-
 } ) ( ChachiTable );
 
 
 const Status = {};
 
-Status.report = function( what ) {
-    const gadget = gid( 'statusGadget' );
-    if ( what instanceof Error ) {
-        console.error( what );
-        if ( gadget ) {
-            gadget.style.background = "rgb( 240, 180, 180 )";
-            gadget.style.color = "rgb( 10, 22, 22 )";
-            gadget.innerText = what;
-            oneshot( 4200, reset );
-        } else {
-            alert( what );
-        }
-    } else {
-        console.log( what );
-        if ( gadget ) {
-            gadget.style.background = "";
-            gadget.style.color = "";
-            gadget.innerText = what;
-            oneshot( 4200, reset );
-        }
-    }
-    function reset( mSec, action ) {
-        gadget.style.background = "";
-        gadget.style.color = "";
-        gadget.innerText = "Ready";
-    }
-    function oneshot( mSec, action ) {
-        if ( oneshot.id ) {
-            clearTimeout( oneshot.id );
-        }
-        oneshot.id = setTimeout( action, mSec );
-    }
-}
+;( (me) => { 
 
+    me.options = { delay : 6400 };
+
+    me.report = function( what ) {
+        const gadget = gid( 'statusGadget' );
+        if ( what instanceof Error ) {
+            console.error( what );
+            if ( gadget ) {
+                gadget.style.background = "rgb( 240, 180, 180 )";
+                gadget.style.color = "rgb( 10, 22, 22 )";
+            } else {
+                alert( what );
+                return;
+            }
+        } else {
+            console.log( what );
+            if ( gadget ) {
+                const cs = gadget.style;
+                cs.background = cs.color = "";
+            }
+        }
+        function reset( event ) {
+            const cs = gadget.style;
+            cs.background = cs.color = "";
+            gadget.innerText = "Ready";
+        }
+        function oneshot() {
+            if ( oneshot.id ) {
+                clearTimeout( oneshot.id );
+            }
+            oneshot.id = setTimeout( reset, me.options.delay );
+        }
+        gadget.innerText = what;
+        oneshot();
+    }
+
+} )( Status );
 
 
 const ChachiKeyHandler = {};
@@ -368,7 +398,6 @@ function initTabClick( tab ) {
 
 me.initTabClick = initTabClick;
 
-
 function initMouseActions() {
     const tabs = thelma( 'field legend div.tab' );
     tabs.forEach( initTabClick );
@@ -379,6 +408,9 @@ me.initMouseActions = initMouseActions;
 addEventListener( 'load', initMouseActions );
 
 } ) ( ChachiKeyHandler );
+
+
+console.log( "📃 Loaded chachi-table.js" );
 
 
 /*
