@@ -100,6 +100,7 @@ me.create = function( title, id, parent ) {
         table.id = id;
     }
     table.id = ( table.id || ( "table-" + TiGG() ) );
+    table.title = ( title || "Chachi Table" );
    	table.innerHTML = "";
     table.editable = ( enabled ) => editables( 'td', enabled );
     table.show = me.show;
@@ -107,13 +108,12 @@ me.create = function( title, id, parent ) {
     table.zoom = me.zoom;
     table.save = me.save;
     table.load = me.load;
-    table.title = ( title || "Chachi Table" );
-    table.download = download;
+    table.download = me.download;
     parent = ( parent || document.body );
-  	if ( table.parentElement instanceof HTMLElement ) {
-     	table.remove();
-  	}
-  	parent.appendChild( table );
+    if ( parent !== table.parentElement ) {
+       	table.remove();
+      	parent.appendChild( table );
+    }
 	me.state = {};
    	me.state.table = table;
 }
