@@ -93,7 +93,7 @@ Index | Key          | Value
 2     | Ada Lovelace | Famous Inventor
 ` );
 
-me.create = function( title, id, parent ) { 
+me.create = function( id, title, parent ) { 
    	let table = gid( id );
     if (! table ) { 
         table = ella( 'table' ) 
@@ -118,8 +118,8 @@ me.create = function( title, id, parent ) {
    	me.state.table = table;
 }
 
-me.repopulate = function( coreDoc, schema, title, id, parent ) {
-	me.create( title, id, parent );
+me.repopulate = function( id, coreDoc, schema, title, parent ) {
+	me.create( id, title, parent );
 	const table = me.state.table;
    	const rawTable = me.parseCoreDoc( coreDoc || me.tableCoreDoc );
    	me.state.rawTable = rawTable;
