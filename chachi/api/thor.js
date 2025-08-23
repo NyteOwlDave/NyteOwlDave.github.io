@@ -461,9 +461,11 @@ const rogers = async function( o, k, s, p ) {
 }
 
 rogers.randomID = function( prefix = "rogers-" ) {
+    const f = () => (Date.now() / Math.random()).toString( 36 );
+    const fix = s => (s.split(".").join("-"));
     const id = ( "function" === typeof TiGG ) 
         ? TiGG() 
-        : (Date.now() + Math.random()).toString( 36 );
+        : fix(f()+f()+f());
     return ( prefix + id );
 }
 

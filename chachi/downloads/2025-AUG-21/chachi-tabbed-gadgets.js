@@ -116,7 +116,7 @@ Gadgets = {};
         if ( gadget.nodeName === "TEXTAREA" ) {
             gadget.value = "";
         } else if ( gadget.nodeName === "TABLE" ) {
-            ChachiTable.repopulate();
+            ChachiTable.repopulate( 'table' );  // NEED THAT ID!!!
 /*
             if (! gadget.innerHTML ) { 
                 gadget.innerHTML = TableHTML;

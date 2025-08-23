@@ -1,0 +1,3 @@
+[
+  "function backup() {\n\tconst memo    = sip.memo;\n\tconst value   = sip.value;\n\tconst stack   = sip.stack;\n\tconst tikey   = TiGG();\n\tconst tidate  = \"2025-AUG-10\";\n\tconst subject = \"http://dave-omega:5309/chachi\";\n\tconst author  = \"NyteOwlDave\";\n\tconst filename = \"chachi-5309-omega.json\";\n\tconst payload = { \n\t\theading : { author, subject, filename } ,\n\t\ttigg    : { tikey, tidate } ,\n\t\tsip     : { memo, value, stack }\n\t};\n\tconst json = JSON.stringify( payload, null, 2 );\n    rico( json, filename );\n\treturn ( \"Backup Complete : \" + filename );\n}\n\n// submit( \"Finished!\" );\n// submit( backup() );\nsubmit();\n"
+]
