@@ -162,8 +162,21 @@ TiGG.codePoints = function( s ) {
 //⋄ Returns a Cool Date String
 //⋄ Returns String
 TiGG.date = function() {
-
+    function str( s, digits ) {
+        while( s.length < digits ) s = ( "0" + s );
+        return s;
+    }
+    function cap( s ) {
+        return s.slice( 0, 3 ).toUpperCase();
+    }
+    const dt = ( new Date() ).toString();
+    const parts = dt.split( "/" );
+    yr = str( parts[ 3 ], 4 );
+    dy = str( parts[ 2 ], 2 );
+    mo = cap( parts[ 1 ] );
+    return [ yr, mo, dy ].join( "-" );
 }
+
 
 // IIFE for Details
 ;( we => {
