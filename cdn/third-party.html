@@ -1,12 +1,47 @@
 <!doctype html>
 <html>
 <head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+/* 
+
+    std.css
+    for ReText Markdown Files
+    
+    This is a system-wide change maker. The intext is to set this
+    as the default style for ReText.
+
+    The implication of this is that anything placed here will be
+    embedded in all HTML files published with ReText while that
+    above condition is met.
+
+    It's preferable to use all @import directives here. This will
+    eliminate the issue of code bloat that prompted me to stop using
+    and default css for generated HTML.
+
+    At present, Morning Swill is my primary PMS tool, so this is
+    the preferred style.
+
+*/
+
+@import url("http://dave-omega/Swill/style/swill.css");
+
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>third-party</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<p><head>
 <meta charset="utf-8">
-<title>Third Party Content</title>
-<link rel="icon" href="./favicon.ico">
+<link rel="icon" href="./favicon.ico"></p>
 <script>
 document.title = "Third Party Content";
 </script>
+<style>
+</style>
 <style>  
 @import url("./../chachi/style/docs.css");
 [beep] {
@@ -107,11 +142,33 @@ hr {
     padding : 1em;
     font : 14pt monospace;
 }
+#logo {
+    border-radius : 42px;
+    border : 3px solid transparent;
+}
+#logo[onclick] {
+    cursor : pointer;
+    border : 3px solid crimson;
+}
+#logo[onclick]:hover {
+    transform : scale( -1.11, 1.11 );
+    box-shadow : 0px 0px 42px crimson;
+    background : pink;
+}
 </style>
-</head>
-<body>
+<p></head></p>
+<!--
+<article>
+<h3>Test</h3>
+<p>Testing 1, 2, 3, ...</p>
+</article>
+-->
 
 <h1><i beep>🎁</i> Third Party Content</h1>
+<div>
+    <img id="logo" src="./art/3p-content.png" alt="Icon" onclick="home()">
+</div>
+
 <menu>
 <a href="https://nyteowldave.github.io" title="Home Page">
     <i class="si-globe"></i>
@@ -723,7 +780,7 @@ instructions carefully.
 <br></p>
 <hr>
 <blockquote>
-<p>🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega</p>
+<p>🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-OCT-15 ~ Omega</p>
 </blockquote>
 <script src="./../chachi/api/editables.js"></script>
 
@@ -733,6 +790,12 @@ var topics=Array.from(
     document.querySelectorAll( '.section' )
 ).map( o=>o.textContent );
 sectionList.innerHTML = topics.join( `<li>` );
+</script>
+
+<script>
+function home() {
+    window.location = "https://nyteowldave.github.io";
+}
 </script>
 
 </body>

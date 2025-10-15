@@ -106,6 +106,19 @@ hr {
     padding : 1em;
     font : 14pt monospace;
 }
+#logo {
+    border-radius : 42px;
+    border : 3px solid transparent;
+}
+#logo[onclick] {
+    cursor : pointer;
+    border : 3px solid crimson;
+}
+#logo[onclick]:hover {
+    transform : scale( -1.11, 1.11 );
+    box-shadow : 0px 0px 42px crimson;
+    background : pink;
+}
 </style>
 </head>
 
@@ -117,6 +130,10 @@ hr {
 -->
 
 # <i beep>🎁</i> Third Party Content
+
+<div>
+    <img id="logo" src="./art/3p-content.png" alt="Icon" onclick="home()">
+</div>
 
 <menu>
 <a href="https://nyteowldave.github.io" title="Home Page">
@@ -751,7 +768,7 @@ instructions carefully.
 
 ---
 
-> 🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+> 🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-OCT-15 ~ Omega
 
 <script src="./../chachi/api/editables.js"></script>
 
@@ -761,5 +778,11 @@ var topics=Array.from(
     document.querySelectorAll( '.section' )
 ).map( o=>o.textContent );
 sectionList.innerHTML = topics.join( `<li>` );
+</script>
+
+<script>
+function home() {
+    window.location = "https://nyteowldave.github.io";
+}
 </script>
 
