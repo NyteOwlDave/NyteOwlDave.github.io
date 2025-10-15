@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Third Party Content
+Exec=firefox https://nyteowldave.github.io/cdn/third-party.html
+Icon=/home/dave/Icons/ws/3p.png
