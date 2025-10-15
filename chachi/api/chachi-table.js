@@ -71,7 +71,7 @@ const Status = {};
         function reset( event ) {
             const cs = gadget.style;
             cs.background = cs.color = "";
-            gadget.innerText = "Ready";
+            gadget.innerText = window.db ? "Ready" : "Database Connection Closed";
         }
         function oneshot() {
             if ( oneshot.id ) {
@@ -420,13 +420,11 @@ const ChachiKeyHandler = {};
 
     me.insertText = insertText;
 
-
     function metaKey( event ) {
         return [ 16, 17, 18, 92, 93 ].includes( event.keyCode );
     }
 
     me.metaKey = metaKey;
-
 
     function editorAction( event ) {
         const target = event.target;
@@ -468,7 +466,6 @@ const ChachiKeyHandler = {};
 
     me.editorAction = editorAction;
 
-
     function tableAction( event ) {
         const target = event.target;
         if ( target.nodeName !== "TABLE" ) { return false; }
@@ -481,18 +478,25 @@ const ChachiKeyHandler = {};
 
     me.tableAction = tableAction;
 
+    function container( o ) {
+        return o.classList.contains( "container" );
+    }
+
+    me.container = container;
+
     function keisha( event ) {
         if ( me.metaKey( event ) ) { return; }
         const code = event.keyCode;
         if ( me.editorAction( event ) ) { return; }
         if ( me.tableAction( event ) ) { return; }
-        const target = event.target;
-        if (! target.classList.contains( "container" ) ) {
-            return;
-        }
+        let target = event.target;
         switch ( code ) {
             case me.ascii( 'z' ) : {
-                handled( event );
+                if (! container( target ) ) {
+                     target = target.parentElement;
+                }
+                if (! container( target ) ) { return; }
+                me.handled( event );
                 target.requestFullscreen();
                 return;
             }
@@ -501,13 +505,11 @@ const ChachiKeyHandler = {};
 
     me.keisha = keisha;
 
-
     function initAction( gadget, type, action ) {
         gadget.addEventListener( type, action );
     }
 
     me.initAction = initAction;
-
 
     function initTabClick( tab ) {
         const key = 'pressed';
@@ -559,8 +561,9 @@ const ChachiKeyHandler = {};
 
 console.log( "📃 Loaded chachi-table.js" );
 
+
 /*
-    > Last Updated : 2025-AUG-22 ~ Omega
+    > Last Updated : 2025-SEP-20 ~ Omega
 */
 
 /* 
