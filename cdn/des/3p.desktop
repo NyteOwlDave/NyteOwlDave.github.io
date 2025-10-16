@@ -4,4 +4,4 @@ Terminal=false
 Type=Application
 Name=Third Party Content
 Exec=firefox https://nyteowldave.github.io/cdn/third-party.html
-Icon=/home/dave/Icons/ws/3p.png
+Icon=/home/dave/Icons/logo/3p-content.png
