@@ -81,6 +81,8 @@ function keyzzz( o ) {
     return [ "🔑", "🗝️", "🔏", "🔓", "🔐" ];
 }
 
+const MyNotes = {};
+
 function joni() {
     const cdoc = ( `
 joni      | Return Method Map
@@ -95,6 +97,7 @@ keyzzz    | Smart method for choosing an appropriate decal or decal list
 demetrius | List of Gadgets with 'details' attribute
 mcCoy     | CoreDoc ==> Table (array of string arrays)
 thor      | Same as thor() from thor.js
+MyNotes   | New Accessor and Paradigm for loading / saving notes
     ` );
     return { 
         joni, 
@@ -103,8 +106,24 @@ thor      | Same as thor() from thor.js
         keys, keyss, keysss,
         keyz, keyzz, keyzzz,
         demetrius, mcCoy ,
-        thor, cdoc
+        thor, cdoc, MyNotes
     };
+}
+
+MyNotes.joni = joni;
+
+MyNotes.load = function( editor ) {
+    let s = load( "My Notes" ) || "";
+    if ( editor ) editor.value = s;
+    return s;
+}
+
+MyNotes.save = function( source ) {
+    if ( source instanceof Object ) {
+        source = source.value;
+    }
+    source = ( source || "" );
+    save( "My Notes", source );
 }
 
 console.log( '📃', 'Loaded Local Module:', 'joni.js' );
