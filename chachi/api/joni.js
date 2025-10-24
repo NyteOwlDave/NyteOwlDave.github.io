@@ -5,9 +5,10 @@
     ~ Companion to Chachi
     ~ Remote  => morpheus
     ~ Primary => dave-omega
-    | TIKEY  : 279a2a2b-3abb-4f31-9a2e-8d570e252e7e
-    | TIDATE : 2025-JUN-26
-    | UPDATE : 2025-OCT-22
+    | TIKEY   : 279a2a2b-3abb-4f31-9a2e-8d570e252e7e
+    | TIDATE  : 2025-JUN-26
+    | UPDATE  : 2025-OCT-23
+    | VERSION : 2.2.0
 
 */
 
@@ -109,6 +110,8 @@ MyNotes   | New Accessor and Paradigm for loading / saving notes
         thor, cdoc, MyNotes
     };
 }
+
+joni.version = "2.2.0";
 
 MyNotes.joni = joni;
 
