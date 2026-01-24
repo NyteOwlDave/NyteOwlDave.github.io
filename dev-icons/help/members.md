@@ -1,5 +1,17 @@
 
-# Members
+<style>
+@import( "./style/legends.css" );
+</style>
+
+<header>
+<a href="https://whiteboard.cloud.microsoft/me/whiteboards/383de1cd-229b-4dc4-a664-425cd4657a2b" title="Squad Members Whiteboard">Whiteboard</a>
+</header>
+
+----------------------------------------------------------------
+
+# Squad Members
+
+----------------------------------------------------------------
 
 | Symbol      | Description |
 |-------------|---------------|
@@ -36,12 +48,33 @@
 | isReText    | Confirm ReText was Detected |
 | isChrome    | Confirm Chrome was Detected |
 
-<button onclick="down()">Download</button>
+----------------------------------------------------------------
+
+<button onclick="down()">Download HTML Table</button>
+
+----------------------------------------------------------------
+
+<script src="https://nyteowldave.github.io/chachi/api/legends.js">
+</script>
+
+<script>
+doc = document;
+doc.title = "Squad Legends";
+</script>
 
 <script>
 function down() {
-    // const t = document.querySelector( "table" );
-    console.log( 123 );
+    try {
+        const t = selma( "table" );
+        let k = "legends-rollcall.html";
+        let v = t.outerHTML;
+        rico( v, k );
+        alert( `Saved "${k}" to file system` );
+    } catch ( e ) {
+        alert( e );
+        throw e;
+    }
 }
-down();
 </script>
+
+

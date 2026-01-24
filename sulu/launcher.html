@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Whiteboard Launcher</title>
+<link rel="icon" href="http://dave-omega/nav-tools/wbrd-lchr/favicon.ico">
+</head>
+
+<body>
+
+<script>
+P=`https://whiteboard.cloud.microsoft`;
+S=`me/whiteboards`;
+K="";
+U="";
+</script>
+
+<style>
+@import url("http://dave-omega/Swill/style/swill.css");
+html, body {
+    color : rgb( 4, 4, 42 );
+    background : rgb( 242, 242, 182 );
+    text-shadow : 0px 0px 3px darkslateblue;
+}
+body {
+    text-align : center;
+    margin-top : 64px;
+    margin-bottom : 64px;
+}
+#input {
+    width : 80%;
+    font : 16pt monospace;
+    margin : 8px;
+    padding : 3px;
+}
+code {
+    font : 14pt monospace;
+}
+</style>
+
+<style>
+
+/* From Uiverse.io by cssbuttons-io */ 
+button {
+  display: inline-block;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.2em;
+  min-width: 140px;
+  padding: 0px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:active,
+button:hover {
+  outline: 0;
+}
+
+button span {
+    display : inline-block;
+    background-color: rgb(5, 6, 45);
+    border-radius: inherit;
+    border : none;
+    padding: 16px 50px;
+    transition: 300ms;
+}
+
+button:hover span {
+    background: none;
+}
+
+button:hover {
+    transform: scale(1.3);
+    box-shadow : 0px 0px 21px navy;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+b, strong, code, var, kbd {
+    color : #0707A7;
+    font-weight : 900 !important;
+}
+
+[shadow] {
+    border-radius : 42px;
+    box-shadow : 0px 0px 42px saddlebrown;
+    border : 2px solid green;
+}
+
+</style>
+
+<div>
+<img shadow="" src="launcher_files/whiteboard-launcher.png" alt="Logo">
+</div>
+
+<h1>🔲 <a href="https://whiteboard.cloud.microsoft/">Whiteboard Launcher</a> 🚀</h1>
+
+<h2><u>Instructions</u></h2>
+<article>Paste a key into the field, then click the <b>Visit</b> button.</article>
+
+<div>
+<input id="input" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+<br><br>
+<button onclick="launch()">
+    <span class="text">Visit</span>
+</button>
+<br><br>
+</div>
+
+<a style="display: none" id="visit">Visit</a>
+
+<hr>
+
+<h1>Remarks</h1>
+
+<h2>
+<a href="https://whiteboard.cloud.microsoft/me/whiteboards/e612d086-cea2-43b5-a449-669b1bf88c4e">Headquarters</a>
+</h2>
+
+<article>
+This tool has a dedicated Whiteboard. The key is:
+<pre contenteditable="">e612d086-cea2-43b5-a449-669b1bf88c4e</pre>
+</article>
+
+<h2>
+<a href="https://docs.google.com/spreadsheets/d/1fIG5c359LhtrYmReEBK0Gskik8E2W6jA9WWky7xGyx4">Spreadsheet</a>
+</h2>
+
+<article>
+The preliminary spreadsheet exists, but needs to be populated.
+</article>
+
+<h2>
+<a href="https://whiteboard.cloud.microsoft/me/whiteboards/5009c16a-8e70-4b18-8589-e491f9ff0c99">Database</a>
+</h2>
+
+<article>
+I plan to make an 
+<a href="http://dave-omega:64429/pms/idb-articles.html">IDB database</a> for
+storing and retrieving whiteboard titles and keys. In the mean time, I may
+stash this in the browser's local storage ("cache").
+</article>
+
+<script>
+function launch() {
+    K = input.value.trim();
+    if ( REX.test( K ) ) {
+        U = [ P, S, K ].join( "/" );
+        visit.href = U;
+        visit.click();
+        return;
+    }
+    alert( "Invalid key" );
+}
+</script>
+
+<script>
+REX=new RegExp( "^[{(]?[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}[)}]?$" );
+</script>
+
+
+
+
+<h2>Bash Script</h2>
+
+<article>
+The <b>Omega</b> workstation has a <strong>Ben</strong> script that performs
+a similar task.
+<br><br>
+In other words, you pass a whiteboard key as as an argument when
+invoking the script and it launches that whiteboard.
+<br><br>
+The name of the script is <code>shurl</code>, which is a contraction
+for "shortened url".
+</article>
+
+
+</body></html>

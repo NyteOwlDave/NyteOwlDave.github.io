@@ -1,0 +1,20 @@
+
+/*
+
+Thalia Stylesheets
+https://nyteowldave.github.io/thalia/style/
+
+*/
+
+/* Styles for ReText Pages */
+@import url("https://nyteowldave.github.io/thalia/style/rt/std.css");
+
+/* Styles for Morning Swill Pages */
+@import url("https://nyteowldave.github.io/thalia/style/swill.css");
+
+/* Styles for Tilly Pages */
+@import url("https://nyteowldave.github.io/thalia/style/tilly.css");
+
+/* Thalia Specific Styles */
+@import url("https://nyteowldave.github.io/thalia/style/thalia.css");
+
