@@ -8,5 +8,10 @@
 }
 
 .hidden, [hidden] {
+    visibility: hidden;
+}
+
+.ghost, [ghost] {
     opacity : 0;
 }
+

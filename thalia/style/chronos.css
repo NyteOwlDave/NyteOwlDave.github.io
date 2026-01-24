@@ -1,3 +1,207 @@
 
-/* Redirect to Chronos @ Chippy */
-@import url("http://dave-omega/vortex/Chippy/style/chronos.css");
+/* 
+
+chronos.css 
+Theme for Chronos and Cool Date Pages
+2025-AUG-25
+
+*/
+
+/* Import Noto Font Family */
+@import url('https://fonts.googleapis.com/css?family=Noto Sans');
+
+@import url( "./footnotes.css" );
+@import url( "./footer-menu.css" );
+
+html, body {
+    border  : none;
+    margin  : 0;
+    font-size : 12pt;
+    font-family : "Noto Sans", sans-serif;
+    color : #040442;
+    background : rgb( 222, 252, 212 );
+    box-sizing : border-box;
+}
+
+html {
+    padding : 0;
+}
+
+body {
+    padding : 20px;
+    margin-top : 80px;
+    margin-top : 50px;
+    margin-bottom : 42vh;
+}
+
+h1, h2, h3, h4, h5, h6, blockquote {
+    text-align : center;
+}
+
+header, footer {
+    text-align : center;
+    background : beige;
+    color : black;
+    position : fixed;
+    margin : 0;
+    left : 0;
+    width : 100%;
+    box-sizing : border-box;
+}
+
+header {
+    line-height : 30px;
+    padding : 8px;
+    top : 0;
+    border-bottom : 2px solid brown;
+}
+
+menu {
+    margin  : 0;
+    padding : 0;
+}
+
+a {
+    padding : 3px;
+    padding-left  : 1.1ch;
+    padding-right : 1.1ch;
+    border : none;
+    border-radius : 3ch;
+    text-decoration : none;
+    background : rgba( 9, 9, 22, 0.123 );
+    color : rgba( 7, 7, 9, 0.789 ); 
+    display : inline-block;
+}
+
+a:hover {
+    box-shadow : 0px 0px 11px black;
+    background : mintcream;
+    color : midnightblue;
+}
+
+a:focus {
+    box-shadow : 0px 0px 7px #2A2A1B;
+    outline : none;
+}
+
+header nav a {
+    font-size : 22px;
+    width : 12ch;
+}
+
+.hide, [hide], 
+.hidden, [hidden] {
+    display : none;
+}
+
+details {
+    width : 100%;
+    text-align : center;
+}
+
+details summary {
+    cursor : pointer;
+    font-size : 20pt;
+    display : inline-block;
+    text-align : center;
+    width : 90%;
+    user-select : none;
+    outline : none;
+    text-decoration : none;
+}
+
+table {
+    background : transparent;
+    border : none;
+}
+
+tr, th, td {
+    border : none;
+    color : midnightblue !important;
+    background : beige !important;
+}
+
+th, td {
+    padding : 4px;
+    padding-left  : 1ch;
+    padding-right : 1ch;
+}
+
+footer {
+    font-size : 14px;
+    line-height : 32px;
+    padding : 6px;
+    bottom : 0;
+}
+
+footer div {
+    display : inline-block;
+}
+
+footer div.actionPanel ,
+footer div.messagePanel {
+    border-radius : 0.8ch;
+}
+
+.date {
+    display : inline-block;
+    box-sizing : border-box;
+    margin  : 0;
+    margin-bottom : 3ch;
+    margin-left : 50%;
+    background : rgba( 22, 22, 12, 0.4242 );
+    font-size : 18pt;
+    width : 36ch;
+    transform : translate( -18ch, 0ch );
+    border : none;
+    border-radius : 4ch;
+    padding : 0.84ch;
+    padding-left  : 1.2ch;
+    padding-right : 1.2ch;
+}
+
+.digit {
+    display : inline-block;
+    width : 2ch;
+    padding : 0;
+    margin  : 0;
+    border : 1px solid gold;  
+    font-size : inherit;
+    text-align : center;
+    background : rgb( 100, 100, 100 );
+}
+
+.digit:focus {
+    background : mintcream;
+}
+
+.digit:first-child {
+    margin-left : 1.2ch;
+}
+
+.accept {
+    display : inline-block;
+    border : none;
+    border-radius : 3px;
+    color : gold;
+    background : transparent;
+    cursor : pointer;
+    margin-left : 1.2ch;
+}
+
+.accept:hover ,
+.accept:focus {
+    outline : none;
+    color : rgb( 22, 22, 12 );
+    background : rgba( 242, 242, 212, 0.6424 );
+}
+
+.accept:hover {
+    box-shadow : 0px 0px 7px gold;
+}
+
+#finalDate {
+    text-align : center;
+}
+
+

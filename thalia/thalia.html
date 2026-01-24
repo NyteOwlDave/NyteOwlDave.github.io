@@ -2,42 +2,24 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-  <meta charset="UTF-8">
-   <title>Thalia</title>
+
+<meta charset="UTF-8">
+<title>Thalia</title>
 
 <style>
 
-/*
-    Styles for ReText Pages
-*/
-
+/* Styles for ReText Pages */
 @import url("./style/rt/std.css");
 
-/*
-    Styles for Morning Swill Pages
-*/
-
+/* Styles for Morning Swill Pages */
 @import url("./style/swill.css");
 
-/*
-SEE : tilly.css
-
-@import url("./style/menu.css");
-@import url("./style/status.css");
-*/
-
-/*
-    Styles for Tilly Pages
-*/
-
+/* Styles for Tilly Pages */
 @import url("./style/tilly.css");
-@import url("./style/midnight.css");
 
-/* 
-    Thalia Specific Styles
-*/
-
+/* Thalia Specific Styles */
 @import url("./style/thalia.css");
 
 </style>
@@ -166,8 +148,12 @@ input ,
 <script>
 doc = document;
 gid = id => doc.getElementById( id );
+// CONFLICTS with other implementations
+// This is the resolve function, not gad
 gad = ed => ( ( ed instanceof Object ) ? ed : gid( ed ) );
-doc . title = gid( 'title' ).textContent;
+// PROPER IMPLEMENTATION :
+// gad =( o )=> ( e instanceof Object )
+// resolve =( o )=> ( gad( o ) ? o : gid( o ) )
 </script>
 <script>
 function showKeyCount( n ) {
@@ -316,7 +302,7 @@ function composeAction( button ) {
 }
 </script>
 <script>
-function rst( span ) {
+function rst( span ) { // Reset Gadget Value
     let attr = k => span.getAttribute( k );
     function rstName() {
         gid( 'filename' ) . value = attr( 'filename' );
@@ -331,7 +317,7 @@ function rst( span ) {
 }
 </script>
 <script>
-function zap( button ) {
+function zap( button ) { // Button Click Event
     try {
         let js;
         mention( js = composeAction( button ), true );
@@ -373,7 +359,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist
 </div>
 </div>
 
-<div center="">
+<div center>
 <details>
 <summary>Navigation</summary>
 <nav id="navbar"></nav>
@@ -412,6 +398,17 @@ addEventListener( "load", function(e) {
     populateNavBar( AppLinks );
 } );
 
+</script>
+
+<script>
+let todo_doc = (`
+1) Update Store Keys after write entry
+2) Komodo for Tabs , Run Script , Zoom Editor
+3) Label for Filename Should Read Current Store Key
+4) Button to Copy Store Key to Filename Input
+5) Run Button (for Scripts)
+6) Why the CSS load error messages still happen???
+`);
 </script>
 
 </body>
