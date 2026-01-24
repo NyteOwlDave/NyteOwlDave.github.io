@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+
+/*
+
+| std.css        |
+|----------------|
+| @ style        |
+| @ ReText       |
+| Legacy Edition |
+| 2025-NOV-21    |
+
+*/
+
+@import url("http://dave-omega/rt/style/std.css");
+@import url("http://dave-omega/Swill/style/swill.css");
+@import url("http://dave-omega/~/style/menu.css");
+@import url("http://dave-omega/~/style/status.css");
+@import url("http://dave-omega/~/style/tilly.css");
+@import url("http://dave-tower/~/style/midnight.css");
+
+body {
+    margin-top : 82px;
+    margin-bottom : 42vh;
+}
+
+h2, h3 {
+    background :  rgba( 172, 172, 34, 0.5 );
+    color : navy;
+}
+
+a {
+    display : inline-block;
+    padding-left  : 1.42ch !important;
+    padding-right : 1.42ch !important;
+    background :  rgba( 172, 172, 34, 0.5 );
+    color : midnightblue;
+}
+
+.sio {
+    width : calc( 94vw - 50px );
+    min-height : calc( 42vh - 1px );
+    max-height : calc( 74vh - 1px );
+    resize : vertical;
+    overflow-x : auto scroll;
+    overflow-y : scroll;
+}
+
+.sio:focus {
+    outline : none;
+}
+
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>Thalia</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<style>
+body {
+    margin-bottom : 42vh;
+}
+</style>
+
+<h1><a href="http://dave-legacy/app/thalia/" id="title" title="Explore Files">Thalia</a></h1>
+<blockquote>
+<p><a href="http://dave-omega/app/chronos/chronos.html" title="Chronos">2025-DEC-20</a> 
+<a href="http://dave-legacy/app/thalia/" title="Home Site">Legacy</a>
+<a href="http://dave-legacy/app/zed/zed-demo.html" title="Zed Editor">Zed</a>
+<a href="http://dave-legacy/nav/" title="Sulu Navigator">Sulu</a>
+<a href="http://dave-legacy/app/calliope/" title="Calliope Decals">Calliope</a></p>
+</blockquote>
+<div center="">
+<style>
+button {
+    text-shadow : 0px 0px 5px #040414;
+}
+[dot], 
+.dot {
+    display     : inline-block;
+    min-width   : 4.3ch !important;
+    min-height  : 4.3ch !important;
+    text-align  : center;
+    padding     : 0;
+    line-height : 3.3ch !important;
+    border-radius : 100%;
+}
+</style>
+<script>
+function say( s, silent ) {
+    ( sop = gid( 'sop' ) )
+    . value = String( s );
+    if ( silent ) { return; }
+    presentSOP();
+}
+function mention( s, silent ) {
+    sop = gid( 'sop' );
+    sop . value = ( 
+        [ sop.value, s ] . join( "\n" )
+    );
+    if ( silent ) { return; }
+    presentSOP();
+}
+function presentSOP() {    
+    gid( 'sop-owner' ).showPopover();
+}
+function clearSOP() {
+    ( sop = gid( 'sop' ) )
+    . value = "";
+}
+</script>
+<div popover="auto" id="sop-owner">
+  <textarea id="sop" wrap="off" spellcheck="false" style="width: 558px; height: 281px;"></textarea>
+</div>
+<div class="menu">
+  <button class="dot" title="Show Log" onclick="presentSOP()">🔘</button>
+  <button class="dot" title="Clear Log" onclick="clearSOP()">🗑</button>
+</div>
+</div>
+
+<div center="">
+<style>
+@import url("http://dave-legacy/sio/style/just/siox.css");
+@keyframes bloom {
+    0%   { transform  : scale( 1.00 ); }
+    50%  { transform  : scale( 1.17 ); }
+    100% { transform  : scale( 1.22 ); }
+}
+legend {
+    display    : inline-block;
+    background : transparent !important;
+}
+input {
+    font       : 12pt monospace;
+    width      : 24em;
+    padding    : 0.5ch;
+    padding-left  : 1.5ch;
+    padding-right : 1.5ch;
+}
+input:focus,
+.menu button:focus {
+    background : #000 !important;
+    color      : #AFD !important;
+    box-shadow : 0px 0px 1.2ch #020212;
+    animation  : 0.12s bloom linear forwards;
+}
+input:hover,
+.menu button:hover {
+    box-shadow : 0px 0px 1.2ch gold;
+}
+input ,
+.menu button {
+    border : none;
+    background : #687 !important;
+    color      : #000 !important;
+    border-radius : 3ch;
+    display    : inline-block;
+    outline    : none;
+}
+.menu, .settings {
+    margin-top : 1.5ch;
+}
+[decal] {
+    display : inline-block;
+    text-shadow : 0px 0px 11px gold;
+    cursor : pointer;
+    user-select : none;
+}
+[decal]:hover {
+    transform : scale( 1.22 );
+}
+</style>
+<script src="thalia_files/rico.js"></script>
+<script>
+doc = document;
+gid = id => doc.getElementById( id );
+gad = ed => ( ( ed instanceof Object ) ? ed : gid( ed ) );
+doc . title = gid( 'title' ).textContent;
+</script>
+<script>
+function showKeyCount( n ) {
+    gid( 'key-count' )
+    . textContent = String(
+        Math.floor( n ) || 0
+    );
+}
+</script>
+<script>
+function getStoreKey() {
+    return setStoreKey(
+        gid( 'store-key' )
+        . value
+    );
+}
+</script>
+<script>
+function setStoreKey( key ) {
+    return (
+        gid( 'store-key' )
+        . value = (
+            key.trim() || document.title
+        )
+    );
+}
+</script>
+<script>
+function noStore() {
+    return ( null === localStorage );
+}
+</script>
+<script>
+function getStoreKeys() {
+    if ( noStore() ) { 
+        return [ getStoreKey() ];
+    }
+    let keys = [];
+    let store = localStorage;
+    if ( store !== null ) {
+        while ( keys.length < 42 ) {
+            let k = store.key( keys.length );
+            if ( k === null ) break;
+            keys.push( k );
+        }
+    }
+    return keys;
+}
+</script>
+<script>
+function setStoreKeys( keys ) {
+    function option( k ) {
+        let o = document.createElement( 'option' );
+        o . value = k;
+        list . appendChild( o );
+    }
+    let list = gid( 'store-keys' );
+    list.innerHTML = "";
+    let key  = getStoreKey();
+    keys = ( keys || getStoreKeys() )
+    if ( key ) {
+        if (! keys.includes( key ) ) {
+            keys.push( key );
+        }
+     }
+    keys . forEach( option );
+    showKeyCount( keys.length );
+}
+</script>
+<script>
+function on_Read_Keys() {
+    let keys = getStoreKeys();
+    setStoreKeys( keys );
+    ( sip = gid( 'sip' ) )
+    . value = ( 
+        keys
+        . map( k => ( `🔑 ${k}` ) )
+        . join( "\n" )
+    );
+}
+</script>
+<script>
+function on_Refresh_Keys() {
+    setStoreKeys( getStoreKeys() );
+}
+</script>
+<script>
+function on_Read_Store() {
+    if ( noStore() ) { return; }
+    jsn = o => JSON.stringify( o, 0, 2 );
+    ( sip = gid( 'sip' ) )
+    . value = ( jsn( localStorage ) );
+}
+</script>
+<script>
+function on_Read_Value() {
+    if ( noStore() ) { return; }
+    let v = localStorage . getItem( getStoreKey() );
+    if ( v === null ) { return; }
+    ( sip = gid( 'sip' ) ) . value = v;
+}
+</script>
+<script>
+function on_Write_Value() {
+    if ( noStore() ) { return; }
+    localStorage . setItem( 
+        getStoreKey() ,
+        ( sip = gid( 'sip' ) ) . value
+    );
+}
+</script>
+<script>
+function on_Save() {
+    try {
+        let input;
+        let k = (
+            ( input = gid( 'filename' ) )
+            . value
+            . trim()
+        );
+        input.value = (
+            rico(
+                ( ( sip = gid( 'sip' ) ) . value ) ,
+                ( k )
+            )
+        )
+        . anchor
+        . download;
+    } catch ( e ) {
+        console.error( e );
+        mention( e.message );
+    }
+}
+</script>
+<script>
+function composeAction( button ) {
+    let t = ( 
+        button
+        . textContent
+        . trim()
+    );
+    let parts = ( t . split( " " ) );
+    let decal = parts . shift();
+    t = ( parts . join( "_" ) );
+    return ( [ "on_", t, "()" ] .join( "" ) );
+}
+</script>
+<script>
+function rst( span ) {
+    let attr = k => span.getAttribute( k );
+    function rstName() {
+        gid( 'filename' ) . value = attr( 'filename' );
+    }
+    function rstKey() {
+        setStoreKey( attr( 'key' ) );
+    }
+    switch ( span.textContent.trim() ) {
+    case "📃" : return rstName();
+    case "🔑" : return rstKey ();
+    }
+}
+</script>
+<script>
+function zap( button ) {
+    try {
+        let js;
+        mention( js = composeAction( button ), true );
+        window.eval( js );
+    } catch ( e ) {
+        console.error( e );
+        mention( e.message );
+    }
+}
+// 🔒 🔏 🔓 🔐 🔑 📤 📥 ⏫ 📃 💾
+</script>
+<fieldset>
+<legend>
+  <span onclick="rst(this)" decal="" title="Reset Filename" filename="thalia-download.json">📃</span>
+  <input type="url" id="filename" value="thalia-download.json">
+</legend>
+<textarea id="sip" class="siox" wrap="off spellcheck=" false"=""></textarea>
+</fieldset>
+<div class="menu">
+  <button onclick="zap(this)">⏫ Read Keys</button>
+  <button onclick="zap(this)">⏫ Read Store</button>
+  <button onclick="zap(this)">💾 Save</button>
+</div>
+<div class="menu">
+  <button onclick="zap(this)">🔓 Read Value</button>
+  <button onclick="zap(this)">🔏 Write Value</button>
+  <button onclick="zap(this)">🔐 Refresh Keys</button>
+</div>
+<div class="settings">
+  <span decal="" title="Reset Key" onclick="rst(this)" key="Thalia Decals">🔑</span>
+  <input list="store-keys" id="store-key" value="Thalia Decals" placeholder="🔑">
+<!-- 
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist
+-->
+  <datalist id="store-keys">
+    <option value="Thalia Decals"></option>
+  </datalist>
+  <span id="key-count" title="Key Count">0</span>
+</div>
+</div>
+
+<div center="">
+<details>
+<summary>Navigation</summary>
+<nav>
+ <a title="Web Dev @ MDN" href="https://developer.mozilla.org/en-US/docs/Web/">MDN</a>
+ <a title="PSK Example @ Legacy" href="http://dave-legacy/~/examples/psk.html">PSK</a>
+</nav>
+</details>
+</div>
+
+
+
+</body></html>
