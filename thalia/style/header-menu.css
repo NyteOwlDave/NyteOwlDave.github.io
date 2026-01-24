@@ -1,0 +1,44 @@
+/* 
+
+header-menu.css
+
+Theme for Morning Swill Pages
+Headers Only
+2025-AUG-23
+
+[Workspace](./)
+
+*/
+
+
+header, footer {
+    text-align : center;
+    background : beige;
+    color : black;
+    position : fixed;
+    margin : 0;
+    left : 0;
+    width : 100%;
+    box-sizing : border-box;
+    z-index : 10000;
+}
+
+header {
+    line-height : 30px;
+    padding : 8px;
+    top : 0;
+    border-bottom : 2px solid brown;
+}
+
+header nav a {
+    font-size : 22px;
+    width : 12ch;
+}
+
+nav a[dot] {  
+    width : 3.5ch;
+    height : 3ch;  
+    padding : 3px;
+    padding-top : 8px;
+}
+

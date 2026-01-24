@@ -1,0 +1,37 @@
+
+/* 
+    footnotes.js
+
+    For Morning Swill
+    Asides
+
+*/
+
+aside details summary {
+    cursor : pointer;
+    display : inline-block;
+    width : 90%;
+    margin-left : calc( 5% - 20px );
+    text-align  : center;
+    font-size   : large;
+}
+
+aside details article {
+    padding : 2ch;
+}
+
+aside.reminder {
+    color : rgb( 210, 200, 95 ) !important;
+}
+
+.opinion  * ,
+.reminder * ,
+.opinion ,
+.reminder {
+    border : none;
+    border-radius : 3ch;
+    padding : 2ch;
+    color : rgb( 200, 120, 240 ) !important;
+    background : rgba( 10, 20, 30, 0.567 );
+}
+

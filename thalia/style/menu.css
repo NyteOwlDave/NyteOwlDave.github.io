@@ -1,0 +1,73 @@
+
+/* 
+    Tilly Menu Theme
+    Omega Edition
+    2025-OCT-23
+    ~/style/menu.css
+
+*/
+
+:root {
+    --border : rgba( 4, 4, 44, 0.321 );
+    --border2 : red;
+}
+
+eject {
+    display : block;
+    margin-top : 5ch;
+    width : 100%;
+    height : 3px;
+    border-top : 3px dotted var( --border );
+}
+
+html, body {
+    background : #6464F4;
+}
+
+li a, a {
+    margin : 0.3ch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    border : none;
+    border-radius : 5ch;
+}
+
+h1, h2, h3 {
+    color : midnightblue;
+    background : gold;
+    box-shadow : 0px 0px 1.1ch black;
+}
+
+.nav {
+    text-align : left;
+    border : 0.5px solid black;
+    border-radius : 0ch;
+    border-top-left-radius : 5ch;
+    padding : 2ch;
+    font-family : "Noto Mono", monospace;
+    overflow-x : scroll;
+    overflow-y : auto scroll;
+    min-height : 10ch;
+    display : block;
+
+    color : navy;
+    background : mintcream;
+}
+
+.nav:hover {
+    font-weight : 900;
+    box-shadow : 0px 0px 2ch gold;
+    text-shadow : 0px 0px 3px black;
+}
+
+.nav:focus {
+    
+    background : midnightblue;
+    color : mintcream;
+}
+
+textarea {  
+    margin : 0.5ch;
+}
+

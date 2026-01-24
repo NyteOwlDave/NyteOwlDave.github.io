@@ -1,0 +1,23 @@
+
+/* 
+
+| sio.css       |
+|---------------|
+| Omega Edition |
+| for Tilly     |
+| 2025-OCT-29   |
+	
+*/
+
+.sio {
+    position : auto;
+    display  : block;
+    margin : 1ch;
+    width  : calc( 100% - 2ch -  40px );
+    height : 10ch;
+    max-height : 74vh;
+    resize : vertical;
+    overflow-x : auto scroll;
+    overflow-y : scroll;
+}
+

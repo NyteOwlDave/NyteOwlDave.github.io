@@ -1,0 +1,41 @@
+
+/* 
+
+    tip-tube.css ~ 2025-AUG-30
+    for Morning Swill
+
+*/
+
+:root {
+    --tube-shade : rgba( 10, 10, 30, 0.533 );
+    --tube-text : rgba( 210, 210, 20, 0.888 );
+    --tip-font-size : 10pt;
+}
+
+.tip {
+    font-size : var( --tip-font-size );
+    text-align : center;
+}
+
+.tip:before { 
+    content : "$";
+    margin-right : 0.8ch;
+}
+
+.tube {
+    padding : 1.1ch;
+    padding-left  : 2.1ch;
+    padding-right : 2.1ch;
+    border : none;
+    border-radius : 3.33ch;
+    background : var( --tube-shade );
+    color : var( --tube-text );
+    margin : 5px;
+}
+
+.tube:hover {
+    background : mintcream;
+    color : midnightblue;
+    box-shadow : 0px 0px 1ch black;
+}
+

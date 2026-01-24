@@ -1,0 +1,61 @@
+
+/* 
+
+footer-menu.css 
+
+Theme for Swill Footer Menu Gadget
+2025-AUG-27
+
+[Workspace](./)
+
+*/
+
+
+footer {
+    font-size : 14px;
+    line-height : 32px;
+    padding : 6px;
+    bottom : 0;
+}
+
+footer div {
+    display : inline-block;
+}
+
+footer div.actionPanel ,
+footer div.messagePanel {
+    border-radius : 0.8ch;
+}
+
+.messagePanel {
+    width : calc( 100% - 32em ); 
+    margin-left : 1ch;
+    border : 1px dotted red;
+    font-size   : inherit;
+    line-height : inherit;
+}
+
+.actionPanel {
+    display : inline-block;
+    width : 28em; 
+    padding : 0;
+    margin  : 0;
+    margin-left  : 1ch;
+    margin-right : 1ch;
+    border : 1px dotted blue;
+}
+
+.action {
+    cursor : pointer;
+    border : none;
+    background : transparent;
+    color : black;
+}
+
+.action:hover ,
+.action:focus {
+    outline : none;
+    background : rgba( 22, 22, 12, 0.6424 );
+    color: rgb( 242, 242, 212 );
+}
+

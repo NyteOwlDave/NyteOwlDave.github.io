@@ -1,0 +1,107 @@
+/* 
+
+swill.css
+
+Theme for Morning Swill Pages
+2025-AUG-23
+
+[Workspace](./)
+
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Noto Sans');
+@import url( "http://dave-omega/Swill/style/header-menu.css" );
+@import url( "http://dave-omega/Swill/style/footer-menu.css" );
+@import url( "http://dave-omega/Swill/style/home-button.css" );
+@import url( "http://dave-omega/Swill/style/date-gadget.css" );
+@import url( "http://dave-omega/Swill/style/footnotes.css" );
+
+html, body {
+    border  : none;
+    margin  : 0;
+    font-size : 12pt;
+    font-family : "Noto Sans", sans-serif;
+    color : #040442;
+    background : rgb( 222, 252, 212 );
+    box-sizing : border-box;
+}
+
+html {
+    padding : 0;
+}
+
+body {
+    padding : 20px;
+    margin-top : 80px;
+    margin-top : 50px;
+    margin-bottom : 42vh;
+}
+
+h1, h2, h3, h4, h5, h6, blockquote {
+    text-align : center;
+}
+
+header, footer {
+    text-align : center;
+    background : beige;
+    color : black;
+    position : fixed;
+    margin : 0;
+    left : 0;
+    width : 100%;
+    box-sizing : border-box;
+}
+
+header {
+    line-height : 30px;
+    padding : 8px;
+    top : 0;
+    border-bottom : 2px solid brown;
+}
+
+menu {
+    margin  : 0;
+    padding : 0;
+}
+
+a {
+    padding : 3px;
+    padding-left  : 1.1ch;
+    padding-right : 1.1ch;
+    border : none;
+    border-radius : 3ch;
+    text-decoration : none;
+    background : rgba( 9, 9, 22, 0.123 );
+    color : rgba( 7, 7, 9, 0.789 ); 
+    display : inline-block;
+}
+
+a:hover {
+    box-shadow : 0px 0px 11px black;
+    background : mintcream;
+    color : midnightblue;
+}
+
+a:focus {
+    box-shadow : 0px 0px 7px #2A2A1B;
+    outline : none;
+}
+
+header nav a {
+    font-size : 22px;
+    width : 12ch;
+}
+
+footer {
+    font-size : 14px;
+    line-height : 32px;
+    padding : 6px;
+    bottom : 0;
+}
+
+details summary {
+    cursor : pointer;
+    font-size : large;
+}
+
+

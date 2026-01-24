@@ -1,0 +1,57 @@
+
+/* 
+    home-button.css
+    for Morning Swill
+
+    This gadget has great potential to be used in many
+    apps. Not just Swill.
+
+    Is short, sweet, and simple to add.
+
+    Be aware the position may need to be changed so as to
+    avoid obscuring footer content.
+
+*/
+
+
+#homeButton {
+}
+
+.home {
+    position : fixed;
+    display  : inline-block;
+    top      : 0px;
+    right    : 1ch;
+    width    : 3.2ch;
+    border   : none;
+    border-radius : 100%;
+    padding       : 0.2ch;
+    line-height   : 2.75ch;
+    font-size     : 20pt;
+    font-family   : "Noto Sans Mono", monospace;
+    cursor : pointer;
+    background : rgb( 47, 75, 64 );
+    color : mintcream;
+    z-index : 912345;
+    transform : translate( 0, 4px );
+    opacity : 0.5;
+}
+
+.home:focus ,
+.home:hover {
+    opacity : 1.0;
+}
+
+.home:focus {
+    box-shadow : 0px 0px 1.1ch black;
+    outline : none;
+    color : rgb( 47, 75, 64 );
+    background-color: rgb( 198, 215, 200 );
+}
+
+.home:hover {
+    box-shadow : 0px 0px 1.7ch black;
+    color : rgb( 47, 75, 64 );
+    background : mintcream;
+}
+

@@ -1,0 +1,36 @@
+
+/* 
+    Thalia Specific Styles
+*/
+
+body {
+    margin-top : 82px;
+    margin-bottom : 42vh;
+}
+
+h2, h3 {
+    background :  rgba( 172, 172, 34, 0.5 );
+    color : navy;
+}
+
+a {
+    display : inline-block;
+    padding-left  : 1.42ch !important;
+    padding-right : 1.42ch !important;
+    background :  rgba( 172, 172, 34, 0.5 );
+    color : midnightblue;
+}
+
+.sio {
+    width : calc( 94vw - 50px );
+    min-height : calc( 42vh - 1px );
+    max-height : calc( 74vh - 1px );
+    resize : vertical;
+    overflow-x : auto scroll;
+    overflow-y : scroll;
+}
+
+.sio:focus {
+    outline : none;
+}
+

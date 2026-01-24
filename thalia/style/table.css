@@ -1,0 +1,36 @@
+
+/* 
+    table.css ~ 2025-SEP-16
+    for Morning Swill
+*/
+
+table {
+    margin  : 0;  
+    padding : 0;
+    border  : none;
+    border-collapse: collapse;
+    text-align : left;
+    width : 80%;
+    margin : 8%;
+    margin-top    : 2ch;
+    margin-bottom : 4ch;
+}
+
+tr {
+    font-family : monospace;
+}
+
+th, td {
+    margin : 0;
+    padding : 0.25ch;
+    padding-left  : 1.25ch;
+    padding-right : 1.25ch;
+}
+
+th {
+    background : rgba( 20, 20, 44, 0.333 );
+}
+
+tr:nth-child(even) {
+    background : rgba( 20, 20, 44, 0.132 );
+}

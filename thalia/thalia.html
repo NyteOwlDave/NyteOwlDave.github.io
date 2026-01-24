@@ -1,83 +1,62 @@
+
 <!DOCTYPE html>
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<style type="text/css">
+
+<html>
+<head>
+  <meta charset="UTF-8">
+   <title>Thalia</title>
+
+<style>
 
 /*
-
-| std.css        |
-|----------------|
-| @ style        |
-| @ ReText       |
-| Legacy Edition |
-| 2025-NOV-21    |
-
+    Styles for ReText Pages
 */
 
-@import url("http://dave-omega/rt/style/std.css");
-@import url("http://dave-omega/Swill/style/swill.css");
-@import url("http://dave-omega/~/style/menu.css");
-@import url("http://dave-omega/~/style/status.css");
-@import url("http://dave-omega/~/style/tilly.css");
-@import url("http://dave-tower/~/style/midnight.css");
+@import url("./style/rt/std.css");
 
-body {
-    margin-top : 82px;
-    margin-bottom : 42vh;
-}
+/*
+    Styles for Morning Swill Pages
+*/
 
-h2, h3 {
-    background :  rgba( 172, 172, 34, 0.5 );
-    color : navy;
-}
+@import url("./style/swill.css");
 
-a {
-    display : inline-block;
-    padding-left  : 1.42ch !important;
-    padding-right : 1.42ch !important;
-    background :  rgba( 172, 172, 34, 0.5 );
-    color : midnightblue;
-}
+/*
+SEE : tilly.css
 
-.sio {
-    width : calc( 94vw - 50px );
-    min-height : calc( 42vh - 1px );
-    max-height : calc( 74vh - 1px );
-    resize : vertical;
-    overflow-x : auto scroll;
-    overflow-y : scroll;
-}
+@import url("./style/menu.css");
+@import url("./style/status.css");
+*/
 
-.sio:focus {
-    outline : none;
-}
+/*
+    Styles for Tilly Pages
+*/
+
+@import url("./style/tilly.css");
+@import url("./style/midnight.css");
+
+/* 
+    Thalia Specific Styles
+*/
+
+@import url("./style/thalia.css");
 
 </style>
-<meta name="generator" content="ReText 7.2.3">
-<title>Thalia</title>
-<style type="text/css">
-</style>
+
 </head>
-<body>
-<style>
-body {
-    margin-bottom : 42vh;
-}
-</style>
 
-<h1><a href="http://dave-legacy/app/thalia/" id="title" title="Explore Files">Thalia</a></h1>
-<blockquote>
-<p><a href="http://dave-omega/app/chronos/chronos.html" title="Chronos">2025-DEC-20</a> 
-<a href="http://dave-legacy/app/thalia/" title="Home Site">Legacy</a>
-<a href="http://dave-legacy/app/zed/zed-demo.html" title="Zed Editor">Zed</a>
-<a href="http://dave-legacy/nav/" title="Sulu Navigator">Sulu</a>
-<a href="http://dave-legacy/app/calliope/" title="Calliope Decals">Calliope</a></p>
-</blockquote>
-<div center="">
+
+<h1>
+    <a href="https://nyteowldave.github.io/" id="title" title="Home Site">Home</a>
+</h1>
+
+<div center>
+
 <style>
+
 button {
     text-shadow : 0px 0px 5px #040414;
 }
+
 [dot], 
 .dot {
     display     : inline-block;
@@ -88,14 +67,18 @@ button {
     line-height : 3.3ch !important;
     border-radius : 100%;
 }
+
 </style>
+
 <script>
+
 function say( s, silent ) {
     ( sop = gid( 'sop' ) )
     . value = String( s );
     if ( silent ) { return; }
     presentSOP();
 }
+
 function mention( s, silent ) {
     sop = gid( 'sop' );
     sop . value = ( 
@@ -104,26 +87,32 @@ function mention( s, silent ) {
     if ( silent ) { return; }
     presentSOP();
 }
+
 function presentSOP() {    
     gid( 'sop-owner' ).showPopover();
 }
+
 function clearSOP() {
     ( sop = gid( 'sop' ) )
     . value = "";
 }
+
 </script>
+
 <div popover="auto" id="sop-owner">
   <textarea id="sop" wrap="off" spellcheck="false" style="width: 558px; height: 281px;"></textarea>
 </div>
+
 <div class="menu">
   <button class="dot" title="Show Log" onclick="presentSOP()">🔘</button>
   <button class="dot" title="Clear Log" onclick="clearSOP()">🗑</button>
 </div>
+
 </div>
 
-<div center="">
+<div center>
 <style>
-@import url("http://dave-legacy/sio/style/just/siox.css");
+@import url("./style/siox.css");
 @keyframes bloom {
     0%   { transform  : scale( 1.00 ); }
     50%  { transform  : scale( 1.17 ); }
@@ -173,7 +162,7 @@ input ,
     transform : scale( 1.22 );
 }
 </style>
-<script src="thalia_files/rico.js"></script>
+<script src="./api/rico.js"></script>
 <script>
 doc = document;
 gid = id => doc.getElementById( id );
@@ -359,7 +348,7 @@ function zap( button ) {
   <span onclick="rst(this)" decal="" title="Reset Filename" filename="thalia-download.json">📃</span>
   <input type="url" id="filename" value="thalia-download.json">
 </legend>
-<textarea id="sip" class="siox" wrap="off spellcheck=" false"=""></textarea>
+<textarea id="sip" class="siox" wrap="off" spellcheck="false"></textarea>
 </fieldset>
 <div class="menu">
   <button onclick="zap(this)">⏫ Read Keys</button>
@@ -387,13 +376,43 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist
 <div center="">
 <details>
 <summary>Navigation</summary>
-<nav>
- <a title="Web Dev @ MDN" href="https://developer.mozilla.org/en-US/docs/Web/">MDN</a>
- <a title="PSK Example @ Legacy" href="http://dave-legacy/~/examples/psk.html">PSK</a>
-</nav>
+<nav id="navbar"></nav>
+<script>
+function populateNavBar( links ) {
+    function addLink( title, hint, address ) {
+        let d = document; let a = d.createElement( "A" );
+        a.textContent = title;
+        a.title = hint;
+        a.href = address;
+        navbar.appendChild( a );
+    }
+    navbar.innerHTML = "";
+    links.forEach( link => { 
+        let title   = link[ 0 ];
+        let hint    = link[ 1 ];
+        let address = link[ 2 ];
+        addLink( title, hint, address );
+    } );
+}    
+</script>
 </details>
 </div>
 
+<script>
 
+const AppLinks = [    
+    [ // [0] Title , [1] Hint , [2] Address  
+          "Web APIs"
+        , "Web APIs ~ Mozilla Developer Network"
+        , "https://developer.mozilla.org/en-US/docs/Web/" 
+    ]
+];
 
-</body></html>
+addEventListener( "load", function(e) {
+    populateNavBar( AppLinks );
+} );
+
+</script>
+
+</body>
+</html>

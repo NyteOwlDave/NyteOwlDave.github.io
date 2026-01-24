@@ -1,0 +1,20 @@
+
+/* 
+
+| siox.css         |
+|------------------|
+| @ Thalia         |
+| Morpheus Edition |
+| 2026-JAN-24      |
+
+*/
+
+.siox {
+    width      : calc( 100vw - 164px );
+    max-height : calc( 100vh - 150px );
+    min-height : 300px;
+    resize     : vertical;
+    outline    : none;
+    tab-size   : 4;
+}
+

@@ -1,0 +1,38 @@
+
+/* 
+    editor.css ~ 2025-AUG-30
+    for Morning Swill
+
+    This is the basic core theme for all TEXTAREA instances.
+    It's low priority, so overriding is simple and care free.
+
+*/
+
+
+textarea {
+    font-family : "Noto Sans Mono", monospace;
+    font-size : 16pt;
+    padding : 1ch;
+    padding-left  : 1.6ch;
+    padding-right : 1.6ch;
+    min-height : 300px;
+    overflow-x : auto scroll;
+    overflow-y : scroll;
+    width : 80%;
+    margin : 8%;
+    border : none;
+}
+
+textarea:hover {
+    background : rgb( 255, 255, 215 );
+}
+
+textarea:focus {
+    background : mintcream;
+    outline : none;
+}
+
+textarea:hover , textarea:focus {
+    color : midnightblue;
+    box-shadow : 0px 0px 1ch black;
+}

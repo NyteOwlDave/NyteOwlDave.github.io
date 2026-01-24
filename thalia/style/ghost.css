@@ -1,0 +1,12 @@
+
+/* 
+    ghost.css
+*/
+
+.hide, [hide] {
+    display : none;
+}
+
+.hidden, [hidden] {
+    opacity : 0;
+}
