@@ -1,0 +1,32 @@
+
+/* 
+    When you JUST WANT ROUND DOTS!
+    2025-APR-15
+    42/style/ozville
+    dot-42px.css
+*/
+
+@import url("http://dave-legacy/42/style/ozville/dot-42px.css");
+
+nav[dots] {
+    border : none;
+}
+
+button.dot {
+    font-size   : 32px !important;
+    line-height : 42px !important;
+    min-height  : 42px !important;
+    min-width   : 42px !important;
+    max-height  : 42px !important;
+    max-width   : 42px !important;
+    padding     :  8px !important;
+}
+
+button.dot {
+    border : none;
+    border-radius : 50%;
+    color      : inherit; 
+    background : inherit;
+    cursor : pointer;
+}
+

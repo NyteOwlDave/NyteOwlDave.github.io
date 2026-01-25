@@ -1,0 +1,88 @@
+
+/* 
+    Standard Styles for ReText Workspaces
+    2024-FEB-26
+*/
+
+html {
+    font-size : 14pt;
+} 
+
+html {
+    background : rgba( 4, 4, 42, 0.42 );
+}
+
+body {
+    background : rgba( 222, 252, 212, 0.9429 );
+}
+
+body {
+    --vp : 13px;
+    --hp : 21px;
+    padding : var( --vp );
+    padding-left  : var( --hp );
+    padding-right : var( --hp );
+}
+
+body {
+    --border: 1px solid rgba( 4, 4, 42, 0.42 );
+    border : 0;
+    border-left  : var( --border );
+    border-right : var( --border );
+}
+
+header {
+    font : 18px sans-serif;
+    font-weight : 842;
+    text-align : right;
+} 
+
+header {
+    background : rgb( 142, 142, 142 );
+}
+
+header {
+    --r : 31.415926px; /* PI Anyone? */
+    border-top-left-radius  : var( --r );
+    border-top-right-radius : var( --r );
+}
+
+header {
+    --vp : 13px;
+    --hp : 21px;
+    padding : var( --vp );
+    padding-left  : var( --hp );
+    padding-right : var( --hp );
+}
+
+button, 
+a, a:visited {
+    color : rgb( 4, 4, 4 );
+}
+
+button, 
+a {
+    --vp :  3px;
+    --hp : 11px;
+    padding : var( --vp );
+    padding-left  : var( --hp );
+    padding-right : var( --hp );
+    border-radius : 7px;
+} 
+
+button, 
+a {
+    font : inherit;
+    text-decoration : none;
+}
+
+button:hover, 
+a:hover {
+    background : rgba( 4, 4, 42, 0.4299 );
+    box-shadow : 0px 0px 11px green;
+}r
+
+button, 
+a {
+    cursor : pointer;
+}

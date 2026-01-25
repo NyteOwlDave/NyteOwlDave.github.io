@@ -1,0 +1,22 @@
+
+table {
+    display : block;
+    border : 1px solid rgba( 0, 0, 0, 0.333 ) !important;
+}
+
+table, tr {
+    width       : 80% !important;
+    min-width   : 80% !important;
+    margin-left : 8% !important;
+}
+
+td {
+    font-size : 64px;
+    padding : 21px;
+}
+
+tr, th, td {
+    text-align : center;
+}
+
+

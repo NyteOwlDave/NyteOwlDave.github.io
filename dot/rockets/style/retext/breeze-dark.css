@@ -1,0 +1,9 @@
+* { 
+   color : #eff0f1;
+   background-color: #111;
+}
+
+a, a * { color: #2980b9; }
+
+a { text-decoration: none; }
+

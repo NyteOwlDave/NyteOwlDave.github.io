@@ -1,0 +1,261 @@
+
+<style>
+body, ix, ixes { text-align : center };
+ix, blip span, blip > span {
+    display : inline-block;
+    margin-right : 1.42ch;
+}
+[contenteditable] {
+    color : navy;
+    background : rgba( 10, 10, 42, 0.333 );
+}
+*:focus {
+    color : mintcream;
+    background : midnightblue !important;
+    outline : none;
+}
+blip > * {
+    padding : 1.42ch;
+    border : none;
+    border-radius : 100%;
+    background : lemonchiffon;
+}
+</style>
+
+# Toolbox Decals
+
+## Remarks
+
+This app is incomplete. It needs persistence and many of the
+buttons just jump to the help page.
+
+The help page has the same buttons, which try to open dot rocket
+files that haven't been created.
+
+[u1]: <http://dave-omega/vortex/Chippy/Q-Dot-Maker.html> "Dot Maker App"
+
+This is an ideal chance to make use of the Dot Maker app in Chippy.
+The filename is "Q-Dot-Maker.html". Click [here][u1] to open it.
+
+---
+
+# Decals & Titles
+
+<ixes>
+    <blip><ix>🔧</ix><span>Tool</span></blip>
+    <blip><ix>🛠️</ix><span>Tools</span></blip>
+    <blip><ix>🧰</ix><span>Toolbox</span></blip> 
+</ixes>
+
+---
+
+## Output
+
+<pre id="output"></pre>
+
+---
+
+## Actions
+
+<menu>
+    <button onclick="dot(this)">Decals</button>
+    <button onclick="dot(this)">Titles</button>
+    <button onclick="dot(this)">Toggle</button>
+    <button onclick="dot(this)">Dictionary</button>
+    <button onclick="dot(this)">Export</button>
+    <button onclick="dot(this)">Import</button>
+</menu>
+
+---
+
+## Navigation
+<menu>
+    <button onclick="dot(this)">Help</button>
+    <button onclick="dot(this)">Emoji Keyboard</button>
+    <button onclick="dot(this)">Decal Wizard</button>
+    <button onclick="dot(this)">Whiteboard</button>
+    <button onclick="dot(this)">FFMPEG</button>
+</menu>
+
+---
+
+> Last Updated ~ 2025-AUG-17 ~ Omega
+
+<script>
+CE = "contenteditable";
+</script>
+
+<script>
+const ixes = document.querySelector( 'ixes' );
+</script>
+
+<script>
+function editable( gadget, enabled=true ) {  
+    if ( enabled ) {
+        gadget.setAttribute( CE, "" );
+    } else { 
+        gadget.removeAttribute( CE );
+    }
+}
+</script>
+
+<script>
+function editables( q, enabled=true ) {
+    const list = Array.from( document.querySelectorAll( q ) );
+    list.forEach( ix => editable( ix, enabled ) );
+}
+</script>
+
+<script>
+function onKeyDown( event ) {
+    if ( event instanceof Event ) {
+        const code = event.keyCode;
+        if ( [ 16, 17, 18 ].includes( code ) ) return;
+        if (! event.altKey ) return;
+        if ( code === ascii( 'X' ) ) {
+            handled( event );
+            toggleEditMode();
+            return;
+        }
+        if ( code === ascii( 'H' ) ) {
+            handled( event );
+            showHelp();
+            return;
+        }
+    }
+    function ascii( s ) {
+        return s.trim().toUpperCase().charCodeAt( 0 );
+    }
+    function handled( event ) {
+        event.stopPropagation();
+        event.preventDefault();
+    }
+}
+</script>
+
+<script>
+let editMode = "decals";
+function setEditMode( mode ) {
+    if (! onKeyDown.initialized ) {
+        addEventListener( 'keydown', onKeyDown );
+        onKeyDown.initialized = true;
+    }
+    if ( mode === 'decals' ) {
+        editables( 'ix' );
+        focusFirst( 'ix' );
+        editables( 'blip > span', false );
+    } else if ( mode === 'titles' ) { 
+        editables( 'blip > span' );
+        focusFirst( 'blip > span' );
+        editables( 'ix', false );
+    } else {
+        throw new Error( `Invalid edit mode: '${mode}'` );
+    }
+    function focusFirst( q ) {
+        const first = document.querySelector( q );
+        first.focus();
+    }
+    return ( editMode = mode );
+}
+</script>
+
+<script>
+function toggleEditMode() {
+    try {
+        if ( editMode === "decals" ) {
+            setEditMode( "titles" );
+        } else {
+            setEditMode( "decals" );
+        } 
+    } catch ( e ) { 
+        alert( e );
+    }
+}
+</script>
+
+<script>
+function main() {
+    try {
+        setEditMode( editMode );
+    } catch ( e ) { 
+        alert( e ); 
+    }
+}
+addEventListener( 'load', main );
+</script>
+
+<script>
+function showHelp() {
+    clark( "./help.html" );
+}
+</script>
+
+<script>
+function clark( url ) {
+    const ae = document.createElement( 'a' );
+    ae.href = url;
+    ae.click();
+}
+</script>
+
+<script>
+const actions = {};
+</script>
+
+<script>
+function on_decals() { setEditMode( "decals" ); }
+function on_titles() { setEditMode( "titles" ); }
+function on_toggle() { toggleEditMode() ;}
+function on_help  () { showHelp(); }
+</script>
+
+<script>
+function on_todo() {
+    throw new Error( "This feature is incomplete" );
+}
+</script>
+
+<script>
+on_dictionary = on_export = on_import = on_todo;
+on_emoji_keyboard =
+on_decal_wizard =
+on_whiteboard =
+on_ffmpeg = on_help;
+</script>
+
+<script>
+function dot( button ) {
+    try {
+        if ( button ) {
+            const key = button.textContent.trim();
+            if (! key ) { 
+                throw new Error( `Missing key: '${key}'` );
+            };
+            const action = actions[ key ];
+            if ( "function" !== typeof action ) { 
+                throw new Error( `Missing action for '${key}'` );
+            };
+            action();
+        } else {
+            actions[ 'Decals'         ] = on_decals;
+            actions[ 'Titles'         ] = on_titles;
+            actions[ 'Toggle'         ] = on_toggle;
+            actions[ 'Export'         ] = on_export;
+            actions[ 'Import'         ] = on_import;
+            actions[ 'Dictionary'     ] = on_dictionary;
+            actions[ 'Help'           ] = on_help;
+            actions[ "Emoji Keyboard" ] = on_emoji_keyboard;
+            actions[ "Decal Wizard"   ] = on_decal_wizard;
+            actions[ "Whiteboard"     ] = on_whiteboard;
+            actions[ "FFMPEG"         ] = on_ffmpeg;
+        }
+    } catch ( e ) { 
+        alert( e ); 
+    }
+}
+dot();
+</script>
+
+
+
+

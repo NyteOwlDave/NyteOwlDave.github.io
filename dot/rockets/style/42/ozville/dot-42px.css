@@ -1,0 +1,96 @@
+
+/* 
+    When you JUST WANT ROUND DOTS!
+    2025-APR-15
+    42/style/ozville
+    dot-42px.css
+*/
+
+:root {
+    --bongo   : rgba( 252,252,192, 0.842 );
+    --caprice : rgba(   4,  4,  8, 0.542 );
+}
+
+[center] { text-align : center; }
+
+.dot {
+    font-size   : 32px !important;
+    line-height : 42px !important;
+    min-height  : 42px !important;
+    min-width   : 42px !important;
+    max-height  : 42px !important;
+    max-width   : 42px !important;
+    padding     :  8px !important;
+}
+
+body {
+    padding-top   : 74px;
+    margin-bottom : 42vw;
+}
+
+header {
+    border     : none !important; 
+    position   : fixed;
+    top        : 0px;
+    left       : 0px;
+    width      : 100%;
+    min-height : 74px;
+    max-height : 74px;
+    padding    : 0;
+}
+
+footer {
+    color : var( --bongo ) !important;
+    text-shadow : 0px 0px 5px black;
+}
+
+fieldset, footer {
+    background : var( --caprice ) !important;
+}
+
+fieldset {
+    border-radius : 42px;
+    padding       : 21px;
+    margin-top    : 21px;
+}
+
+legend {
+    width         : 80% !important;
+    margin-left   : 8%  !important;
+    color         : transparent !important;
+    background    : transparent !important;
+    display       : inline-block !important;
+}
+
+legend input {
+    display       : inline-block !important;
+    width         : 100%   !important;
+    margin        : 0      !important;
+    border-radius : 21px   !important;
+    padding       : 8px    !important;
+    padding-right : 21px   !important;
+    padding-left  : 21px   !important;
+}
+
+textarea, table, input {
+    font-family : "Noto Sans Mono", monospace;
+    font-size   : 16pt;
+}
+
+table, thead, tbody, tr, th, td,
+fieldset, legend, 
+textarea, input {
+    border      : none !important;
+}
+
+th, td {
+    padding : 4px;
+    padding-right : 7px;
+    padding-left  : 7px;
+}
+
+td:focus {
+    color      : black;
+    background : lemonchiffon;
+}
+

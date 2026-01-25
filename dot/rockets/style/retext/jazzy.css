@@ -1,0 +1,75 @@
+
+/*
+
+    Jazz Style (Because It's What Popped Into My Head)
+    2025-FEB-26
+
+    This is the stylsheet for the `Edit Whiteboard` app, which is a URL
+    slicer / splicer (like Earl).
+
+    Truth be told, the name wasn't completely random. The psychedelic colors
+    for the input gadgets are sort of "jazzy", eh?
+
+*/
+
+button,
+input {
+    --vp : 5px;
+    --hp : 12px;
+    padding : var( --vp );
+    padding-left  : var( --hp );
+    padding-right : var( --hp );
+    border-radius : 7px;
+}
+
+input {
+    display : block;
+    width  : 90vw;
+    margin : 1px;
+    margin-left  : 4vw;
+    margin-right : 4vw;
+    font : 14pt monospace;
+}
+
+a ,
+button {
+    cursor : pointer;
+}
+
+a:hover ,
+button:hover ,
+input:hover {
+    box-shadow : 0px 0px 15px red;
+}
+
+input {
+    color : midnightblue;
+    background : mintcream;
+}
+
+input:focus {
+    background : midnightblue;
+    color : mintcream;
+}
+
+[jeeves] {
+    border-width: 4px;
+    border-style: solid ;
+    border-image: linear-gradient(to bottom, gold, blue) 1;
+    background-image: linear-gradient(to bottom, blue, gold) 1;
+}
+
+a {
+    text-decoration : none;
+}
+
+header {
+    text-align : right;
+    font : 11pt sans-serif;
+}
+
+body {
+    margin-bottom : 33vh;
+}
+
+

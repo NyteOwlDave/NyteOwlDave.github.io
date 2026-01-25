@@ -1,0 +1,68 @@
+
+<title>Roulette Notebook</title>
+<script>
+const url = "https://bit.ly/ncs-roulette-notebook";
+</script>
+
+<script>
+const PopupWindow = {
+	target: "_popup_" ,
+	options: [
+		'width=600' ,
+		'height=500' ,
+		'left=400' ,
+		'top=100' ,
+		'scrollbars=yes' ,
+		'resizable=yes' ,
+		'toolbars=yes'
+	] ,
+    open( url, target ) {
+	    const self = PopupWindow;
+	    function onClick( evt ) {
+	        const options = self.options.join( "," );
+	        window.open( '', self.target, options );
+	    }
+	    if ( "string" == typeof target ) {
+		    self.target = target;
+	    }
+	    if ( "string" != typeof url ) {
+		    url = window.location;
+	    }
+		const a = document.createElement( 'a' );
+		a.href = url;
+		a.target = self.target;
+		a.onclick = onClick;
+		a.click();
+    }
+};
+</script>
+
+<!-- ############################### --->
+
+<script>
+function autoClose() {
+    const ok = () => window.close();
+    console.log( "Close requested" );
+    setTimeout( ok, 500 );
+}
+function popup() {
+    PopupWindow.open( url );
+    autoClose();
+}
+function browse() {
+    window.location = url;
+}
+</script>
+
+<link rel="icon" href="http://dave-probook/media/Icons/rocky.png">
+<link rel="stylesheet" href="http://dave-probook/std/style/md/latest.css">
+
+<main>
+ <p>
+  How would you like to visit this site?
+ </p>
+ <button onclick="popup()">Popup Window</button>
+ <button onclick="browse()">Use the Browser</button>
+</main>
+
+

@@ -1,0 +1,121 @@
+<meta charset="utf-8">
+<title>Ⓢⓨⓢⓣⓔⓜ 𝟜𝟚</title>
+
+<link rel="stylesheet" href="./style/applet/42.css">
+<script src="./api/applet/squad-legends.js">
+</script>
+
+<!--
+<link rel="stylesheet" 
+ href="https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.1.0/400.min.css">
+-->
+
+<link rel="stylesheet" 
+ href="/42/style/applet/geist.css">
+
+<style>
+    html {
+        color :blanchedalmond;
+        padding : 10em;
+        text-align: center;
+        font-family : 'Geist Sans', sans-serif;
+    }
+    body {
+        width : calc( 100vw - 20em - 1px);
+        height : unset;
+        background-image: url("/42/art/wallpaper/system-42.png");
+    }
+    main {
+        padding : 21px;
+        width : inherit;
+        height : inherit;
+        border-radius : 42px;
+        background : rgba( 2, 2, 2, 0.4242 );
+        text-shadow : 0px 0px 11px black;
+        transform : translate( -30px, -30px );
+    }
+    main, input, button {
+        box-shadow: 0px 0px 11px black;
+    }
+    input {
+        border-radius: 5px;
+        background-color: cadetblue;
+    }
+    button:before {
+        content : "🚀";
+        padding-right : 3px;
+    }
+    button:after {
+        content : "🦝";
+        padding-left : 3px;
+    }
+    input, button {
+        text-decoration: solid;
+        font : 13pt monospace;
+        --hp : 9px;
+        padding : 3px;
+        padding-left : var( --hp );
+        padding-right : var( --hp );
+    }
+    *:focus {
+        background-color :wheat;
+        color :rgba( 2, 2, 2, 0.8484 )
+    }
+    [rocky] {
+        width : 64px;
+    }
+</style>
+
+<script>
+function announce( ... what ) {
+    console.log( ... what );
+}
+</script>
+
+<script>
+        let hash = location.hash.substring( 1 );
+hash = (!! hash ) ? hash : "legacy";
+const sys42 = `http://dave-${hash}/42/Ⓢⓨⓢⓣⓔⓜ-𝟜𝟚.html`;
+function confirm( caption, suggestion ) {
+    const s = prompt( caption, suggestion );
+    return s ? s.trim() : null;
+}
+function system42( event ) {
+    announce( "Confimation event handled" );
+    inputUrl.value = sys42;
+    let msg = "Are you sure you want to open this page?";
+    let = url = confirm( msg, sys42 ); 
+    if ( url ) {
+        announce( "Confirmed" );
+        location = url;
+    } else {
+        announce( "Launch request denied" );
+    }
+}
+function launch() {
+    announce( "Launching..." );
+    location = inputUrl.value;
+}
+function onPageLoad( event ) {
+    announce( "Page loaded" );
+    setTimeout( system42, 333 );
+    announce( "Timer set" );
+}
+addEventListener( 'load', onPageLoad );
+</script>
+
+<main>
+<h1>Rocketeer Lite</h1>
+<h2>Version 3.1415927</h2>
+<figure>
+    <img rocky src="/42/art/rocky-real.png">
+</figure>
+<p>
+    <div>Your Destination</div> 
+    <br>
+    <input style="width : 80%" id="inputUrl">
+    <br><br>
+    <button onclick="launch()">Visit</button>
+</p>
+</main>
+    

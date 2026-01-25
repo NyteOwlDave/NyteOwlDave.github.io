@@ -1,0 +1,12 @@
+[
+  "isArray =( o )=> ( Array.isArray( o ) );\nisMethod =( o )=> ( o instanceof Function );\nisObject =( o )=> ( o instanceof Object );\nisIterable =( o )=> ( isMethod( o[ Symbol.iterator ] ) );\n",
+  "\ntabulate = function( o ) {\n   function entry( k ) {\n      let v = ( o[ k ]   );\n      let t = ( typeof v );\n      return [ t, k, v ];\n   }\n   if ( isObject( o ) ) {\n      let keys = Object.keys( o );\n      return ( keys.map( entry ) );\n   }\n   return [[ String( o ) ]];\n};\n\n\"Done!\";\n\n",
+  "\nmessage = function( o ) {\n    if ( isObject( o ) ) {\n       if ( isIterable( o ) ) {\n          o = Array.from( o );\n       }\n       if ( isArray( o ) ) {\n          return o.map( message ).join( \"\\n\" );\n       }\n       return tabulate( o );\n    }\n    return String( o );\n};\n",
+  "mention = function( o ) {\n  zed( 0, message( o ) );\n};\n",
+  "mention(\n  Object.keys( localStorage )\n);",
+  "getManuscript = function() {\n  sip = ebi( \"sip\" );\n  \n};"
+]
+
+zuul = function( list ) {
+  list.forEach( s => zed( 0, s ) );
+};

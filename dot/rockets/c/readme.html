@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+/*[[ ReText Styles | 2024-JUN-20 ]]
+*/
+
+:root {
+    --fgnd: #EDC;
+    --bgnd: #123;
+    --table-bgnd: #FFEEDD;
+    --table-fgnd: #001122;
+    --odd-bgnd: #223344;
+    --even-bgnd: #334455;
+    --shadow: 4px 4px 7px rgb(135, 135, 126);
+    --shadow-anchor: 1px 1px 9px rgb(135, 135, 126);
+}
+
+* {
+    font-size: xx-large;
+    z-index: 0;
+}
+
+body {
+    font: 14pt sans-serif;
+    color: var(--fgnd);
+    background-color: var(--bgnd);
+    margin: 0;
+    padding: 0;
+}
+
+body > header::first-child {
+    margin-top: 30px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+    margin-left: 16px;
+    text-shadow: var(--shadow);
+}
+
+main, div, p, ul, ol, table, form, video, iframe,
+nav, article, section, blockquote, address {
+    margin-left: 20px;
+}
+
+blockquote {
+  padding: 5px;
+  border-left: 3px solid green;
+  color: rgba(100, 255, 100, 0.8);
+  background-color: rgba(100, 255, 100, 0.1);
+}
+
+textarea, input, pre, blockquote {
+  font: 13pt monospace;
+  padding: 0.5em;
+}
+
+iframe {
+    border: 1px solid rgba(255, 0, 0, 0.25);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 32pt;
+    text-align: center;
+}
+
+header, footer {
+    margin: 0;
+    font-family: verdana, tahoma, sans-serif;
+    z-index: 12345;
+    color: var(--bgnd);
+    background-color: var(--fgnd);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+footer, header {
+    margin: 0;
+    width: calc(100% - 8px);;
+    padding: 4px;
+    user-select: none;
+    cursor: none;
+}
+
+table {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    box-shadow: var(--shadow);
+    border: transparent;
+    border-collapse: collapse;
+}
+
+video {
+    border: 5px solid green;
+}
+
+table thead {
+    font-size: x-large;
+}
+
+table thead tr {
+    color: var(--table-fgnd);
+    background-color: var(--table-bgnd);
+}
+
+table td {
+    padding: 4px 8px;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--odd-bgnd);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--even-bgnd);
+}
+
+table th, table td {
+    font: inherit;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+fieldset {
+    border: 1px solid var(--fgnd);
+    border-radius: 1em;
+    width: calc(100% - 2em);
+    margin-bottom: 20px;
+}
+
+fieldset legend {
+    border: 1px solid var(--fgnd);
+    color: var(--bgnd);
+    background-color: var(--fgnd);
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 1em;
+    user-select: none;
+    cursor: not-allowed;
+}
+
+[spacer] {
+    margin-top: 200px;
+}
+
+[clickable] {
+    cursor: pointer;
+}
+
+[inverse] {
+    background-color: var(--fgnd);
+    color: var(--bgnd);
+}
+
+[center] {
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+[indent] {
+    padding-left: 10px;
+}
+
+code {
+    color: skyblue;
+    font-weight: 900;
+}
+
+pre {
+    background-color: #225;
+    padding: 1em;
+}
+
+pre.signature {
+    text-align: right;
+    align-content: right;
+    color: skyblue;
+    background-color: #202010;
+    font-weight: 900;
+    border-radius: 5px;
+}
+
+b, figcaption {
+    color: #FFFF9E
+}
+
+figcaption {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+kbd {
+    border: 1px solid #222;
+    border-radius: 5px;
+    background-color: gray;
+    color: black;
+    font-family: monospace;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.pulsate-container {
+    display: inline-block;
+    position: relative;
+}
+
+a {
+    text-shadow: var(--shadow-anchor);
+    color: inherit;
+    background-color: inherit;
+    font-weight: 400;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+a:hover {
+    display: inline-block;
+    font-size: 1rem;
+    animation: pulsate 2s infinite;
+  font-weight: 700;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+nav {
+    margin-left: 20px;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+.shiver-container {
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.shiver-text {
+    display: inline-block;
+    animation: shiver 0.5s infinite;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+@keyframes shiver {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+</style>
+<meta name="generator" content="ReText 7.1.0">
+<title>reamd</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<h1>Rockets</h1>
+<p>NCSWS on NEO will no longer store rockets.</p>
+<p>Refer instead to the <strong>Rockets Share</strong>.</p>
+<ul>
+<li><a href="http://neo/shares/rockets">Browser</a></li>
+</ul>
+<p>Or copy and paste the appropriate Samba path
+for the OS you're using.</p>
+<pre><code class="windows">\\neo\rockets
+</code></pre>
+
+<pre><code class="linux">smb://neo/rockets
+</code></pre>
+
+</body>
+</html>

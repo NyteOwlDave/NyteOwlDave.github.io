@@ -1,0 +1,42 @@
+@import url("http://dave-legacy/rt/style/std-css.css");
+/*
+@import url("");
+@import url("");
+@import url("")'
+*/
+
+:root {
+    --sip-font-size : 16.42pt;
+}
+
+textarea[sip] ,
+textarea[sop] ,
+textarea[ser] {
+    min-height : 10em;
+    resize : vertical;
+    whitespace : nowrap;
+    overflow : scroll;
+}
+
+textarea[sip] ,
+textarea[sop] ,
+textarea[ser] {
+    --pad2 : calc( 2 * 0.42em );
+    width  : calc( 100% - 2.09em );
+    --pad  : calc( 4px + 2 * 0.42em );
+    --vp   : var( --pad );
+    --hp   : var( --pad );
+    padding : var( --vp );
+    padding-right : var( --hp );
+    padding-left  : var( --hp );
+}
+
+textarea[sip] ,
+textarea[sop] ,
+textarea[ser] {
+    --sz   : var( --sip-font-size );
+    font-size : var( --sz );
+    font-family : monospace;
+}
+
+

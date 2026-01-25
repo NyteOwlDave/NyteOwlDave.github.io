@@ -1,0 +1,25 @@
+
+footer input {
+    display : inline-block;
+    width  : inherit;
+    height : inherit;
+    border : none;
+    margin : 0;
+    margin-bottom : 1ch;
+    color : inherit;
+    background : transparent;
+    padding : 5px;
+    padding-left  : 1.42ch;
+    padding-right : 1.42ch;
+    outline : none;
+    font : 11pt monospace;
+    transform : translate( 0px, 5px );
+}
+
+footer {
+    margin  : 0;
+    padding : 0;
+    color : var( --bg );
+    background : var( --fg );
+    line-height : 3ch;
+}

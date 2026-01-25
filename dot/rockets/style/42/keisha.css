@@ -1,0 +1,110 @@
+ 
+/* 
+
+    + Keisha ~ 2025-MAR-19
+    @ /42/style
+    + keisha.css
+
+*/
+
+@import url("./personal.css");
+@import url("./table-editor.css");
+
+
+head, head * {
+    display : none;
+}
+
+main {
+    position : absolute;
+    top : 88px;
+    margin-top : 88px;
+}
+
+
+header {
+    top : 0;
+    margin-top : 0;
+}
+
+header nav {
+    display : block;
+}
+
+.title-bar {
+    position : absolute;
+    display  : block;
+    left : 0;
+    margin : 0;
+    height : 84px;
+    line-height : 70px;
+}
+
+
+.title-bar {
+    background : rgba( 142, 142, 122, 0.42 );
+    overflow : hidden;
+    padding-left : 10px;
+    text-align : left;
+}
+
+.title-bar * {
+    margin : 0;
+    display : inline-block;
+    white-space : nowrap;
+    overflow : hidden;
+}
+
+.title-bar {
+    width : 100%;
+    max-width : 100%;
+}
+
+.title-bar #title {
+    width : calc( 100% - 180px );
+    max-width : calc( 100% - 180px );
+}
+
+.title-bar menu[dots] {
+    width : 86px;
+    max-width : 86px;
+}
+
+.title-bar #title {
+    --vp : 8px;
+    margin-top    : var( --vp );
+    margin-bottom : var( --vp );
+    --hp : 12px;
+    padding-right : var( --hp );
+    padding-left  : var( --hp );
+}
+
+.title-bar #title:focus {
+    color : gold;
+    background : midnightblue;
+}
+
+.title-bar menu[dots] {
+    --vm :  8px;
+    --hm : 10px;
+    margin : 0;
+    margin-bottom : var( --vm );
+    margin-right  : var( --hm );
+    margin-left   : var( --hm );
+    padding-left : 20px;
+    text-align : left;
+}
+
+.version {
+    position : absolute;
+    left : 20px;
+    display: inline-block;
+    text-align : left;
+    color : black;
+    background : inherit;
+    text-shadow : 0px 0px 12px gold;
+    font-weight : 900;
+    font-size : 18px;
+    font-family : sans;
+}
+

@@ -1,0 +1,14 @@
+
+/* 
+
+<link rel="stylesheet"
+ href="http:/dave-legacy/42/style/noto-sans-mono.css">
+
+*/
+
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-mono@5.2.6/index.min.css");
+
+textarea, pre, code, samp, kbd {
+    font-family : "Noto Sans Mono", monospace;
+}
+

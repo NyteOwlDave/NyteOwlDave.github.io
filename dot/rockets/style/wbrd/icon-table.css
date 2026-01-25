@@ -1,0 +1,32 @@
+
+/* 
+    EXAMPLE USE: 
+
+        Q-Repository.md
+        q.js
+*/
+
+table.icons {
+    display : block;
+    border : 1px solid rgba( 0, 0, 0, 0.333 ) !important;
+}
+
+table.icons, 
+table.icons tr {
+    width       : 80% !important;
+    min-width   : 80% !important;
+    margin-left : 8% !important;
+}
+
+table.icons td {
+    font-size : 64px;
+    padding : 21px;
+}
+
+table.icons tr, 
+table.icons th, 
+table.icons td {
+    text-align : center;
+}
+
+

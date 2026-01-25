@@ -1,0 +1,157 @@
+
+<!--
+    FULL NAME : Zeddicus Zu'l Zorander
+    SOURCE    : Legend of the Seeker
+-->
+
+<div id="scioe-owner" center>
+
+<fieldset id="sip-fieldset" center>
+<legend id="sip-legend">Input</legend>
+<textarea id="sip" class="siox">
+/* SIP */
+</textarea>
+</fieldset>
+
+<fieldset id="sop-fieldset" center>
+<legend id="sop-legend">Output</legend>
+<textarea id="sop" class="siox">
+/* SOP */
+</textarea>
+</fieldset>
+
+<fieldset id="ser-fieldset" center>
+<legend id="ser-legend">Errors</legend>
+<textarea id="ser" class="siox">
+/* SER */
+</textarea>
+</fieldset>
+
+<fieldset id="sce-fieldset" center>
+<legend id="sce-legend">Code</legend>
+<textarea id="sce" class="siox">
+/* SCE */
+</textarea>
+</fieldset>
+
+</div>
+
+<div id="zed-owner" center>
+<style details="zedicus">
+.zedicus {
+    display    : block;
+    min-height : 10ch;
+    
+}
+#zed-menu > button {
+    display : inline-block;
+    color : midnightblue;
+    background : lemonchiffon;
+    width : 12ch;
+    border-radius : 3ch;
+    border : none;
+    outline : none;
+    user-select : none;
+    cursor : pointer;
+}
+#zed-menu > button:focus {
+    color : mintcream;
+    background : midnightblue;
+    box-shadow : 0px 0px 1ch gold;
+}
+#zed-menu > button:hover {
+    color : mintcream;
+    background : midnightblue;
+    box-shadow : 0px 0px 2ch gold;
+    animation  : linear 0.12s bloom forwards;
+}
+</style>
+<style details="Bloom Animation">
+@keyframes bloom {
+    from {
+        box-shadow : 0px 0px 2ch gold;
+        transform : scale( 1.0, 1.0 );
+    }
+    to {
+        box-shadow : 0px 0px 3ch black;
+        transform : scale( 1.2, 1.2 );
+    }
+}
+</style>
+<script details="zool ()">
+function zool( button ) {
+    let s = button.innerText.trim();
+    s = s.slice( " " ).join( "_" ).toLowerCase();
+    return ( [ "on_", s, "()" ] . join( "" ) );
+}
+<script>
+<script details="encant ()">
+function encant( button ) {
+    try {
+        window.eval( zool( button ) );
+    } catch ( e ) {
+        dangit( e );
+    }
+}
+</script>
+<script details="on_compose ()">
+function on_compose() {
+    let BTN = "BUTTON";
+    let arr =( o )=> Array.from( o );
+    let menu = gebi( "zed-menu" );
+    let buttons = arr( menu.querySelectorAll( BTN ) );
+    let doc = ( buttons.map( zool ) . join( "\n" ) );
+    _zed( doc );
+}
+function dangit( e ) {}
+function _msg( o ) {}
+function _newid() {
+    let a = Date.now();
+    let b = Math.random();
+    let c = Math.random();
+    let d = ( a * b + c );
+    let s = d.toString( 32 );
+    let t = s.split( "." ).join( "_" );
+    let id = [ "id", s ].join( "_" );
+    console.log( { "New ID" : { a, b, c, d, s, t, id } } );
+    return id;
+}
+</script>
+<script details="_zed ()">
+function _zed( s ) {
+    let ED   = "TEXTAREA";
+    let doc  = document;
+    let ed   = doc . createElement( ED );
+    ed.id    = _newid();
+    ed.value = _msg( s );
+    ed.wrap = "off";
+    ed.spellcheck = false;
+    ed.classList.add( "zed" );
+    gebi( "zed" ).appendChild( ed );
+    return ed;
+}
+</script>
+<fieldset id="zed-fieldset" center>
+<legend id="zed-legend">Zedicus</legend>
+<div id="zed" class="zedicus">
+(pending)
+</div>
+<div id="zed-menu" class="menu">
+<button onclick="encant(this)">Add</button>
+<button onclick="encant(this)">Remove</button>
+<button onclick="encant(this)">Save</button>
+<button onclick="encant(this)">Open</button>
+<button onclick="encant(this)">Persist</button>
+<button onclick="encant(this)">Recover</button>
+<button onclick="encant(this)">Rename</button>
+<button onclick="encant(this)">Download</button>
+<button onclick="encant(this)">Upload</button>
+<button onclick="encant(this)">Mail</button>
+<button onclick="encant(this)">Clear</button>
+<button onclick="encant(this)">Reset</button>
+<button onclick="encant(this)">Compose</button>
+<button onclick="encant(this)">Show Keys</button>
+</div>
+</div>
+
+

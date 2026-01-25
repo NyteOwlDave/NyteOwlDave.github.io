@@ -1,0 +1,24 @@
+
+/* 
+
+    std.css
+    for ReText Markdown Files
+    
+    This is a system-wide change maker. The intext is to set this
+    as the default style for ReText.
+
+    The implication of this is that anything placed here will be
+    embedded in all HTML files published with ReText while that
+    above condition is met.
+
+    It's preferable to use all @import directives here. This will
+    eliminate the issue of code bloat that prompted me to stop using
+    and default css for generated HTML.
+
+    At present, Morning Swill is my primary PMS tool, so this is
+    the preferred style.
+
+*/
+
+@import url("http://dave-omega/Swill/style/swill.css");
+

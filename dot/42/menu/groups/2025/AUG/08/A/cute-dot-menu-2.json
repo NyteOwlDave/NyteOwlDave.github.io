@@ -1,0 +1,103 @@
+{
+  "menuDots": [
+    [
+      {
+        "url": "http://dave-legacy/x3a/notebook.html",
+        "decal": "📕",
+        "title": "http://dave-legacy/x3a/notebook.html",
+        "tikey": "32b40f93-c476-41d9-bab7-6ec53fe5cd57"
+      },
+      {
+        "url": "http://dave-legacy/rt/Keisha/Kashawna.html#A05",
+        "decal": "📝",
+        "title": "Kashawna Graphics Editor",
+        "tikey": "1b4f3ae5-3954-46e7-ae79-c1ccc3db446a"
+      },
+      {
+        "url": "http://dave-legacy/x3a/notebook.html",
+        "decal": "📦",
+        "title": "http://dave-legacy/x3a/notebook.html",
+        "tikey": "eb2ef4b8-c329-436c-a17d-31f9fb506d69"
+      },
+      {
+        "url": "http://dave-legacy/std/app/snagger/Floobers/",
+        "decal": "🐸",
+        "title": "Floobers",
+        "tikey": "defc1508-a0ee-4b93-893a-5202650c9b98"
+      },
+      {
+        "url": "http://dave-legacy/std/app/snagger/",
+        "decal": "🗃",
+        "title": "Workspace",
+        "tikey": "47dfb485-594f-4573-a6b1-e47904743ca4"
+      },
+      {
+        "url": "http://dave-legacy/42/dots/dot.grok.html",
+        "decal": "🤖",
+        "title": "Grok",
+        "tikey": "c1b8c343-1ca6-417d-b752-95f1a6b5a302"
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types",
+        "decal": "🦊",
+        "title": "Drag-Drop Types | MDN",
+        "tikey": "554560c1-6c48-491e-96ed-fb88e5c02cba"
+      },
+      {
+        "url": "https://onedrive.live.com/edit.aspx?resid=A698F7622548FA93!s3c165235bee441789477874797892397&migratedtospo=true&wd=target%28Assets.one%7Cbef47073-34f8-4538-beaf-7d29b8201d39%2FAbout%20Assets%7C4d8104ef-6007-4c42-b3fb-fb7a11bd8df2%2F%29&wdorigin=NavigationUrl",
+        "decal": "📘",
+        "title": "System 42 Notebook",
+        "tikey": "320568bd-36b8-4657-b031-977085b5935a"
+      },
+      {
+        "url": "http://dave-legacy/std/app/snagger/dev-notes.html",
+        "decal": "📒",
+        "title": "http://dave-legacy/std/app/snagger/dev-notes.html",
+        "tikey": "67ec1c5d-7d23-4a19-b724-f9dfa95bc056"
+      }
+    ],
+    [
+      {
+        "url": "https://play.google.com/store/apps/details?id=com.activision.peanuts&pli=1",
+        "decal": "🐕",
+        "title": "Snoopy Game",
+        "tikey": "a53ef977-c925-40af-ae4b-e6dcf6aebac0"
+      }
+    ],
+    [
+      {
+        "url": "https://www.google.com/search?q=stencil%20art%20images&udm=2&tbs=rimg:CeQmGQr6IGMXYXr-h48P4N4BsgIAwAIA2AIA4AIA&cs=1&hl=en&sa=X&ved=0CBwQuIIBahcKEwjo_8j3z-GMAxUAAAAAHQAAAAAQBw&biw=747&bih=687&dpr=1.25",
+        "decal": "✒️",
+        "title": "Stencil Search",
+        "tikey": "8233fbd4-29e6-4738-a727-eb28bbca5a0e"
+      }
+    ]
+  ],
+  "menuCorners": [
+    {
+      "x": 1131.2236328125,
+      "y": 399.19500732421875,
+      "computed": {
+        "x": "1092.08px",
+        "y": "330.755px"
+      }
+    },
+    {
+      "x": 1059.465087890625,
+      "y": 84.96499633789062,
+      "computed": {
+        "x": "1042.5px",
+        "y": "68.0025px"
+      }
+    },
+    {
+      "x": 1220.2525634765625,
+      "y": 75.61499786376953,
+      "computed": {
+        "x": "1203.29px",
+        "y": "58.6525px"
+      }
+    }
+  ],
+  "tikey": "108d6324-1296-466d-b068-28d3596f47ab"
+}

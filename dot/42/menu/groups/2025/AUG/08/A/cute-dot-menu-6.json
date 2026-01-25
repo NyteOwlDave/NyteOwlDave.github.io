@@ -1,0 +1,55 @@
+{
+  "menuDots": [
+    [
+      {
+        "url": "https://calendar.google.com/calendar/u/0/r",
+        "decal": "🗓️",
+        "title": "https://calendar.google.com/calendar/u/0/r",
+        "tikey": "9f666940-4dae-437f-a887-6759298126f8"
+      }
+    ],
+    [
+      {
+        "url": "http://localhost/vortex/Downloads/%5b%5b%20SORT%20ME%20%5d%5d/vulcano.html",
+        "decal": "🌋",
+        "title": "Vulcano",
+        "tikey": "79877b1d-5b37-4e29-a313-12cbb2051a0b"
+      }
+    ],
+    [
+      {
+        "url": "https://gist.github.com/NyteOwlDave",
+        "decal": "🔍",
+        "title": "https://gist.github.com/NyteOwlDave",
+        "tikey": "e9b45856-b268-427a-9bc1-6a8a2941e485"
+      }
+    ]
+  ],
+  "menuCorners": [
+    {
+      "x": 274.12750244140625,
+      "y": 134.08999633789062,
+      "computed": {
+        "x": "257.169px",
+        "y": "117.131px"
+      }
+    },
+    {
+      "x": 130.302490234375,
+      "y": 133.302490234375,
+      "computed": {
+        "x": "113.345px",
+        "y": "116.342px"
+      }
+    },
+    {
+      "x": -12.422503471374512,
+      "y": 146.4149932861328,
+      "computed": {
+        "x": "-29.392px",
+        "y": "129.45px"
+      }
+    }
+  ],
+  "tikey": "5fcb9f03-0823-4aab-a74f-604178323e0b"
+}

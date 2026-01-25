@@ -1,0 +1,112 @@
+
+html {
+    margin : 0;
+    color : rgb( 2, 2, 42 );
+    background : rgb( 242, 242, 222 );
+}
+
+body {
+    margin-top : 0;
+}
+
+.show-dot,
+header a {
+    display : inline;
+    border : 0;
+    border-radius : 50%;
+    background : rgba( 42, 42, 42, 0.42 );
+    --vp : 6px;
+    --hp : 6px;
+    padding : var( --vp );
+    padding-right : var( --hp );
+    padding-left  : var( --hp );
+}
+
+header a:focus {
+    box-shadow : 0px 0px 17px green;
+    border : 1px inset black;
+}
+
+header a:hover {
+    box-shadow : 0px 0px 17px gold;
+}
+
+#key-info {
+    border-radius : 7px;
+}
+
+footer {
+    padding-top : 16px;
+}
+
+table, thead, tbody, tr, th, td {
+    border : 0;
+}
+
+table {
+    width : calc( 100vw - 100px );
+    --vm : 42px;
+    --hm : 42px;
+    margin : var( --vm );
+    margin-right : var( --hm ); 
+    margin-left  : var( --hm ); 
+}
+
+thead {
+    font : large;
+}
+
+tbody tr:nth-child(odd) {
+    background : rgba( 42, 42, 42, 0.42 );
+}
+
+tbody tr:nth-child(even) {
+    background : rgba( 42, 42, 42, 0.22 );
+}
+
+tbody tr {
+    border-bottom : 1px solid rgba( 42, 82, 82, 0.82 );
+}
+
+tbody tr:last-child {
+    border-bottom : 0;
+}
+
+tbody tr td:first-child {
+    text-align : center;
+    font-weight : 942;
+}
+
+td, input {
+    --vp : 2px;
+    --hp : 7px;
+    padding : var( --vp );
+    padding-right : var( --hp );
+    padding-left  : var( --hp );
+}
+
+input, button, select {
+    border : 0;
+    border-radius : 11px;
+    background : rgba( 42, 42, 42, 0.42 );
+    --vp : 6px;
+    --hp : 9px;
+    padding : var( --vp );
+    padding-right : var( --hp );
+    padding-left  : var( --hp );
+}
+
+.show-dot {
+    display : inline;
+}
+
+.hide-dot {
+    display : none;
+}
+
+::placeholder {
+    color: rgba( 42, 42, 22, 0.942 );
+    opacity: 1;
+}
+
+

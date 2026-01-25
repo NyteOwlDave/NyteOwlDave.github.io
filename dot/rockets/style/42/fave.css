@@ -1,0 +1,22 @@
+
+html, body {
+    color : rgb( 2, 2, 42 );
+    background : rgba( 242, 242, 142, 0.9420 );
+}
+
+/* dot button */
+a {
+    text-decoration : none;
+    border-radius : 20px;
+    background : rgba( 0, 0, 0, 0.42 );
+    padding : 0.42em;
+}
+
+ul, ul li {
+    list-style-type : none;
+}
+
+ul li:before {
+    content : "\22c4"; /* U+22C4 = ⋄ */
+    margin-right: 0.42ch;
+}

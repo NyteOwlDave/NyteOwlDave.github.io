@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>belinda-help-2</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<h1>Belinda UI</h1>
+<p>If I were to create a UI for Belinda, this is what I would do.</p>
+<p>For fun, let's make this a tutorial project. We'll start one step
+at a time with basics and grow the project from there, organically.</p>
+<h1>Define Data Requirements</h1>
+<p>Popups take three parameters. Nine altogether, because the third
+is multi-part (has up to 7 members).</p>
+<p>The basic call is:</p>
+<pre><code class="language-JavaScript">
+window.open( url, target, options ) := Window
+
+</code></pre>
+<p>All three are optional. </p>
+<h1>Blank Slate (no URL)</h1>
+<p>If no arguments are specified, the typical
+browser response is to create an empty window (usually this resides
+in a new browser tab). This tab as a location (URL) of <code>about:blank</code>.</p>
+<p>It's up to the app to then manually write content into this new
+window's document. We'll discuss that option later.</p>
+<p>If a URL is specified, the browsers tries to open it for display. 
+This may result in any of the errors we see (e.g. 403, 404, and
+so on).</p>
+<h1>Targets</h1>
+<p>Targets are window names. These are used to indicate to the browser
+which window (tab, popup, etc) a page should be loaded into.</p>
+<p>Oftentimes, especially when a single popup or tab is needed and will
+be reused, this parameter is set to "_blank". There's no rule about
+this that I'm aware of, just common practice.</p>
+<p>I don't know for certain, but presumably the browser consider an
+empty/invalid/null/undefined parameter here as all referring to
+a single default object.</p>
+<h1>Options</h1>
+<p>Now we get to the real purpose of this exercise. Coming up with
+a URL and unique target name are simple. This one is a bit more
+complicated.</p>
+<p>The <code>options</code> parameter consists of four parts. Again, this can be
+expanded to seven parts since one is compound.</p>
+<ul>
+<li>Rectangle Location</li>
+<li>Show Scrollbars? (yes/no)</li>
+<li>Menu? (yes/no)</li>
+<li>Resizable (yes/no)</li>
+</ul>
+<p>Let's break these down in a table, for future reference.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td>Number</td>
+<td>X-coord for top-left corner</td>
+</tr>
+<tr>
+<td>top</td>
+<td>"</td>
+<td>Y-coord for top-left corner</td>
+</tr>
+<tr>
+<td>width</td>
+<td>"</td>
+<td>Window width</td>
+</tr>
+<tr>
+<td>height</td>
+<td>"</td>
+<td>Window height</td>
+</tr>
+<tr>
+<td>resizable</td>
+<td>Yes/No</td>
+<td>Allow resizing?</td>
+</tr>
+<tr>
+<td>scrollbars</td>
+<td>Yes/No</td>
+<td>Show scrollbars</td>
+</tr>
+<tr>
+<td>toolbars</td>
+<td>Yes/No</td>
+<td>Show toolbars</td>
+</tr>
+</tbody>
+</table>
+<h1>Defaults</h1>
+<p>If no options are specified, the normal default is for
+the browser to fall back on using a new tab, rather
+than a popup. You need to at least specify <code>top</code> and
+<code>left</code> (the corner point; also call the <code>anchor</code> point).</p>
+<p>The version of Chrome that I'm using assumes <code>yes</code> for
+any boolean (yes/no) parameter not provided. I have no idea
+if this applies universally or varies by browser.</p>
+<p>So, a minimal example is in order.</p>
+<h1>Example</h1>
+<p>Let's say we just want to popup a blank window. Nothing
+fancy. No content. Just a blank form. We'll try it now.</p>
+<blockquote>
+<p>This ony works in the browser. Not ReText.</p>
+</blockquote>
+<pre><code class="language-javascript">
+options = &quot;left=100; top=100&quot;;
+window.open( &quot;&quot;, &quot;_blank&quot;, options );
+
+</code></pre>
+<p><button details="Run Embedded Command"
+ cmd="window.open('','a','top:10,left:10')"
+ onclick="cmd(this)>Try-It</button></p>
+<h1>Some Fun Embedded Code</h1>
+<p>Time to present a few required functions. These are
+all embedded in the page and provide for the
+interactive features. In other words, when you
+want to actually do something other than read words,
+you need some code for the logic.</p>
+<blockquote>
+<p>Fly the Falcon with Han Solo</p>
+</blockquote>
+<p>This is one of my very favorite functions. The simplicity
+is it's most attractive feature. That and the fact that
+it saves enormous coding time.</p>
+<p>Writing try-catch blocks is not my idea of a good way to
+expend creative energy.</p>
+<p><button onclick="copy(this)" what="Han Solo">Copy</button></p>
+<pre><code class="language-javascript">
+// Han Solo ~ Safe Callbacks
+
+function han( falcon, cargo, options ) {
+    try {
+        return falcon( cargo );
+    } catch( empire ) {
+        if ( options ) {
+          if ( options.alert   ) { alert( empire );         }
+          if ( options.console ) { console.error( empire ); }
+        }
+        return empire;
+    }
+}
+
+
+</code></pre>
+<p>This just wraps a callback in a try-catch block
+and returns eaither</p>
+<script details="Han Solo ~ Safe Callbacks">
+
+function han( falcon, cargo, options ) {
+    try {
+        return falcon( cargo );
+    } catch( empire ) {
+        if ( options ) {
+          if ( options.alert   ) { alert( empire );         }
+          if ( options.console ) { console.error( empire ); }
+        }
+        return empire;
+    }
+}
+
+</script>
+
+<script details="Bod Squad ~ Artie">
+
+function artie( e, k ) {
+
+}
+
+</script>
+
+<script details="Invoke Embedded Command">
+
+// Arg `o` is an element
+// The `cmd` attribute contains JS to run
+
+function cmd( o ) {
+    runJS( artie( 'cmd' ) );
+}
+
+</script>
+
+<script details="Run Script">
+
+// Arg `o` is an element
+// The `cmd` attribute contains JS to run
+
+function runJS( source ) {
+    function go() {}
+    result = han( go, source );
+    popup( result );
+}
+
+</script>
+
+<script details="Run Script">
+
+function popup( content ) {
+}
+
+</script>
+
+<script details="Copy to Clipboard">
+
+function copy( o ) {
+
+}
+
+</script>
+
+<script details="Find Target Element">
+
+function findTarget( o ) {
+
+}
+
+</script>
+
+</body>
+</html>

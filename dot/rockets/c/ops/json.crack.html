@@ -1,0 +1,149 @@
+<!DOCTYPE html lang="en-us">
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON Cracker</title>
+</head>
+<body>
+
+<!-- ->
+
+<button onclick="test()">Test</button>
+<button onclick="showLog()">Show Log</button>
+<script name="Log">
+let log = [];
+const resetLog = () => {
+    log = [];
+    return { then : writeLog };
+}
+const composeLog = () => {
+    return JSON.stringify( log, 0, 2 );
+}
+const dumpLog = () => {
+    console.log( log );
+    return { then : ( ...args ) => console.log( ... args ) }
+}
+const showLog = () => {
+    const wnd = window.open();
+    const doc = wnd.document;
+    doc.open();
+    doc.write( '<pre>' );
+    doc.write( composeLog() );
+    doc.write( '</pre>' );
+    doc.close();
+    doc.title = "Rocket Log";
+    return { wnd, doc, then : showLog }
+}
+const writeLog = ( o ) => {
+    log.push( o );
+    return { then : writeLog };
+}
+const register = ( symbol ) => {
+    writeLog( `LOADED : ${symbol}` );
+    return { then : register };
+}
+register( 'log[]' )
+.then( 'composeLog()' )
+.then( 'showLog()' )
+.then( 'writeLog()' )
+.then( 'register()' );
+</script>
+
+<script name="Attempt">
+function attempt( cb, args ) {
+    try {
+        cb( args );
+    } catch( err ) {
+        writeLog( err );
+    } 
+}
+register( 'attempt()' );
+</script>
+
+<script name="Test">
+function test() {
+    const u = url();
+    const cb = ( url ) => {
+        writeLog( `NAVIGATE : ${url}` );
+        showLog(); 
+        location = url;
+    };
+    attempt( cb, u );
+}
+register( 'test()' );
+</script>
+
+<!- -->
+
+<script name="URL Components">
+// 🌟 FIX ME 🌟
+const scheme="https"; 
+const host="jsoncrack.com"; 
+const path="editor";
+const asset="";
+const query="";
+const hash="";
+</script>
+
+<!--
+
+<script name="Register URL Components">
+register( 'scheme' ).then( scheme )
+.then( 'host' ).then( host )
+.then( 'path' ).then( path )
+.then( 'asset' ).then( asset )
+.then( 'query' ).then( query )
+.then( 'hash' ).then( hash );
+</script>
+
+-->
+
+<script name="URL Extender">
+const extend = ( url ) => {
+    const result = [ url ];
+    const safe = ( prefix, tail ) => {
+        tail = tail.trim();
+        if ( tail.startsWith( prefix ) ) return tail;
+        return `${prefix}${tail}`;
+    }
+    const push = ( prefix, tail ) => {
+        tail = safe( prefix, tail );
+        if ( tail != prefix ) {
+            result.push( tail );
+        }        
+        return { then : push };
+    }
+    push( '?', query )
+    .then( '#', hash  );
+    return result.join( '' );
+}
+register( 'extend()' );
+</script>
+
+<script name="URL Composer">
+const url = () => {
+    const result = [
+        `${scheme}:/`
+    ]; 
+    const push = ( tail ) => {
+        if ( tail.length ) {
+            result.push( '/' );
+            result.push( tail );
+        }
+        return { then : push };
+    }
+    push( host ).then( path ).then( asset );
+    return extend( result.join( '' ) );
+}
+register( 'url()' );
+</script>
+
+<script name="Main Script">
+location = url();
+// register( 'Main Script' );
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,8 @@
+{
+ "topLevelPath" : "/home/dave/Mount", 
+ "replacementFilePath" : "/home/dave/Icons/art.png", 
+ "baseFileName" : "art.png",
+ "verbose" : false,
+ "log" : true,
+ "debug" : true
+}

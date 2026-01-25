@@ -1,0 +1,24 @@
+
+// Balloon Override (for Markdown)
+
+body { margin-bottom : 42vh; }
+
+textarea:hover {
+    color      : black;
+    background : lightgreen;
+}
+
+textarea:focus {
+    color      : mintcream;
+    background : midnightblue;
+}
+
+pre {
+    padding : 1.42ch;
+}
+
+a {
+    width         : unset !important;
+    max-width     : unset !important;
+    border-radius :  42px !important;
+}

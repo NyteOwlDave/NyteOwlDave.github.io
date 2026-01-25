@@ -1,0 +1,154 @@
+
+/* 
+
+    IMO ~ Josh Granger (RIP)
+    New Markdown Template Styles
+    Legacy Host
+    2024-FEB-28
+
+    http://dave-legacy/42/style/josh.css
+
+*/
+
+/* <style> */
+
+:root { 
+    --fgc : rgb( 222, 242, 142 );
+    --bgc : rgba( 4, 4, 42, 0.942 );
+    --fnt : 14pt sans-serif;
+}
+
+/* </style> */
+
+
+/* <style> */
+
+body {
+    margin-top : 42px;
+    margin-bottom : 33vh;
+}
+
+/* </style> */
+
+
+/* <style> */
+
+html {
+    font  : var( --fnt );
+    color : var( --fgc );
+    background : var( --bgc );
+}
+
+/* </style> */
+
+
+/* <style> */
+
+[inverse] {
+    color      : var( --bgc );
+    background : var( --fgc );
+}
+
+/* </style> */
+
+
+/* <style> */
+
+ul { 
+    text-align : center; 
+    list-style : none;
+}
+
+/* </style> */
+
+
+/* <style> */
+
+header { 
+    position : fixed;
+    display  : block;
+    top      : 0;
+    left     : 0;
+    width    : 100%;
+    margin   : 0;
+    text-align : right; 
+}
+
+/* </style> */
+
+
+/* <style> */
+
+h1, h1, h3, h4, h5, h6 {
+    text-align : center;
+    width  : calc( 100% - 2px );
+    border : 1px solid gold;
+}
+h1 {
+    width  : calc( 100% - 36px );
+    border-radius : 0;
+    border-top-left-radius  : 15px;
+    border-top-right-radius : 15px;
+    --pv :  7px;
+    --ph : 17px;
+    padding : var( --pv );
+    padding-right : var( --ph );
+    padding-left  : var( --ph );
+}
+
+/* </style> */
+
+
+/* <style> */
+
+[contenteditable]:hover {
+    box-shadow : 0px 0px 17px #DEDE33;
+}
+
+/* </style> */
+
+
+/* <style> */
+
+link {
+    display : none;
+}
+
+/* </style> */
+
+
+/* <style> */
+
+[href]:visited ,
+[href] ,
+[onclick] {
+    margin  : 0;
+    display : inline-block;
+    border  : 2px solid transparent;
+    cursor  : pointer;
+    color       : lightgreen;
+    background  : rgba( 4, 44, 4, 0.444 );
+    user-select : none;
+}
+
+[href] ,
+[onclick] {
+    --vp : 5px;
+    --hp : 11px;
+    border-radius : 15px;
+    padding : var( --vp );
+    padding-right : var( --hp );
+    padding-left  : var( --hp );
+}
+
+[href]:focus ,
+[onclick]:focus {
+    border : 2px solid gold;
+}
+
+[href]:hover ,
+[onclick]:hover {
+    box-shadow : 0px 0px 9px gold;
+}
+/* </style> */
+

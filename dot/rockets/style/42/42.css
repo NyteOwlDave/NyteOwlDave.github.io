@@ -1,0 +1,189 @@
+
+/*
+
+    System 42 Comprehensive Style 
+    42.css
+    2025-FEB-19
+
+    [ ELEMENTS ]
+
+        html, body, pre
+        button, a
+        footer, nav
+        span
+        textarea, pre
+
+    [ VARIABLES ]
+
+       --borders
+       --hs, --hp
+       --hm, --vmt, --vmb
+
+    [ PROPERTIES ]
+
+        (todo)
+        right, hfill, io, splitter
+
+    [ ANIMATIONS ]
+
+        fade_in_out
+
+*/
+
+:root {
+    --borders : transparent;
+}
+
+html, body {
+    margin  : 0;
+    padding : 0;
+}
+
+body {
+    background-image : url("./../art/wallpaper/system-42.png");
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    width  : calc( 100vw - 3px );
+    height : calc( 100vh - 3px ); 
+    border  : 1px solid var( --borders );
+}
+
+footer {
+    display  : block;
+    position : fixed;
+    margin : 0;
+    bottom : 0;
+    left  : 0;
+    width : 100%;
+    background : rgba( 0, 0, 0, 0.12345 );
+    padding    : 3px;
+}
+
+nav {
+    --vmt : 14px;
+    --vmb : 2px;
+    margin-top    : var( --vmt );
+    margin-bottom : var( --vmb );
+    text-align : center;
+    font : 11pt sans;
+}
+
+nav a {
+    text-decoration : none;
+    --hm : 7px;
+    margin-left  : var( --hm );
+    margin-right : var( --hm );
+    --hp : 7px;
+    padding-left  : var( --hm );
+    padding-right : var( --hm );
+    cursor : pointer;
+    border : 1px solid var( --borders );
+}
+
+nav a:hover, button:hover {
+    animation-name : fade_in_out;
+    animation-duration : 1.333s;
+    animation-iteration-count : infinite;
+}
+
+@keyframes fade_in_out {
+    0% {
+        color : mintcream;
+        background : black;
+    }
+    50% {
+        color : rgb( 11, 11, 44 );
+        background : rgba( 120, 210, 255, 0.3456 );
+    }
+    100% {
+        color : mintcream;
+        background : black;
+    }
+}
+
+
+[right] {
+    position : absolute;
+    right  : 20;
+    height : 30px;
+}
+
+[hfill] {
+    transform: translate( 0px, -8px );
+    margin-left : 10px;
+    width : calc( 100% - 100px );
+    padding : 5px;
+    vertical-align : middle;
+    height : 18px;
+}
+
+span[hfill], 
+button[right] {
+    display : inline-block;
+    bottom : 10;
+    font   : 16px sans;
+}
+
+span[hfill], 
+button, a {
+    border : 0;
+    border-radius : 5px;
+    color : rgba( 113, 213, 233, 0.5432 );
+    background : rgba( 2, 22, 2, 0.3456 );
+}
+
+button, a {
+    cursor : pointer;
+}
+
+span[hfill]:focus {
+    color : midnightblue;
+    background : rgb( 240, 240, 200 );
+}
+
+pre, textarea {
+    --hs : 2px;
+    margin : 0;
+    margin-left  : var( --hs );
+    margin-right : var( --hs );
+    font : 14pt monospace;
+    padding : 0.333em;
+    min-height : 240px;
+    color : rgba( 113, 213, 233, 0.5432 );
+    background : rgba( 2, 22, 2, 0.3456 );
+}
+
+pre {
+    border : 1px solid var( --borders );
+    width : calc( 100vw - 24px );
+    overflow : auto;
+}
+
+textarea {
+    border : 1px solid var( --borders );
+    resize : none;
+    width : calc( 100vw - 9px );
+    overflow : scroll;
+}
+
+[io] {
+    margin  : 0;
+    padding : 0;
+}
+
+[io], pre, textarea, body {
+    xwidth : calc( 100vw );
+}
+
+nav {
+    margin-bottom  : 20px;
+    display : block;
+}
+
+[splitter] {
+    background : rgba( 234, 234, 123, 0.0 );
+    height : 7px;
+    cursor : ns-resize;
+}
+

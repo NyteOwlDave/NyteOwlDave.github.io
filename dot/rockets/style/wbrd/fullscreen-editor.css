@@ -1,0 +1,10 @@
+
+textarea.fullscreen {
+    font : 14pt monospace;
+    color : #040420;
+    background : mintcream;
+    overflow-x : scroll;
+    overflow-y : scroll;
+    resize : none;
+}
+

@@ -1,0 +1,27 @@
+
+th, td, tr, 
+thead, tbody, 
+table { border : none; }
+
+thead ,
+tbody ,
+table { background : transparent; }
+
+td, tr { 
+    background : rgba( 4, 4, 42, 0.4242 ); 
+    color : lemonchiffon;
+}
+
+table { border-radius : none; }
+
+thead,
+thead *,
+table { border-top-right-radius : 12px; }
+
+thead,
+thead *,
+table { border-top-left-radius  : 12px; }
+
+th, td { padding : 3px; }
+th, td { padding-right : 9px; }
+th, td { padding-left  : 9px; }

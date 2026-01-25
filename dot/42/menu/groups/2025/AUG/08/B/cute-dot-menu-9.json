@@ -1,0 +1,23 @@
+{
+  "menuDots": [
+    [
+      {
+        "url": "https://www.rapidtables.com/code/text/unicode-characters.html",
+        "decal": "🏎️",
+        "title": "Rapid Tables Unicode",
+        "tikey": "27785cb0-0120-4d14-80b5-494df641da2a"
+      }
+    ]
+  ],
+  "menuCorners": [
+    {
+      "x": 42.828125,
+      "y": 15.5,
+      "computed": {
+        "x": "42.84px",
+        "y": "15.508px"
+      }
+    }
+  ],
+  "tikey": "6b6e4ae7-5607-4ccf-9e49-4999df74dc0d"
+}

@@ -1,0 +1,58 @@
+
+/*
+
+    Midnight Style ~ from I-C-U
+    2025-FEB-26
+
+    This is a great Halloween Style...
+
+*/
+
+html {
+    background : black;
+    color : red;
+    text-align: center;
+    font-size : 120pt
+}
+
+main {
+    transform : translate( 0px,-10px )
+}
+
+[f] {
+    font-size : 100pt;
+    text-shadow : 0px 0px 50px gold;
+}
+
+[a], [c] {
+    color : transparent;
+}
+
+[bv] {
+    transform : translate( 0px,-50px )
+}
+
+[d] {
+    transform : translate( 12px, 0px ) rotate( 45deg );
+}
+
+[onclick] {
+    cursor  : pointer;
+}
+
+[onclick]:hover {
+    text-shadow : 0px 0px 32px white;
+}
+
+[a], [c],
+span {
+    display : inline-block;
+    color   : red;
+}
+
+div[dot] {
+    position : fixed;
+    display : inline-block;
+    border-radius : 50%;
+}
+

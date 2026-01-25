@@ -1,0 +1,167 @@
+{
+  "menuDots": [
+    [
+      {
+        "url": "http://localhost/Q/pms/Actions/",
+        "decal": "🔗",
+        "title": "http://localhost/Q/pms/Actions/",
+        "tikey": "148d407d-65d3-4733-bede-39bb39366dab"
+      }
+    ],
+    [
+      {
+        "url": "http://dave-tower/projects/fun/concentration/concentration.html",
+        "decal": "🌖",
+        "title": "http://dave-tower/projects/fun/concentration/concentration.html",
+        "tikey": "27c2f00e-9113-407c-9f7d-77e82dac031f"
+      }
+    ],
+    [
+      {
+        "url": "http://dave-omega/dots/dot.whiteboard-launcher.html",
+        "decal": "📜",
+        "title": "http://dave-omega/dots/dot.whiteboard-launcher.html",
+        "tikey": "7da0bd58-16c3-40bb-a632-49acb7794e35"
+      }
+    ],
+    [
+      {
+        "url": "http://localhost/std/app/mathadesic/pikes-peak.html",
+        "decal": "🖌",
+        "title": "http://localhost/std/app/mathadesic/pikes-peak.html",
+        "tikey": "39439463-d4f3-499a-a771-1548d15d91c7"
+      }
+    ],
+    [
+      {
+        "url": "http://wellsted-home.ddns.net:4242/42/examples/animation/sparkle-button.html",
+        "decal": "🐈",
+        "title": "http://wellsted-home.ddns.net:4242/42/examples/animation/sparkle-button.html",
+        "tikey": "59a3f5fe-575c-4c92-a11d-ca79020d8c1e"
+      }
+    ],
+    [
+      {
+        "url": "http://localhost/Q/pms/Actions/Create%20Item/create-item.html",
+        "decal": "🗳",
+        "title": "http://localhost/Q/pms/Actions/Create%20Item/create-item.html",
+        "tikey": "25980245-f54f-4366-b933-267cc9e622dd"
+      }
+    ],
+    [
+      {
+        "url": "http://localhost/Q/pms/",
+        "decal": "🛰",
+        "title": "http://localhost/Q/pms/",
+        "tikey": "dd01cf68-b8b1-47d0-a64e-91082f838bd0"
+      }
+    ],
+    [
+      {
+        "url": "https://calendar.google.com/calendar/u/0/r",
+        "decal": "🗓",
+        "title": "https://calendar.google.com/calendar/u/0/r",
+        "tikey": "9f666940-4dae-437f-a887-6759298126f8"
+      }
+    ],
+    [
+      {
+        "url": "http://localhost/vortex/Downloads/%5b%5b%20SORT%20ME%20%5d%5d/vulcano.html",
+        "decal": "🌋",
+        "title": "Vulcano",
+        "tikey": "79877b1d-5b37-4e29-a313-12cbb2051a0b"
+      }
+    ],
+    [
+      {
+        "url": "https://gist.github.com/NyteOwlDave",
+        "decal": "🐱",
+        "title": "https://gist.github.com/NyteOwlDave",
+        "tikey": "e9b45856-b268-427a-9bc1-6a8a2941e485"
+      }
+    ]
+  ],
+  "menuCorners": [
+    {
+      "x": 227.4499969482422,
+      "y": 61.36249923706055,
+      "computed": {
+        "x": "227.452px",
+        "y": "61.37px"
+      }
+    },
+    {
+      "x": 588.4249877929688,
+      "y": 237.1750030517578,
+      "computed": {
+        "x": "588.43px",
+        "y": "237.176px"
+      }
+    },
+    {
+      "x": 408.8500061035156,
+      "y": 235.96250915527344,
+      "computed": {
+        "x": "408.86px",
+        "y": "235.967px"
+      }
+    },
+    {
+      "x": 234.1875,
+      "y": 237.3000030517578,
+      "computed": {
+        "x": "234.191px",
+        "y": "237.312px"
+      }
+    },
+    {
+      "x": 407.625,
+      "y": 60.525001525878906,
+      "computed": {
+        "x": "407.637px",
+        "y": "60.536px"
+      }
+    },
+    {
+      "x": 52.087501525878906,
+      "y": 65.0625,
+      "computed": {
+        "x": "52.095px",
+        "y": "65.071px"
+      }
+    },
+    {
+      "x": 584.1375122070312,
+      "y": 60.462501525878906,
+      "computed": {
+        "x": "584.14px",
+        "y": "60.472px"
+      }
+    },
+    {
+      "x": 56.72500228881836,
+      "y": 244.2375030517578,
+      "computed": {
+        "x": "56.726px",
+        "y": "244.245px"
+      }
+    },
+    {
+      "x": 762.2125244140625,
+      "y": 233.1750030517578,
+      "computed": {
+        "x": "762.22px",
+        "y": "233.187px"
+      }
+    },
+    {
+      "x": 762.9874877929688,
+      "y": 59.16250228881836,
+      "computed": {
+        "x": "762.99px",
+        "y": "59.163px"
+      }
+    }
+  ],
+  "tikey": "3e6eafa7-3149-48c0-89f8-ec87b41c37b8"
+}

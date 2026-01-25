@@ -1,0 +1,27 @@
+/* 
+prism.css
+1.0
+2025-MAR-02
+from Oregano
+aiurl="https://x.com/i/grok?focus=1&conversation=1896273766541611085"
+aibot="https://x.com/i/grok?focus=1&conversation="
+aikey="1896273766541611085"
+*/
+
+.prism-container {
+    position: fixed;
+    background: transparent;
+    border: 2px solid white;
+    user-select: none;
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+.prism-corner {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+
+

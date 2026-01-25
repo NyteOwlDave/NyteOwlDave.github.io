@@ -1,0 +1,30 @@
+
+/* 
+
+    + Keisha Help ~ 2025-MAR-19
+    @ /42/style
+    + keisha-help.css
+
+    IMPLICIT STYLES
+
+    @import url("./personal.css");
+    @import url("./table-editor.css");
+
+*/
+
+@import url("./keisha.css");
+
+table, 
+table * {
+    text-align : left !important;
+}
+
+a, button {
+    text-decoration : none;
+    cursor : pointer;
+}
+
+a:before {
+    content : "🔗";
+    margin-right : 8px;
+}

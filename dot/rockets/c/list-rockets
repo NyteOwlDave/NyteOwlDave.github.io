@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# This might need rewritten for various hosts
+#[ columnStart ]
+columnStart() {
+  echo '45-';
+}
+
+#[ announce ] 
+announce() {
+  echo "#=> + Rockets <=";
+  echo "#=> @ http://$(hostname)/std/rockets <=";
+}
+
+listRockets() {
+  ls -alF | grep '\.html' | cut -b $(columnStart);
+}
+
+main() {
+  clear;
+  announce;
+  listRockets;
+}
+
+main "$*";
+
+

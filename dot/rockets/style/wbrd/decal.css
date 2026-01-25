@@ -1,0 +1,40 @@
+
+html {
+    background : rgb( 242, 242, 182 );
+    padding : 0;
+}
+
+body {
+    margin-bottom : 42vh;
+    color : rgb( 4, 4, 42 );
+    text-align : center;
+    width : 100%;
+    margin : 0;
+}
+
+table {
+    display : block;
+    border : 1px solid rgba( 0, 0, 0, 0.333 ) !important;
+}
+
+table, tr {
+    width       : 80% !important;
+    min-width   : 80% !important;
+    margin-left : 8% !important;
+}
+
+td {
+    font-size : 84px;
+    padding : 21px;
+}
+
+tr, th, td {
+    text-align : center;
+}
+
+img {
+    display : inline-block;
+    max-width  : 84;
+    max-height : 84;
+}
+

@@ -1,0 +1,30 @@
+@import url("http://dave-legacy/42/style/personal.css");
+@import url("http://dave-legacy/42/style/header-dots-small.css");
+@import url("http://dave-legacy/42/style/sio.css");
+
+<style for="table" group="Style Modules">
+thead ,
+
+table { background : transparent; }
+
+td, tr { 
+    background : rgba( 4, 4, 42, 0.4242 ); 
+    color : lemonchiffon;
+}
+
+table { border-radius : none; }
+
+thead,
+thead *,
+table { border-top-right-radius : 12px; }
+
+thead,
+thead *,
+table { border-top-left-radius  : 12px; }
+
+thead, tbody, tr, th, td, table { border : none; }
+th, td { padding : 3px; }
+th, td { padding-right : 9px; }
+th, td { padding-left  : 9px; }
+</style>
+

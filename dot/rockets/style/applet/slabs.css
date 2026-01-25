@@ -1,0 +1,84 @@
+
+/* 
+
+    Slabs Style
+    2025-FEB-24
+
+    This gives the standard layout
+    for header. main, and footer slabs
+
+*/
+
+
+/* --[ From: THOR ]-- */
+:root {
+    --fgc : rgba( 222, 242, 142, 0.942 );
+    --bgc : rgba(   4,   4,  42, 0.942 ) ;
+    --fnt : 14pt sans-serif;
+    --top : 42px;
+    --btm : 42px;
+}
+
+
+main {
+    margin  : 0;
+    padding : 0;
+    resize : none;
+    overflow-x : scroll;
+    overflow-y : scroll;
+}
+
+
+html {
+    background : var( --bgc );
+    color      : var( --fgc );
+    font       : var( --fnt );
+}
+
+/* --[ From: THOR ]-- */
+html, body, header, footer, main, style, link, meta {
+    margin : 0;
+    border : 0;
+}
+
+
+[inverse] {
+    background : var( --fgc );
+    color      : var( --bgc );
+}
+
+[center] {
+    text-align : center;
+}
+
+[zoom]{
+    margin : 0;
+    border : 0;
+}
+
+[top][bottom] {
+    display  : block;
+    position : fixed;
+    left     : 0;
+    margin   : 0;
+    border   : 0;
+}
+
+[top] {
+    top : 0;
+    height : var( --top );
+    font-size : calc( var( --top ) * 0.75 );
+}
+
+[bottom] {
+    bottom : 0;
+    height : var( --btm );
+    font-size : calc( var( --btm ) * 0.75 );
+}
+
+[middle] {
+    top : var( --top );
+    height : calc( 100vh - var( --top ) - var( --btm ) );
+}
+
+

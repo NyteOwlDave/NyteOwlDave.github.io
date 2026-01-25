@@ -1,0 +1,26 @@
+#!/bin/bash
+
+flub() { echo "" > /dev/null; }
+flub << _X_
+
+[a]: <./>
+
+_X_
+
+# [Prettify JSON][a]
+# [Workspace](./)
+
+prettier() {
+    node /home/dave/Mount/42/dots/menu/todo/prettify.js "$1";
+}
+
+main() {
+    local a;
+    local b;
+    for a in $(ls | grep 'dot-menu.*json$'); do
+        b="cute-${a}";
+        prettier "$a" > "$b";
+    done;
+}
+
+main;

@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>🎈 Nexus Live! 🎈</title>
+</head>
+<body>
+<script>
+const scheme='http';
+const host='dave-ryzen';
+const path='obsidian/2024/pubs';
+const asset='nexus.drawio.html';
+const query='';
+const hash='';
+</script>
+<script>
+const urlLong  = () => `${scheme}://${host}/${path}/${asset}?${query}#{hash}`;
+const url      = () => `${scheme}://${host}/${path}/${asset}`;
+const urlShort = () => `${scheme}://${host}/${path}`;
+</script>
+<script>
+function launch( url ) {
+  location = url;
+};
+</script>
+<script>
+launch( url      );
+// launch( urlShort );
+// launch( urlLong  );
+</script>
+</body>
+</html>
+

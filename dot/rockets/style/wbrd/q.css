@@ -1,0 +1,80 @@
+
+@import url("./q-anim.css");
+
+html {
+    background : rgb( 242, 242, 182 );
+}
+
+body {
+    margin-bottom : 42vh;
+    color : rgb( 4, 4, 42 );
+}
+
+footer {
+    position : fixed;
+    text-align : center;
+    left : 0;
+    bottom : 0;
+    width : 100%;
+    background : rgba( 82, 82, 22, 0.444 );
+}
+
+footer nav {
+    border : 0;
+    margin : 0;
+    padding : 16px;
+}
+
+footer:hover {
+    background : lemonchiffon;
+    animation-name : _rollup;
+    animation-duration : 1s;
+    animation-repeat : once;
+}
+
+@keyframes rollup {
+    0% {
+        height : 16px;
+    }
+    100% {
+        height : auto;
+    }
+}
+
+[href], 
+[onclick] {
+    cursor : pointer;
+}
+
+a {
+    display : inline-block;
+    cursor : pointer;
+    text-decoration : none;
+    background : rgba( 82, 82, 22, 0.222 );
+    border : none;
+    border-radius : 17px;
+    margin-top    : 2px;
+    margin-bottom : 2px;
+    padding : 0.42ch;
+    padding-left  : 1.42ch;
+    padding-right : 1.42ch;
+}
+
+a, 
+a:visited {
+    color : inherit;
+}
+
+a:hover,
+a:focus {
+    color : black;
+    background : mintcream;
+    box-shadow : 0px 0px 21px black;
+}
+
+td {
+    padding : 0.42ch;
+    padding-left  : 1.42ch;
+    padding-right : 1.42ch;
+}
+

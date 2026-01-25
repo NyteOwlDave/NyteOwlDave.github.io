@@ -1,0 +1,15 @@
+
+/* 
+
+    Stylesheet for Checklist Pages
+   
+<link rel="stylesheet" href="style/checklist.css">
+
+*/
+
+@import url("adonis.css");
+
+ul li {
+    font-family : monospace;
+}
+

@@ -1,0 +1,97 @@
+{
+  "menuDots": [
+    [
+      {
+        "url": "https://github.com/NyteOwlDave/Gander",
+        "decal": "🚀",
+        "title": "Gander GitHub",
+        "tikey": "cba98d46-1222-4f87-9686-b8fa6537df78"
+      },
+      {
+        "url": "http://dave-omega/vortex/projects/gander/gander.html",
+        "decal": "🔗",
+        "title": "Gander Workspace (Omega)",
+        "tikey": "42cbab23-9d1f-4570-805a-f71cf99071e2"
+      },
+      {
+        "url": "https://whiteboard.cloud.microsoft/me/whiteboards/86e33603-7092-4c31-b252-8d0a7bbfa26d",
+        "decal": "📄",
+        "title": "Gander Whiteboard",
+        "tikey": "5040efc3-f596-4472-9b0c-e5ab0774ef88"
+      },
+      {
+        "url": "http://dave-omega/public/featured/decal-wizard/decal-picks.html",
+        "decal": "📃",
+        "title": "Decal Picks",
+        "tikey": "27631e8e-7961-458e-94e5-6264309550a6"
+      },
+      {
+        "url": "https://whiteboard.cloud.microsoft/me/whiteboards/a61287f8-5ae4-4480-beac-981b4940da48",
+        "decal": "🚀",
+        "title": "Ruminations ~ 2025-AUG-08",
+        "tikey": "b5c760f5-3f36-4dd1-ae16-b0ca80c9f2cf"
+      },
+      {
+        "url": "http://dave-omega/vortex/projects/gander/pms/Concept/Gander-Concept.pdf",
+        "decal": "🛰",
+        "title": "Gander Concept (PDF)",
+        "tikey": "0af22e44-17b4-464e-85b6-db34bc397c23"
+      },
+      {
+        "url": "http://dave-omega/vortex/projects/gander/www/",
+        "decal": "🕸",
+        "title": "Gander Repo Clone (Omega)",
+        "tikey": "3c9f27e2-a1a3-4a0d-af3e-575e381e82ad"
+      },
+      {
+        "url": "http://dave-omega/vortex/projects/gander/gander.png",
+        "decal": "📝",
+        "title": "Gander Icon (PNG/Omega)",
+        "tikey": "2b8c268f-48b1-4e82-b1e1-94428a104e52"
+      }
+    ],
+    [
+      {
+        "url": "http://dave-omega/rt/NavTools/Cloud9/cloud9.html",
+        "decal": "G",
+        "title": "Gander",
+        "tikey": "7b19ffad-a2e9-4f56-85bd-a38332da68c8"
+      }
+    ],
+    [
+      {
+        "url": "https://docs.google.com/spreadsheets/d/1Hg52duQkOAJ8VbMzQ70nm0EPlj4NoUrALCXd3ZRFHIs/edit?gid=1089277068#gid=1089277068",
+        "decal": "📊",
+        "title": "SIO Spreadsheet",
+        "tikey": "3bb9537c-fd67-4f16-b9f1-75c38472eddf"
+      }
+    ]
+  ],
+  "menuCorners": [
+    {
+      "x": 39.66667175292969,
+      "y": 43.366668701171875,
+      "computed": {
+        "x": "39.6667px",
+        "y": "43.3667px"
+      }
+    },
+    {
+      "x": 77.26666259765625,
+      "y": 276.75,
+      "computed": {
+        "x": "77.2667px",
+        "y": "276.75px"
+      }
+    },
+    {
+      "x": 267.1000061035156,
+      "y": 270.70001220703125,
+      "computed": {
+        "x": "267.1px",
+        "y": "270.7px"
+      }
+    }
+  ],
+  "tikey": "b1a742bb-5db1-4ce5-8c8d-51f2c7b65835"
+}

@@ -5,16 +5,19 @@
         <title>NyteOwlDave's Page</title>
         <link rel="icon" href="./favicon.ico">
         <style>
-            body {
+            html , body {
                 text-align : center;
-            }            
-            nav.dockleft {
-                position:sticky;
-                top:0;
-                left:0;
-                width: 14em;
-                background-color: rgba(0, 0, 100, 0.6);
+                color : mintcream;
+                background : midnightblue;
             }
+            nav {
+                display : inline-block;
+                width : calc( 100vw - 20ch );
+                padding : 3ch;
+                border-radius : 3ch;
+                background : rgba( 242, 242, 182 , 0.2 );
+                text-align : center;
+            }        
             nav > button {
                 background-color: transparent;
                 width: 100%;
@@ -27,52 +30,95 @@
             button:hover {
                 background-color: rgba(0, 0, 0, 0.8);
                 color: goldenrod;
-            }
+            } /*
             nav > div {
                 text-align: center;
                 width: 100%;
                 color: gray;
-            }
+            } */
             hr {
                 color: rgba(0, 0, 0, 0.2);
                 background-color: transparent;
             }
         </style>
+        <style>
+            img.profile {
+                width : 120px;
+            }
+            img.logo {
+                width : 80px;
+            }
+            details, summary {
+                cursor : pointer;
+            }
+        </style>
     </head>
     <body>
+        <header>
+            <details>
+                <summary>Pending Additions</summary>
+                <menu>
+                    <a href="./zed/">Zeddicus</a><br>
+                </menu>
+            </details>
+        </header>
+        <figure>
+            <img class="profile" src="./art/png/dave.png">
+        </figure>
         <h1>NyteOwlDave's Page</h1>
-        <p>Hello, World!</p>
-        <nav class="dockleft">
+        <figure>
+            <img class="logo" src="favicon.ico">
+        </figure>
+        <p>alias "Morpheus"</p>
+        <hr>
+        <h3>Applications</h3>
+        <nav>
 <button onclick="onClickChachi()">📟 Chachi</button>
 <button onclick="onClickTiGG()">🦇 TiGG</button>
+        </nav>
+        <h3>Dev Ops Support</h3>
+        <nav>
 <button onclick="onClick3P()">🎲 Third Party Content</button>
 <button onclick="onClickDevIcons()">🎰 Developer Icons</button>
 <button onclick="onClickSnips()">🦜 Chippy's Snippets</button>
-<button onclick="onClickLegends()">🚔 Squad Legends</button>
-<button onclick="onClickGreystoke()">🌐 Greystoke</button>
-<button onclick="onClickMe()">🖥️ NyteOwlDave.me</button>
+<button onclick="onClickLegends()">🚔 Squad Legends Roll Call</button>
+        </nav>
+        <h3>Contact Dave</h3>
+        <nav>
 <button onclick="onClickNCS()">🦉 NyteOwl Consulting</button>
 <button onclick="onClickBIO()">😎 Link-in-Bio</button>
+        </nav>
+        <h3>Home Network (Private)</h3>
+        <nav>
 <button onclick="onClickLAN()">🔒 LAN (Private)</button>
+<button onclick="onClickMe()">🖥️ NyteOwlDave.me</button>
+<button onclick="onClickWork()">🖥️ NyteOwlDave.work</button>
+<button onclick="onClickAlora()">🖥️ AloraLyn.org</button>
         </nav>
         <script>
             function onClickSnips(evt) {
                 location="./snippets.html";
             }
+        </script>
+        <script>
             function onClickLAN(evt) {
                 location="http://dave-omega/std/app/morpheus/";
             }
+            function onClickMe(evt) {
+                location="./nyteowldave.me.html";
+            }
+        </script>
+        <script>
             function onClickTiGG(evt) {
                 location="./tigg/";
             }
             function onClickChachi(evt) {
                 location="./chachi/";
             }
+        </script>
+        <script>
             function onClick3P(evt) {
                 location="./cdn/";
-            }
-            function onClickMe(evt) {
-                location="./nyteowldave.me.html";
             }
             function onClickDevIcons(evt) {
                 location="./dev-icons/main.html";
@@ -80,10 +126,8 @@
             function onClickLegends(evt) {
                 location="./dev-icons/help/members.html";
             }
-            function onClickGreystoke(evt) {
-                // location="http://198.91.25.240/";
-                location="https://nyteowldave.work/";
-            }
+        </script>
+        <script>
             function onClickNCS(evt) {
                 location="https://www.facebook.com/david.wellsted.5/";
             }
@@ -117,9 +161,11 @@
             }
         </script>
     </body>
-    <!--
-        🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
-    -->
 </html>
- 
+
+<!--
+    UPDATED ~ 2026-JAN-25 
+    WORKSTATION ~ Omega
+-->
+
  

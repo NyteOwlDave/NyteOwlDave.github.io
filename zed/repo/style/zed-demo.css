@@ -1,0 +1,180 @@
+
+/* 
+
+<style>
+@import url("http://dave-legacy/~/style/sio/siox.css");
+</style>
+
+----------------------------------------------------------------
+
+> Manifest
+
+| Item     | Value                              |
+|----------|------------------------------------|
+| title    | Zed Demo Theme                     |
+| version  | v1.19.0                            |
+| edition  | Legacy                             |
+| updated  | 2025-DEC-19                        |
+| filename | zed-demo.css                       |
+| relpath  | app/zed/style                      |
+| primary  | dave-legacy                        |
+| volume   | Zeddicus                           |
+
+----------------------------------------------------------------
+
+> Registration
+
+| TiDate      | TiKey    |
+|-------------|--------------------------------------|
+| 2025-DEC-19 | 4efe534a-dd3b-11f0-a835-cbe663e79106 |
+
+
+<pre><code>
+
+----------------------------------------------------------------
+
+*/
+
+@import url("http://dave-legacy/~/style/sio/siox.css");
+@import url("http://aloralyn.org:64647/style/zed/zed.css");
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color : #EEDE88;
+    background : #080822;
+    margin-top : 64px;
+    margin-bottom : 42vh;
+    border : 3px dotted gold;
+    border-radius : 3ch;
+    padding : 3ch;
+}
+
+.zeddicus {
+    display : inline-block;
+    font : 11pt "Noto Mono", monospace;
+    min-width : calc( 40% - 22px );
+    max-width : calc( 40% - 22px );
+    min-height : 12em;
+    max-height : calc( 100vh - 200px );
+    background : gray;
+    color : midnightblue;
+    margin  : 0.2ch;
+    padding : 0.5ch;
+    overflow-x : auto scroll;
+    overflow-y : scroll;
+}
+
+.zeddicus:focus {
+    background : lemonchiffon;
+}
+
+header, footer {
+    position : fixed;
+    left   : 0;
+    width  : 100%;
+    margin : 0;
+    padding : 0.4ch;
+    padding-left  : 1.2ch;
+    padding-right : 1.2ch;
+    border : none;
+    border-top : 2px dashed #44C3;
+    background : #EEDE88;
+    color      : #080822;
+}
+
+header { top    : 0; }
+
+footer { bottom : 0; }
+
+a, a:visited {
+    text-decoration : none;
+}
+
+*:focus {
+    outline : none;
+}
+
+#editor-index {
+    display : inline-block;
+    width : 10ch;
+    text-align : center;
+}
+
+#zed-menu button {
+  display : inline-block;
+  width  : 5ch;
+  height : 5ch;
+}
+
+[onclick] 
+, [href] {
+    display : inline-block;
+    cursor : pointer;
+    border : none;
+    border-radius : 2.5ch;
+    padding : 4px;
+    padding-left  : 1ch;
+    padding-right : 1ch;
+    color : mintcream;
+    background : #441;
+}
+
+[onclick]:hover
+, [href]:hover {
+    animation : 0.12s linear bloom forwards;
+}
+
+[onclick]:focus
+, [href]:focus {
+  transform : scale( 1.2 );
+  box-shadow : 0 0 15px gold;
+  color : mintcream;
+  background : #888;
+}
+
+@keyframes bloom {
+    from {
+        transform : scale( 1.0 );
+        box-shadow : 0 0 5px black;
+    } 
+    to {
+        transform : scale( 1.2 );
+        box-shadow : 0 0 15px gold;
+        color : mintcream;
+        background : midnightblue;
+    }
+}
+
+@keyframes wag {
+   0%   {
+      transform : translate( 0, 0 ) scale( 1.2 );
+   }
+   20%  {
+      transform : translate( 0, 20px ) scale( 1.2 );
+   }
+   50%  {
+      transform : translate( 0, 0 ) scale( 1.2 );
+   }
+   80%  {
+      transform : translate( 0, -20px ) scale( 1.2 );
+   }
+   100% {
+      transform : translate( 0, 0 ) scale( 1 );
+   }
+}
+
+.wag {
+    display : inline-block !important;
+    animation : 0.25s linear wag infinite !important;
+}
+
+
+/*
+
+----------------------------------------------------------------
+
+</code></pre>
+
+*/
+

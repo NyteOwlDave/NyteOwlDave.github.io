@@ -1,0 +1,85 @@
+
+/* 
+
+# LAN Monitor Style ~ Hero Series
+
+This theme started out embedded in the `LAN Monitor` app that's
+part of the `Hero Series`.
+
+*/
+
+@import url("http://dave-legacy/42/style/ozville/dot-header.css");
+
+html {
+    border  : 5px solid transparent;
+}
+
+body, main {
+    border  : 0;
+}
+
+html, body, main, header {
+    margin  : 0;
+    padding : 0;
+    border  : 0;
+}
+
+html, body, main {
+    font       : 14pt sans-serif;
+    color      : rgba(   2,   2,  42, 0.94242 );
+    background : rgba( 242, 242, 142, 0.94242 );
+}
+
+iframe {
+    height     : calc( 100vw - 200px );
+    margin     : 0;
+    border     : 0;  
+    margin-bottom : 21px;
+}
+
+iframe > * {
+    font : 24pt monospace;
+}
+
+iframe {
+    width : calc( 100vw - 182px );
+    margin-left   : 42px;
+    padding       : 42px;
+    border-radius : 42px;
+    border        : none;
+    box-shadow    : 0px 0px 42px black;
+    background    : white;
+    color         : black;
+}
+
+.logo {
+    position : sticky;
+    display : block;
+    width   : 100%;
+    text-align : center;
+    font : 64pt sans-serif;
+}
+
+.logo img {
+    width  : 84px;
+    height : 84px;
+}
+
+header, .dot {
+    background : rgba( 0, 0, 0, 0.333 );
+}
+
+header {
+    text-align : center;
+    left : 0 !important;
+    padding-top : 6px;
+}  
+
+.dot:hover,
+.dot:focus {
+    box-shadow: 0px 0px 17px gold;
+    transform : scale( 1.2 );
+    background : black;
+    color : white;
+}
+

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Title is set dyamically-->
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="http://dave-probook/media/Icons/rocky.png">
+<link rel="stylesheet" href="http://dave-probook/std/style/md/latest.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple-icons/siimple-icons.css" />
+</head>
+
+<body>
+<!--
+    // Short URL Details
+    // for Roulette Notebook
+    https://app.bitly.com/Bm5jbLqBX2h/links/bit.ly/4gr8nQB/details
+-->
+
+<!-- This is an exact duplicate of Roulette's "popup.js"
+<script name="Popup Window API ">
+const PopupWindow = {
+	target: "_popup_" ,
+	options: [
+		'width=600' ,
+		'height=500' ,
+		'left=400' ,
+		'top=100' ,
+		'scrollbars=yes' ,
+		'resizable=yes' ,
+		'toolbars=yes'
+	] ,
+    open( url, target ) {
+	    const self = PopupWindow;
+	    function onClick( evt ) {
+	        const options = self.options.join( "," );
+	        window.open( '', self.target, options );
+	    }
+	    if ( "string" == typeof target ) {
+		    self.target = target;
+	    }
+	    if ( "string" != typeof url ) {
+		    url = window.location;
+	    }
+		const a = document.createElement( 'a' );
+		a.href = url;
+		a.target = self.target;
+		a.onclick = onClick;
+		a.click();
+    }
+};
+</script>
+-->
+
+<!-- ############################### --->
+
+<script name="Link Definitions">
+const PRIMARY_HOST = "http://dave-probook";
+const FIDDLES = `${PRIMARY_HOST}/fiddles`;
+const ROULETTE = `${FIDDLES}/Roulette`;
+const roulette = function( tag ) {
+    return `${ROULETTE}/${tag}`;
+}
+const PAGE_URLS = {
+    "Most Recent" : window.location.href ,
+    "whiteboard"  : "https://bit.ly/ncs-roulette-whiteboard" ,
+    "bio"       : "https://bit.ly/m/nyteowldave" ,
+    "booster"   : window.location.href ,
+    "notes"     : "https://bit.ly/ncs-roulette-notebook" ,
+    "repo"      : "https://github.com/nyteowldave/Roulette" ,
+    "details"   : "https://app.bitly.com/Bm5jbLqBX2h/links/bit.ly/4gr8nQB/details" ,
+    "docs"      : roulette( "docs" ),
+    "help"      : roulette( "help" ),
+    "api"       : roulette( "api" ),
+    "art"       : roulette( "art" ),
+    "assets"    : roulette( "assets" ),
+    "style"     : roulette( "style" ),
+    "waypoints" : roulette( "waypoints" ),
+};
+const PAGE_TITLES = {
+    "Most Recent" : "⌚ Most Recent" ,
+    "bio"         : "🦉 Dave's Bio" ,
+    "booster"     : "🚀 This Page",
+    "notes"       : "📘 Notebook" ,
+    "repo"        : "🗄️ Repository" ,
+    "details"     : "💫 Short URL Details" ,
+    "whiteboard"  : "📐 Whiteboard" ,
+    "docs"        : "📂 Documents Workspace Folder" ,
+    "help"        : "📂 Help Workspace Folder" ,
+    "api"         : "📂 API Workspace Folder" ,
+    "art"         : "📂 Art Workspace Folder" ,
+    "assets"      : "📂 Assets Workspace Folder" ,
+    "style"       : "📂 Style Workspace Folder" ,
+    "waypoints"   : "📂 Waypoints Workspace Folder" ,
+};
+const PAGE_TAGS = [
+    "notes", "repo", "details", "whiteboard",
+    "docs", "help", "api", "art", "assets", "style", "waypoints",
+    "booster",
+];
+</script>
+
+<!-- ############################### --->
+
+<section hidden name="Roulette Modules">
+
+<!-- Common Features -->
+<script name="Common API"
+src="http://dave-probook/fiddles/Roulette/api/common.js"></script>
+
+<!-- Time and Date -->
+<script name="Timmy API"
+src="http://dave-probook/fiddles/Roulette/api/timmy.js"></script>
+
+<!-- Random Numbers -->
+<script name="Randy API"
+src="http://dave-probook/fiddles/Roulette/api/randy.js"></script>
+
+<!-- Decal Manager -->
+<script name="Calvin API"
+src="http://dave-probook/fiddles/Roulette/api/calvin.js"></script>
+
+<!-- Alert Popups -->
+<script name="Mickey Alert API"
+src="http://dave-probook/fiddles/Roulette/api/mickey.js"></script>
+
+<!-- Popup Web Pages -->
+<script name="Popup Window API "
+src="http://dave-probook/fiddles/Roulette/api/popup.js"></script>
+
+</section>
+
+<!-- ############################### --->
+
+<script name="Options Group">
+
+//[ OptionClassCore ]
+class OptionClassCore {
+    constructor() {
+        this.reset();
+    }
+    reset() {
+        this.state = {};
+    }
+    isType( t, o ) {
+        return ( t == typeof o );
+    }
+    safeType( t, o, orelse ) {
+        if ( this.isType( t, o ) ) {
+            return o;
+        } else {
+            return orelse;
+        }
+    }
+    isString( o ) {
+        return this.isType( "string", o );
+    }
+    safeString( o, orelse="" ) {
+        return this.safeType( "string", o, orelse );
+    }
+    isObject( o ) {
+        return ( o instanceof Object );
+    }
+    safeObject( o, orelse="" ) {
+        if ( this.isObject( o ) ) {
+            return o;
+        } else {
+            return orelse;
+        }
+    }
+    reverseString( s ) {
+        if ( undefined == s ) {
+            return '';
+        }
+        s = String( s );
+        return s.split( '' ).reverse().join( '' );
+    }
+    base64( o ) {
+        return btoa( o );
+    }
+}
+
+//[ OptionTag ]
+class OptionTag extends OptionClassCore {
+    constructor( value ) {
+        super();
+        this.value = tag;
+    }
+    get value() {
+        return this.state.value;
+    }
+    set value( arg ) {
+        if ( this.isTag( arg ) ) {
+            arg = arg.value;
+        } else {
+            arg = this.safeString( arg );
+        }
+        if ( arg.length ) {
+            this.state.value = arg;
+        } else {
+            this.state.value = this.newTag();
+        }
+    }
+    isTag( o ) {
+        return ( o instanceof OptionTag );
+    }
+    newTag() {
+        const ts = Time.clock();
+        const n = this.reverseString( Random.real( ts, 0 ) );
+        return "TAG" + this.base64( n );
+    }
+}
+
+//[ OptionDecal ]
+class OptionDecal extends OptionClassCore {
+    // Requires : Calvin API
+    constructor( decal ) {
+        super();
+        this.value = decal;
+    }
+    get value() {
+        return this.state.value;
+    }
+    set value( arg ) {
+        this.state.value = this.safeDecal( arg );
+    }
+    safeDecal( s ) {
+        s = this.safeString( s );
+        if (! s.length ) {
+            return DecalsUnknown;
+        } else {
+            return firstUnicode( s );
+        }
+    }
+}
+
+//===>>> TODO <<<===
+//[ OptionEntry ]
+class OptionEntry extends OptionClassCore {
+    constructor( tag, decal, title, url ) {
+        super();
+        this.tag = tag;
+        this.decal = decal;
+        this.title = title;
+        this.url = tag;
+    }
+    get tag () {
+        return this.state.tag;
+    }
+    set tag ( arg ) {
+        arg = new OptionTag( arg );
+        this.state.tag = arg.value;
+    }
+    get decal () {
+        return this.state.decal;
+    }
+    set decal ( arg ) {
+        //===>>> TODO <<<===
+    }
+    get title () {
+        return this.state.title;
+    }
+    set title ( arg ) {
+        //===>>> TODO <<<===
+    }
+    get url () {
+        return this.state.url;
+    }
+    set url ( arg ) {
+        //===>>> TODO <<<===
+    }
+}
+
+//[ OptionGroup ]
+class OptionGroup  extends OptionClassCore {
+    constructor( urls, titles ) {
+        super();
+        this.urls = urls;
+        this.titles = titles;
+    }
+    reset() {
+        this.state = {};
+        return this;
+    }
+}
+</script>
+
+<!-- ############################### --->
+
+<script name="Auto Close">
+function autoClose( seconds=0.5 ) {
+    const bye = () => window.close();
+    console.log( "Close requested" );
+    const mSec = Math.round( seconds * 1000 );
+    setTimeout( bye, mSec );
+}
+</script>
+
+<script name="DOM">
+//[ select ]
+function select( q ) {
+    return document.querySelector( q );
+}
+//[ selectID ]
+function selectID( id ) {
+    return document.getElementById( id );
+}
+</script>
+
+<!-- ############################### --->
+
+<script name="Action State Variables">
+const NAV_ACTIONS = [
+    "browse", "popup",
+    // "preview", "visit"
+];
+let mostRecentTag = "Most Recent";
+let mostRecentAction = NAV_ACTIONS[ 0 ];
+</script>
+
+<script name="Navigation Actions">
+function logAction( action, url ) {
+    // Requires : Calvin API
+    action = action.toUpperCase();
+    console.log( NOTICE_DECAL, action, url );
+}
+function popup( tag ) {
+    const url = readURL( tag );
+    mostRecentAction = NAV_ACTIONS[ 1 ];
+    if ( testModeEnabled() ) {
+        logAction( mostRecentAction, url );
+    } else {
+        PopupWindow.open( url, mostRecentTag );
+    }
+}
+function browse( tag ) {
+    const url = readURL( tag );
+    mostRecentAction = NAV_ACTIONS[ 0 ];
+    if ( testModeEnabled() ) {
+        logAction( "BROWSE", url );
+    } else {
+        if ( url == window.location.href ) {
+            url = ".";
+        }
+        if ( (! url ) || ( url == "." ) ) {
+            noticeAlert( "We're already browsing this page!\nTry a popup instead." );
+            return;
+        }
+        window.location = url;
+    }
+}
+function repeatMostRecent() {
+    const url = readMostRecentURL();
+    if ( testModeEnabled() ) {
+        logAction( mostRecentAction, url );
+        return;
+    }
+    switch ( mostRecentAction ) {
+    case "popup"   :
+        PopupWindow.open( url, mostRecentTag );
+        break;
+    case "browser" :
+        window.location = url;
+        break;
+    default:
+        errorBox( `Unknown action ${mostRecentAction}` );
+        break;
+    }
+}
+</script>
+
+<script name="UI Control IDs">
+const TEST_MODE = "idTestMode";
+const TEST_HINT = "idTestModeHint";
+const PAGE_OPTIONS = "idPageOptions";
+</script>
+
+<script name="UI Controls">
+//[ testModeEnabled ]
+function testModeEnabled() {
+    const input = selectID( TEST_MODE );
+    return input.checked;
+}
+//[ readMostRecentURL ]
+function readMostRecentURL() {
+    return PAGE_URLS[ mostRecentTag ];
+}
+//[ readURL ]
+function readURL( tag ) {
+    if ( "undefine" == typeof tag ) {
+        const input = selectID( PAGE_OPTIONS );
+        tag = input.value;
+    }
+    mostRecentTag = tag;
+    return readMostRecentURL();
+}
+function onInputTestMode() {
+    const hint = selectID( TEST_HINT );
+    const checked = testModeEnabled();
+    if ( checked ) {
+        hint.removeAttribute( "hidden" );
+    } else {
+        hint.setAttribute( "hidden", true );
+    }
+}
+function onClickFooter() {
+    popup( "bio" );
+}
+function initControls() {
+    const header = select( 'header' );
+    const footer = select( 'footer' );
+    const testMode = selectID( TEST_MODE );
+    header.innerText = document.title = "🎻 Roulette 🚀 Rockets";
+    footer.addEventListener( "click", coffee );
+    testMode.addEventListener( "input", onInputTestMode );
+}
+</script>
+
+<style>
+.ptr {
+    cursor: pointer;
+    user-select: none;
+}
+[type="checkbox"] {
+    transform: scale( 2 );
+}
+i {
+    margin-right: 4px;
+    font-size: 32px;
+}
+select, option {
+ font-size: 22pt;
+}
+.hint {
+  font: 13pt arial, sans-serif;
+  border-radius: 0.432em;
+  border: 0;
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  color: rgba( 255, 255, 255, 0.921 );
+  background-color: rgba( 180, 180, 200, 0.05 );
+  text-shadow: 3px 3px 5px rgba( 0, 0, 0, 0.777 );
+  width: calc( 100% - 70px );
+}
+.hint, button, select, option, input {
+  vertical-align: middle;
+}
+strong {
+  font-size: inherit;
+}
+.up {
+  display: inline-block;
+  transform: translate( 0, -5px );
+  font: inherit;
+}
+footer {
+  font-size: 9pt;
+}
+.btn-menu > button {
+    width : 12em;
+}
+</style>
+
+<!-- ############################### --->
+
+<header></header>
+<br>
+<main>
+ <p>
+  Choose a page to visit: <br>
+  <select id="idPageOptions">
+    <option value="notes">📘 Notebook</option>
+    <option value="repo">🗄️ Repository</option>
+    <option value="details">💫 Short URL Details</option>
+    <option value="folder">📂 Workspace Folder</option>
+    <option value="booster">🚀 This Page</option>
+  </select>
+ </p>
+ <hr class="crunched">
+ <p class="btn-menu">
+  How would you like to visit this site? <br>
+  <button onclick="popup()">
+    <i class="si-copy"></i>
+    Popup Window</button> <br>
+  <button onclick="browse()">
+    <i class="si-credit-card"></i>
+    Use the Browser</button> <br>
+  <button onclick="repeatMostRecent()">
+    <i class="si-credit-card"></i>
+    Repeat Last Action</button> <br>
+ </p>
+ <hr class="crunched">
+ <p>
+    <input class="ptr" type="checkbox" id="idTestMode">
+    <label class="ptr" for="idTestMode">&nbsp;Test Mode</label> <br>  
+    <div id="idTestModeHint" class="hint" hidden>
+        <i class="si-info-circle" style="color: #e3de56;"></i>
+        <span class="up">
+        Test Mode sends messages to the <strong>debug console</strong>. If it's not
+        open already, you'll probably want to do so now.
+        </span>
+    </div>
+ </p>  
+ <p>
+    <br><br><br><br>
+ </p>
+</main>
+<footer statusbar center>Copyright &copy; 🦉 Dave Wellsted</footer>
+
+<!-- ############################### --->
+
+<script>
+function main() {
+    initControls();
+}
+window.addEventListener( 'load', main );
+</script>
+
+</body>
+</html>
+

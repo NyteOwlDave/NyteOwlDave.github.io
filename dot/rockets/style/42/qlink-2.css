@@ -1,0 +1,66 @@
+
+
+/*
+
+    Enhanced Quick Links Styles
+    2025-FEB-19
+
+    This adds timestamp and nav button styles.
+
+    These were introduced in `quick-links-2`.
+
+*/
+
+@import url("qlink.css");
+
+.timestamp {
+    display : inline-block;
+    --dx : calc( 28vw );
+    background-color : rgba( 2, 2, 22, 0.2222 );
+    border-radius : 7px;
+    padding : 0;
+    padding-left  : 4px;
+    padding-right : 4px;
+    width : unset;
+}
+
+.prev {
+    left : 43px;
+}
+
+.next {
+    right : 43px;
+}
+
+.prev, 
+.next {
+    border-radius : 50%;
+    cursor : pointer;
+    border   : 0;
+    display  : inline-block;
+    position : fixed;
+    bottom   : 3px;
+    z-index  : 1000;
+    width    : 60px;
+    height   : 60px;
+    color    : gold;
+    background : rgba( 2, 2, 22, 0.34567 ); 
+}
+
+button, .timestamp {
+    background-color : rgba( 2, 2, 22, 0.2222 );
+    border-radius : 7px;
+}
+
+button:hover {
+    background : gold;
+    color      : rgba( 2, 2, 22, 0.34567 ); 
+}
+
+[emoji] {
+    font-size : 80px;
+}
+
+img {
+    width : 120px;
+}

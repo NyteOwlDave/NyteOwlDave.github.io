@@ -1,0 +1,75 @@
+
+@import url("http://dave-legacy/42/style/core/essentials.css");
+
+essentials {
+    --decal   : "🧠";
+    --title   : "Essentials Dynaload";
+    --version : "1.0.0";
+    --date    : "2025-MAR-28;
+    --host    : "dave-legacy;
+    --path    : "42/style/core;
+    --file    : "essentials;
+    --type    : "css";
+    --home    : "http://dave-legacy/42/style/core/essentials.css";
+}
+
+essentials.keys {
+    --whiteboard : "💢 Pending ...";
+    --notebook   : "💢 Pending ...";
+    --flowchart  : "💢 Pending ...";
+    --site       : "💢 Pending ...";
+    --sheet      : "💢 Pending ...";
+    --doc        : "💢 Pending ...";
+    --tigg       : "💢 Pending ...";
+}
+
+*, html, h1 {
+    font       : 14pt monospace;
+    color      : rgba(   4,   4,  42, 0.942 );
+    background : rgba( 242, 242, 142, 0.942 );
+}
+
+html, body {
+    margin : 0;
+    border : 0;
+    box-style : border-box;
+}
+
+body { 
+    width : calc( 100vw - 96px );
+    position : fixed;
+    max-height : calc( 84vh - 3px );
+    border : 5px solid green;
+}
+
+pre, body {
+    background : lemonchiffon;
+}
+
+html { background : navy; }
+
+textarea { width  : calc( 100%  - 34px ); }
+textarea { height : calc( 100vh - 371px ); }
+textarea { border : none; }
+
+textarea:hover { color : black; }
+textarea:hover { background : lime; }
+textarea:focus { color :  mintcream  ; }
+textarea:focus { background : black   ; }
+
+footer:hover { color : black; }
+footer:hover { background : lime; }
+footer:focus { color :  mintcream  ; }
+footer:focus { background : black   ; }
+
+footer { position : fixed; }
+footer { margin   : 0;     }
+footer { bottom   : 0px; }
+footer { color : mintcream; }
+footer { background: rgba( 11, 11, 77, 0.7555 ); }
+footer { width  : calc( 100% ); }
+footer { height : 100px; }
+footer { padding : 16px; }
+footer { text-shadow : 0px 0px 10px black; }
+footer { border-top : 3px solid gold; }
+

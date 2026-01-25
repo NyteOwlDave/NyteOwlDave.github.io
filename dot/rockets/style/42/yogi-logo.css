@@ -1,0 +1,16 @@
+
+html { text-align : center; }
+html { text-shadow : 0px 0px 4.42px skyblue; }
+
+h1, [logo] { text-shadow : 0px 0px 42px skyblue; }
+
+[logo] { padding-bottom : 5vh; }
+[logo] { font-size   : 17vh; }
+[logo] { user-select : none; }
+[logo] { cursor : pointer; }
+[logo]:hover {
+    text-shadow : none; 
+    box-shadow : 0px 0px 42px gold;
+    border-radius : 10vh;
+}
+

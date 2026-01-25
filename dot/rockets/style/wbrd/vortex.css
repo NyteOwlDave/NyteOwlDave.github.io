@@ -1,0 +1,15 @@
+
+/* 
+    Vortex Style
+    2025-JUL-24
+*/
+
+html, body {
+    color : rgb( 4, 4, 42 );
+    background : rgb( 242, 242, 182 );
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    text-align : center;
+}

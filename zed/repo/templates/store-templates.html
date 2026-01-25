@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+/*
+
+| std.css        |
+|----------------|
+| @ style        |
+| @ ReText       |
+| Legacy Edition |
+| 2025-NOV-21    |
+
+*/
+
+@import url("http://dave-omega/rt/style/std.css");
+@import url("http://dave-omega/Swill/style/swill.css");
+@import url("http://dave-omega/~/style/menu.css");
+@import url("http://dave-omega/~/style/status.css");
+@import url("http://dave-omega/~/style/tilly.css");
+@import url("http://dave-tower/~/style/midnight.css");
+
+body {
+    margin-top : 82px;
+    margin-bottom : 42vh;
+}
+
+h2, h3 {
+    background :  rgba( 172, 172, 34, 0.5 );
+    color : navy;
+}
+
+a {
+    display : inline-block;
+    padding-left  : 1.42ch !important;
+    padding-right : 1.42ch !important;
+    background :  rgba( 172, 172, 34, 0.5 );
+    color : midnightblue;
+}
+
+.sio {
+    width : calc( 94vw - 50px );
+    min-height : calc( 42vh - 1px );
+    max-height : calc( 74vh - 1px );
+    resize : vertical;
+    overflow-x : auto scroll;
+    overflow-y : scroll;
+}
+
+.sio:focus {
+    outline : none;
+}
+
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>store-templates</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<style>
+@import url("http://dave-legacy/app/zed/style/zed-demo.css");
+</style>
+
+<hr>
+<blockquote>
+<p>Data Store Templates</p>
+</blockquote>
+<hr>
+<textarea class="zeddicus" id="store-template.json">
+/* JSON (store-template.json) */
+{
+  "key": "(?)",
+  "value": {
+    "agent": "(?)",
+    "client": "(?)",
+    "server": "(?)",
+    "store": { /* (?) */ },
+    "file": "(?)",
+    "when": "(?)"
+  }
+}
+</textarea>
+
+<textarea class="zeddicus" id="store-template.js">
+/* JavaScript (store-template.js) */
+var manifest = {
+    key   : ""
+,   value : {
+        agent  : ""
+,       client : ""
+,       server : ""
+,       file   : ""
+,       when   : ""
+,       store  : {}
+    }
+};
+</textarea>
+
+<textarea class="zeddicus" id="store-manager.js">
+
+/* JavaScript (store-manager.js) */
+
+stitch =( sep, list )=> ( list.join( sep ) );
+
+kav  = ( k, v ) => ( { key : k, value : v } );
+jst  = ( o    ) => ( JSON.stringify( o, null, 2 ) );
+jake = ( k, v ) => jst( kav( k, v ) );
+
+_agent = "chrome";
+client = "ryzen";
+server = "alora";
+when   = "2025-DEC-20";
+store  = localStorage;
+type   = "store";
+file   = stitch( "-" , [ client , server , _agent ] );
+key    = stitch( "." , [ file   , type            ] );
+
+value = {
+  agent  : _agent
+, client , server
+, store  , file 
+, when
+};
+
+manifest = jake( key, value );
+
+write( sop, manifest );
+
+</textarea>
+
+<textarea class="zeddicus" id="store-menu.nav">
+
+----------------------------------------------------------------
+
+> Store Menu
+
+----------------------------------------------------------------
+
++ Home
+@ ???
+
++ Netwide
+@ ???
+
++ Web Site
+@ ???
+
++ Whiteboard
+@ ???
+
++ Notebook
+@ ???
+
++ Cloud Store
+@ ???
+
++ Tools
+@ ???
+
++ Settings
+@ ???
+
++ Help
+@ ???
+
+</textarea>
+
+<hr>
+<blockquote>
+<p>Decals</p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th>*</th>
+<th>Title</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>?</td>
+<td>Home</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Netwide</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Web Site</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Whiteboard</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Notebook</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Cloud Store</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Tools</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Settings</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Help</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<hr>
+
+</body>
+</html>

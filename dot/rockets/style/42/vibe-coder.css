@@ -1,0 +1,9 @@
+
+@import url("http://dave-legacy/42/style/personal.css");
+@import url("http://dave-legacy/42/style/ozville/header-dots-small.css");
+@import url("http://dave-legacy/42/style/ozville/balloon-override.css");
+@import url("http://dave-legacy/42/style/ozville/button-42px.css");
+
+h1:first-child {
+    margin-top : 80px !important;
+}

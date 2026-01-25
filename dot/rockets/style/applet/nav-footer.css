@@ -1,0 +1,95 @@
+
+/*
+
+    Footer w/ NavBar
+    nav-footer.js
+    2025-FEB-18
+
+    HOST: dave-legacy
+
+*/
+
+html, body {
+    margin  : 0;
+    padding : 0;
+}
+
+footer {
+    display : block;
+    position : fixed;
+    margin : 0;
+    bottom : 0;
+    left : 0;
+    width : 100%;
+    background : rgba( 0, 0, 0, 0.12345 );
+    padding : 3px;
+} 
+
+nav {
+    --vm : 2px;
+    margin-top    : var( --vm );
+    margin-bottom : var( --vm );
+    text-align : center;
+    font : 11pt sans;
+} 
+
+nav a {
+    color : rgba( 3, 3, 33, 0.76543 );
+    --hm : 7px;
+    margin-left  : var( --hm );
+    margin-right : var( --hm );
+    --hp : 7px;
+    padding-left  : var( --hm );
+    padding-right : var( --hm );
+    cursor : pointer;
+    border : 1px solid transparent;
+    border-radius : 5px;
+    text-decoration : none;
+}
+
+nav a:hover, button:hover {
+    animation-name : fade_in_out;
+    animation-duration : 1.333s;
+    animation-iteration-count : infinite;
+}
+
+@keyframes fade_in_out {
+    0% {
+        color : mintcream;
+        background : black;
+    }
+    50% {
+        color : rgb( 11, 11, 44 );
+        background : rgba( 120, 210, 255, 0.3456 );
+    }
+    100% {
+        color : mintcream;
+        background : black;
+    }
+}
+
+[right] {
+    position : absolute;
+    right  : 20;
+    height : 30px;
+}
+
+[hfill] {
+    transform: translate( 0px, -8px );
+    margin-left : 10px;
+    width : calc( 100% - 100px );
+    padding : 5px;
+    vertical-align : middle;
+    height : 18px;
+}
+
+span[hfill], 
+button[right] {
+    display : inline-block;
+    bottom : 10;
+    font   : 16px sans;
+}
+
+button, a {
+    cursor : pointer;
+}

@@ -1,0 +1,1486 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>belinda-help</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<p><head>
+<link rel="icon" href="">
+</head></p>
+<script details="Prolog">
+
+let SCRIPT_WARN = true;     // Turns Script Exec Warnings ON/OFF
+let REPORT_KEYS = true;     // Turns [ALT]+[META] Key reporting ON/OFF
+let REPORT_META = true;     // Turns Meta Key reporting ON/OFF
+
+document.title = "Belinda Help";
+
+</script>
+
+<script details="Navigation State">
+
+const dummyKey = "Dummy Test Message";
+
+const belindaURL = [
+  `http:/` 
+, `dave-probook/std/app/rocky`
+, `belinda.html`
+].join( "/" );
+
+</script>
+
+<script details="UI State">
+
+const dotOrder = [];
+
+let bottomGap = 56;
+let buttonGap = 46;
+
+</script>
+
+<script details="Script State">
+
+let ScriptName = "Belinda Script";
+let ScriptMime = "text/plain";
+
+// Requires : editText() method
+
+function confirmScriptTitle( caption ) {
+    let title = ScriptName;
+    caption = caption ||
+`Before you proceed, you can edit the title
+if you prefer.`;
+    title = editText( caption, title );
+    if (! title ) { return false; }
+    title = title.trim();
+    if (! title ) { return false; }
+    ScriptName = title;
+    return true;
+}
+
+function confirmScriptMime( caption ) {
+    let mime = ScriptMime;
+    caption = caption ||
+`Before you proceed, you can edit the mime
+type if you prefer.`;
+    mime = editText( caption, mime );
+    if (! mime ) { return false; }
+    mime = mime.trim();
+    if (! mime ) { return false; }
+    ScriptMime = mime;
+    return true;
+}
+
+</script>
+
+<p><link
+ href="https://fonts.cdnfonts.com/css/noto-sans"
+ rel="stylesheet"></p>
+<style details="Throbbing Effect">
+
+@keyframes flobber {
+    0% {
+     background : rgba( 20, 15, 30, 0.177 );
+     color : black;
+     box-shadow : none;
+    }
+    50% { 
+     background : rgba( 20, 15, 130, 0.322 );
+     color : rgb( 140, 140, 7 );
+     box-shadow : 0px 0px 32px navy;
+    }
+    100% {
+     background : rgba( 20, 15, 30, 0.177 );
+     color : black;
+     box-shadow : none;
+    }
+}
+
+</style>
+
+<style>
+
+:root {
+    --top-grad : rgb( 189, 189, 84 );
+    --btm-grad : rgb( 240,  49, 24 );
+}
+
+html, body, div {
+    --tg : var( --top-grad );
+    --bg : var( --btm-grad );
+    margin : 0;
+    color  : black;
+    background : linear-gradient( var( --tg ) , var( --bg ) );
+}
+
+[b] {
+    margin-left : calc( 50vw - 200px );
+    font-size : 22px;
+    text-align : center;
+    cursor : pointer;
+    text-shadow : 2px 2px 5px navy;
+}
+
+[b], 
+select, textarea {
+    width : 400px;
+    border-radius : 13px;
+    padding: 5px;
+}
+
+/* Ugly Hack */
+[c] {
+    transform : translate( 8px, 0px );
+}
+
+h1, h2, 
+select, textarea {
+    margin-left : 15px;
+}
+
+h1, h2, 
+pre, blockquote {
+    border-radius : 50px;
+    padding: 12px;
+    padding-left  : 22px;
+    padding-right : 22px;
+    background : rgba( 20, 15, 30, 0.177 );
+}
+
+pre, blockquote {
+    margin-left : 35px;
+    margin-right : 35px;
+    font-size : 13pt;
+}
+
+blockquote {
+    color : #FED;
+    backgroundcolor: #123;
+}
+
+p {
+    margin-left : 45px;
+}
+
+h1, h2 {
+    width : calc( 90vw + 46px );
+}
+
+</style>
+
+<style details="Animations">
+
+h1, h2, pre {
+    animation-name : flobber;
+    animation-iteration-count : infinite;
+    animation-duration : 1.67s;
+}
+
+</style>
+
+<style details="Text Editor">
+
+textarea, select {
+    width : calc( 80vw - 1px );
+    margin-left  : 5vw;
+    margin-right : 5vw;
+}
+
+textarea {
+    background : rgba( 250, 242, 140, 0.989 );
+    border-radius : 33px;
+    padding : 11px;
+    padding-left  : 23px;
+    padding-right : 23px;
+    font : 13pt monospace;
+    font-weight : 900;
+    color : rgb( 7, 7, 123 );
+}
+
+</style>
+
+<style details="Cute Decoration for Gadgets">
+
+[tt], kbd, pre, 
+blockquote, code {
+    font-family : "Noto Sans";
+}
+
+[tt], kbd {
+    color : rgb( 245, 255, 140 );
+    font-weight : 900;
+}
+
+</style>
+
+<style details="Gradient for Captions">
+
+[caption] {
+    background :
+linear-gradient(
+    lemonchiffon, brown
+);
+    border-top-left-radius  : 13px;
+    border-top-right-radius : 13px;
+    border-top    : 1px solid gold;
+    display       : block;
+    width         : 80vw;
+    margin-left   : 5vw;
+    text-align    : center;
+    font-size     : 15pt;
+}
+
+</style>
+
+<style>
+
+.dot, .balloon {
+    z-index     : 1e+7;
+    font        : 20px "Noto Sans";
+    text-align  : center;
+    padding     : 8px;
+    padding-top    : 4px;
+    padding-bottom : 6px;
+    position    : fixed;
+    display     : block;
+    background  : rgba( 2, 2, 20, 0.987 );
+    color       : rgba( 240, 220, 22, 0.777 );
+    border      : 2px solid transparent;
+    cursor      : pointer;
+}
+
+.dot:hover ,
+.balloon:hover {
+    border      : 2px solid gold;
+}
+
+.dot {
+    border-radius : 50%;
+}
+
+.balloon {
+    border-radius : 15px;
+}
+
+</style>
+
+<h1>Belinda Help</h1>
+<p><code>Belinda</code> is a popup launcher. Nothing more or less.</p>
+<p><code>Belinda</code> does <u>NOT</u> work with <code>ReText</code>.</p>
+<p><code>Belinda</code> has no <code>MD</code> Source file. <code>HTML</code> only.</p>
+<p>To use <code>Belinda</code>, pass a <dfn>cache key<dfn> as a hashtag
+in the <code>URL</code>.</p>
+<h2>Example</h2>
+<pre><code class="language-url">/std/rockets/belinda.html#Dummy%20Test%20Message
+</code></pre>
+<h1>Try-It Here!</h1>
+<textarea rows=6></textarea>
+
+<hr>
+
+<div b onclick="go()">🆗</div>
+
+<p><br>
+<span caption>Cache Keys</span>
+<select kopt></select></p>
+<div b c kopt onclick="accept(this)">✅</div>
+
+<p><br>
+<span caption>Host Names</span>
+<select hopt></select></p>
+<div b c hopt onclick="accept(this)">✅</div>
+
+<hr>
+
+<blockquote>
+<br>
+Enter a 
+<strong tt>cache key</strong>, 
+then 
+click <kbd>🆗</kbd>.<br><br>
+Or select a cache key from the list
+and click <kbd>✅</kbd>.
+<br><br>
+</blockquote>
+
+<hr>
+<p><br><br><br></p>
+<section details="Try-It APIs"
+ style="display:none">
+
+<script
+ src="http://dave-probook/std/api/try-it/try-it.js"></script>
+<script
+ src="http://dave-probook/std/api/try-it/is.js"></script>
+<script
+ src="http://dave-probook/std/api/try-it/cdoc.js"></script>
+
+</section>
+
+<script details="Core Document Wrapper"> 
+
+// Parser expects a simple string containing
+// valid Core Document source code.
+
+function parseCoreDoc( source, asTable=true ) {
+    const parser = TryIt.cdoc.parse;
+    if ( asTable ) {
+        return parser.table( source );
+    } else {
+        return parser.list( source );
+    }
+}
+
+</script>
+<script>
+
+// Composer expects an iterable. Typically
+// an Array, Set, or similar. Each logical record
+// should be an array of strings. This is a basic
+// implementation. Nothing fancy here.
+
+function composeCoreDoc( source, asTable=true ) {
+    const composer = TryIt.cdoc.compose;
+    if ( asTable ) {
+        return composer.table( source );
+    } else {
+        return composer.list( source );
+    }
+}
+
+</script>
+
+<script details="CSS Support Module"> 
+
+function cssPixels( n ) {
+    n = parseFloat( n ) || 0;
+    return ( n + "px" );
+}
+
+</script>
+
+<script details="[=pending=]">
+
+// Make the URL for Belinda...
+
+function composeURL( cacheKey ) {
+    cacheKey = cacheKey || dummyKey;
+    cacheKey = encodeURI( cacheKey );
+    return [
+        belindaURL ,
+        cacheKey
+    ].join( "#" );
+}
+
+</script>
+
+<script details="[=pending=]">
+
+// UGLY RETEXT HACK!!!
+
+function readEntries( o ) {
+    const list = [];
+    function add( key ) {
+        const value = o[ key ];
+        list.push( [ key, value ] );
+    }
+    if ( Object.entries instanceof Object ) {
+        return Object.entries( o );
+    } else {
+        const keys = Object.keys( o );
+        keys.forEach( add );
+        return list;
+    }
+}
+
+</script>
+
+<script details="Bod Squad">
+
+// TODO : Load Dave's Faves Instead...
+
+const selmax = q => document.querySelectorAll( q );
+const selma  = q => document.querySelector( q );
+
+const han = function( falcon, cargo ) {
+    try {
+        return falcon( cargo );
+    } catch( empire ) {
+        console.error( empire );
+        return empire;
+    }
+}
+
+</script>
+
+<script details="[=pending=]">
+
+const editor      = selma( 'textarea' );
+const keyOptions  = selma( 'select[kopt]' );
+const hostOptions = selma( 'select[hopt]' );
+
+</script>
+
+<script details="[=pending=]">
+
+if (! editor ) {
+    alert( "Failed to find the editor" );
+    throw "Stop!";
+}
+editor.value = dummyKey;
+
+</script>
+
+<script details="[=pending=]">
+
+function todo() {
+    alert( "Sorry, we're closed!" );
+}
+
+</script>
+
+<script details="[=pending=]">
+
+// TODO : Load Dave's Faves Instead...
+
+function cls() {  console.clear();  }
+
+</script>
+
+<script details="[=pending=]">
+
+// TODO : Button or Hot-Key for This!
+
+function importScript( url ) {
+    function attach() {
+        document.head.appendChild( se );
+    }
+    function dangit() {
+        alert( "Script failed to load." );
+    }
+    let se = findScript( url );
+    if ( se ) return se;
+    se = document.createElement( 'script' );
+    se.setAttribute( "async", true );
+    se.onload = attach;
+    se.onerror = dangit;
+    se.src = url;
+    return se;
+}
+
+</script>
+
+<script details="[=pending=]">
+
+function engage( url ) {
+    const ae = document.createElement( 'a' );
+    ae.setAttribute( 'href', url );
+    ae.click();
+}
+
+</script>
+
+<script details="Open Belinda in Browser">
+
+function go() {
+    const key = editor.value.trim();
+    const url = composeURL( key );
+    engage( url );
+}
+
+</script>
+
+<script details="[=pending=]">
+
+// Accept Host or Cache Key from Drop Box
+
+function accept( source ) {
+    if ( source instanceof Event ) {
+        source = source.target;
+    }
+    if (! ( source instanceof HTMLElement ) ) {
+        alert( "Expected an HTML Element" );
+        return;
+    }
+    if ( source.hasAttribute( "kopt" ) ) {
+        const i = keyOptions.selectedIndex;
+        const opt = keyOptions
+            .selectedOptions.item( 0 )
+            .innerText.trim();
+        // insertText( opt );
+        alert( opt );
+        return;
+    }
+    if ( source.hasAttribute( "hopt" ) ) {
+        const opt = hostOptions
+            .selectedOptions.item( 0 )
+            .value;
+        // insertText( opt );
+        alert( opt );
+        return;
+    }
+    const attr = source.attributes;
+    const list = Array
+        .from( attr )
+        .map( o => o.name )
+        .join( "\n" );
+    alert( list );
+}
+
+</script>
+
+<script details="Populate SELECT Element">
+
+// TODO : I see apossible JEWEL / Gists /Peach here!
+
+// The `elem` should be a `select` reference.
+// The `map` uses option `value` for keys
+// and option `innerText` for properties.
+// e.g. map = { "http://server.com" : "My Server" };
+
+function addSelectOptions( elem, map ) {
+    function opt( title, value ) {
+        const oe = document.createElement( 'option' );
+        oe.innerText = title;
+        oe.value = value;
+        elem.appendChild( oe );
+    }
+    function add( entry ) {
+        const value = entry[ 0 ];
+        const title = entry[ 1 ];
+        opt( title, value );
+    }
+    elem.innerHTML = "";
+    const entries = readEntries( map );
+    entries.forEach( add );
+}
+
+</script>
+
+<script details="[=pending=]">
+
+// Doesn't Work in ReText
+
+function showCacheKeys() {
+    // ReText hack
+    const iface = getCacheInterface();
+    if (! iface  ) { return; }
+    let i=0;
+    const map = {};
+    function next() {
+        const title = iface.key( i );
+        if ( title === null ) return false;
+        const value = String( i );
+        map[ value ] = title;
+        i += 1;        
+    }
+    while( next() );
+    addSelectOptions( keyOptions, map );
+}
+
+</script>
+
+<script details="[=pending=]">
+
+const Hosts = {
+  "@dave*1" : "Tower"
+, "@dave*2" : "Ryzen"
+, "@dave*3" : "Zombie"
+, "@dave*4" : "Legacy"
+, "@dave*5" : "Probook"
+, "@dave*6" : "Lenovo"
+, "@dave*7" : "PI"
+, "http://192.168.1.3/shares/"  
+   : "R6700 Router"
+};
+
+</script>
+
+<script details="[=pending=]">
+
+function showHostNames() {
+    const map = {};
+    const entries = readEntries( Hosts );
+    function extractName( s ) {
+        const parts = s.substring( 1 ).split( "*" );
+        return parts.shift();
+    }
+    function composeValue( title, value ) {
+        const host = [
+            extractName( value ) ,
+            title.toLowerCase()
+        ].join( "-" );
+        return ( "http://" + host );
+    }
+    function add( entry ) {
+        const title = entry[ 1 ];
+        let value = entry[ 0 ];
+        if ( value.startsWith( '@' ) ) {
+            value = composeValue( title, value );
+        }
+        map[ value ] = title;
+    }
+    entries.map( add );
+    addSelectOptions( hostOptions, map );
+}
+
+</script>
+
+<script details="Keyboard Event Module">
+
+// TODO : Advanced Dispatcher with Custom
+//        key mapping...
+// Keisha exists elsewhere. Merge!
+
+const Keisha = {
+  lastEvent  : null 
+, keyStates  : []
+, metaStates : {
+    alt  : false , ctrl  : false ,
+    meta : false , shift : false
+  }
+};
+
+</script>
+<script>
+
+Keisha.metaDecals = {
+  alt   : `Ⓐ`
+, ctrl  : `Ⓒ` 
+, meta  : `Ⓜ`
+, shift : `Ⓢ`
+};
+
+</script>
+<script>
+
+Keisha.readMetaTokens = function( all ) {
+    const self = Keisha;
+    const decals = self.metaDecals;
+    const states = self.metaStates;
+    const result = "";
+    if ( all ) {
+        const keys = Object.keys( decals );
+        return keys.map( k => decals[ k ] )
+                   .joint( "" );
+    }
+    if ( states.alt ) { 
+        result += decals.alt;
+    }
+    if ( states.ctrl ) { 
+        result += decals.ctrl;
+    }
+    if ( states.meta ) { 
+        result += decals.meta;
+    }
+    if ( states.shift ) { 
+        result += decals.shift;
+    }
+    return result;
+}
+
+</script>
+<script>
+
+Keisha.showMetaDecals = function() {
+    const self = Keisha;
+    const decals = self.readMetaTokens();
+    return addBalloon( decals );
+}
+
+</script>
+<script>
+
+Keisha.record = function( event ) {
+    const self = Keisha;
+    self.lastExent = event;
+    let o   = self.metaStates;
+    o.alt   = event.altKey;
+    o.ctrl  = event.ctrlKey;
+    o.meta  = event.metaKey;
+    o.shift = event.shiftKey;
+    o = self.keyStates;
+    if ( event.type == 'keyup' ) {
+        o [ event. code ] = false;
+    } else {
+        o [ event. code ] = true;
+    }
+    if ( REPORT_META ) {
+    }
+}
+
+</script>
+
+<script details="[ALT]+[META] Feature">
+
+function trapAltMeta( event ) {
+    if (! REPORT_KEYS ) { return false; }
+    const ok = ( event.altKey + event.metaKey );
+    if (! ok ) { return false; }
+    const n = event.keyCode;
+    if ( n <   1 ) { return false; }
+    if ( n == 18 ) { return false; }
+    const s = `CODE: ${n}`;
+    // editor.value += s;
+    addBalloon( s );
+    event.preventDefault();
+    return true;
+// NOTE : True prevent logging meta keys
+//        with their decals
+}
+
+</script>
+
+<script details="Tabitha Editor Module">
+
+function keyup( event ) {
+    const boss = Keisha;
+    boss.record( event );
+    Tabi.keyup( event );
+    Mobi.keyup( event );
+    return Keisha;
+}
+
+</script>
+<script>
+
+function keydown( event ) {
+    const boss = Keisha;
+    boss.record( event );
+    if ( trapAltMeta( event ) ) {
+        return;
+    }
+    if ( Tabi.keydown( event ) ) {
+        return;
+    }
+    if ( Mobi.keydown( event ) ) {
+        return;
+    };
+    Rexi.keyDown( event );
+}
+
+</script>
+
+<script details="Insert Text into the Editor">
+
+function insertText( text ) {
+    alert( text );  
+    const ee = editor;
+    const head = ee.selectionStart;
+    const tail = ee.selectionEnd;
+    text = String( text );
+    const count = text.length;
+    const s = ee.value;
+    alert( s );  
+    ee.value = 
+        s.substring( 0, head )
+      + text
+      + s.substring( tail );
+    editor.selectionStart =
+    editor.selectionEnd   = ( head + count );
+    alert( "Inserted text" );  
+}
+
+</script>
+
+<script details="Tabitha Editor Module">
+
+// I named this `Tabi` so as not to conflict with the
+// existing code. The plan is to use this as a
+// wrapper that merely routes event and calls to
+// The Big Honcho.
+
+const Tabi = {};
+
+Tabi.keydown = function( event ) {
+    const TAB = -1; // <<<============ [[ TODO ]]
+    const code = event.keyCode;
+    if ( code != TAB ) {
+        return false;
+    }
+    event.preventDefault();
+    insertText( "\t" );
+    return true;
+}
+
+Tabi.keyup = function( event ) {
+    // TODO: Do we need to handle any keys?
+    return false;
+}
+
+</script>
+
+<script details="Mobius Editor Module">
+
+// I named this `Mobi` so as not to conflict with the
+// existing code. The plan is to use this as a
+// wrapper that merely routes event and calls to
+// The Big Honcho.
+
+const Mobi = {};
+
+Mobi.keydown = function( event ) {
+    // TODO: Do we need to handle any keys?
+    return false;
+}
+
+Mobi.keyup = function( event ) {
+    // TODO: HANDLE THIS!
+    return false;
+}
+
+</script>
+
+<script details="Rex Element Dragging">
+
+const Rexi = {};
+
+Rexi.keydown = function( event ) {
+    // TODO: Do we need to handle any keys?
+    return false;
+}
+
+Rexi.keyup = function( event ) {
+    // TODO: HANDLE THIS!
+    return false;
+}
+
+Rexi.mousedown = function( event ) {
+    // TODO: HANDLE THIS!
+    return false;
+}
+
+Rexi.mouseup = function( event ) {
+    // TODO: HANDLE THIS!
+    return false;
+}
+
+Rexi.mousemove = function( event ) {
+    // TODO: HANDLE THIS!
+    return false;
+}
+
+</script>
+
+<script details="[=pending=]">
+
+// TODO : Merge with existing code
+
+function point( x, y ) {
+    return { x, y };
+}
+
+function size( w, h ) {
+    return { w, h };
+}
+
+function rect( x, y, w, h ) {
+    if ( x instanceof Object ) {
+        if ( "undefined" != typeof x.left ) {
+            const rc = x;
+            x = rc.left;
+            y = rc.top;
+            w = rc.width;
+            h = rc.height;
+        }
+    }
+    const o = { x, y, w, h };
+    const s = JSON.stringify( o, 0, 2 );
+    alert( s );
+    return o;
+}
+
+function rectToDOM( rc ) {
+    const left = ( rc.w < 0 ) ? ( rc.x + rc.w ) : rc.x;
+    const top  = ( rc.h < 0 ) ? ( rc.y + rc.h ) : rc.y; 
+    const o = {
+        x : rc.x ,
+        y : rc.y ,
+        width  : rc.w ,
+        height : rc.h ,
+        left , top
+    };
+}
+
+function getViewSize() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    return size( w, h );
+}
+
+function getRect( elem ) {
+    return rect(
+        elem.getClientRects()[ 0 ]
+    );
+}
+
+function getPageRect() {
+    const A = document;
+    const B = A.firstElementChild;
+    return getRect( B );
+}
+
+function getWorkRect() {
+    return rect( 
+        screen.availLeft   ,
+        screen.availTop    ,
+        screen.availWidth  ,
+        screen.availHeight 
+    );
+}
+
+function getScreenRect() {
+    return rect(
+        screen.left  ,
+        screen.top   ,
+        screen.width ,
+        screen.height 
+    );
+}
+
+</script>
+
+<script details="[=pending=]">
+
+const dotHintsDoc = `
+🏍️ | Execute Script
+🔐 | Cache Script
+🔓 | Recover Script
+🎩 | Rename Script
+🪵 | Show Log
+🤺 | Sulu Navigator
+🗑 | Clear Document
+`;
+
+const docHints = parseCoreDoc( dotHintsDoc, true );
+
+function dotHoverHint( event ) {
+    const dot = event.target;
+    event.preventDefault();
+    const content = dot.innerText.trim();
+
+}
+
+</script>
+
+<script details="[=pending=]">
+
+function removeDot( dot ) {
+    const ogre = dot.parentElement;
+    if ( ogre ) {
+        ogre.removeChild( dot );
+    }
+}
+
+function addDot( pt, content, action ) {
+    const de = document.createElement( 'div' );
+    de.classList.add( 'dot' );
+    de.innerText = content;
+    if ( "function" == typeof action ) {
+        de.onclick = action;
+    } else if ( "string" == typeof action ) {
+        de.setAttribute( "onclick", action );
+    }
+    de.style.left = cssPixels( pt.x );
+    de.style.top  = cssPixels( pt.y );
+    de.addEventListener( 'mousehover', dotHoverHint );
+    document.firstElementChild.appendChild( de );
+    dotOrder.push( content );
+    return de;
+}
+
+</script>
+
+<script details="[=pending=]">
+
+function getDotList() {
+    function getContent( dot ) {
+        return dot.innerText.trim();
+    }
+    function getIndex( dot ) {
+        const content = getContent( dot );
+        return dotOrder.indexOf( content );
+    }
+    function order( a, b ) {
+        const ai = getIndex( a );
+        const bi = getIndex( b );
+        return ( b - a );
+    }
+    const q = `[class~="dot"]`;
+    const group = selmax( q );
+    const dots = Array.from( group );
+    return dots.sort( order );
+}
+
+</script>
+
+<script details="[=pending=]">
+
+function repositionDots() {
+    function doIt() {
+        const dots = getDotList();
+        const sz = getViewSize();
+        const xStep =   0;
+        const yStep = -buttonGap;
+        let count = 0;
+        let x = sz.w - 20 + yStep;
+        let y = sz.h -  bottomGap;
+        function move( dot ) {
+            dot.style.left = cssPixels( x );
+            dot.style.top  = cssPixels( y );
+            x += xStep;
+            y += yStep;
+            count += 1;
+        }
+        dots.forEach( move );
+        return count;
+    }
+    try {
+        return doIt();
+    } catch( error ) {
+        alert( error );
+        return error;
+    }
+}
+
+</script>
+
+<script details="[=pending=]">
+
+function addDotMenu() {
+    function doIt() {
+        dotOrder.length = 0;
+        const pt = point( 5, 5 );
+        function add( content, action ) {
+            addDot( pt, content, action );
+        }
+        add( "🏍️", execScript   );
+        add( "🔐", cacheScript   );
+        add( "🔓", recoverScript );
+        add( "🎩", renameScript  );
+        add( "🪵", showLog       );
+        add( "🤺", sulu          );
+        add( "🗑", clearScript   );
+        return repositionDots();
+    }
+    try {
+        return doIt();
+    } catch( error ) {
+        alert( error );
+        return error;
+    }
+}
+
+</script>
+
+<script details="[=pending=]">
+
+function getBalloon( content ) {
+    return selma( `[id="🎈"]` );
+}
+
+</script>
+<script>
+
+function repositionBalloon() {
+    const balloon = getBalloon();
+    if ( balloon ) {
+        const sz = getViewSize();
+        const x = 5;
+        const y = sz.h - bottomGap;
+        balloon.style.left = cssPixels( x );
+        balloon.style.top  = cssPixels( y );
+    }
+    return balloon;
+}
+
+</script>
+<script>
+
+function addBalloon( content ) {
+    function remove( event ) {
+        removeDot( event.target );  
+    }
+    const pt = point( 5, 5 );
+    let de = getBalloon();
+    if (! de ) {
+        de = addDot( pt, content, remove );
+        de.setAttribute( 'id', "🎈" );
+        de.classList.remove( "dot" );
+        de.classList.add( "balloon" );
+        repositionBalloon();
+    } else {
+        de.innerHTML = content;
+    }
+    return de;
+}
+
+</script>
+
+<!--[[ 
+
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+]]-->
+
+<script details="Cache I/O Interface">
+
+// UGLY RETEXT HACK!!!
+
+function getCacheInterface() {
+    if ( "object" != typeof localStorage ) {
+        return null;
+    }
+    const o = localStorage;
+    if ( "function" != typeof o.keys ) {
+        return null;
+    }
+    const key = ( n ) => o.key( n );
+    if ( "function" != typeof o.getItem ) {
+        return null;
+    }
+    const recover = ( k ) => o.getItem( k );
+    if ( "function" != typeof o.setItem ) {
+        return null;
+    }
+    const cache = ( k, v ) => o.setItem( k, v );
+    return { key , recover, cache };
+}
+
+</script>
+
+<script details="Unfinshed I/O Interfaces">
+
+function getFileSystemInterface () { return todo(); }
+function getMailInterface       () { return todo(); }
+function getTransportInterface  () { return todo(); }
+function getSharingInterface    () { return todo(); }
+function getClipboardInterface  () { return todo(); }
+function getScreenshotInterface () { return todo(); }
+function getDatabaseInterface   () { return todo(); }
+function getPrinterInterface    () { return todo(); }
+
+const interfaceDispatchMap = {
+  cache      : getCacheInterface
+, filesystem : getFileSystemInterface
+, mail       : getMailInterface
+, transport  : getTransportInterface
+, sharing    : getSharingInterface
+, clipboard  : getClipboardInterface
+, screenshot : getScreenshotInterface
+, database   : getDatabaseInterface
+, printer    : getPrinterInterface
+};
+
+</script>
+
+<script>
+
+const interfaceStatusDoc = `
+cache      | Cache      | checked
+filesystem | FileSystem | 
+transport  | Transport  | 
+mail       | Mail       | 
+sharing    | Sharing    | 
+clipboard  | Clipboard  | 
+screenshot | Screenshot | 
+database   | Database   | 
+printer    | Printer    | 
+`;
+
+let interfaceStatusTable = [];
+
+function refreshInterfaceStatusTable( force ) {
+    if ( force ) {
+        interfaceStatusTable = [];
+    }
+    if ( interfaceStatusTable.length ) {
+        return;
+    }
+    interfaceStatusTable = parseCoreDoc(
+        interfaceStatusDoc, true  
+    );
+}
+
+function unavailable() {
+    alert( "This feature is unavailable. See help." );
+}
+
+function isInterfaceAvailable( key ) {
+    const table = interfaceStatusTable;
+    function index() {
+        return table.indexOf( key );
+    }
+    function checked( index ) {
+        const record = table[ index ];
+        if (! record ) { return false; }
+        const state = record[ 2 ];
+        if (! state ) { return false; }
+        state = state.trim();
+        return ( state.length > 0 );
+    }
+    return checked( index() );
+}
+
+function getScriptInterfaces() {
+    results = {};
+    function avail( key ) {
+        return isInterfaceAvailable( key );
+    }
+    function dispatch( key ) {
+        const action = interfaceDispatchMap( key );
+        if (! action ) {
+            warn( 
+     `No action found for ${key}. Skipping.`
+            );
+            return null;
+        }
+        return action();
+    }
+    function map( record ) {
+        const key = record[ 0 ];
+        if ( avail( key ) ) {
+            results[ key ] = dispatch( key );
+        }
+    }
+    const table = interfaceStatusTable;
+    table.forEach( map );
+    return results;
+}
+
+</script>
+
+<script details="Script Execution">
+
+// TODO : Consider `Executor` API here!
+
+const execHistory = {
+    input  : [] ,
+    output : [] ,
+    errors : []
+};
+
+</script>
+<script>
+
+function resetExec( what ) {
+    const log = execHistory;
+    function nope() {
+        what = `Invalid reset type: ${what}`;
+        alert( what );
+        return execHistory();
+    }
+    function final() {
+        showExecStats();
+        return execHistory;
+    }
+    function resetInput( hold ) {
+        log.input.length = 0;
+        if ( hold ) return;
+        return final();
+    }
+    function resetOutput( hold ) {
+        log.output.length = 0;
+        if ( hold ) return;
+        return final();
+    }
+    function resetErrors( hold ) {
+        log.errors.length = 0;
+        if ( hold ) return;
+        return final();
+    }
+    function resetAll() {
+        resetInput( true );
+        resetOutput( true );
+        resetErrors( true );
+        return final();
+    }
+    switch ( what ) {
+    case "all"    : return resetAll();
+    case "input"  : return resetInput();
+    case "output" : return resetOutput();
+    case "errors" : return resetErrors();
+    default       : return nope();
+    }
+}
+
+</script>
+<script>
+
+function showExecStats() {
+    const stats = getExecStats();
+    const i = state.input  ;
+    const o = state.output ;
+    const e = state.errors ;
+    const parts = [ 
+        `Ⓘ:${i}`
+,       `Ⓞ:${o}`
+,       `Ⓔ:${e}` 
+    ];
+    const s = parts.join( " | " );
+    return addBalloon( s );
+}
+
+</script>
+<script>
+
+function getExecStats() {
+    const log    = execHistory;
+    const input  = log.input.length;
+    const output = log.output.length;
+    const errors = log.errors.length;
+    return { input, output, errors };
+}
+
+</script>
+<script>
+
+// TODO : Make a dialog for this.
+
+function reportExecHistory() {
+    return showExecStats();
+}
+
+</script>
+<script>
+
+function execScript() {
+    if ( SCRIPT_WARN ) {
+        msg = "Run document as JavaScript?";
+        const ans = yesNo( msg );
+        if (! ans ) { return; }
+    }
+    // return todo();
+    try {
+        const log = execHistory;
+        const source = editor.value;
+        log.input.push( source );
+        const output = eval( source );
+        log.output.push( output );
+        return output;
+    } catch( err ) {
+        console.error( err );
+        log.errors.push( err );
+        alert( err );
+        return err;
+    }
+}
+
+</script>
+
+<script>
+
+function cacheScript() {
+    const key = confirmScriptTitle();
+    const ci = getCacheInterface();
+    if ( ci ) {
+        const value = editor.value;
+        ci.cache( key, value );
+    }
+
+}
+
+function recoverScript() {
+    todo();   
+}
+
+function renameScript() {
+    let s = editString( ScriptName );
+    if (! s ) return;
+    ScriptName = s;
+}
+
+function clearScript() {
+    todo();
+}
+
+function showLog() {
+    todo();
+}
+
+function sulu() {
+    todo();
+}
+
+function yesNo( caption ) {
+    let s = prompt( caption, "no" );
+    if (! s ) return false;
+    s = s.trim().toLowerCase();
+    if ( ( s == "y" ) || ( s == "yes" ) ) {
+        return true;
+    }
+    return false;
+}
+
+function editString( caption, value ) {
+    value = value || "";
+    let s = prompt( caption, value );
+    if (! s ) return value;
+    return s.trim();
+}
+
+</script>
+
+<script details="[=pending=]">
+
+function init() {
+
+    function resize() {
+        repositionBalloon();
+        repositionDots();
+    }
+
+    addEventListener( 'resize', resize );
+
+    document.firstElementChild
+            .addEventListener( 'keydown', keydown );
+
+
+    showHostNames();
+
+    const count = addDotMenu();
+
+    refreshInterfaceStatusTable();
+
+    addBalloon( "Click to close me..." );
+
+
+//  showCacheKeys();
+
+//  alert( "Initialized!" );
+
+}
+
+</script>
+
+<script details="[=pending=]">
+
+function main() {
+    try {
+        init();
+    } catch( e ) {
+        console.log( e );
+        alert( e );
+    }
+}
+
+addEventListener( 'load', main );
+
+</script>
+
+</body>
+</html>

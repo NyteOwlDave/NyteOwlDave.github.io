@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Ruminations HQ
+Exec=/opt/google/chrome/google-chrome --profile-directory=Default --ignore-profile-directory-if-not-exists https://whiteboard.cloud.microsoft/me/whiteboards/40b18817-64ee-41fd-b774-6074366a46ce
+Icon=/home/dave/.config/google-chrome/Default/Web Shortcut Icons/shortcut-7515d41be227aa390a83b2ad1a8a8e24.png
+URL=https://whiteboard.cloud.microsoft/me/whiteboards/40b18817-64ee-41fd-b774-6074366a46ce
+Comment=Open https://whiteboard.cloud.microsoft/me/whiteboards/40b18817-64ee-41fd-b774-6074366a46ce in a new tab in Google Chrome.

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for a in $(ls | grep '.json'); do
+    infile=$a;
+    outfile=$(echo $a | cut -b 6-);
+    echo
+    # echo "SRC => ${infile}";
+    # echo "DST => ${outfile}";
+    cp "${infile}" "${outfile}";
+done
+
+echo

@@ -1,0 +1,39 @@
+
+/* 
+
+# Chrome Dots CSS Module
+
+> 2025-APR-01
+
+<pre contenteditable>
+| Key   | Value                                |
+|-------|--------------------------------------|
+| title | Chrome Dots API                      |
+| date  | 2025-APR-01                          |
+| host  | http://dave-legacy                   |
+| path  | /42/api                              |
+| file  | chrome-dots.js                       |
+| tikey | 7fb6a139-36d8-46ac-8fbf-596236ee4b16 |
+</pre>
+
+*/
+
+@import url("http://dave-legacy/42/style/dots.css");
+
+html, body, iframe { margin : 0; border : 0; }
+
+html {
+    color : midnightblue;
+    background : lemonchiffon;
+}
+
+body { height : 100vw; }
+
+body { height : 100vh; }
+
+iframe { width  : 100%; }
+
+iframe { height :  70%; }
+
+menu[balloons] { text-align : center; }
+

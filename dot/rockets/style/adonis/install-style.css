@@ -1,0 +1,25 @@
+
+
+/* 
+    Install Instructions
+*/
+
+html {
+    font : 15pt sans;
+    color : rgb( 220, 240, 133 );
+    background : rgb( 2, 2, 33 );
+}
+
+body {
+    margin-bottom : 33vh;
+}
+
+pre:focus {
+    background : rgb( 22, 22, 63 );
+}
+
+pre {
+    font : 11pt monospace;
+    padding : 1.2em;
+}
+

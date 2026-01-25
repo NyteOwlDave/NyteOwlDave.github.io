@@ -1,0 +1,146 @@
+@import url("http://dave-probook/std/style/plenum/plenum-blue.css");
+
+:root {
+    --fgc : rgba( 222, 242, 142, 0.942 );
+    --bgc : rgba(   4,   4,  42, 0.942 );
+    --fnt : 14pt sans-serif;
+    --edf : 14pt monospace;
+}
+html {
+    font        : var( --fnt );
+    color       : var( --fgc );
+    background  : var( --bgc );
+    text-align  : center;
+    padding     : 80px;
+}
+header {
+    width : calc( 100% - 40px );
+    line-height : 24px;
+    padding-top : 2px;
+}
+body {
+    background: unset;
+    margin-bottom : 33vh;
+}
+a {
+    font-size : larger;
+    color : var( --fgc );
+}
+a, button {
+    cursor : pointer;
+}
+a:before {
+    content : unset;
+}
+h1 {
+    width : 78vw;
+    transform : translate( -22px, 0px );
+}
+textarea {
+    width : 80vw;
+}
+textarea {
+    --hp  : 25px;
+    --vp  : 17px;
+    font        : var( --edf );
+    color       : var( --fgc );
+    background  : var( --bgc );
+    padding : var( --vp );
+    padding-left  : var( --hp );
+    padding-right : var( --hp );
+    resize : vertical;
+    overflow-x : scroll;
+    overflow-y : scroll;
+}
+
+textarea {
+    border-radius : 0;
+    border-top-left-radius : 17px;
+}
+
+textarea:focus {
+    color       : var( --bgc );
+    background  : var( --fgc );
+}
+
+ul *, 
+ul > *,
+ul {
+    text-align : left;
+}
+
+li, html { font : 17pt monospace; }
+
+ul {
+    list-style : none;
+}
+
+li {
+    font : 17pt monospace;
+}
+
+ol {
+    text-align : left;
+    list-style : inside;
+}
+
+ul li ,
+ol li {
+    --ph : 42px;
+    margin-right  : var( --ph );
+}
+
+ol li {
+    --ph : 42px;
+    margin-left  : var( --ph );
+}
+
+a {
+    padding-left  : 7px;
+    padding-right : 7px;
+    cursor : pointer;
+}
+
+a:hover {
+    border-radius : 12px;
+    background : rgba( 222, 242, 142, 0.42 );
+}
+
+a:visited {
+    color : inherit;
+}
+
+
+/* 
+    Addendum 2025-FEB-20
+*/
+
+h1, h2, h3, h4, h5 {
+    animation-name : none;
+    animation : none;
+}
+
+textarea, h1, h2, h3, g4, h5, h6 {
+    width : calc( 100vw - 400px )
+}
+
+body, main {
+    padding : 0;
+    height : unset;
+}
+
+textarea {
+    transform : translate( 80px, 0px );
+    margin-bottom : 10vh;
+}
+
+SANDBOX {
+    width : 68.9vw;
+    transform : translate( -10px, 0px );
+    content : unset;
+}
+
+ul, li { 
+    background : unset;
+    text-align : left;
+}

@@ -1,0 +1,39 @@
+
+/* 
+
+    Adonis Primary Stylesheet
+    Include This in ALL Pages
+
+<link rel="stylesheet" href="style/adonis.css">
+
+
+*/
+
+
+:root {
+    --title : "Adonis";
+    --fgc : mintcream;
+    --bgc : rgb( 2, 2, 33 );
+}
+
+* {
+    --version : "2024-FEB-15";
+}
+
+[center] {
+    text-align : center;
+}
+
+[inverse] {
+    color : var( --bgc );
+    background : var( --fgc );
+}
+
+html, body {
+    color : var( --fgc );
+    background : var( --bgc );
+    font : 14pt sans-serif;
+}
+
+
+

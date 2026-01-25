@@ -1,0 +1,63 @@
+
+/*
+
+    live-page-dot.js
+    2024-OCT-05
+    for Ozville
+
+    as Seen in Gnome Diags
+    October Activities
+
+    This file provides the styles for `live-page-dot.js`.
+    See that file for usage and remarks.
+
+*/
+
+:root {
+    --live-page-dot-css   : "2.0.0";
+    --live-page-dot-fg    : rgb( 1, 1, 11 );
+    --live-page-dot-bg    : rgba( 164, 164, 64, 0.4567 );
+    --live-page-dot-aura  : 0px 0px 24px gold;;
+    --live-page-dot-no-border : 2px solid transparent;
+}
+
+[live] {
+
+    z-index    : 9999999;
+
+    position   : fixed;
+    display    : inline-block;
+
+    top        : calc( 50vh - 25px );
+    right      : 20px;
+    width      : 50px;
+    height     : 50px;
+
+    font-size  : 25px;
+    text-align : center;
+
+    cursor     : pointer;
+
+    color      : var( --live-page-dot-fg );
+    background : var( --live-page-dot-bg );
+
+    border        : var( --live-page-dot-no-border );
+    border-radius : 50%;
+
+    padding-top     : 4px;
+    padding-bottom  : 8px;
+    padding-left    : 8px;
+    padding-right   : 6px;
+
+}
+
+/* How I love those auras!!! */
+[live]:focus-visible,
+[live]:focus ,
+[live]:active ,
+[live]:hover {
+    border     : var( --live-page-dot-no-border );
+    box-shadow : var( --live-page-dot-aura );
+}
+
+

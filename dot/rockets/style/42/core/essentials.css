@@ -1,0 +1,88 @@
+/* 
+
+# Just the ESSENTIALS... 
+
+- [Workspace](./)
+
+*/
+
+@import url("http://dave-legacy/42/style/freddy.css");
+@import url("http://dave-legacy/42/style/ozville/live-page-dot.css");
+
+
+/* |=== [[ 2025-MAR-28 ]] ===| */
+
+:root {
+    --darko : rgba(   4,   4,  42, 0.942 );
+    --brite : rgba( 242, 242, 142, 0.942 );
+}
+
+:root {
+    --font-sans : 16pt "Geist", "Verdana", sans-serif;
+    --font-mono : 14pt "Noto Mono", "Geist Mono", monospace;
+}
+
+html { text-align : left; }
+
+html {
+    font       : var( --font-sans );
+    color      : var( --brite );
+    background : var( --darko );
+};
+
+html, body {
+    margin : 0;
+    border : 0;
+}
+
+header, footer {
+    color      : var( --darko );
+    background : var( --brite );
+}
+
+.debug { border : 2px solid red; }
+
+date,
+wbkey, aikey, tikey,
+pre, code, samp, kbd,
+textarea {
+    font  : var( --font-mono );
+}
+
+div[navbar], header, footer { color      : var( --darko ); }
+div[navbar], header, footer { background : var( --brite ); }
+
+div[navbar] { text-align : right; }
+div[navbar] { padding-right : 2ch; }
+
+nav.www a:before { content : "🌐";  margin-right: 8px; }
+nav.fso a:before { content : "🗂️"; margin-right: 8px; }
+
+a { text-decoration : none; }
+
+
+body { margin-bottom : 42vh; }
+
+pre, 
+textarea:hover {
+    color      : black;
+    background : lightgreen;
+}
+
+[contenteditable]
+pre:focus , 
+textarea:focus {
+    color      : mintcream;
+    background : midnightblue;
+}
+
+pre:focus , 
+textarea:focus {
+    box-shadow  : 0px 0px 42px black;
+}
+
+textarea:focus {
+    outline : none;
+}
+
+

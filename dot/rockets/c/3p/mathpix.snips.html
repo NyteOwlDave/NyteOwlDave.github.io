@@ -1,0 +1,38 @@
+<!DOCTYPE html lang="en-us">
+<html>
+<head>
+<meta charset="utf-8">
+<title>MathPix Snips</title>
+</head>
+<body>
+<script name="URL Composer">
+const scheme="https";
+const host="snip.mathpix.com";
+const path="home";
+const asset="";
+const query="";
+const hash="";
+const urlShort = () => {
+    return `${scheme}://${host}`;
+}
+const urlMedium = () => {
+    return `${scheme}://${host}/${path}`;
+}
+const urlLong = () => {
+    return `${scheme}://${host}/${path}/${asset}`;
+}
+const urlExtended = () => {
+    return `${scheme}://${host}/${path}/${asset}?${query}#${hash}`;
+}
+</script>
+<script name="Main Script">
+// Keep this comment out until it goes live
+// location = urlShort();
+location = urlMedium();
+// location = urlLong();
+// location = urlFull();
+</script>
+</body>
+</html>
+  
+

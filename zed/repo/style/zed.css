@@ -1,0 +1,16 @@
+
+/* 
+
++ zed.css
+| $ a76240ac-da73-11f0-a0c9-034d87641e41
+
+*/
+
+.zeddicus {
+    display : inline-block;
+    font : 11pt "Noto Mono", monospace;
+    min-width : calc( 40% - 22px );
+    max-width : calc( 40% - 22px );
+    min-height : 12em;
+    max-height : calc( 100vh - 200px );
+}

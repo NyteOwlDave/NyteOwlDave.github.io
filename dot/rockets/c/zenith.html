@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Zenith</title>
+    </head>
+    <body>
+        <main id="idPayload">
+            <h1>Zenith File Download</h1>
+            <ul>
+                <li><a href="./fetch">For file I/O, see Fetch</a>
+                <li><a href="./charlie">For Local Storage, see Charlie</a>
+                <li><a href="./client-ip">You can see the Client IP</a>
+                <li><a href="./grid">See Grid Examples</a>
+                <li><a href="./math">See Math Examples</a>
+            </ul>
+            <h2>But the BEST Part</h2>
+            <p>You can list the contents of this folder.</p>
+            <nav>
+            <a href="zenith.php"></a>Or see Math Examples</a>
+            </nav>
+            </main>
+        <footer id="control-container"></footer>
+<script>
+    function getControlContainer() {
+        return document.getElementById( 'control-container' );        
+    }
+</script>
+<script>
+    function createButton( title, onclick, parent ) {
+        const e = document.createElement( 'button' );
+        e.innerHTML = String( title ).trim() || 'OK';
+        e.onclick = onclick ? onclick : ()=>{
+            console.log( "Click!" )
+        }
+        if ( parent instanceof HTMLElement ) {
+            parent.appendChild( e );
+        }
+        return e;
+    }
+</script>
+<script>
+    function zenith( payload ) {
+        const el = document.createElement('div');
+        el.innerHTML = payload;
+        const pre = el.firstElementChild;
+        if ( pre instanceof HTMLElement ) {
+            payload = pre.innerText;
+            try {
+                const s = JSON.stringify( payload );
+                console.group( "Payload" );
+                console.log( s );
+                console.groupEnd();
+            } catch( err ) {
+                console.error( "Payload is malformed", err )
+            }
+        }
+        zenith.payload = payload;
+        idPayload.innerHTML = `
+<h1>Payload</h1>
+<pre>
+${  payload }
+</pre>
+`;
+    }
+    zenith.payload = "{}";
+</script>
+<script>
+    function midnight( err ) {
+        console.log( err );
+        idPayload.innerHTML = `
+<h1>Ooops!</h1>
+<div>The file failed to load.</div>
+<div>
+<pre>
+${JSON.stringify( err )}
+</pre>
+</div>
+`;
+    }    
+    createButton( 'Download', ()=>{
+        let s = prompt( "Filename", "download.json");
+        s =  s ? s.trim() : false;
+        if ( !s ) return;
+        try {
+            saveText( zenith.payload, s );
+        } catch ( err ) {
+            console.log( err );
+        }
+    }, getControlContainer() );
+</script>
+<script>
+    function bearifest() {
+        const q = `link[rel="bearifest"]`;
+        const e = document.querySelector( q );
+        if ( e ) {
+            console.log( "Bearifest", e.innerText );
+        }
+    }
+</script>
+<script>
+    function load( url ) {
+        loadText( url, zenith, midnight );
+    }
+    function save( fileName ) {
+        try {
+            fileName = String( fileName ).trim()
+            || "download.json";
+            saveText( zentih.payload, fileName() );
+        } catch ( err ) {
+            console.error( err );
+        }
+    }
+</script>
+<script>
+    function loadText( url, ok, nope ) {
+        fetch( url )
+        .then( resp=>resp.text() )
+        .then( ok )
+        .catch( nope );        
+    }
+    // The blob can handle a string or other primitive, File or a Blob
+    // File objects come from the FileReader
+    // or from the <input type="file" /> element
+    function saveText( blob, fileName ) {
+        const a = document.createElement ( "a" );
+        a.style = "display: none";
+        document.body.appendChild( a );
+        try {
+            if ( !( blob instanceof Object ) ) {
+                const modifiers = { type: "text/plain" };
+                blob = String( blob );
+                blob = new Blob( [ blob ], modifiers );
+            }
+            const url = window.URL.createObjectURL( blob );
+            a.href = url;
+            a.download = fileName;
+            a.click();
+        } catch ( err ) {
+            const cb = saveText[ 'errorHook' ];
+            // Prefer user deefined hook
+            if ( typeof cb == 'function') cb( { err, blob, fileName } );
+            else console.error( err );
+        } finally {
+            document.body.removeChild(a);
+        }
+    }
+    // User definable hook for errors
+    saveText.errorHook = ( arg ) => {
+        console.log( arg );
+    }
+</script>
+<script>
+    function main() {
+        try {
+            // bearifest();
+        } catch ( error ) {
+            console.error( error );
+        }
+        try {
+            load( 'zenith.php' );
+        } catch(  error  ) {
+            console.error( error );
+        }
+    }
+    window.onload = main;
+</script>
+</body>
+</html>

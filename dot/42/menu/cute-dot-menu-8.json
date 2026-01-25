@@ -1,0 +1,93 @@
+{
+  "menuDots": [
+    [
+      {
+        "url": "http://localhost/Q/pms/Actions/",
+        "decal": "🔗",
+        "title": "http://localhost/Q/pms/Actions/",
+        "tikey": "148d407d-65d3-4733-bede-39bb39366dab"
+      },
+      {
+        "url": "http://dave-tower/projects/fun/concentration/concentration.html",
+        "decal": "🌖",
+        "title": "http://dave-tower/projects/fun/concentration/concentration.html",
+        "tikey": "27c2f00e-9113-407c-9f7d-77e82dac031f"
+      },
+      {
+        "url": "http://dave-omega/dots/dot.whiteboard-launcher.html",
+        "decal": "📜",
+        "title": "http://dave-omega/dots/dot.whiteboard-launcher.html",
+        "tikey": "7da0bd58-16c3-40bb-a632-49acb7794e35"
+      },
+      {
+        "url": "http://localhost/std/app/mathadesic/pikes-peak.html",
+        "decal": "🖌",
+        "title": "http://localhost/std/app/mathadesic/pikes-peak.html",
+        "tikey": "39439463-d4f3-499a-a771-1548d15d91c7"
+      },
+      {
+        "url": "http://wellsted-home.ddns.net:4242/42/examples/animation/sparkle-button.html",
+        "decal": "🐈",
+        "title": "http://wellsted-home.ddns.net:4242/42/examples/animation/sparkle-button.html",
+        "tikey": "59a3f5fe-575c-4c92-a11d-ca79020d8c1e"
+      },
+      {
+        "url": "http://localhost/Q/pms/Actions/Create%20Item/create-item.html",
+        "decal": "🗳",
+        "title": "http://localhost/Q/pms/Actions/Create%20Item/create-item.html",
+        "tikey": "25980245-f54f-4366-b933-267cc9e622dd"
+      },
+      {
+        "url": "http://localhost/Q/pms/",
+        "decal": "🛰",
+        "title": "http://localhost/Q/pms/",
+        "tikey": "dd01cf68-b8b1-47d0-a64e-91082f838bd0"
+      },
+      {
+        "url": "https://calendar.google.com/calendar/u/0/r",
+        "decal": "🗓",
+        "title": "https://calendar.google.com/calendar/u/0/r",
+        "tikey": "9f666940-4dae-437f-a887-6759298126f8"
+      },
+      {
+        "url": "http://localhost/vortex/Downloads/%5b%5b%20SORT%20ME%20%5d%5d/vulcano.html",
+        "decal": "🌋",
+        "title": "Vulcano",
+        "tikey": "79877b1d-5b37-4e29-a313-12cbb2051a0b"
+      },
+      {
+        "url": "https://gist.github.com/NyteOwlDave",
+        "decal": "🐱",
+        "title": "https://gist.github.com/NyteOwlDave",
+        "tikey": "e9b45856-b268-427a-9bc1-6a8a2941e485"
+      }
+    ],
+    [
+      {
+        "url": "http://localhost/42/dots/menu/dot-menu-reader.html",
+        "decal": "👔",
+        "title": "http://localhost/42/dots/menu/dot-menu-reader.html",
+        "tikey": "5c035f3d-afb5-43e7-8101-14689e06051b"
+      }
+    ]
+  ],
+  "menuCorners": [
+    {
+      "x": 39.37250900268555,
+      "y": -13.417498588562012,
+      "computed": {
+        "x": "-290.913px",
+        "y": "-55.6125px"
+      }
+    },
+    {
+      "x": 789.5075073242188,
+      "y": 35.845001220703125,
+      "computed": {
+        "x": "747.32px",
+        "y": "-6.35px"
+      }
+    }
+  ],
+  "tikey": "6f4621ea-3e9d-4467-b02d-69269b202d6b"
+}

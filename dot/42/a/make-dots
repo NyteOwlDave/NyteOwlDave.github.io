@@ -1,0 +1,24 @@
+#!/bin/bash
+# [Tool](./Q-Dot-Maker.html)
+
+copyFiles() {
+   while read a; do
+      echo "$a";
+      cp template.html "$a";
+   done;
+}
+
+echo
+echo "Generating Dot Rockets ...";
+echo
+
+copyFiles << _X_
+dot.test-1.html
+dot.test-2.html
+dot.test-3.html
+_X_
+
+echo
+echo "Finished";
+echo
+

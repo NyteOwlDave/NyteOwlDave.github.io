@@ -1,0 +1,66 @@
+
+/*
+
+# Yogi's Home Dot
+
+> 2025-MAR-31                           <br>
+> `http://dave-legacy`                  <br>
+> `/42/style/yogi/home-dot`          <br>
+> `.css`
+
+# Examples
+
+- [Workspace](./)
+- [Yogi](file:///home/dave/Yogi/)
+- [Yogi's Workspaces](file:///home/dave/Yogi/wks/)
+- [Yogi's To-Do Menu](file:///home/dave/Yogi/)
+
+*/
+
+
+/* <textarea wrap="off" rows="42" width="920"> */
+
+.home {
+    z-index  : 4242424242;
+    position : fixed;
+}
+
+.home {
+    right   : 20px;
+    bottom  : 20px;
+    padding :  8px;
+}
+
+.home {
+    --sz : 42px;
+    line-height : var( --sz );
+    width       : var( --sz );
+    height      : var( --sz );
+}
+
+.home {
+    font-family : "Noto Mono", monospace;
+    font-size   : 32px;
+    text-align  : center;
+}
+
+.home {
+    color       : gold;
+    background  : #242;
+    opacity     : 0.2424;
+}
+
+.home {
+    cursor      : pointer;
+    user-select : none;
+    box-shadow  : 0px 0px 21px #001 !important;
+}
+
+.home:hover ,
+.home:focus {
+    opacity : 1.0;
+}
+
+
+/* </textarea> */
+

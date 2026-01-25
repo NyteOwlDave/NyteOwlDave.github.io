@@ -1,0 +1,161 @@
+<head>
+<meta charset="utf-8">
+<title>Whiteboard Launcher</title>
+</head>
+
+<body>
+<script>
+P=`https://whiteboard.cloud.microsoft`;
+S=`me/whiteboards`;
+K="";
+U="";
+</script>
+
+<style>
+html, body {
+    color : rgb( 4, 4, 42 );
+    background : rgb( 242, 242, 182 );
+}
+body {
+    text-align : center;
+    margin-top : 64px;
+    margin-bottom : 64px;
+}
+#input {
+    width : 80%;
+    font : 16pt monospace;
+    margin : 8px;
+    padding : 3px;
+}
+code {
+    font : 14pt monospace;
+}
+</style>
+
+<style>
+
+/* From Uiverse.io by cssbuttons-io */ 
+button {
+  display: inline-block;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.2em;
+  min-width: 140px;
+  padding: 0px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s;
+/*
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1em;
+*/
+}
+
+button:active,
+button:hover {
+  outline: 0;
+}
+
+button span {
+    display : inline-block;
+    background-color: rgb(5, 6, 45);
+    border-radius: inherit;
+/*
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+*/
+    border : none;
+    padding: 16px 50px;
+    transition: 300ms;
+}
+
+button:hover span {
+    background: none;
+}
+
+button:hover {
+    transform: scale(1.3);
+    box-shadow : 0px 0px 21px navy;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+</style>
+
+
+<h1>🔲 Whiteboard Launcher 🚀</h1>
+
+<h2><u>Instructions</u></h2>
+<article>Paste a key into the field, then click the <b>Visit</b> button.</article>
+
+<div>
+<input id="input" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+<br><br>
+<button onclick="launch()">
+    <span class="text">Visit</span>
+</button>
+<br><br>
+</div>
+
+<a style="display: none" id="visit">Visit</a>
+
+<hr>
+
+<h1>Remarks</h1>
+
+<h2>Bash Script</h2>
+
+<article>
+The <b>Omega</b> workstation has a <b>Ben</b> script that performs
+a similar task.
+<br><br>
+In other words, you pass a whiteboard key as as an argument when
+invoking the script and it launches that whiteboard.
+<br><br>
+The name of the script is <code>shurl</code>, which is a contraction
+for &quot;shortened url&quot;.
+</article>
+
+<h2>Database</h2>
+
+<article>
+I plan to make an IDB database for storing and retrieving whiteboard
+titles and keys. In the mean time, I may stash this in the browser's
+local storage ("cache").
+</article>
+
+<script>
+function launch() {
+    K = input.value.trim();
+    if ( REX.test( K ) ) {
+        U = [ P, S, K ].join( "/" );
+        visit.href = U;
+        visit.click();
+        return;
+    }
+    alert( "Invalid key" );
+}
+</script>
+
+<script>
+REX=new RegExp( "^[{(]?[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}[)}]?$" );
+</script>
+
+</body>
+
+

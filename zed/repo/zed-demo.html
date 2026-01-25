@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta key="codelab" value="https://www.tutorialrepublic.com/codelab.php">
+<meta key="version" value="v2.0.0">
+<meta key="date"    value="2025-DEC-19">
+<title>Zed Demo</title>
+
+<style>
+@import url("http://aloralyn.org:64647/style/zed/zed-demo.css");
+</style>
+
+<style>
+/*
+@keyframes wag {
+   0%   {
+      transform : translate( 0, 0 ) scale( 1.2 );
+   }
+   20%  {
+      transform : translate( 0, 20px ) scale( 1.2 );
+   }
+   50%  {
+      transform : translate( 0, 0 ) scale( 1.2 );
+   }
+   80%  {
+      transform : translate( 0, -20px ) scale( 1.2 );
+   }
+   100% {
+      transform : translate( 0, 0 ) scale( 1 );
+   }
+}
+.wag {
+    display : inline-block !important;
+    animation : 0.25s linear wag infinite !important;
+}
+*/
+</style>
+
+<style>
+/*
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color : #EEDE88;
+    background : #080822;
+    margin-top : 64px;
+    margin-bottom : 42vh;
+    border : 3px dotted gold;
+    border-radius : 3ch;
+    padding : 3ch;
+}
+*/
+</style>
+
+<style>
+/*
+.zeddicus {
+    display : inline-block;
+    font : 11pt "Noto Mono", monospace;
+    min-width : calc( 40% - 22px );
+    max-width : calc( 40% - 22px );
+    min-height : 12em;
+    max-height : calc( 100vh - 200px );
+    background : gray;
+    color : midnightblue;
+    margin  : 0.2ch;
+    padding : 0.5ch;
+    overflow-x : auto scroll;
+    overflow-y : scroll;
+}
+.zeddicus:focus {
+    background : lemonchiffon;
+}
+*/
+</style>
+
+<style>
+/*
+header, footer {
+    position : fixed;
+    left   : 0;
+    width  : 100%;
+    margin : 0;
+    padding : 0.4ch;
+    padding-left  : 1.2ch;
+    padding-right : 1.2ch;
+    border : none;
+    border-top : 2px dashed #44C3;
+    background : #EEDE88;
+    color      : #080822;
+}
+header { top    : 0; }
+footer { bottom : 0; }
+*/
+</style>
+
+<style>
+/*
+#editor-index {
+    display : inline-block;
+    width : 10ch;
+    text-align : center;
+}
+*/
+</style>
+
+<style>
+/*
+[onclick] 
+, [href] {
+    display : inline-block;
+    cursor : pointer;
+    border : none;
+    border-radius : 2.5ch;
+    padding : 4px;
+    padding-left  : 1ch;
+    padding-right : 1ch;
+    color : mintcream;
+    background : #441;
+}
+[onclick]:hover
+, [href]:hover {
+    animation : 0.12s linear bloom forwards;
+}
+[onclick]:focus
+, [href]:focus {
+  transform : scale( 1.2 );
+  box-shadow : 0 0 15px gold;
+  color : mintcream;
+  background : #888;
+}
+*:focus {
+    outline : none;
+}
+*/
+</style>
+
+<style>
+/*
+#zed-menu button {
+  display : inline-block;
+  width  : 5ch;
+  height : 5ch;
+}
+*/
+</style>
+
+<style>
+/*
+@keyframes bloom {
+    from {
+        transform : scale( 1.0 );
+        box-shadow : 0 0 5px black;
+    } 
+    to {
+        transform : scale( 1.2 );
+        box-shadow : 0 0 15px gold;
+        color : mintcream;
+        background : midnightblue;
+    }
+}
+*/
+</style>
+
+</head>
+
+<!-- ======================================================= -->
+
+<body>
+
+<h3>
+  <a href="http://dave-legacy/app/zed/zed.html">Zed</a>
+  <a href="http://dave-legacy/app/zed/zed-demo.html">Home</a>
+  <a href="https://www.tutorialrepublic.com/codelab.php">Code Lab</a>
+  <a href="http://neo/shares/zed/">Netwide</a>
+  <a href="./">Explore</a>
+</h3>
+
+<div id="zed-menu">
+  <button title="Add Editor" onclick="dot(this)">➕</button>
+  <button title="Remove Editor" onclick="dot(this)">➖</button>
+  <button title="Run Editor" onclick="dot(this)">➡️</button>
+  <button title="Zoom Editor" onclick="dot(this)">💠</button>
+  <button title="ID Editor" onclick="dot(this)">🆔</button>
+  <button title="Rename Editor" onclick="dot(this)">🪪</button>
+  <button title="Recover Editor" onclick="dot(this)">🔓</button>
+  <button title="Persist Editor" onclick="dot(this)">🔏</button>
+  <button title="Edit Store Keys" onclick="dot(this)">🔐</button>
+  <button title="Save Manifest" onclick="dot(this)">💾</button>
+  <button title="Help" onclick="dot(this)">ℹ️</button>
+</div>
+
+<div>
+  <hr>
+  <span id="snoopy">Snoopy Loves You!<span>
+</div>
+
+<hr>
+
+<!-- ======================================================= -->
+
+<header id="header">
+  <label for="editor-index">Editor Index</label>
+  <input id="editor-index" type="number" value="0">
+</header>
+
+<footer id="footer">
+  <div id="status">Initializing ...</div>
+</footer>
+
+<!-- ======================================================= -->
+
+<script name="zed-prolog.js" group="Zeddicus Prolog">
+let SHOW_RESULTS = false;
+function prolog() {
+   RS  = "\n";
+   FS  = "|";
+   con = console;
+   doc = document;
+   stg = localStorage;
+   wnd = window;
+   arr  =( o )=> ( Array.from( o ) );
+   all  =( q )=> arr( doc.querySelectorAll( q ) );
+   one  =( q )=> ( doc.querySelector( q ) );
+   ebi  =( i )=> ( doc.getElementById( i ) );
+   elx  =( t )=> ( doc.createElement ( t ) );
+   jst  =( o )=> ( JSON.stringify( o, null, 2 ) );
+   jso  =( t )=> ( JSON.parse( t ) );
+   jsot =( t )=> ( jst( jso( 0, null, 2 ) ) );
+   edna =( n )=> ( all( "TEXTAREA" )[ n ] );
+   srun =( s )=> ( wnd.eval( s ) );
+   erun =( e )=> ( srun( e.value     ) );
+   vrun =( v )=> ( srun( e.innerText ) );
+   nrun =( n )=> ( erun( edna( n ) ) );
+   krun =( k )=> ( srun( stg.getItem( k ) ) );
+   irun =( i )=> ( krun( stg.key( i ) ) );
+   psk  =( p, s, k )=> ( [p,s,k].join( "/" ) );
+}
+</script>
+
+<script name="loaders.js" group="Zeddicus Content Loaders">
+function loaders() {
+   sload =( ed, s )=> ( ed.value = s );
+   eload =( ed, e )=> ( sload( ed, e.value     ) );
+   vload =( ed, v )=> ( sload( ed, v.innerText ) );
+   hload =( ed, h )=> ( sload( ed, v.innerHTML ) );
+   kload =( ed, k )=> ( sload( ed, stg.getItem( k ) ) );
+   iload =( ed, i )=> ( kload( ed, stg.key( i ) ) );
+   nload =( ed, n )=> ( kload( ed, headers()[ n ].textContent ) );
+   oload =( ed, o )=> ( kload( ed, resolve( o ).value ) );
+}
+</script>
+
+<script name="loaders-coredoc.js" group="Zeddicus Content Loaders">
+loaders.coreDoc = ( `
+sload | Load Text String
+eload | Load Editor Value
+vload | Load Viewer Inner Text
+hload | Load Gadget Outer HTML
+kload | Load via Store Key
+iload | Load via Store Key Index
+nload | Load via Header Index
+oload | Load via Object Value
+` );
+</script>
+
+<script name="bee.js" group="Zeddicus Try-Catch">
+function bee( act, arg ) {
+   try {
+       return act( arg );
+   } catch( e ) {
+       bummer( e );
+       return e;
+   }
+}
+</script>
+  
+<script name="blurt.js" group="Zeddicus Messaging">
+function blurt( s ) {
+    try {
+      con.log( s );
+      resolve( "status" )
+      . innerHTML = ( `🟢 ${s}` );
+    } catch ( e ) {
+       alert( e );
+    }
+}
+</script>
+
+<script name="bummer.js" group="Zeddicus Messaging">
+function bummer( e ) {
+    try {
+      let = t = properNoun( e.message );
+      con.error( t );
+      resolve( "status" )
+      . innerHTML = ( `🔴 ${t}` );
+    } catch ( e ) {
+       alert( e );
+    }
+}
+</script>
+
+<script name="proper-noun.js" group="Zeddicus Text">
+function properNoun( s ) {
+    return (
+       [
+         ( s.slice( 0, 1 ).toUpperCase() )
+       , ( s.slice( 1    ).toLowerCase() )
+       ] . join( "" )
+    );
+}
+</script>
+
+<script name="get-editors.js" group="Zeddicus Gadgets">
+function getEditors() {
+   return all( "TEXTAREA" );
+}
+</script>
+
+<script name="select-editor.js" group="Zeddicus Gadgets">
+function selectEditor( n ) {
+   let eds = getEditors();
+   return eds[ n ];
+}
+</script>
+
+<script name="get-selected-editor.js" group="Zeddicus Gadgets">
+function getSelectedEditor() {
+   return edna( getSelectedIndex() );
+}
+</script>
+
+<script name="get-selected-index.js" group="Zeddicus Gadgets">
+function getSelectedIndex() {
+   return ( 
+       resolve( "editor-index" ) 
+       . value
+   );
+}
+</script>
+  
+<script name="analyze-results.js" group="Zeddicus Gadgets">
+function analyzeResults( ed ) {
+   ed = resolve( ed );
+   con.group( "Script Results" );
+   con.table( 
+       [
+         [ "ID"     , ed.id     ]
+       , [ "Input"  , ed.input  ]
+       , [ "Output" , ed.output ]
+       , [ "Error"  , ed.error  ]
+       ]
+   );
+   con.groupEnd();
+}
+</script>
+
+<script name="get-content.js" group="Zeddicus Gadgets">
+function getContent() {
+   function content( ed ) {
+     let id    = ed.id;
+     let html  = ed.outerHTML;
+     let value = ed.value;
+     return jst( { id, html, value } );
+   }
+   let manuscript = (
+       getEditors()
+       . map( content )
+       . join( "\n" )
+   );
+   let title = "Zed Manuscript";
+   return { title, manuscript };
+}
+</script>
+
+<script name="xed.js" group="Zeddicus Gadgets">
+function xed() {
+   ed = elx( "TEXTAREA" );
+   doc.body.appendChild( ed );
+   ed . spellcheck = false;
+   ed . wrap = "off";
+   ed . id = tigger();
+   ed . classList.add( "zeddicus" );
+   ed . addEventListener( "focus", focusEditor );
+   return ( ed );
+};
+</script>
+
+
+<script name="zed.js" group="Zeddicus Gadgets">
+function zed( ed, value ) {
+   ed = ( resolve(ed) || xed() );
+   ed . value = value;
+   return ( ed );
+}
+</script>
+
+<script name="resolve.js" group="Zeddicus Gadgets">
+function resolve( o ) {
+   return ( 
+       ( o instanceof HTMLElement ) 
+     ? ( o ) 
+     : ( ebi( o ) ) 
+   );
+}
+</script>
+  
+<script name="tigger.js" group="Zeddicus Gadgets">
+function tigger() {
+   let DOT = ".", SEP = "-";
+   let rnd =()=> Math.random();
+   let now =()=> Date.now();
+   let n = rnd()*now() + rnd()*now();
+   return [ 
+     ( "id" )
+   , ( n.toString( 33 ).split( DOT ).join( SEP ) )
+   ].join( SEP );
+}
+</script>
+
+<script name="init-gadgets.js" group="Zeddicus Gadgets">
+function on_index_change( event ) {
+    try {
+        let idx = resolve( "editor-index" );
+        let eds = getEditors();
+        let n = ( idx.value % ( eds.length || 1 ) );
+        n = ( n < 0 ) ? ( n + eds.length ) : ( n );
+        if ( n !== idx.value ) { idx.value = n; }
+        eds[ n ].focus();
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+function initGadgets() {
+    let index = resolve( "editor-index" );
+    index . addEventListener(
+        "change" , on_index_change
+    );
+}
+</script>
+
+<script name="app.js" group="App Logic">
+addEventListener(
+    "load" , (e) => {
+    bee( function() {
+        prolog();
+        loaders();
+        initGadgets();
+        addEventListener( "beforeunload", verifyUnload );
+        blurt( "Ready for Action!" );
+    } );
+} );
+</script>
+
+<script name="verify-unload.js" group="Zeddicus Events">
+function verifyUnload( event ) {
+    let n = getEditors().length;
+    if (! n ) return;
+    event.preventDefault();
+    return true;
+}
+</script>
+
+<script name="zed-run-event.js" group="Zeddicus Events">
+function run( button ) {
+    try {
+        let fn = button.textContent.trim()
+ 	    srun( [ "on_", fn, "();" ].join( "" ) );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<script name="focus-editor.js" group="Zeddicus Events">
+function focusEditor( event ) {
+   bee( function() {
+        let eds = getEditors();
+        let ed = event.target;
+        let n = eds.indexOf( ed );
+   		resolve( "editor-index" )
+        . value = ( n );
+   } );
+}
+</script>
+
+<script name="verify-store.js" group="Zeddicus Actions">
+function verifyStore() {
+    if ( stg === null ) {
+        throw new Error( "Data Store is Unavailable" );
+    }
+}
+</script>
+
+<script name="zed-actions.js" group="Zeddicus Actions">
+
+actionCoreDoc = ( `
+➕ | Add Editor
+➖ | Remove Editor
+➡️ | Run Editor
+🆔 | ID Editor
+🪪 | Rename Editor
+💠 | Zoom Editor
+🔓 | Recover Editor
+🔏 | Persist Editor
+🔐 | Edit Keys
+💾 | Save Manuscript
+ℹ️ | Help
+` );
+
+actionDecals = [
+  "➕" ,  "➖"  ,  "➡️" ,  "ℹ️" ,
+  "🆔" ,  "🪪" ,  "💠" ,  "💾" ,
+  "🔓" ,  "🔏" ,  "🔐"
+];
+
+actionScripts = [
+  "on_add()"
+, "on_remove()"
+, "on_run()"
+, "on_id()"
+, "on_rename()"
+, "on_zoom()"
+, "on_recover()"
+, "on_persist()"
+, "on_keys()"
+, "on_save()"
+, "on_help()"
+]
+
+/* Action Methods */
+
+function on_add() {
+   bee( function() {
+      xed();
+      let c = getEditors().length;
+      blurt(
+        `Total editors : ${c}`
+      );
+   } );
+}
+
+function on_remove() {
+   bee( function() {
+     getSelectedEditor().remove();
+     selectEditor(
+        resolve( "editor-index" )
+        . value - 1
+     );
+   } );
+}
+
+function on_run() {
+   try {
+       let n  = resolve( "editor-index" ).value;
+       let ed = edna( n );
+       ed.error  = "";
+       ed.input  = ed.value;
+       ed.output = srun( ed.input );
+       blurt( "OK!" );
+   } catch ( e ) {
+       ed.error  = e;
+       ed.output = e;
+       bummer( e );
+   } finally {
+      if ( SHOW_RESULTS ) {
+         analyzeResults( ed );
+      }
+   }
+}
+
+function on_zoom() {
+   bee( function() {
+        let ed = getSelectedEditor();
+        ed.requestFullscreen();
+        ed.focus();
+   } );
+}
+
+function on_id() {
+   bee( function() {
+       let ed = getSelectedEditor();
+       blurt( ed.id );
+   } );
+}
+
+function on_rename() {
+   bee( function() {
+      throw new Error( "TO-DO" );
+   } );
+}
+
+function on_recover() {
+   bee( function() {
+      verifyStore()
+      throw new Error( "TO-DO" );
+   } );
+}
+
+function on_persist() {
+   bee( function() {
+      verifyStore()
+      throw new Error( "TO-DO" );
+   } );
+}
+
+function on_keys() {
+    bee( function() {
+        verifyStore()
+        let k, keys=[];
+        while ( keys.length < 1420 ) {
+            k = stg.key( keys.length );
+            if ( null === k ) break;
+            keys.push( k );
+        }
+        zed( 0, keys.sort().join( RS ) );
+   } );
+}
+
+function on_save() {
+   bee( function() {
+      throw new Error( "TO-DO" );
+   } );
+}
+
+function on_help() {
+   bee( function() {
+      throw new Error( "TO-DO" );
+   } );
+}
+
+actionMap = {
+  "➕"  : "on_add()"
+, "➖"  : "on_remove()"
+, "➡️" : "on_run()"
+, "🆔" : "on_id()"
+, "🪪" : "on_rename()"
+, "💠" : "on_zoom()"
+, "🔓" : "on_recover()"
+, "🔏" : "on_persist()"
+, "🔐" : "on_keys()"
+, "💾" : "on_save()"
+, "ℹ️" : "on_help()"
+};
+
+function dot( button ) {
+   try {
+      OneShot.fire( button );
+      let decal  = button.textContent.trim();
+      let script = actionMap[ decal ];
+      console.log( 
+         window.eval( script )
+      );
+   } catch ( e ) {
+      bummer( e );
+   }
+}
+
+</script>
+
+<script>
+class OneShot {
+    constructor( o ) {
+        this._state_ = {
+            gadget    : resolve( o ) ,
+            delay     : 500  ,
+            id        : null ,
+            className : ""
+        };
+        if (! this.gadget ) {
+            throw new Error( 
+        `Bad or missing argument : ${o}`
+            );
+        }
+    }
+    get state()   { return this._state_;      }
+    get gadget()  { return this.state.gadget; }
+    get timerID() { return this.state.id;     }
+    set timerID( id ) {
+        this.state.id = id;
+    }
+    get delay()   { return this.state.delay;  }
+    set delay( msec ) {
+        let min =( a, b )=> Math.min( a, b );
+        let max =( a, b )=> Math.max( a, b );
+        msec = ( parseInt( msec ) || 0 );
+        this.state.delay = (
+            min( max( msec, 100 ), 20000 )
+        );
+    }
+    get className() { return this.state.className; }
+    set className( s ) {
+        this.state.className = ( s || "" );
+    }
+    start( className, delay ) {
+        let revoke = ( event )=> ( this.stop() );
+        this.stop();
+        this.delay = delay;
+        this.timerID = setTimeout( revoke, this.delay );
+        this.className = className;
+        this.gadget.classList.add( this.className );
+        return this;
+    }
+    stop() {
+        let id = this.timerID;
+        if ( id !== null ) {
+            clearTimeout( id );
+            this.timerID = null;
+            this.gadget.classList.remove( this.className );
+        }
+        return this;
+    }
+}
+OneShot.fire = function( o, className, delay ) {
+    o = new OneShot( o );
+    className = ( className || "wag" );
+    delay = ( delay || 1000 );
+    o.start( className, delay );
+}
+</script>
+
+</body>
+</html>
+

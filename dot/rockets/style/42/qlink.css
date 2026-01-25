@@ -1,0 +1,96 @@
+
+/* 
+    Quick Links Style
+    for System 42
+    2025-FEB-19
+*/
+
+:root {
+    --pv : 9px;
+    --mv : 3px;
+}
+
+html {
+    font : 14pt sans-serif;
+    background : midnightblue;
+}
+
+h1, h2, h3, a {
+    text-decoration : none;
+    color : rgba( 64, 64, 182, 0.888 );
+    text-shadow : 0px 0px 11px black;
+}
+
+ul {
+    list-style : none;
+}
+
+li {
+    font-size : larger;
+    border-radius : 11px;
+    background : rgba( 24, 24, 44, 0.111 );
+    padding-top    : var( --pv );
+    padding-bottom : var( --pv );
+    margin-top     : var( --mv );
+    margin-bottom  : var( --mv );
+}
+
+li, img {
+    cursor : pointer;
+}
+
+li:hover {
+    background : rgba( 24, 24, 44, 0.444 );
+    box-shadow : 0px 0px 11px black;    
+}
+
+body {
+    padding: 140px;
+    margin : 40px;
+    height : 100vh;
+    border-radius: 50px;
+    background: #8ae2ff;
+    box-shadow:  20px 20px 60px #75c0d9,
+                 -20px -20px 60px #9fffff;
+    text-align : center;
+}
+
+[center] { text-align : center }
+h1 {
+    animation-name : bouncey;
+    animation-duration : 2.111s;
+    animation-iteration-count : infinite;
+}
+
+li {
+    transform : translate( -20px, 0px );
+}
+
+ul {
+    --mvl : 64px;
+    margin-top    : var( --mvl );
+    margin-bottom : var( --mvl );
+}
+
+@keyframes bouncey {
+    0% {
+        transform : scale( 1, 1 );
+    } 33% {
+        transform : scale( 1.1, 1.7 );
+    } 66% {
+        transform : scale( 1, 2.0 );
+    } 100% {
+        transform : scale( 1.2, 2.222 );
+    }
+}
+
+hr {
+    height : 1px;
+    border : 0;
+    background : rgba( 4, 4, 44, 0.2222 );
+}
+
+a, a:visited {
+    color : gold;
+}
+

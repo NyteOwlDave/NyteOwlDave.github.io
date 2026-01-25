@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Code Spaces
+Exec=firefox https://humble-fortnight-wvgpxg5r4jp25pj4.github.dev/
+Icon=/home/dave/Icons/logo/zed.png
+

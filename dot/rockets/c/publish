@@ -1,0 +1,17 @@
+#!/bin/bash
+
+list_files() {
+  ls -lF | grep ".$1" | awk '{print $9}';
+}
+
+update_toc() {
+  pandoc toc.md -o toc.html;
+}
+
+update_exposed() {
+  list_files html > exposed.list;
+}
+
+update_archive() {
+}
+

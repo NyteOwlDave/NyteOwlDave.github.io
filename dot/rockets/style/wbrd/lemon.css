@@ -1,0 +1,17 @@
+
+@import url("./wbrd.css");
+@import url("./footer-input.css");
+@import url("./fullscreen-editor.css");
+
+/* Added: 2025-JUL-29 */
+
+img[alt="Template Icon"] {
+    display : inline-block;
+    margin-left : 50%;
+    border : 2px solid gold;
+    border-radius : 42px;
+    padding : 21px;
+    background : mintcream;
+    transform : translate( -149px, 0px );
+}
+

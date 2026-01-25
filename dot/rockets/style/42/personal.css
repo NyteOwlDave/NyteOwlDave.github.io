@@ -1,0 +1,131 @@
+
+/* 
+
+<link rel="stylesheet"
+ href="http:/dave-legacy/42/style/personal.css">
+
+*/
+
+@import url("./header-dots-small.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-mono@5.2.6/index.min.css");
+
+html {
+    font-family : sans-serif;
+}
+
+html, body {
+    background : rgba( 242, 242, 142, 0.942 );
+    color : rgb( 2, 2, 42 );
+}
+
+main {
+    padding-top : 33px;
+}
+
+header, footer {
+    border : 2px solid blue;
+    margin : 0;
+    margin-top : 0;
+    position : fixed;
+    display : block;
+    left :  0;
+    --vp :  4px;
+    --hp : 32px;
+    padding : var( --vp );
+    padding-right : var( --hp );
+    padding-left  : var( --hp );
+    width : calc( 100vw - 64px );
+    background : #9F9D99;
+    /* background : rgba( 42, 42, 42, 0.42 ); */
+}
+
+header {
+    height : 32px;
+    line-height : 32px;
+    text-align  : right;
+    font-size : 16px;
+}
+
+footer {
+    bottom : 0;
+    text-align : center;
+}
+
+body { 
+    margin-bottom : 33vh;
+}
+
+[onclick], [href], a, button {
+    cursor : pointer;
+    text-decoration : none;
+}
+
+ul, ul li {
+    list-style-type : none;
+}
+
+ul li:before {
+    content : "\22c4"; /* U+22C4 ( ⋄ ) */
+    margin-right: 12px !important;
+}
+
+ul li[contenteditable]:hover ,
+ul li[contenteditable]:focus {
+    color : rgb( 4, 4, 42 );
+    background : mintcream;
+}
+
+table {
+    width : 80%;
+    margin-left : 8%;
+}
+
+td:focus , 
+td:hover {
+    color : rgb( 4, 4, 42 );
+    background : mintcream;
+}
+
+
+
+/* Cool Date Scroller Styles */
+
+date { color : white; }
+date { background : black; }
+date { border-radius : 42px; }
+date { padding : 7px; }
+date {
+    --hp    : 15px;
+    padding-right : var( --hp );
+    padding-left  : var( --hp );
+}
+
+date:focus ,
+date:hover {
+    box-shadow : 0px 0px 17px rgba( 0, 0, 0, 0.4242 );
+    background : rgba( 0, 0, 0, 0.4242 ); 
+}
+
+textarea { font   : 16pt monospace; }
+textarea { width  : 98%; }
+textarea { height : 300px; }
+textarea { resize : vertical; }
+textarea { overflow   : scroll; }
+textarea { border  : none; }
+textarea { padding : 0.42em; }
+textarea { color      : var( --darko ); }
+textarea { background : var( --brite ); }
+textarea:hover ,
+textarea:focus {
+    box-shadow : var( --gold-shadow );
+    color      : var( --brite );
+    background : var( --darko );
+}
+
+header,
+header *,
+header > * {
+    user-select : none;
+}
+
+

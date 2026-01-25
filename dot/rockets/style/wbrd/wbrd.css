@@ -1,0 +1,177 @@
+
+@import url('https://fonts.googleapis.com/css?family=Noto Sans');
+
+:root {
+    --fg  : #040420;
+    --bg  : #F4F4B4;
+    --dk1 : rgba( 0, 21, 42, 0.111 );
+    --dk2 : rgba( 0, 21, 42, 0.222 );
+    --dk3 : rgba( 0, 21, 42, 0.333 );
+    --dk4 : rgba( 0, 21, 42, 0.444 );
+    --dk5 : rgba( 0, 21, 42, 0.555 );
+    --dk5 : rgba( 0, 21, 42, 0.666 );
+    --dk5 : rgba( 0, 21, 42, 0.777 );
+    --dk5 : rgba( 0, 21, 42, 0.888 );
+    --dk5 : rgba( 0, 21, 42, 0.999 );
+}
+
+.editable {
+    cursor : pointer;
+    padding : 1.42em;
+    border-radius : 1.42em;
+    font-size : 14pt;
+}
+
+.cream {
+    background : mintcream;
+    color : #040442;
+}
+
+html, body {
+    color : var( --fg );
+    background-color : var( --bg );
+    margin  : 0;
+    padding : 0;
+    border  : none;
+}
+
+body {
+    margin-top    : 84px;
+    margin-bottom : 42vh;
+}
+
+h1, h2, h3, h4, h5 {
+    text-align : center;
+    overflow-x : hidden;
+    overflow-y : hidden;
+}
+
+h1 {
+    margin-top : 5ch;
+}
+
+ul, ol {
+    padding-left  : 6ch;
+    padding-right : 6ch;
+}
+
+pre, textarea, article, blockquote {
+    margin : 20px;
+}
+
+p, pre, textarea, article, blockquote {
+    width : calc( 100% - 6ch );
+    margin-left  : 3ch;
+    margin-right : 3ch;
+}
+
+a, button {
+    display : inline-block;
+    text-decoration: none;
+    cursor : pointer;
+    padding : 0.42ch;
+    padding-left  : 1.42ch;
+    padding-right : 1.42ch;
+    margin : 2px;
+    border : none;
+    border-radius : 1.42em;
+    color : var( --fg );
+    background-color : var( --dk2 );
+}
+
+a:visited {
+    color : var( --fg );
+}
+
+a:hover, button:hover {
+    background-color : var( --dk2 );
+    box-shadow : 0px 0px 17px navy;
+}
+
+a:focus, button:focus {
+    box-shadow : 0px 0px 17px navy;
+    background-color : mintcream;
+}
+
+header, footer {
+    position : fixed;
+    width : 100%;
+    left : 0;
+}
+
+header {
+    top : 0;
+}
+
+footer {
+    bottom : 0;
+}
+
+/* 
+    2025-JUL-26
+*/
+
+header, footer {
+    text-align : center;
+    white-space : nowrap;
+    overflow-x : hidden;
+    margin-left  : 1ch;
+    margin-right : 1ch;
+    font-size   : 16px;
+    line-height : 22px;
+    padding : 11px;
+}
+
+table {
+    width : 80% !important;
+    margin-left : 8% !important;
+}
+
+table, table * {
+    border : none;
+}
+
+td {
+    border : 1px solid gold;
+}
+
+tr td:first-child {
+    text-align : center;
+}
+
+td {
+    padding : 0;
+    padding-left  : 1ch;
+    padding-right : 1ch;
+}
+
+pre, code, var, kbd {
+    font-size : 14pt;
+}
+
+
+/* Custom Bulleted List Items */
+
+w {
+    display : block;
+}
+
+w:before {
+    display : inline-block;
+    content: "❇️";
+    margin-right : 1.2ch;
+}
+
+
+/* Added: 2025-JUL-29 */
+
+img[alt="Template Icon"] {
+    display : inline-block;
+    margin-left : 50%;
+    border : 2px solid gold;
+    border-radius : 42px;
+    padding : 21px;
+    background : mintcream;
+    transform : translate( -149px, 0px );
+}
+

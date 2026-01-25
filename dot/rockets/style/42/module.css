@@ -1,0 +1,34 @@
+
+/* 
+
+- [Workspace](./)
+
+# Module Theme (CSS)
+
+    This Style is for Embedding Markdown
+    into JavaScript and/or CSS source files.
+
+*/
+
+@import url("http://dave-legacy/42/style/personal.css");
+@import url("http://dave-legacy/42/style/ozville/balloon-override.css");
+
+html { font-size     : 14pt; }
+body { margin-bottom : 42vh; }
+
+[contenteditable],
+pre:focus ,
+textarea:focus {
+    color      : mintcream;
+    background : midnightblue;
+}
+
+pre, textarea {
+    font-family : "Noto Mono", monospace;
+    padding : 0.42ch;
+    padding-right : 1.42ch;
+    padding-left  : 1.42ch;
+    outline : none;
+}
+
+

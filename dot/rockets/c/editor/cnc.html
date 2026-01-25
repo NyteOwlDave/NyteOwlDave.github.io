@@ -1,0 +1,25 @@
+<title>🚀-Rocky!</title>
+<h1>🚀-Rocky!</h1>
+<p>Popup Window Launcher</p>
+<script name="Application">
+const App = {
+    popup: (e) => {
+        const specs = [
+        'width=500',
+        'height=500',
+        'left=400',
+        'top=100',
+        'scrollbars=yes',
+        'resizable=yes',
+        'toolbars=yes'
+        ].join(",");
+        window.open('', '_popup_', specs);
+    }
+};
+const a=document.createElement('a');
+a.href="http://dave-tower/projects/math/complex/console.html";
+a.target="_popup_";
+a.onclick = (e) => App.popup(e);
+a.click();
+// window.close();
+</script>
