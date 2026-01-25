@@ -1,15 +1,75 @@
 
 <style>
-@import( "./style/legends.css" );
+@import url("./style/legends.css");
+@import url("./style/elvira.css");
+</style>
+
+<style>
+body {
+    text-align : center;
+}
+#wbkey_in {
+    display    : inline-block;
+    width      : 50ch;
+    text-align : center;
+}
 </style>
 
 <header>
-<a href="https://whiteboard.cloud.microsoft/me/whiteboards/383de1cd-229b-4dc4-a664-425cd4657a2b" title="Squad Members Whiteboard">Whiteboard</a>
+<a id="wbkey_out"
+   title="Squad Members Whiteboard">Whiteboard</a>
+<a href="./">Explore</a>
 </header>
+
 
 ----------------------------------------------------------------
 
 # Squad Members
+
+<details>
+<summary>Whiteboard Key</summary>
+<div class="settings">
+<input placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+ id="wbkey_in"
+</div>
+<div class="menu">
+  <button onclick="updateKey()">Update</button>
+</div>
+<div class="menu">
+  <button onclick="revokeKey()">Revoke</button>
+</div>
+</details>
+
+<script>
+const psk =( a, b, c )=> ( [a,b,c].join("/") );
+const P="https://whiteboard.cloud.microsoft";
+const S="me/whiteboards";
+const K="383de1cd-229b-4dc4-a664-425cd4657a2b";
+// alert( 1 );
+</script>
+
+<script>
+function updateKey() { writeKey( wbkey_in.value ); }
+function revokeKey() { writeKey( K ); }
+function writeKey( ki ) {
+    try {
+        ki = ( ( ki || "" ).trim() || K );
+        wbkey_in.value = ki;
+        let u = psk( P, S, ki );
+        // alert( u );
+        wbkey_out.href = u;
+    } catch ( e ) {
+        alert( e );
+        throw e;
+    }
+}
+</script>
+
+<script>
+addEventListener( "load", (ev) => { writeKey( K ); } );
+// alert( 3 );
+</script>
+
 
 ----------------------------------------------------------------
 
@@ -48,9 +108,12 @@
 | isReText    | Confirm ReText was Detected |
 | isChrome    | Confirm Chrome was Detected |
 
+
 ----------------------------------------------------------------
 
-<button onclick="down()">Download HTML Table</button>
+<div class="menu">
+  <button class="balloon" onclick="down()">Download HTML Table</button>
+</div>
 
 ----------------------------------------------------------------
 

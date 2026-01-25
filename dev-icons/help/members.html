@@ -3,9 +3,56 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <style type="text/css">
-td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
-table { border-collapse: collapse; }
-img { max-width: 100%; }
+
+/*
+
+| std.css        |
+|----------------|
+| @ style        |
+| @ ReText       |
+| Legacy Edition |
+| 2025-NOV-21    |
+
+*/
+
+@import url("http://dave-omega/rt/style/std.css");
+@import url("http://dave-omega/Swill/style/swill.css");
+@import url("http://dave-omega/~/style/menu.css");
+@import url("http://dave-omega/~/style/status.css");
+@import url("http://dave-omega/~/style/tilly.css");
+@import url("http://dave-tower/~/style/midnight.css");
+
+body {
+    margin-top : 82px;
+    margin-bottom : 42vh;
+}
+
+h2, h3 {
+    background :  rgba( 172, 172, 34, 0.5 );
+    color : navy;
+}
+
+a {
+    display : inline-block;
+    padding-left  : 1.42ch !important;
+    padding-right : 1.42ch !important;
+    background :  rgba( 172, 172, 34, 0.5 );
+    color : midnightblue;
+}
+
+.sio {
+    width : calc( 94vw - 50px );
+    min-height : calc( 42vh - 1px );
+    max-height : calc( 74vh - 1px );
+    resize : vertical;
+    overflow-x : auto scroll;
+    overflow-y : scroll;
+}
+
+.sio:focus {
+    outline : none;
+}
+
 </style>
 <meta name="generator" content="ReText 7.2.3">
 <title>members</title>
@@ -13,7 +60,75 @@ img { max-width: 100%; }
 </style>
 </head>
 <body>
-<h1>Members</h1>
+<style>
+@import url("./style/legends.css");
+@import url("./style/elvira.css");
+</style>
+
+<style>
+body {
+    text-align : center;
+}
+#wbkey_in {
+    display    : inline-block;
+    width      : 50ch;
+    text-align : center;
+}
+</style>
+
+<header>
+<a id="wbkey_out"
+   title="Squad Members Whiteboard">Whiteboard</a>
+<a href="./">Explore</a>
+</header>
+
+<hr>
+<h1>Squad Members</h1>
+<details>
+<summary>Whiteboard Key</summary>
+<div class="settings">
+<input placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+ id="wbkey_in"
+</div>
+<div class="menu">
+  <button onclick="updateKey()">Update</button>
+</div>
+<div class="menu">
+  <button onclick="revokeKey()">Revoke</button>
+</div>
+</details>
+
+<script>
+const psk =( a, b, c )=> ( [a,b,c].join("/") );
+const P="https://whiteboard.cloud.microsoft";
+const S="me/whiteboards";
+const K="383de1cd-229b-4dc4-a664-425cd4657a2b";
+// alert( 1 );
+</script>
+
+<script>
+function updateKey() { writeKey( wbkey_in.value ); }
+function revokeKey() { writeKey( K ); }
+function writeKey( ki ) {
+    try {
+        ki = ( ( ki || "" ).trim() || K );
+        wbkey_in.value = ki;
+        let u = psk( P, S, ki );
+        // alert( u );
+        wbkey_out.href = u;
+    } catch ( e ) {
+        alert( e );
+        throw e;
+    }
+}
+</script>
+
+<script>
+addEventListener( "load", (ev) => { writeKey( K ); } );
+// alert( 3 );
+</script>
+
+<hr>
 <table>
 <thead>
 <tr>
@@ -152,13 +267,33 @@ img { max-width: 100%; }
 </tr>
 </tbody>
 </table>
-<p><button onclick="down()">Download</button></p>
+<hr>
+<div class="menu">
+  <button class="balloon" onclick="down()">Download HTML Table</button>
+</div>
+
+<hr>
+<script src="https://nyteowldave.github.io/chachi/api/legends.js">
+</script>
+
+<script>
+doc = document;
+doc.title = "Squad Legends";
+</script>
+
 <script>
 function down() {
-    // const t = document.querySelector( "table" );
-    console.log( 123 );
+    try {
+        const t = selma( "table" );
+        let k = "legends-rollcall.html";
+        let v = t.outerHTML;
+        rico( v, k );
+        alert( `Saved "${k}" to file system` );
+    } catch ( e ) {
+        alert( e );
+        throw e;
+    }
 }
-down();
 </script>
 
 </body>

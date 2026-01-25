@@ -1,0 +1,63 @@
+
+/*
+    elvira.css
+    Tilly Application
+    Omega Edition
+    2026-JAN-25
+*/
+
+[href],
+[onclick] {
+    cursor : pointer;
+}
+
+[center] {
+    text-align : center;
+}
+
+article {
+    padding : 1.42ch;
+    color : mintcream;
+    background : navy;
+    border-radius : 3ch;
+}
+
+textarea , input {
+    width : 70vw;
+}
+
+summary ,
+input ,
+button {
+    border        : none;
+    border-radius : 2ch;
+    padding       : 0.5ch;
+    padding-left  : 1ch;
+    padding-right : 1ch;
+    color         : mintcream;
+    background    : navy;
+    box-shadow    : 0 0 9px black;
+}
+
+button:focus,
+input:focus {
+    background : mintcream;
+    color      : navy;
+    outline    : none;
+}
+
+summary:hover,
+button:hover,
+input:hover {
+    background : #141;
+    color      : #1F1;
+    box-shadow : 0 0 12px gold;
+}
+
+input[readonly] {
+    background : grey;
+    color      : navy;
+    box-shadow : none;
+    text-align : center;
+}
+
