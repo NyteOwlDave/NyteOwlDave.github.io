@@ -19,7 +19,7 @@ body {
 <a href="https://nyteowldave.github.io/">Home</a>
 <a id="wbkey_out"
    title="Squad Members Whiteboard">Whiteboard</a>
-<a href="./">Explore</a>
+<a id="_fso_link" href="./">Explore</a>
 </header>
 
 
@@ -141,4 +141,16 @@ function down() {
 }
 </script>
 
+<script>
+function startApp( event ) {
+    let agent = navigator.userAgent.toLowerCase();
+    if (! agent.includes( "retext" ) ) {
+        _fso_link.remove();
+    }
+}
+</script>
+
+<script>
+addEventListener( "load", startApp );
+</script>
 
