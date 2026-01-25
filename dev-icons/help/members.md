@@ -16,6 +16,7 @@ body {
 </style>
 
 <header>
+<a href="https://nyteowldave.github.io/">Home</a>
 <a id="wbkey_out"
    title="Squad Members Whiteboard">Whiteboard</a>
 <a href="./">Explore</a>
