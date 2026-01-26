@@ -7,7 +7,7 @@
 
 - [Omega](file:///home/dave/Mount/MORPHEUS/)
 
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-12 ~ Omega
+    UPDATED ~ 2026-JAN-26 ~ Tower
 
 */
 
@@ -68,7 +68,7 @@ sip.fileTitle = function() {
     }
     return ( sip.title.trim()
             || readTitleInput()
-            || readDocTitle()
+            || readDocTitle(Omega)
             || "untitled" ).trim();
 }
 

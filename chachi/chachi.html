@@ -77,7 +77,7 @@ menu button {
 <details class="version">
     <summary>🏷️ Version</summary>
     <span id="appVersion">
-        v2.2.0 ~ 2026-JAN-24
+        v2.2.1 ~ 2026-JAN-24
     </span>
 </details>
 <menu>
@@ -96,6 +96,7 @@ menu button {
     help            [ALT]+[?]
     download        [ALT]+[S]
     upload          [ALT]+[L]
+    personal        [ALT]+[P]
     swap            [ALT]+[X]
     zoom            [ALT]+[Z]
     methods         [ALT]+[/]
@@ -302,12 +303,33 @@ function main() {
 </script>
 
 <script>
+let OPEN_OPTIONS = "";
+function openURL( url, options ) {
+    options = ( options || OPEN_OPTIONS );
+    return window.open( url, url, options );
+}
+</script>
+
+<script>
+function zeek( port, host ) {
+    if ( port && host ) {
+        let origin = "http://" + host;
+        return openURL( origin + ":" + port );
+    } else {
+        return openURL( "zeek.html" );
+    }
+}
+</script>
+
+<script>
 addEventListener( 'load', () => {
     han( main );
 } );
 </script>
+
 <!--
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-12 ~ Omega
+    UPDATED ~ 2026-JAN-26 ~ Tower
 -->
+
 </body>
 </html>
