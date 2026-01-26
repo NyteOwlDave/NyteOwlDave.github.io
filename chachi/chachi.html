@@ -306,6 +306,42 @@ function zeek( port, host, options ) {
 </script>
 
 <script>
+const Lola = {};
+Lola.safeKey = function( k ) {
+    k = ( k || window.STORE_KEY );
+    if ( k ) { return k; }
+    return ( window.STORE_KEY = "lola-store.js" );
+}
+Lola.keep = function( k ) {
+    k = Lola.safeKey( k );
+    save( k, sip.value );
+    console.log( `Wrote "${k}" to Store` );
+    return ( k );
+}
+Lola.recall = function( k ) {
+    k = Lola.safeKey( k );
+    let v = load( k );
+    if ( null !== v ) {
+        sip.value = ( v );
+        console.log( `Read "${k}" from Store` );
+    } else {
+        console.warn( `Missing Store Key "${k}"` );
+    }
+    return ( k );
+}
+Lola.snippet = ( `
+keep = function() {    
+    k = STORE_KEY;
+    v = sip.value;
+    save( k, v );
+    s = ( \`Wrote \${k} to Store\` );
+    console.log( s );
+    return ( s );
+};
+` )
+</script>
+
+<script>
 addEventListener( 'load', () => {
     han( main );
 } );
