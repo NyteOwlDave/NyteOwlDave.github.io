@@ -311,12 +311,12 @@ function openURL( url, options ) {
 </script>
 
 <script>
-function zeek( port, host ) {
+function zeek( port, host, options ) {
     if ( port && host ) {
         let origin = "http://" + host;
         return openURL( origin + ":" + port );
     } else {
-        return openURL( "zeek.html" );
+        return openURL( "zeek.html", options );
     }
 }
 </script>
