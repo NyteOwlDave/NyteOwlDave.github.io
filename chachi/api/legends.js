@@ -106,15 +106,27 @@ function clark( url ) {
     const ae = ella( 'a' );
     ae.href = url;
     ae.click();
+    return ae;
 }
 
 function bruce( url, options ) {
     if ( isReText ) { 
-        clark( url );
-    } else { 
-        window.open( url, url, options || "top=100,left=100,width=800,height=600" );
+        return clark( url );
+    } else {
+        options = ( options || bruce.options );  
+        return window.open( url, url, options );
     }
 }
+
+bruce.options = "top=100,left=100,width=800,height=600";
+
+const thalia = function( options, key ) {
+    let p = "http:/";
+    let s = "nyteowldave.github.io";
+    let k = ( key || "thalia" );
+    let url = [ p, s, k ].join( "/" );
+    return bruce( url );
+};
 
 const bullfrog = () => bruce( "./" );
 
@@ -199,8 +211,9 @@ wendy       | Remove Name from Class List
 ethel       | Confirm Class List Contains Name
 ester       | Add/Remove/Toggle Name in Class List
 bullfrog    | Open Workspace
-clark       | Open Page
-bruce       | Open Tab or Popup Window
+clark       | Open Tab (emulate HTML anchor click)
+bruce       | Open Tab or Popup Window for any URL
+thalia      | Open Tab or Popup for Morpheus Content
 rico        | Download Text
 thoris      | Load Script
 keith       | Copy Text to Clipboard
@@ -224,10 +237,11 @@ const Legends = {
     selma, selmax, thelma, louise,
     artie, bart, bernie, barney,
     wanda, wendy, ethel, ester,
-    clark, bullfrog, rico,
+    rico,
     thoris, keith, 
     weezie, wilbur, 
-    bruce, tizzy, oswald,   // NEW! 2025-AUG-02
+    bullfrog, clark, bruce, thalia, 
+    tizzy, oswald,
     rollcall, crusoe 
 };
 

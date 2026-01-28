@@ -28,7 +28,7 @@ function recoverOtherFriends() {
 
 function energize( url ) {
     const key = url;
-    const known = FriendMap[ key ] || FriendIP[ key ];
+    const known = ( FriendMap[ key ] || FriendIP[ key ] );
     return bruce( known || url );   // legends.js
 }
 
@@ -75,6 +75,7 @@ const FriendMap = {
 , emojikeybd  : 'https://emojigraph.org/copy-keyboard/'
 , simpleicons : 'https://siimple.xyz/icons/'
 , devicons    : 'https://nyteowldave.github.io/dev-icons/'
+, thalia      : 'https://nyteowldave.github.io/thalia/'
 , cdn         : 'https://nyteowldave.github.io/cdn/'
 , tigg        : 'https://nyteowldave.github.io/tigg/'
 , chachi      : 'https://nyteowldave.github.io/chachi/'
