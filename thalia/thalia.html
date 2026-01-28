@@ -154,7 +154,7 @@ function presentIcon() {
 </div>
 
 <div center>
-    
+
 <style>
 @import url("./style/siox.css");
 @keyframes bloom {
@@ -209,10 +209,11 @@ input ,
 
 <script>
 doc = document;
-gid = id => doc.getElementById( id );
+// Same as gid
+ebi =( id )=> doc.getElementById( id );
 // CONFLICTS with other implementations
 // This is the resolve function, not gad
-gad = ed => ( ( ed instanceof Object ) ? ed : gid( ed ) );
+gad =( ed )=> ( ( ed instanceof Object ) ? ed : gid( ed ) );
 // PROPER IMPLEMENTATION :
 // gad =( o )=> ( e instanceof Object )
 // resolve =( o )=> ( gad( o ) ? o : gid( o ) )
