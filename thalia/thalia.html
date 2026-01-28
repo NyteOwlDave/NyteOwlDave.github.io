@@ -296,8 +296,8 @@ function on_Read_Keys() {
     setStoreKeys( keys );
     ( sip = gid( 'sip' ) )
     . value = ( 
-        keys
-        . map( k => ( `🔑 ${k}` ) )
+        keyss()
+        . sort()
         . join( "\n" )
     );
 }
@@ -404,16 +404,19 @@ function zap( button ) { // Button Click Event
 </legend>
 <textarea id="sip" class="siox" wrap="off" spellcheck="false"></textarea>
 </fieldset>
+
 <div class="menu">
   <button onclick="zap(this)">⏫ Read Keys</button>
   <button onclick="zap(this)">⏫ Read Store</button>
   <button onclick="zap(this)">💾 Save</button>
 </div>
+
 <div class="menu">
   <button onclick="zap(this)">🔓 Read Value</button>
   <button onclick="zap(this)">🔏 Write Value</button>
   <button onclick="zap(this)">🔐 Refresh Keys</button>
 </div>
+
 <div class="settings">
   <span decal="" title="Reset Key" onclick="rst(this)" key="Thalia Decals">🔑</span>
   <input list="store-keys" id="store-key" value="Thalia Decals" placeholder="🔑">
