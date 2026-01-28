@@ -8,6 +8,10 @@
 <meta charset="UTF-8">
 <title>🔒 Thalia</title>
 
+<script src="https://nyteowldave.github.io/chachi/api/tigg.js"></script>
+<script src="https://nyteowldave.github.io/chachi/api/legends.js"></script>
+<script src="https://nyteowldave.github.io/chachi/api/energize.js"></script>
+
 <style>
 
 /* Styles for ReText Pages */
@@ -150,6 +154,7 @@ function presentIcon() {
 </div>
 
 <div center>
+    
 <style>
 @import url("./style/siox.css");
 @keyframes bloom {
@@ -201,7 +206,7 @@ input ,
     transform : scale( 1.22 );
 }
 </style>
-<script src="./api/rico.js"></script>
+
 <script>
 doc = document;
 gid = id => doc.getElementById( id );
@@ -537,10 +542,16 @@ function komodo( ev ) {
         if ( code === 13 ) {
             return run( o );
         }
-        if ( code === asc( "X" ) {
+        if ( code === asc( "F" ) ) {
+            return friends( o );
+        }
+        if ( code === asc( "K" ) ) {
+            return storeKeys( o );
+        }
+        if ( code === asc( "X" ) ) {
             return swap( o );
         }
-        if ( code === asc( "Z" ) {
+        if ( code === asc( "Z" ) ) {
             return zoom( o );
         }
         return;
@@ -579,6 +590,30 @@ function komodo( ev ) {
             if ( "function" === typeof ed.requestFullscreen ) {
                 ed.requestFullscreen();
             }
+        } catch( e ) {
+            bummer( e );
+        }
+    }
+    const friend =( k )=> ( `👥 ${k}` );
+    function friends( ed ) {
+        try {
+            mine();
+            ed.value = (
+                Object
+                . keys( FriendMap )
+                . map( friend )
+                . join( "\n ")
+            );
+        } catch( e ) {
+            bummer( e );
+        }
+    }
+    function storeKeys( ed ) {
+        try {
+            mine();
+            ed.value = (
+                keyss() . join( "\n ")
+            );
         } catch( e ) {
             bummer( e );
         }
