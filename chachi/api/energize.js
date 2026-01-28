@@ -42,8 +42,7 @@ energize.api = {
 
 
 const FriendIP = {
-  greystoke  : 'https://198.91.25.240/'
-, private    : 'http://173.217.64.99/'
+  private    : 'http://173.217.64.99/'
 , system42   : 'http://173.217.64.99:4242/42/'
 };
 
@@ -108,5 +107,5 @@ if ( "object" === typeof AppModules ) {
 }
 
 /*
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-13 ~ Omega
+    UPDATED ~ 2026-JAN-27 ~ Ryzen
 */

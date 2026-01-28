@@ -19,6 +19,7 @@
                 text-align : center;
             }        
             nav > button {
+                color : mintcream;
                 background-color: transparent;
                 width: 100%;
                 display: block;
@@ -75,6 +76,10 @@
         <nav>
 <button onclick="onClickChachi()">📟 Chachi</button>
 <button onclick="onClickTiGG()">🦇 TiGG</button>
+<button onclick="onClickThalia()">🔐 Thalia</button>
+<button onclick="onClickTSulu()">🧭 Sulu</button>
+<button onclick="onClickZed()">🧙 Zed</button>
+<button onclick="onClickZeek()">🌌 Zeek</button>
         </nav>
         <h3>Dev Ops Support</h3>
         <nav>
@@ -82,70 +87,101 @@
 <button onclick="onClickDevIcons()">🎰 Developer Icons</button>
 <button onclick="onClickSnips()">🦜 Chippy's Snippets</button>
 <button onclick="onClickLegends()">🚔 Squad Legends Roll Call</button>
-<button onclick="onClickRepo()">Repository</button>
+<button onclick="onClickRepo()">📦 Repository</button>
         </nav>
         <h3>Contact Dave</h3>
         <nav>
 <button onclick="onClickNCS()">🦉 NyteOwl Consulting</button>
 <button onclick="onClickBIO()">😎 Link-in-Bio</button>
         </nav>
-        <h3>Home Network (Private)</h3>
-        <nav>
-<button onclick="onClickLAN()">🔒 LAN (Private)</button>
+        <h3>Dave's Domains</h3>
+        <nav> 
+<button onclick="onClickAlora()">🖥️ AloraLyn.org</button>
 <button onclick="onClickMe()">🖥️ NyteOwlDave.me</button>
 <button onclick="onClickWork()">🖥️ NyteOwlDave.work</button>
-<button onclick="onClickAlora()">🖥️ AloraLyn.org</button>
+<button onclick="onClickLAN()">📡 Wellsted Home Network (Private)</button>
         </nav>
-        <script>
-            function onClickSnips(evt) {
-                location="./snippets.html";
-            }
-        </script>
-        <script>
-            function onClickLAN(evt) {
-                location="http://dave-omega/std/app/morpheus/";
-            }
-            function onClickMe(evt) {
-                location="http://nyteowldave.me";
-            }
-            function onClickWork(evt) {
-                location="http://nyteowldave.work";
-            }
-            function onClickAlora(evt) {
-                location="https://aloralyn.org:59876/";
-            }
-        </script>
-        <script>
-            function onClickTiGG(evt) {
-                location="./tigg/";
-            }
+        <!-- [[ IMPORTED SCRIPTS ]] -->
+        <script src="./chachi/api/legends.js"></script>
+        <script src="./chachi/api/energize.js"></script>
+        <!-- [[ EMBEDDED SCRIPTS ]] -->
+        <script group="Links" subgroup="Applications">
+            // 📟 Chachi
             function onClickChachi(evt) {
                 location="./chachi/";
             }
+            // 🦇 TiGG
+            function onClickTiGG(evt) {
+                location="./tigg/";
+            }
+            // 🔐 Thalia
+            function onClickThalia(){
+                energize( "thalia" );
+            } 
+            // 🧭 Sulu
+            function onClickSulu() {
+                location="./sulu/";
+            } 
+            // 🧙 Zed
+            function onClickZed() {
+                location="./zed/";
+            } 
+            // 🌌 Zeek
+            function onClickZeek() {
+                location="./chachi/zeek.html";
+            }  
         </script>
-        <script>
+        <script group="Links" subgroup="Dev Ops Support">
+            // 🎲 Third Party Content
             function onClick3P(evt) {
                 location="./cdn/";
             }
+            // 🎰 Developer Icons
             function onClickDevIcons(evt) {
                 location="./dev-icons/main.html";
             }
+            // 🦜 Chippy's Snippets
+            function onClickSnips(evt) {
+                location="./snippets.html";
+            }
+            // 🚔 Squad Legends Roll Call
             function onClickLegends(evt) {
                 location="./dev-icons/help/members.html";
             }
+            // 📦 Repository
             function onClickRepo(evt) {
                 location="https://github.com/NyteOwlDave/NyteOwlDave.github.io";
             }      
         </script>
-        <script>
+        <script group="Links" subgroup="Contact Dave">
+            // 🦉 NyteOwl Consulting
             function onClickNCS(evt) {
                 location="https://www.facebook.com/david.wellsted.5/";
             }
+            // 😎 Link-in-Bio
             function onClickBIO(evt) {
                 location="https://bit.ly/m/nyteowldave";
             }
         </script>
-        <script>
+        <script group="Links" subgroup="Dave's Domains">
+            // 🖥️ AloraLyn.org
+            function onClickAlora(evt) {
+                location="https://aloralyn.org:4242/";
+            }
+            // 🖥️ NyteOwlDave.me
+            function onClickMe(evt) {
+                location="http://nyteowldave.me";
+            }
+            // 🖥️ NyteOwlDave.work
+            function onClickWork(evt) {
+                location="http://nyteowldave.work";
+            }
+            // 📡 Wellsted Home Network (Private)
+            function onClickLAN(evt) {
+                location="http://dave-omega/std/app/morpheus/";
+            }
+        </script>
+        <script  group="App Logic" subgroup="Data Storage">
             function readLocalStorage() {
                 const record = ( key ) => {
                     result[ key ] = localStoraage.getItem( key );
