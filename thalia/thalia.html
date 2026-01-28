@@ -10,7 +10,11 @@
 
 <script src="https://nyteowldave.github.io/chachi/api/tigg.js"></script>
 <script src="https://nyteowldave.github.io/chachi/api/legends.js"></script>
+<script src="https://nyteowldave.github.io/chachi/api/thor.js"></script>
+<script src="https://nyteowldave.github.io/chachi/api/joni.js"></script>
+<script src="https://nyteowldave.github.io/chachi/api/editables.js"></script>
 <script src="https://nyteowldave.github.io/chachi/api/energize.js"></script>
+<script src="https://nyteowldave.github.io/chachi/api/bonfire.js"></script>
 
 <style>
 
@@ -595,10 +599,10 @@ function komodo( ev ) {
             bummer( e );
         }
     }
-    const friend =( k )=> ( `👥 ${k}` );
     function friends( ed ) {
         try {
             mine();
+            let friend =( k )=> ( `👥 ${k}` );
             ed.value = (
                 Object
                 . keys( FriendMap )
