@@ -87,6 +87,40 @@ const FriendMap = {
 , others : otherFriends()
 };
 
+FriendMap.read = function() {
+    return ( 
+		Object
+        . keys( FriendMap )
+        . join( "\n" )
+	);
+};
+
+FriendMap.readPretty = function() {
+    return ( 
+		Object
+        . keys( FriendMap )
+        . map( s => ( `👥 ${s}` ) )
+        . join( "\n" )
+	);
+};
+
+FriendMap.edit = function( editor ) {
+    editor.value = FriendMap.readPretty();
+};
+
+FriendMap.inspect = function() {
+    let t = ( 
+		Object
+        . keys( FriendMap )
+        . map( s => ( `👥 ${s}` ) )
+	);
+    let c = console;
+    c.group( "Chachi's Friends" );
+    c.table( t );
+    c.groupEnd();
+};
+
+
 // https://mathnotepad.com/
 // https://www.geogebra.org/geometry
 // https://www.mathcha.io/editor
