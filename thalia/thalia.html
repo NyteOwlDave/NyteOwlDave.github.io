@@ -24,12 +24,41 @@
 
 </style>
 
+<style>
+#version_fieldset {
+    box-shadow : 0 0 4ch gold;
+    background : #000 !important;
+    margin-top : 10ch;
+    padding : 4ch;
+}
+#version_table {
+    margin : 0 !important;
+    min-width : 40ch;
+}
+button.bar {
+    display : inline-block  !important;
+    border  : none          !important;
+    outline : none     !important;
+    font-size  : 11pt  !important;
+    background : #EE99 !important;
+    margin        : 4px !important;
+    padding       : 3px !important;
+    padding-left  : 1ch !important;
+    padding-right : 1ch !important;
+}
+button.bar:hover {
+    box-shadow : 0 0 1ch black;
+    cursor : pointer;
+}
+</style>
+
 </head>
 
 
-<h1>
+<h2>
     <a href="https://nyteowldave.github.io/" id="title" title="🏠 Home Site">🏠 Home</a>
-</h1>
+    <button class="bar" onclick="showVersionDetails()" title="🏠 Version">🏠 Version</button>
+</h2>
 
 <div center>
 
@@ -48,6 +77,25 @@ button {
     padding     : 0;
     line-height : 3.3ch !important;
     border-radius : 100%;
+}
+
+</style>
+
+<style>
+
+button:hover ,
+a:hover {
+    animation : blossom linear 0.2s forwards !important;
+}
+
+@keyframes blossom {
+    from {
+        transform : scale( 1.0 );
+    }
+    to {
+        transform : scale( 1.25 );
+        opacity : 0.85;
+    }
 }
 
 </style>
@@ -338,6 +386,7 @@ function zap( button ) { // Button Click Event
 }
 // 🔒 🔏 🔓 🔐 🔑 📤 📥 ⏫ 📃 💾
 </script>
+
 <fieldset>
 <legend>
   <span onclick="rst(this)" decal="" title="Reset Filename" filename="thalia-download.json">📃</span>
@@ -368,6 +417,45 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist
 </div>
 </div>
 
+<fieldset id="version_fieldset" popover="auto">
+<legend>Version Details</legend>
+<table id="version_table">
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Updated</td>
+<td>2026-JAN-27</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>2.0.0</td>
+</tr>
+</tbody>
+</table>
+<script>
+function showVersionDetails() {
+    try {
+        let elem   = version_fieldset;
+        let action = elem.showPopover;
+        if ( "function" === typeof action ) {
+            elem.showPopover();
+        }
+    } catch ( e ) { 
+        alert ( e );
+        throw ( e );
+    }
+}
+</script>
+<script>
+// addEventListener( "load", showVersionDetails );
+</script>
+</fieldset>
+
 <div center>
 <details>
 <summary>Navigation</summary>
@@ -388,23 +476,33 @@ function populateNavBar( links ) {
         let address = link[ 2 ];
         addLink( title, hint, address );
     } );
-}    
+}
 </script>
 </details>
 </div>
 
+<footer id="footer">
+  <div id="messages">(pending)</div>
+</footer>
+
 <script>
 
-const AppLinks = [    
-    [ // [0] Title , [1] Hint , [2] Address  
+const AppLinks = [
+    [ // [0] Title , [1] Hint , [2] Address
           "Web APIs"
         , "Web APIs ~ Mozilla Developer Network"
         , "https://developer.mozilla.org/en-US/docs/Web/" 
-    ]
+    ] ,
+    [ // [0] Title , [1] Hint , [2] Address
+          "Storage Class"
+        , "Storage Class ~ Mozilla Developer Network"
+        , "https://developer.mozilla.org/en-US/docs/Web/" 
+    ] ,
 ];
 
 addEventListener( "load", function(e) {
     populateNavBar( AppLinks );
+    messages.innerText = "Ready for Action!";
 } );
 
 </script>
@@ -420,5 +518,106 @@ let todo_doc = (`
 `);
 </script>
 
+<script>
+function komodo( ev ) {
+    let o = ev.target;
+    if ( o.nodeName !== "TEXTAREA" ) return;
+    function mine() {
+        ev.stopPropagation();
+        ev.preventDefault();
+    }
+    let code = ev.keyCode;
+    if ( [ 16, 17, 18, 19 ].includes( code ) ) {
+        return;
+    } 
+    if ( ev.ctrlKey  ) return;
+    if ( ev.metaKey  ) return;
+    if ( ev.shiftKey ) return;
+    if ( ev.altKey ) {
+        if ( code === 13 ) {
+            return run( o );
+        }
+        if ( code === asc( "X" ) {
+            return swap( o );
+        }
+        if ( code === asc( "Z" ) {
+            return zoom( o );
+        }
+        return;
+    }
+    if ( code === 9 ) {
+        return insert( o, "\t" );
+    }
+    function analyze() {
+        let ed = this;
+        let id = [ "Editor" , ed.id     ];
+        let ip = [ "Input"  , ed.input  ];
+        let op = [ "Output" , ed.output ];
+        let er = [ "Error"  , ed.error  ];
+        let con = console;
+        con.group( "Script Results" );
+        con.table( [ id, ip, op, er ] );
+        con.groupEnd();
+    }
+    function run( ed ) {
+        try {
+            mine();
+            ed.error  = "";
+            ed.input  = ed.value;
+            ed.output = window.eval( ed.input );
+        } catch( e ) {
+            ed.output = "";
+            ed.error  = e.message;
+            bummer( e );
+        } finally {
+            ed.analyze = analyze;
+        }
+    }
+    function zoom( ed ) {
+        try {
+            mine();
+            if ( "function" === typeof ed.requestFullscreen ) {
+                ed.requestFullscreen();
+            }
+        } catch( e ) {
+            bummer( e );
+        }
+    }
+    function swap( ed ) {
+        try {
+            mine();
+            let memo = ( ed.memo );
+            ed.memo = ed.value;
+            ed.value = ( memo || "" );
+        } catch( e ) {
+            bummer( e );
+        }
+    }
+    function insert( ed, t ) {
+        try {
+            mine();
+        } catch( e ) {
+            bummer( e );
+        }
+    }
+    function asc( ch ) {
+        return String( ch ).trim().charCodeAt( 0 );
+    }
+    function bummer( e ) {
+        console.error( e );
+        if ( "object" === typeof messages ) {
+            messages.innerText = e.message;
+            return;
+        }
+        alert( e );
+    }
+}
+</script>
+
+<script>
+addEventListener( "keydown", komodo );
+</script>
+
 </body>
 </html>
+

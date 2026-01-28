@@ -1,0 +1,82 @@
+
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<title>Thalia Version</title>
+
+<style>
+
+@import url("./style/std.css");
+@import url("./style/midnight.css");
+@import url("./style/siox.css");
+
+body {
+  position : fixed;
+  top  : 20px;
+  left : 20px;
+  min-width  : calc( 100vw - 80px );
+  min-height : calc( 100vh - 80px );
+}
+
+fieldset {
+    margin-top : 140px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- | ============== [[ CUT HERE ]] ============== | -->
+
+<fieldset id="version_fieldset" popover="auto">
+<legend>Version Details</legend>
+<table id="version_table">
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Updated</td>
+<td>2026-JAN-27</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>2.0.0</td>
+</tr>
+</tbody>
+</table>
+<script>
+function showVersionDetails() {
+    try {
+        let elem   = version_fieldset;
+        let action = elem.showPopover;
+        if ( "function" === typeof action ) {
+            elem.showPopover();
+        }
+    } catch ( e ) { 
+        alert ( e );
+        throw ( e );
+    }
+}
+</script>
+</fieldset>
+
+<!-- | ============== [[ CUT HERE ]] ============== | -->
+
+
+<script>
+addEventListener( "load", showVersionDetails );
+</script>
+
+</body>
+</html>
+
