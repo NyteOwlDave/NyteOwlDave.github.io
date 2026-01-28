@@ -35,7 +35,7 @@ function selectIOE() {
 function selectSSS() {
     return { 
         sip : gid( "sip" ), 
-        sop : gid( "sop" ), 
+        sop : gid( "sop" ),
         ser : gid( "ser" ) 
     };
 }
@@ -58,6 +58,6 @@ async function fetchSavedScript( url, action, error ) {
 
 
 /*
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+    UPDATED ~ 2026-JAN-26 ~ Tower
 */
 
