@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
 
 <meta charset="utf-8">
 
@@ -22,6 +27,7 @@
         display : inline-block;
         cursor : pointer;
         box-shadow : 0 0 18px lightgreen;
+        margin: 6px;
     }
     button:hover {
         animation : linear 0.3s blossom forwards;
@@ -61,6 +67,7 @@
         padding : 1ch;
         padding-left  : 1.8ch;
         padding-right : 1.8ch;
+        box-sizing: border-box;
     }
 </style>
 
@@ -77,7 +84,6 @@
     doc = document;
     doc.title =( T );
 </script>
-
 
 <script>
 function test() {
@@ -108,12 +114,37 @@ function main() {
 </script>
 
 <script>
-// addEventListener( "load" , main );
+STORE_KEY = "extract-icons.js";
+doc = document;
+idb = indexedDB;
+stg = localStorage;
+addEventListener( "load" , ()=>{
+    doc.body.spellcheck = false;
+    sce.value = ( stg.getItem( STORE_KEY ) || "" );
+} );
+addEventListener( "beforeunload", ()=>{
+    stg.setItem( STORE_KEY, sce.value );
+} );
+</script>
+
+<script>
+function dbnames() {
+    idb
+    . databases()
+    . then( o => o.map( i => i.name ) )
+    . then( o => ( sce.value = o.join( "\n" ) ) )
+}
 </script>
 
 <!--
 http://dave-ryzen/morpheus/std/examples/vb/extract-icons.html
 -->
+
+</head>
+
+<body>
+
+<article>
 
 <h1>Extract Icons</h1>
 
@@ -135,6 +166,8 @@ http://dave-ryzen/morpheus/std/examples/vb/extract-icons.html
 
 <p>
     Oh, and just for fun... this page contains a popup editor (ID = "sce").
+    Try running the <code>dbnames()</code> function for a nice 
+    grin. (wink, wink ...)
 </p>
 
 <hr>
@@ -147,9 +180,11 @@ http://dave-ryzen/morpheus/std/examples/vb/extract-icons.html
 
 <hr>
 
+</article>
+
 <fieldset popover="auto" id="popup">
 <legend>Script Editor</legend>
-<textarea id="sce">Script Editor</textarea>
+<textarea id="sce" wrap="off"></textarea>
 <div>
     <button onclick="runScript()">Run</button>
 </div>
@@ -193,3 +228,6 @@ http://dave-ryzen/morpheus/std/examples/vb/extract-icons.html
 </script>
 </fieldset>
 
+</body>
+
+</html>
