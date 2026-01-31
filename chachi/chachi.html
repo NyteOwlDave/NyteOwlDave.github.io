@@ -5,54 +5,14 @@
 <!-- Used to Update Version Gadget -->
 <meta content="repo" value="Morpheus">3
 <meta content="tikey" value="382adcd3-aa05-4ab9-885e-6caedf702bfe">
-<meta content="tidate" value="2026-JAN-26">3
-<meta content="version" value="🏷️ v2.3.3">
+<meta content="tidate" value="2026-JAN-31">3
+<meta content="version" value="🏷️ v2.4.1">
 <script>
     document.title = "Chachi Calculator";
 </script>
 <style>
 @import url("https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css");
 @import url("./style/chachi.css");
-</style>
-<style>
-header {
-    font-size : 12px;
-    line-height : 22px;
-}
-menu button {
-    z-index : 2000;
-}
-.version {
-    z-index : 1000;
-    background-color: transparent;
-    width : 30ch;
-    bottom : 1ch !important;
-    right  : 3ch !important;    
-    left   : unset !important;    
-    margin  : 0 !important;
-}
-.version * {
-    z-index : 0;
-    width : 100%;
-    background-color: cadetblue;
-    padding : 0.2ch;
-    padding-left  : 1.2ch;
-    padding-right : 1.2ch;
-    border-radius : 3ch;
-    height : 2.8ch;
-    line-height : 2.8ch;
-}
-.version summary {
-    display : block;
-    font-weight: 900;
-}
-#appVersion {
-    display : inline-block;
-    margin  : 0 !important;
-}Omega
-#appVersion:before {
-    content : "✨" !important;
-}
 </style>
 <link rel="icon" href="./favicon.ico" />
 </head>
@@ -89,27 +49,37 @@ menu button {
     <button onclick="zoomOutput()" title="Zoom Output\n[ALT]+[Z]"><i class="si-fullscreen"></i> Output</button>
     <button onclick="zoomCanvas()" title="Zoom Canvas\n[ALT]+[Z]"><i class="si-fullscreen"></i> Canvas</button>
     <button onclick="showMathHelp()" title="Reference\n[ALT]+[?]"><i class="si-info-circle"></i></button>
+    <button onclick="_mods()" title="Show Loaded Modules"><i class="si-box"></i></button>
+    <button onclick="file('open')" title="Open a file"><i class="si-folder"></i></button>
+    <button onclick="file('save')" title="Save as file"><i class="si-disk"></i></button>
+    <button onclick="file('download')" title="Download a remote file"><i class="si-download"></i></button>
+    <button onclick="file('upload')" title="Upload a remote file"><i class="si-upload"></i></button>
 </menu>
 </footer>
-Omega
+
 <main>
 
 <div>
+
 <pre id="sop"></pre>
     <hr>
+
 <textarea id="sip" wrap="off" rows="10"></textarea>
     <hr>
+
 <div>
-<menu>
-    <button class="math-plus" onclick="clearInput()" title="Clear Editor">CE</button>
-    <button class="math-plus" onclick="persist()" title="Memory">M</button>
-    <button class="math-plus" onclick="recover()" title="Recall">R</button>
+    <menu>
+        <button class="math-plus" onclick="clearInput()" title="Clear Editor">CE</button>
+        <button class="math-plus" onclick="persist()" title="Memory">M</button>
+        <button class="math-plus" onclick="recover()" title="Recall">R</button>
+    </menu>
 </div>
-</div>
+
 <div id="menuContainer"></div>
     <hr>
 <canvas id="canvas"></canvas>
     <hr>
+
 </div>
 
 <!-- From Uiverse.io by njesenberger --> 
@@ -137,6 +107,9 @@ Omega
 </div>
 
 </main>
+
+
+<!-- ~~~~~~~~~~~~~~ [[[ EMBEDDED SCRIPTS ]]] ~~~~~~~~~~~~~~ -->
 
 <script details="App Modules Registry">
 const AppModules = { core : [] };
@@ -166,10 +139,58 @@ AppModules.report = function() {
     }
     const we = AppModules;
     const table = Array.from( we.map.keys() )
-        .filter( mods );
+        . filter( mods );
     console.group( "App Module Registry" );
     console.table( table );
     console.groupEnd();
+}
+AppModules.list = function() {
+    function mods( k ) {
+        switch ( k.toLowerCase() ) {
+            case "class":
+            case "string":
+            case "function":
+            case "number":
+                return false;
+            default:
+                return true;
+        }
+    }
+    const we = AppModules;
+    const table = Array.from( we.map.keys() )
+        . filter( mods );
+    say( table.join( "\n" ) );
+}
+function _mods() {
+    AppModules.list();
+}
+</script>
+
+<script>
+function say( s ) {
+    sop.innerText = ( s );
+    return ( s );
+}
+function mention( s ) {
+    let t = sop.innerText;
+    return say( ( t ) ? ( `${t}\n${s}` ) : ( s ) );
+}
+</script>
+
+<script>
+function blurt( s ) {
+    return mention( `🟢=> ${s}` );
+}
+function dangit( s ) {
+    return mention( `🟡 ${s}` );
+}
+function bummer( e ) {
+    let s = (
+          ( e instanceof Error )
+        ? ( e.message )
+        : ( e )
+    );
+    return mention( `🔴 ${s}` );
 }
 </script>
 
@@ -211,7 +232,8 @@ AppModules.report = function() {
 
 
 <!--
-TODOkeep = function() {    
+TODO
+keep = function() {    
     k = STORE_KEY;
     v = sip.value;
     save( k, v );
@@ -267,16 +289,17 @@ sip.memoFetch = async function( target ) {
 
 <script>
 function main() {
-    // Start AUTO-SOLVE Timer
+    document.body.spellcheck = false;
     keep = function() {    
-    k = STORE_KEY;
-    v = sip.value;
-    save( k, v );
-    s = ( `Wrote ${k} to Store` );
-    console.log( s );
-    return ( s );
-};
-setInterval( solve, 1000 );
+        k = STORE_KEY;
+        v = sip.value;
+        save( k, v );
+        s = ( `Wrote ${k} to Store` );
+        console.log( s );
+        return ( s );
+    };
+    // Start AUTO-SOLVE Timer
+    setInterval( solve, 1000 );
     // Get rid of old O/P (if any)
     clearOutput();
     // If persistent storage is available, use it
@@ -299,6 +322,20 @@ setInterval( solve, 1000 );
     editables( 'pre' );
     // Load SIP API Script (sip-ops.js)
     sip.fetchAPI();
+}
+</script>
+
+<script>
+// <<======================================================[[[ TODO ]]]
+function file( op ) {
+    switch( op ) {
+        case "open" :
+        case "save" :
+        case "download" :
+        case "upload"   :
+            break;
+    }
+    alert( `The "file ${op}"" feature is incomplete ` );
 }
 </script>
 
@@ -387,7 +424,7 @@ addEventListener( 'load', () => {
 ] -->
 
 <!--
-    UPDATED ~ 2026-JAN-26 ~ Tower
+    UPDATED ~ 2026-JAN-31 ~ Ryzen
 -->
 
 </body>

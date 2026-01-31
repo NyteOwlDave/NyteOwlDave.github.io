@@ -1,0 +1,195 @@
+
+<meta charset="utf-8">
+
+<style>
+    html, body {
+        text-align: center;
+        font-size: 16pt;
+        font-family : Verdana, Geneva, Tahoma, sans-serif;
+        color : lemonchiffon;
+        background : #040418;
+    }
+    body {
+        margin : 80px;
+    }
+    button {
+        font-size : inherit;
+        border : none;
+        border-radius : 2.2ch;
+        padding : 2.2ch;
+        padding-top : 0.2ch;
+        padding-bottom : 0.2ch;
+        display : inline-block;
+        cursor : pointer;
+        box-shadow : 0 0 18px lightgreen;
+    }
+    button:hover {
+        animation : linear 0.3s blossom forwards;
+    }
+    fieldset ,
+    button:hover {
+        box-shadow : 0 0 28px gold;
+    }
+    @keyframes blossom {
+        from {
+            transform : scale( 1.0 );
+        }
+        to {
+            transform : scale( 1.25 );
+        }
+    }
+    fieldset {
+        width  : calc( 100vw - 100px );
+        height : calc( 100vh - 100px );
+        border : none;
+        padding : 24px;
+        border-radius : 24px;
+        background : rgba( 242, 242, 182, 0.222 );
+    }
+    textarea {
+        tab-size : 4;
+        width  : calc( 100% );
+        height : calc( 100% - 12ch );
+        min-height : calc( 10ch );
+        max-height : calc( 100% - 8ch );
+        resize : vertical;
+        white-space : nowrap;
+        font : 12pt "Noto Mono", monospace;
+        background : lemonchiffon;
+        color : #040418;
+        margin-bottom : 2ch;
+        padding : 1ch;
+        padding-left  : 1.8ch;
+        padding-right : 1.8ch;
+    }
+</style>
+
+<script>
+    T = "Extract Icons";
+    X = "https://copilot.microsoft.com/shares/7JyfKdyVhYWh9fJe9V48q";
+    P = "https://copilot.microsoft.com";
+    S = "shares";
+    K = "7JyfKdyVhYWh9fJe9V48q";
+    U = [P,S,K].join("/");
+</script>
+
+<script>
+    doc = document;
+    doc.title =( T );
+</script>
+
+
+<script>
+function test() {
+    if ( X === U ) {
+        alert( "Hey, they match!" )
+    } else {
+        alert( "Aww, shucks. There's a problem ..." );
+    }
+}
+</script>
+
+<script>
+    function bruce( url ) {
+        window.open( url, url, bruce.options );
+    }
+    bruce.options = ( "left=10,top=10,width=800,height=720" );
+</script>
+
+<script>
+function main() {
+    try {
+        // test();
+        bruce( U );
+    } catch ( e ) {
+        alert( e );
+    }
+}
+</script>
+
+<script>
+// addEventListener( "load" , main );
+</script>
+
+<!--
+http://dave-ryzen/morpheus/std/examples/vb/extract-icons.html
+-->
+
+<h1>Extract Icons</h1>
+
+<h3>Copilot Chat</h3>
+
+<p>
+    This page is designed to open a <b>popup</b> window.
+</p>
+<p>
+    This window displays a <code>Copilot Chat</code>. The topic concerns using
+    <code>Visual Basic .Net</code> to extract icons from a <code>Windows Executable</code> file.
+</p>
+<p>
+    If this isn't what you were expecting, kindly exit the page.
+</p>
+<p>
+    Otherwise, tighten your belt buckle and click the button provided below.
+</p>
+
+<p>
+    Oh, and just for fun... this page contains a popup editor (ID = "sce").
+</p>
+
+<hr>
+
+<h1>
+    <button onclick="main()">Copilot Chat</button>
+    <button onclick="test()">Run PSK Test</button>
+    <button onclick="fun()">Show Editor</button>
+</h1>
+
+<hr>
+
+<fieldset popover="auto" id="popup">
+<legend>Script Editor</legend>
+<textarea id="sce">Script Editor</textarea>
+<div>
+    <button onclick="runScript()">Run</button>
+</div>
+<script>
+    function fun() {
+        popup.showPopover();
+    }
+    function runScript() {
+        try {
+            sce.error = "";
+            sce.input = sce.value;
+            sce.output = window.eval( sce.input );
+        } catch ( e ) {
+            console.error( e );
+            console.log( "Run analyze() for more details.")
+            sce.output = "";
+            alert( sce.error = e.message );
+        }
+    }
+    function analyze() {
+        let c = analyze.style;
+        let con = console;
+        let ip = [ "Input"  , sce.input  ];
+        let op = [ "Output" , sce.output ];
+        let er = [ "Error"  , sce.error  ];
+        let tb = [ ip, op, er ];
+        con.groupCollapsed( "%cScript Results", c );
+        con.table( tb );
+        con.groupEnd();
+    }
+    analyze.style = ( `
+        display : inline-block;
+        font-size : 16pt;
+        color : midnightblue;
+        background : gold;
+        padding : 0.4ch;
+        padding-left  : 1.4ch;
+        padding-right : 1.4ch;
+        border-radius : 1.6ch;
+    ` );
+</script>
+</fieldset>
+

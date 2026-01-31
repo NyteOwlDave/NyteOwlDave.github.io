@@ -97,17 +97,21 @@
 
 
 textarea {
-    min-width : 200px;
-    max-width : 90%;
+    resize     : both;
+    min-width  : 200px;
+    max-width  : calc( 100vw - 100px );
+    max-height : calc( 100vh - 200px );
     margin-bottom : 42vh;
+    overflow-x : scroll;
+    overflow-y : scroll;
 }
 
 pre {
     text-align : left;
-/*    white-space : nowrap; */
+    resize     : vertical;
     overflow-x : scroll;
     overflow-y : scroll;
-    resize : vertical;
+    max-height : calc( 100vh - 200px );
 }
 
 pre:focus ,
@@ -182,9 +186,7 @@ textarea:hover {
     box-shadow : 0px 0px 21px blue;
 }
 
-textarea, pre {
-  max-height : 90vh;
-}
+
 
 hr {
     border : none;
@@ -203,26 +205,66 @@ menu, .menuContainer {
     display : var( --menu-display );
 }
 
+header {
+    font-size : 12px;
+    line-height : 22px;
+}
+
+menu button {
+    z-index : 2000;
+}
+
 .version {
+    z-index  : 1000;
     position : fixed;
-    left : 1ch;
-    bottom: 0.11ch;
-    cursor : pointer;
-    padding-left : 1ch;
-    padding-right : 1ch;
+    cursor   : pointer;
     font-family : sans-serif;
-    font-size : 9pt;
-}
-.version summary {
-    border-radius : 17px;
-    padding-left : 1ch;
+    font-size   : 9pt;
+    width  :  30ch;
+    bottom :  64px !important;
+    right  :  32px !important;    
+    margin :     0 !important;
+    padding-left  : 1ch;
     padding-right : 1ch;
+    background-color : transparent;
 }
+
+.version summary {
+    display       : block;
+    border-radius : 17px;
+    padding-left  : 1ch;
+    padding-right : 1ch;
+    font-weight   : 900;
+}
+
 .version summary:hover {
     box-shadow : 0px 0px 7px midnightblue;
 }
 
+.version * {
+    z-index : 0;
+    width : 100%;
+    background-color: cadetblue;
+    padding : 0.2ch;
+    padding-left  : 1.2ch;
+    padding-right : 1.2ch;
+    border-radius : 3ch;
+    height : 2.8ch;
+    line-height : 2.8ch;
+}
+
+#appVersion {
+    display : inline-block;
+    margin  : 0 !important;
+    border  : 1px dashed #1142;
+    background-color: rgb(143, 202, 181);
+}
+
+#appVersion:before {
+    content : "✨" !important;
+}
+
 /*
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-12 ~ Omega
+    UPDATED ~ 2026-JAN-31 ~ Ryzen
 */
 
