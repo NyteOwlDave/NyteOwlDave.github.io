@@ -128,7 +128,7 @@ thor.getScriptDetails = function( keys=[] ) {
 //⋄ [ ^.getCacheKeys ]
 //⋄ Read Cache Keys (localStorage)
 //⋄ Returns Array of Strings
-thor.getCacheKeys = function( maxCount = 42 ) {
+thor.getCacheKeys = function( maxCount = 420 ) {
     maxCount = Math.min( maxCount, 10000 );
     maxCount = Math.max( maxCount, 0 );
     let i = 0, key, keys = [];
@@ -475,7 +475,7 @@ rogers.randomID = function( prefix = "rogers-" ) {
 */
 
 /*
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+    Updated ~ 2026-FEB-06 ~ Legacy
 */
 
 
