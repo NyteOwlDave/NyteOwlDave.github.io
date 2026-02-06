@@ -146,7 +146,7 @@ thor.getCacheKeys = function( maxCount = 420 ) {
 //⋄ Array of String Arrays (key/value pairs)
 //+ hintSize determines how many characters are in each hint
 //+ hintSize is clamped to range [ 8 ... 142 ]
-thor.getCacheHints = function( hintSize = 15, maxCount = 42 ) {
+thor.getCacheHints = function( hintSize = 15, maxCount = 420 ) {
     hintSize = Math.min( hintSize, 78 );
     hintSize = Math.max( hintSize,  8 );
     hintSize = Math.floor( hintSize ) || 15;
