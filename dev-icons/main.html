@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta version="2.0.0">
+    <meta updated="2026-FEB-09">
     <title>Design DevOps Icons</title>
     <link rel="icon" href="./favicon.ico">
     <script src="https://kit.fontawesome.com/f257fbebb0.js" crossorigin="anonymous"></script>
@@ -74,6 +76,19 @@
             background : white;
             box-shadow : 0px 0px 21px black;
         }
+        #source-code-popover {
+            min-width : 20em;
+            max-width : calc( 100vw - 4em );
+            width : 40em;
+            text-align : center;
+        }
+        #source-code-popover fieldset {
+            width : calc( 100% - 5ch );
+        }
+        #sop {
+            width : calc( 100% - 3ch );
+            resize : vertical;
+        }
     </style>
 </head>
 <body>
@@ -94,11 +109,13 @@
     </div>
     <section id="bub"></section>
     </main>
-    <fieldset popover="auto">
+    <div popover="auto" id="source-code-popover">
+    <fieldset>
         <legend>Source Code</legend>
         <textarea id="sop" wrap="off" rows="5">
         </textarea>
     </fieldset>
+    </div>
     <footer>
         <input placeholder="First" id="viewIndex" type="number" min="1">
         <span>✖️</span>
@@ -119,6 +136,7 @@
     <script src="./api/thor.js"></script>
     <script src="./api/legends.js"></script>
     <script details="Icon Preview Gadgets">
+        // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button
         function safeIndex( index ) {
             const limit = ( read( viewLimit ) || 300 );
             let i = ( ( index-1 ) % limit );
@@ -152,9 +170,12 @@
             ime.onclick = function( e ) {
                 const x = e.screenX;
                 const y = e.screenY;
+                // alert( e );
+                // return;
                 if ( e.shiftKey ) {
                     sop.value = composeSourceCode( index );
-                    sop.parentElement.showPopover();
+                    let pe = sop.parentElement;
+                    pe.parentElement.showPopover();
                 } else {
                     window.open( 
                         this.src, "_BLANK", 
@@ -262,6 +283,6 @@
 </html>
 
 <!--
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
+    Updated ~ 2026-FEB-08 ~ Legacy
 -->
 
