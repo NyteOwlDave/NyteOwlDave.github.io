@@ -1,0 +1,383 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+/*
+
+  plain.css
+  Basic Web Page Style
+
+*/
+
+:root {
+    --fgc : mintcream;
+    --bgc : #114;
+}
+
+[center] { text-align : center; }
+
+html, body {
+    color : var( --fgc );
+    background-color : var( --bgc );
+}
+
+body {
+    margin-top    : 82px;
+    margin-bottom : 82vh;
+}
+
+header , footer {
+    position : fixed;
+    left     : 0;
+    width    : 100%;
+    margin   : 0;
+    border   : none;
+    text-align : center;
+    z-index : 100;
+    color : #111E;
+    background-color : #FFAD;
+    padding : 1.1ch;
+}
+
+header {
+    top : 0;
+}
+
+footer {
+    bottom : 0;
+}
+
+hr {
+   background-color : var( --hrc );
+   border : none;
+   border-bottom : 1px solid #1142;
+}
+
+h1, h2, h3, h4, h5, h6,
+fieldset,
+figure {
+    text-align : center;
+}
+
+blockquote em {
+    border : 1px solid #9728;
+    border-radius : 2ch;
+    margin  : 0;
+    padding : 1ch;
+    display : inline-block;
+    width : calc( 100% - 2ch );
+    text-align : center;
+    font-style : normal;
+    text-decoration : none;
+    font-size : xx-large;
+    font-weight : 700;
+    color : #CC8A;
+    background-color : #AA02;
+    box-shadow : 0 0 16px #002;
+}
+
+pre {
+    padding       : 0.25ch;
+    padding-left  : 1.5ch;
+    padding-right : 1.5ch;
+    overflow-x : auto scroll;
+    overflow-y : auto scroll;
+    max-height : calc( 100vh - 200px );
+    min-height : calc( 20px  );
+    background-color : #1104;
+}
+
+pre:not([contenteditable]):hover {
+    background-color : #E724;
+}
+
+textarea:focus ,
+pre:focus {
+    background-color : #DE93;
+}
+
+textarea:hover ,
+pre[contenteditable]:hover {
+    background-color : #9EA4;
+}
+
+[contenteditable] {
+    border : 1px dashed gold;
+    cursor : pointer;
+}
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>usage</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<style>
+img[src]:hover {
+    display : inline-block;
+    cursor  : pointer;
+    animation  : linear 0.25s blossom forwards;
+}
+</style>
+
+<style>
+.error {
+    background-color : red    !important;
+    color            : yellow !important;
+    text-shadow      : 0 0 2px black;
+}
+</style>
+
+<style>
+@keyframes blossom {
+    from {
+        box-shadow : none;
+        transform  : scale( 1.0 );
+    }
+    to {
+        box-shadow : 0 0 20px gold;
+        transform  : scale( 1.2 );
+    }
+}
+</style>
+
+<style>
+#store_keys_1 ,
+#store_keys_2 {
+    display : inline-block;
+}
+#store_keys_1 {
+    max-width   : 100px;
+    max-height  : 100px;
+}
+#store_keys_2 {
+    max-width   : 140px;
+    max-height  : 140px;
+}
+img, svg {
+    background-color : gold;
+    padding : 20px;
+    border-radius : 20px;
+    box-shadow : 0 0 16px #002;
+}
+</style>
+
+<hr>
+<blockquote>
+<p><em>Example Usage</em></p>
+</blockquote>
+<hr>
+<h1>Using Design Icons</h1>
+<p>The easiest way to embed one of these Icons is to copy the
+raw <code>SVG</code> code from the file and paste that code into the <code>HTML</code>
+document.</p>
+<p>Though this technique avoids additional <code>HTTP</code> <strong>fetch</strong>
+operations, it also causes the <code>HTML</code> document to become
+<em>ugly</em> and <em>bloated</em>.</p>
+<p>There's a much simpler approach, fortunately. This happens to
+be the preferred technique.</p>
+<p>The source code for this example <code>HTML</code> document contains 
+<strong>both approaches</strong>.</p>
+<p>If you prefer, you can example the source code directly using
+the <strong>browser</strong> or some download tool like <code>curl</code> or <code>wget</code>.</p>
+<p>However, for <strong>simplicity</strong>, I've included the preferred
+approach as part of this document's visible content.</p>
+<hr>
+<h1>Technique #1</h1>
+<hr>
+<h2>Using an SVG Element</h2>
+<p>This technique is included here for reference only. You'll do
+better to use the second option.</p>
+<figure>
+<svg id="store_keys_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.17 51.4"><defs><style>.cls-1{fill:#231f20;}</style></defs><g id="Layer_1-2"><g><path class="cls-1" d="m35.28,16.91H7.89c-4.35,0-7.89,3.54-7.89,7.89v18.71c0,4.35,3.54,7.89,7.89,7.89h29.32v-3.24H7.89c-2.56,0-4.65-2.09-4.65-4.65v-18.71c0-2.56,2.09-4.65,4.65-4.65h27.38c2.56,0,4.65,2.09,4.65,4.65v19.91h3.24v-19.91c0-4.35-3.54-7.89-7.89-7.89Z"/><path class="cls-1" d="m13.15,11.64c0-4.63,3.79-8.4,8.44-8.4s8.4,3.77,8.4,8.4v2.42h3.24v-2.42c0-6.42-5.22-11.64-11.64-11.64s-11.69,5.22-11.69,11.64v2.42h3.24v-2.42Z"/><circle class="cls-1" cx="21.78" cy="33.58" r="5.93"/></g></g></svg>
+</figure>
+
+<hr>
+<h2>HTML Source Code</h2>
+<pre>
+
+Refer to the source code for this HTML document.
+
+</pre>
+
+<hr>
+<h1>Technique #2</h1>
+<hr>
+<h2>Using an IMG Element</h2>
+<p>This is the preferred technique.</p>
+<figure>
+ <img id="store_keys_1" src="https://nyteowldave.github.io/dev-icons/art/dev-icon-255.svg">
+</figure>
+
+<hr>
+<h2>HTML Source Code</h2>
+<pre contenteditable>
+
+&lt;figure>
+ &lt;img src="https://nyteowldave.github.io/dev-icons/art/dev-icon-255.svg">
+&lt;/figure>
+
+</pre>
+
+<hr>
+<blockquote>
+<p><em>Handy Links</em></p>
+</blockquote>
+<hr>
+<ul>
+<li><a href="https://nyteowldave.github.io/dev-icons/">Help</a></li>
+<li><a href="https://nyteowldave.github.io/dev-icons/help/members.html">Legends Roll Call</a></li>
+<li><a href="https://nyteowldave.github.io/dev-icons/art/dev-icon-255.svg">View SVG File</a></li>
+<li><a href="https://nyteowldave.github.io/dev-icons/">Design Icons</a></li>
+</ul>
+<hr>
+<header>Design Icons</header>
+
+<footer>
+  <div id="messages">[ PENDING  ]</div>
+</footer>
+
+<hr>
+<script name="app-state.js">
+let AppState = {}:
+AppState.include = [];
+AppState.index   = new Map();
+AppState.today   = "2026-FEB-08";
+AppState.DEBUG   = true;
+AppState.VERBOSE = false;
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/legends.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/tigg.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/thor.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/joni.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/editables.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/energize.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/bonfire.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/math.js">
+</script>
+
+<script name="message.js">
+function message( s ) {
+    messages.textContent = ( s );
+}
+</script>
+
+<script name="bummer.js">
+function bummer( e ) {
+    let dad = messages.parentElement;
+    dad.classList.add( "error" );
+    setTimeout(
+        function(e) {
+            dad.classList.remove( "error" );
+        } , 4200
+    );
+    if ( e instanceof Error ) {
+        message( e.message );
+    } else {
+        message( e );
+    }
+    throw ( e );
+}
+</script>
+
+<script name="init-images.js">
+function initImages() {
+    let arr =( o )=> Array.from( o );
+    let all =( q )=> arr( document.querySelectorAll( q ) );
+    all( "IMG[src]" )
+    . forEach(
+        img => {
+            img.style.cursor = "pointer";
+            img.addEventListener(
+                 ( "click"        )
+               , ( on_click_image )
+            );
+        }
+    );
+}
+</script>
+
+<script name="main.js">
+function main( event ) {
+    try {
+        initImages();
+        message( "Ready for action!" );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<script name="load-event.js">
+addEventListener(
+    "load" ,
+    function(e) {
+        han( main, e )
+    }
+);
+</script>
+
+<script name="is-agent.js">
+function isAgent( s ) {
+    return( agent.includes( s.toLowerCase() ) );
+}
+</script>
+
+<script name="on-click-image.js">
+function on_click_image( event ) {
+    try {
+        previewImage( event.target );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<script name="preview-image.js">
+function previewImage( img ) {
+    preview(
+          ( img.src )
+        , ( previewImage.options )
+    );
+    previewImage.window = preview.window;
+}
+previewImage.options = (
+    "top=10,left=10,width=340,height=340"
+);
+</script>
+
+<script name="preview.js">
+function preview( url, options ) {
+    if ( isAgent( "retext" ) ) {
+        throw new Error( "Preview unavailable for ReText" );
+    }
+    options = ( options || preview.options );
+    url = ( url || location.origin );
+    preview.window = (
+        window.open( url, url, options )
+    );
+}
+preview.options = (
+    "top=10,left=10,width=800,height=640" 
+);
+</script>
+
+</body>
+</html>
