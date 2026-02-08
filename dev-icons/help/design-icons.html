@@ -18,6 +18,23 @@
 
 [center] { text-align : center; }
 
+@keyframes blossom {
+    from {
+        box-shadow : none;
+        transform  : scale( 1.0 );
+    }
+    to {
+        box-shadow : 0 0 20px gold;
+        transform  : scale( 1.2 );
+    }
+}
+
+.error {
+    background-color : red    !important;
+    color            : yellow !important;
+    text-shadow      : 0 0 2px black;
+}
+
 html, body {
     color : var( --fgc );
     background-color : var( --bgc );
@@ -107,6 +124,74 @@ pre[contenteditable]:hover {
     border : 1px dashed gold;
     cursor : pointer;
 }
+
+ol, ul {
+    margin  : 10px;
+    background-color : #4415;
+    border-radius : 1.2ch;
+    border : 1px dotted gold;
+    padding : 1.2ch;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+ol {
+    text-align : center;
+}
+
+ol li {
+    display : inline-block;
+    margin  : 2px;
+    background-color : transparent;
+    color : inherit;
+}
+
+ol li a {
+    min-width : 18ch;
+    max-width : 18ch;
+}
+
+a[href] ,
+button[onclick] {
+    display : inline-block;
+    cursor  : pointer;
+    border  : none;
+    outline : none;
+    border-radius : 2.2ch;
+    padding : 0.42ch;
+    padding-left  : 2.2ch;
+    padding-right : 2.2ch;
+    margin : 2px;
+    color  : lemonchiffon;
+    background-color : #ED58;
+    text-shadow : 0 0 2px black;
+    text-decoration : none !important;
+}
+
+button:hover  ,
+a[href]:hover {
+    display    : inline-block;
+    cursor     : pointer;
+    animation  : linear 0.15s blossom forwards;
+}
+
+code, var {
+    color : #AFF9;
+    text-shadow : 0 0 1px black
+}
+
+u, i, b, em ,
+strong {
+    color : gold;
+    text-shadow : 0 0 1px black
+}
+
+p {
+    padding : 1px;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
 </style>
 <meta name="generator" content="ReText 7.2.3">
 <title>design-icons</title>
@@ -114,44 +199,141 @@ pre[contenteditable]:hover {
 </style>
 </head>
 <body>
-<style>
-</style>
-
 <hr>
 <blockquote>
-<p>Design Icons Help</p>
+<p><em>Help Manual</em></p>
 </blockquote>
 <hr>
-<h1>Options</h1>
-<p>There are three numeric input fields:</p>
-<ol>
-<li>Index</li>
-<li>Count</li>
-<li>Limit</li>
-</ol>
-<h2>Index Option</h2>
-<p>This input determines the index of the first icon to be shown
-is the display preview area.</p>
-<p>The range is clamped so that is falls within a lower limit of
-zero and an upper limit defined by the <code>limit</code> input.</p>
-<p>You can change this value manually. It's also updated for you
-when you use the media buttons for scrolling.</p>
-<h2>Count Option</h2>
-<p>This input determines the number of icons to be displayed at
-any given location within the index range.</p>
-<p>We use is a <strong>sliding window</strong> of indices. This value determines
-the size of that window.</p>
-<h2>Limit Option</h2>
-<p>This input is meant primarily for debugging and development.</p>
-<p>However, it's also useful if the number of icon files is
-altered for some reason. Perhaps new icons were updated
-without reflecting this change in the application logic.</p>
+<h1>Page Layout</h1>
+<p>The <strong>page</strong> typically appears similar to the figure below.</p>
+<figure center>
+  <img src="./art/webp/design-icons-page-layout.webp">
+</figure>
+
 <hr>
-<h1>Media Buttons</h1>
+<h2>Navigation Menu</h2>
+<p>This menu is a collection of <em>anchor</em> ( <code>A</code> ) elements.</p>
+<p>It's located in the <code>HEADER</code> element pinned along the top of
+the <em>page</em>.</p>
+<figure center>
+  <img src="./art/webp/nav-menu.webp">
+</figure>
+
 <hr>
+<h2>Preview Area</h2>
+<p>The largest area is reserved for <strong>previewing icons</strong>.</p>
+<p>The area is sandwiched between 
+the <strong>Navigation Menu</strong> ( <code>HEADER</code> ) and the
+<strong>Options Section</strong> ( <code>FOOTER</code> ).</p>
+<figure center>
+  <img src="./art/webp/preview-area.webp">
+</figure>
+
+<hr>
+<h2>Options Section</h2>
+<p>This section is dedicated to managing <strong>input values</strong>.</p>
+<p>It's located within the <code>FOOTER</code> element pinned at the bottom of
+the <em>page</em>, above the <strong>Action Menu</strong>.</p>
+<figure center>
+  <img src="./art/webp/input-options.webp">
+</figure>
+
+<p>As shown above, there are <em>three</em> <strong>numeric input</strong> fields:</p>
 <ul>
-<li>(pending)</li>
+<li><strong>Index</strong></li>
+<li><strong>Count</strong></li>
+<li><strong>Limit</strong></li>
 </ul>
+<hr>
+<p><strong>NOTE</strong>: The <em>labels</em> are shown here for <strong>clarity</strong>. They're 
+<u>not</u> displayed on the actual <em>page</em>.</p>
+<hr>
+<h2>Index Option</h2>
+<p>This input determines the <strong>Index</strong> of the <em>first</em> icon to be 
+shown within the <strong>Preview Area</strong>.</p>
+<p>The <strong>Range</strong> is clamped so that it falls within
+a <em>lower limit</em> of <code>1</code> and
+an <em>upper limit</em> defined by
+the <strong>Limit</strong> input.</p>
+<p>You can change this value <em>manually</em>. It's also updated for you
+when you use the <strong>Media Buttons</strong> for scrolling.</p>
+<hr>
+<h2>Count Option</h2>
+<p>This input determines the <strong>Number</strong> of icons to be displayed 
+at any given location within the index <strong>Range</strong>.</p>
+<p>We use a <strong>Sliding Window</strong> of indices. This value represents
+the <strong>Size</strong> of that window.</p>
+<hr>
+<h2>Limit Option</h2>
+<p>This input is meant primarily for <em>debugging</em> and <em>development</em>.</p>
+<p>However, it's also useful if the <strong>number of icon</strong> files is
+altered for some reason. Perhaps <strong>new icons</strong> were uploaded
+without reflecting this change in the Application's logic.</p>
+<hr>
+<h2>Action Menu</h2>
+<p>This section is dedicated to managing <strong>command actions</strong>.</p>
+<p>It's located within the <code>FOOTER</code> element pinned at the bottom of
+the <em>page</em>, below the <strong>Options Section</strong>.</p>
+<figure center>
+  <img src="./art/webp/action-menu.webp">
+</figure>
+
+<h3>Update Button</h3>
+<p>The <strong>Update</strong> button reads all <em>input values</em> and performs
+<em>validation</em>.</p>
+<p>These new values are used to modify the icons shown in
+the <strong>Preview Area</strong>.</p>
+<figure center>
+  <img src="./art/webp/update-button.webp">
+</figure>
+
+<h3>Reset Button</h3>
+<p>The <strong>Reset</strong> button restores all <em>input values</em> to their
+original states.</p>
+<p>The <strong>Preview Area</strong> is updated accordingly.</p>
+<figure center>
+  <img src="./art/webp/reset-button.webp">
+</figure>
+
+<hr>
+<h2>Media Buttons</h2>
+<p>These should be familiar, as they're used for 
+most <strong>Media Control</strong> applications.</p>
+<figure center>
+  <img src="./art/webp/media-buttons.webp">
+</figure>
+
+<h3>Button Meanings</h3>
+<!--
+| Button  | Action Taken |
+|---------|---------------------------|
+|   ⏪    | Move to Previous Page     |
+|   ◀️    | Move to Previous Column   |
+|   ⏺️   | Rewind to Beginning       |
+|   ▶️    | Move to Next Column       |
+|   ⏩    | Move to Next Page         |
+-->
+
+<div center>
+<style>
+table { display : inline-block; }
+tbody { text-align : left; }
+td:first-child { text-align : center; }
+</style>
+<table>
+<thead>
+<tr><th>Button</th><th>Action Taken</th></tr>
+</thead>
+<tbody>
+<tr><td>⏪</td><td>Move to Previous Page</td></tr>
+<tr><td>◀️</td><td>Move to Previous Column</td></tr>
+<tr><td>⏺️</td><td>Rewind to Beginning</td></tr>
+<tr><td>▶️</td><td>Move to Next Column</td></tr>
+<tr><td>⏩</td><td>Move to Next Page</td></tr>
+</tbody>
+</table>
+</div>
+
 <hr>
 <h1>Icon Preview</h1>
 <hr>
@@ -177,12 +359,163 @@ without reflecting this change in the application logic.</p>
 <li>(pending)</li>
 </ul>
 <hr>
-<h1>Navigation</h1>
+<blockquote>
+<p><em>Handy Links</em></p>
+</blockquote>
 <hr>
-<ul>
-<li>(pending)</li>
-</ul>
+<ol>
+<li><a href="https://nyteowldave.github.io/dev-icons/examples/">Examples</a></li>
+<li><a href="https://nyteowldave.github.io/dev-icons/examples/usage.html">Icon Usage</a></li>
+<li><a href="https://nyteowldave.github.io/dev-icons/help/members.html">Legends Roll Call</a></li>
+<li><a href="https://nyteowldave.github.io/dev-icons/">Design Icons</a></li>
+<li><a href="https://nyteowldave.github.io/">Home</a></li>
+</ol>
 <hr>
+<header>Design Icons</header>
+
+<footer>
+  <div id="messages">[ PENDING  ]</div>
+</footer>
+
+<hr>
+<script name="app-state.js">
+let AppState = {};
+AppState.index   = new Map();
+AppState.today   = "2026-FEB-08";
+AppState.DEBUG   = true;
+AppState.VERBOSE = false;
+AppState.importThese = [];
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/legends.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/tigg.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/thor.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/joni.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/editables.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/energize.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/bonfire.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/math.js">
+</script>
+
+<script name="message.js">
+function message( s ) {
+    messages.textContent = ( s );
+}
+</script>
+
+<script name="bummer.js">
+function bummer( e ) {
+    let dad = messages.parentElement;
+    dad.classList.add( "error" );
+    setTimeout(
+        function(e) {
+            dad.classList.remove( "error" );
+        } , 4200
+    );
+    if ( e instanceof Error ) {
+        message( e.message );
+    } else {
+        message( e );
+    }
+    throw ( e );
+}
+</script>
+
+<script name="is-agent.js">
+function isAgent( s ) {
+    return( agent.includes( s.toLowerCase() ) );
+}
+</script>
+
+<script name="preview-image.js">
+function previewImage( img ) {
+    preview(
+          ( img.src )
+        , ( previewImage.options )
+    );
+    previewImage.window = preview.window;
+}
+previewImage.options = (
+    "top=10,left=10,width=340,height=340"
+);
+</script>
+
+<script name="preview.js">
+function preview( url, options ) {
+    if ( isAgent( "retext" ) ) {
+        throw new Error( "Preview unavailable for ReText" );
+    }
+    options = ( options || preview.options );
+    url = ( url || location.origin );
+    preview.window = (
+        window.open( url, url, options )
+    );
+}
+preview.options = (
+    "top=10,left=10,width=800,height=640" 
+);
+</script>
+
+<script name="on-click-image.js">
+function on_click_image( event ) {
+    try {
+        previewImage( event.target );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<script name="init-images.js">
+function initImages() {
+    let arr =( o )=> Array.from( o );
+    let all =( q )=> arr( document.querySelectorAll( q ) );
+    all( "IMG[src]" )
+    . forEach(
+        img => {
+            img.style.cursor = "pointer";
+            img.addEventListener(
+                 ( "click"        )
+               , ( on_click_image )
+            );
+        }
+    );
+}
+</script>
+
+<script name="main.js">
+function main( event ) {
+    try {
+        initImages();
+        message( "Ready for action!" );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<script name="load-event.js">
+addEventListener(
+    "load" ,
+    function(e) {
+        han( main, e )
+    }
+);
+</script>
 
 </body>
 </html>

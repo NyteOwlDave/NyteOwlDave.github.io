@@ -18,6 +18,23 @@
 
 [center] { text-align : center; }
 
+@keyframes blossom {
+    from {
+        box-shadow : none;
+        transform  : scale( 1.0 );
+    }
+    to {
+        box-shadow : 0 0 20px gold;
+        transform  : scale( 1.2 );
+    }
+}
+
+.error {
+    background-color : red    !important;
+    color            : yellow !important;
+    text-shadow      : 0 0 2px black;
+}
+
 html, body {
     color : var( --fgc );
     background-color : var( --bgc );
@@ -107,6 +124,74 @@ pre[contenteditable]:hover {
     border : 1px dashed gold;
     cursor : pointer;
 }
+
+ol, ul {
+    margin  : 10px;
+    background-color : #4415;
+    border-radius : 1.2ch;
+    border : 1px dotted gold;
+    padding : 1.2ch;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+ol {
+    text-align : center;
+}
+
+ol li {
+    display : inline-block;
+    margin  : 2px;
+    background-color : transparent;
+    color : inherit;
+}
+
+ol li a {
+    min-width : 18ch;
+    max-width : 18ch;
+}
+
+a[href] ,
+button[onclick] {
+    display : inline-block;
+    cursor  : pointer;
+    border  : none;
+    outline : none;
+    border-radius : 2.2ch;
+    padding : 0.42ch;
+    padding-left  : 2.2ch;
+    padding-right : 2.2ch;
+    margin : 2px;
+    color  : lemonchiffon;
+    background-color : #ED58;
+    text-shadow : 0 0 2px black;
+    text-decoration : none !important;
+}
+
+button:hover  ,
+a[href]:hover {
+    display    : inline-block;
+    cursor     : pointer;
+    animation  : linear 0.15s blossom forwards;
+}
+
+code, var {
+    color : #AFF9;
+    text-shadow : 0 0 1px black
+}
+
+u, i, b, em ,
+strong {
+    color : gold;
+    text-shadow : 0 0 1px black
+}
+
+p {
+    padding : 1px;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
 </style>
 <meta name="generator" content="ReText 7.2.3">
 <title>usage</title>
@@ -115,6 +200,12 @@ pre[contenteditable]:hover {
 </head>
 <body>
 <style>
+img, svg {
+    background-color : gold;
+    padding : 20px;
+    border-radius : 20px;
+    box-shadow : 0 0 16px #002;
+}
 img[src]:hover {
     display : inline-block;
     cursor  : pointer;
@@ -123,44 +214,19 @@ img[src]:hover {
 </style>
 
 <style>
-.error {
-    background-color : red    !important;
-    color            : yellow !important;
-    text-shadow      : 0 0 2px black;
-}
-</style>
-
-<style>
-@keyframes blossom {
-    from {
-        box-shadow : none;
-        transform  : scale( 1.0 );
-    }
-    to {
-        box-shadow : 0 0 20px gold;
-        transform  : scale( 1.2 );
-    }
-}
-</style>
-
-<style>
 #store_keys_1 ,
 #store_keys_2 {
     display : inline-block;
 }
+
 #store_keys_1 {
     max-width   : 100px;
     max-height  : 100px;
 }
+
 #store_keys_2 {
     max-width   : 140px;
     max-height  : 140px;
-}
-img, svg {
-    background-color : gold;
-    padding : 20px;
-    border-radius : 20px;
-    box-shadow : 0 0 16px #002;
 }
 </style>
 
@@ -226,12 +292,12 @@ Refer to the source code for this HTML document.
 <p><em>Handy Links</em></p>
 </blockquote>
 <hr>
-<ul>
+<ol>
 <li><a href="https://nyteowldave.github.io/dev-icons/">Help</a></li>
 <li><a href="https://nyteowldave.github.io/dev-icons/help/members.html">Legends Roll Call</a></li>
 <li><a href="https://nyteowldave.github.io/dev-icons/art/dev-icon-255.svg">View SVG File</a></li>
 <li><a href="https://nyteowldave.github.io/dev-icons/">Design Icons</a></li>
-</ul>
+</ol>
 <hr>
 <header>Design Icons</header>
 
@@ -241,12 +307,12 @@ Refer to the source code for this HTML document.
 
 <hr>
 <script name="app-state.js">
-let AppState = {}:
-AppState.include = [];
+let AppState = {};
 AppState.index   = new Map();
 AppState.today   = "2026-FEB-08";
 AppState.DEBUG   = true;
 AppState.VERBOSE = false;
+AppState.importThese = [];
 </script>
 
 <script src="https://nyteowldave.github.io/chachi/api/legends.js">
@@ -297,6 +363,51 @@ function bummer( e ) {
 }
 </script>
 
+<script name="is-agent.js">
+function isAgent( s ) {
+    return( agent.includes( s.toLowerCase() ) );
+}
+</script>
+
+<script name="preview-image.js">
+function previewImage( img ) {
+    preview(
+          ( img.src )
+        , ( previewImage.options )
+    );
+    previewImage.window = preview.window;
+}
+previewImage.options = (
+    "top=10,left=10,width=340,height=340"
+);
+</script>
+
+<script name="preview.js">
+function preview( url, options ) {
+    if ( isAgent( "retext" ) ) {
+        throw new Error( "Preview unavailable for ReText" );
+    }
+    options = ( options || preview.options );
+    url = ( url || location.origin );
+    preview.window = (
+        window.open( url, url, options )
+    );
+}
+preview.options = (
+    "top=10,left=10,width=800,height=640" 
+);
+</script>
+
+<script name="on-click-image.js">
+function on_click_image( event ) {
+    try {
+        previewImage( event.target );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
 <script name="init-images.js">
 function initImages() {
     let arr =( o )=> Array.from( o );
@@ -331,51 +442,6 @@ addEventListener(
     function(e) {
         han( main, e )
     }
-);
-</script>
-
-<script name="is-agent.js">
-function isAgent( s ) {
-    return( agent.includes( s.toLowerCase() ) );
-}
-</script>
-
-<script name="on-click-image.js">
-function on_click_image( event ) {
-    try {
-        previewImage( event.target );
-    } catch ( e ) {
-        bummer( e );
-    }
-}
-</script>
-
-<script name="preview-image.js">
-function previewImage( img ) {
-    preview(
-          ( img.src )
-        , ( previewImage.options )
-    );
-    previewImage.window = preview.window;
-}
-previewImage.options = (
-    "top=10,left=10,width=340,height=340"
-);
-</script>
-
-<script name="preview.js">
-function preview( url, options ) {
-    if ( isAgent( "retext" ) ) {
-        throw new Error( "Preview unavailable for ReText" );
-    }
-    options = ( options || preview.options );
-    url = ( url || location.origin );
-    preview.window = (
-        window.open( url, url, options )
-    );
-}
-preview.options = (
-    "top=10,left=10,width=800,height=640" 
 );
 </script>
 

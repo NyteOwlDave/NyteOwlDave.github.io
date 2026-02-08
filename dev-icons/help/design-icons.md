@@ -1,38 +1,4 @@
 
-<style>
-ol li a {
-    min-width : 18ch;
-    max-width : 18ch;
-}
-
-ol, ul {
-    margin  : 10px;
-    background-color : #4415;
-    border-radius : 1.2ch;
-    border : 1px dotted gold;
-    padding : 1.2ch;
-    padding-left  : 3ch;
-    padding-right : 3ch;
-}
-
-code, var {
-    color : #AFF9;
-    text-shadow : 0 0 1px black
-}
-
-u, i, b, em ,
-strong {
-    color : gold;
-    text-shadow : 0 0 1px black
-}
-
-p {
-    padding : 1px;
-    padding-left  : 3ch;
-    padding-right : 3ch;
-}
-</style>
-
 ----------------------------------------------------------------
 
 > <em>Help Manual</em>
@@ -281,4 +247,143 @@ td:first-child { text-align : center; }
 
 ----------------------------------------------------------------
 
+<script name="app-state.js">
+let AppState = {};
+AppState.index   = new Map();
+AppState.today   = "2026-FEB-08";
+AppState.DEBUG   = true;
+AppState.VERBOSE = false;
+AppState.importThese = [];
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/legends.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/tigg.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/thor.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/joni.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/editables.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/energize.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/bonfire.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/math.js">
+</script>
+
+<script name="message.js">
+function message( s ) {
+    messages.textContent = ( s );
+}
+</script>
+
+<script name="bummer.js">
+function bummer( e ) {
+    let dad = messages.parentElement;
+    dad.classList.add( "error" );
+    setTimeout(
+        function(e) {
+            dad.classList.remove( "error" );
+        } , 4200
+    );
+    if ( e instanceof Error ) {
+        message( e.message );
+    } else {
+        message( e );
+    }
+    throw ( e );
+}
+</script>
+
+
+<script name="is-agent.js">
+function isAgent( s ) {
+    return( agent.includes( s.toLowerCase() ) );
+}
+</script>
+
+<script name="preview-image.js">
+function previewImage( img ) {
+    preview(
+          ( img.src )
+        , ( previewImage.options )
+    );
+    previewImage.window = preview.window;
+}
+previewImage.options = (
+    "top=10,left=10,width=340,height=340"
+);
+</script>
+
+<script name="preview.js">
+function preview( url, options ) {
+    if ( isAgent( "retext" ) ) {
+        throw new Error( "Preview unavailable for ReText" );
+    }
+    options = ( options || preview.options );
+    url = ( url || location.origin );
+    preview.window = (
+        window.open( url, url, options )
+    );
+}
+preview.options = (
+    "top=10,left=10,width=800,height=640" 
+);
+</script>
+
+<script name="on-click-image.js">
+function on_click_image( event ) {
+    try {
+        previewImage( event.target );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<script name="init-images.js">
+function initImages() {
+    let arr =( o )=> Array.from( o );
+    let all =( q )=> arr( document.querySelectorAll( q ) );
+    all( "IMG[src]" )
+    . forEach(
+        img => {
+            img.style.cursor = "pointer";
+            img.addEventListener(
+                 ( "click"        )
+               , ( on_click_image )
+            );
+        }
+    );
+}
+</script>
+
+<script name="main.js">
+function main( event ) {
+    try {
+        initImages();
+        message( "Ready for action!" );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<script name="load-event.js">
+addEventListener(
+    "load" ,
+    function(e) {
+        han( main, e )
+    }
+);
+</script>
 

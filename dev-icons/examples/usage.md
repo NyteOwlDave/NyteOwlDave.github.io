@@ -1,24 +1,15 @@
 
 <style>
+img, svg {
+    background-color : gold;
+    padding : 20px;
+    border-radius : 20px;
+    box-shadow : 0 0 16px #002;
+}
 img[src]:hover {
     display : inline-block;
     cursor  : pointer;
     animation  : linear 0.25s blossom forwards;
-}
-</style>
-
-<style>
-ol li a {
-    min-width : 18ch;
-    max-width : 18ch;
-}
-
-ol, ul {
-    margin  : 10px;
-    padding : 1.2ch;
-    background-color : #4415;
-    border-radius : 1.2ch;
-    border : 1px dotted gold;
 }
 </style>
 
@@ -36,13 +27,6 @@ ol, ul {
 #store_keys_2 {
     max-width   : 140px;
     max-height  : 140px;
-}
-
-img, svg {
-    background-color : gold;
-    padding : 20px;
-    border-radius : 20px;
-    box-shadow : 0 0 16px #002;
 }
 </style>
 
@@ -160,12 +144,12 @@ This is the preferred technique.
 ----------------------------------------------------------------
 
 <script name="app-state.js">
-let AppState = {}:
-AppState.include = [];
+let AppState = {};
 AppState.index   = new Map();
 AppState.today   = "2026-FEB-08";
 AppState.DEBUG   = true;
 AppState.VERBOSE = false;
+AppState.importThese = [];
 </script>
 
 <script src="https://nyteowldave.github.io/chachi/api/legends.js">
@@ -216,6 +200,51 @@ function bummer( e ) {
 }
 </script>
 
+<script name="is-agent.js">
+function isAgent( s ) {
+    return( agent.includes( s.toLowerCase() ) );
+}
+</script>
+
+<script name="preview-image.js">
+function previewImage( img ) {
+    preview(
+          ( img.src )
+        , ( previewImage.options )
+    );
+    previewImage.window = preview.window;
+}
+previewImage.options = (
+    "top=10,left=10,width=340,height=340"
+);
+</script>
+
+<script name="preview.js">
+function preview( url, options ) {
+    if ( isAgent( "retext" ) ) {
+        throw new Error( "Preview unavailable for ReText" );
+    }
+    options = ( options || preview.options );
+    url = ( url || location.origin );
+    preview.window = (
+        window.open( url, url, options )
+    );
+}
+preview.options = (
+    "top=10,left=10,width=800,height=640" 
+);
+</script>
+
+<script name="on-click-image.js">
+function on_click_image( event ) {
+    try {
+        previewImage( event.target );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
 <script name="init-images.js">
 function initImages() {
     let arr =( o )=> Array.from( o );
@@ -250,51 +279,6 @@ addEventListener(
     function(e) {
         han( main, e )
     }
-);
-</script>
-
-<script name="is-agent.js">
-function isAgent( s ) {
-    return( agent.includes( s.toLowerCase() ) );
-}
-</script>
-
-<script name="on-click-image.js">
-function on_click_image( event ) {
-    try {
-        previewImage( event.target );
-    } catch ( e ) {
-        bummer( e );
-    }
-}
-</script>
-
-<script name="preview-image.js">
-function previewImage( img ) {
-    preview(
-          ( img.src )
-        , ( previewImage.options )
-    );
-    previewImage.window = preview.window;
-}
-previewImage.options = (
-    "top=10,left=10,width=340,height=340"
-);
-</script>
-
-<script name="preview.js">
-function preview( url, options ) {
-    if ( isAgent( "retext" ) ) {
-        throw new Error( "Preview unavailable for ReText" );
-    }
-    options = ( options || preview.options );
-    url = ( url || location.origin );
-    preview.window = (
-        window.open( url, url, options )
-    );
-}
-preview.options = (
-    "top=10,left=10,width=800,height=640" 
 );
 </script>
 
