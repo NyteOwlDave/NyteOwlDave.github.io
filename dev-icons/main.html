@@ -94,6 +94,11 @@
     </div>
     <section id="bub"></section>
     </main>
+    <fieldset popover="auto">
+        <legend>Source Code</legend>
+        <textarea id="sop" wrap="off" rows="5">
+        </textarea>
+    </fieldset>
     <footer>
         <input placeholder="First" id="viewIndex" type="number" min="1">
         <span>✖️</span>
@@ -114,10 +119,28 @@
     <script src="./api/thor.js"></script>
     <script src="./api/legends.js"></script>
     <script details="Icon Preview Gadgets">
+        function safeIndex( index ) {
+            const limit = ( read( viewLimit ) || 300 );
+            let i = ( ( index-1 ) % limit );
+            return ( 
+                1 + ( (i < 0) ? (i + limit) : (i) ) 
+            );
+        }
+        function composeSourceCode( index ) {
+            let i = safeIndex( index );
+            const p = location.origin;
+            const s = "design-icon/art";
+            const k = ( `dev-icon-${i}.svg` );
+            const url = [ p,s,k ].join( "/" );
+            return ( 
+                [ "<figure center>"
+                ,  ( `  <img src="${url}">` )
+                , "</figure>"
+                ] . join( "\n" )
+            );
+        }
         function composePreviewDetails( index ) {
-            const limit = read( viewLimit ) || 300;
-            let i = (index-1) % limit;
-            i = 1 + ( (i < 0) ? (i + limit) : i );
+            let i = safeIndex( index );
             const title = `dev-icon-${i}`;
             const url = `./art/${title}.svg`;
             return { title, url };
@@ -129,11 +152,15 @@
             ime.onclick = function(e) {
                 const x = e.screenX;
                 const y = e.screenY;
-                
-                window.open( 
-                    this.src, "_BLANK", 
-                    `top=${y},left=${x},width=360,height=380` 
-                );
+                if ( e.button === 2 ) {
+                    sop.value = composeSourceCode( index );
+                    sop.parentElement.showPopover();
+                } else {
+                    window.open( 
+                        this.src, "_BLANK", 
+                        `top=${y},left=${x},width=360,height=380` 
+                    );
+                }
             }
             const dve = ella( 'div' );
             fse.appendChild( ime );
