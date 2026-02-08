@@ -149,10 +149,10 @@
             const CE = "contenteditable";
             const fse = ella( 'fieldset' );
             const ime = ella( 'img' );
-            ime.onclick = function(e) {
+            ime.onclick = function( e ) {
                 const x = e.screenX;
                 const y = e.screenY;
-                if ( e.button === 2 ) {
+                if ( e.shiftKey ) {
                     sop.value = composeSourceCode( index );
                     sop.parentElement.showPopover();
                 } else {
