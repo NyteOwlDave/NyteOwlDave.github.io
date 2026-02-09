@@ -180,7 +180,11 @@ hr {
 ### <i beep>🏠</i> Home Pages
 
 <menu>
-<a href="https://siimple.xyz/" title="Simple Icons">
+<!--
+    🎰 Josemi's Siimple Icons
+    https://siimple.josemi.xyz/
+-->
+<a href="https://siimple.josemi.xyz/" title="Josemi's Siimple Icons">
     <i class="si-home"></i>
     <br><br>Simple Icons
 </a>
@@ -281,18 +285,18 @@ hr {
 
 ---
 
-# <i beep>🏐</i> Simple Icons CSS {.section}
+# <i beep>🏐</i> Josemi's Siimple Icons CSS {.section}
 
 > siimple-icons.css
 
 <menu>
-<a href="https://siimple.xyz/" title="Home Page">
+<a href="https://siimple.josemi.xyz/" title="Home Page">
     <i class="si-home"></i>
 </a>
-<a href="https://siimple.xyz/getting-started/" title="Documentation">
+<a href="https://siimple.josemi.xyz/getting-started/" title="Documentation">
     <i class="si-book"></i>
 </a>
-<a href="https://siimple.xyz/icons/#sgram" title="Download">
+<a href="https://siimple.josemi.xyz/icons/#sgram" title="Download">
     <i class="si-arrow-circle-down"></i>
 </a>
 </menu>

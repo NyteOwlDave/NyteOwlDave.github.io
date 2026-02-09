@@ -5,8 +5,8 @@
 <!-- Used to Update Version Gadget -->
 <meta content="repo" value="Morpheus">3
 <meta content="tikey" value="382adcd3-aa05-4ab9-885e-6caedf702bfe">
-<meta content="tidate" value="2026-JAN-31">3
-<meta content="version" value="🏷️ v2.4.1">
+<meta content="tidate" value="2026-FEB-09">3
+<meta content="version" value="🏷️ v2.4.2">
 <script>
     document.title = "Chachi Calculator";
 </script>
@@ -49,7 +49,8 @@
     <button onclick="zoomOutput()" title="Zoom Output\n[ALT]+[Z]"><i class="si-fullscreen"></i> Output</button>
     <button onclick="zoomCanvas()" title="Zoom Canvas\n[ALT]+[Z]"><i class="si-fullscreen"></i> Canvas</button>
     <button onclick="showMathHelp()" title="Reference\n[ALT]+[?]"><i class="si-info-circle"></i></button>
-    <button onclick="_mods()" title="Show Loaded Modules"><i class="si-box"></i></button>
+    <button onclick="_keys()" title="Show Store Keys"><i class="si-lock"></i></button>
+    <button onclick="_mods()" title="Show Registered Modules"><i class="si-box"></i></button>
     <button onclick="file('open')" title="Open a file"><i class="si-folder"></i></button>
     <button onclick="file('save')" title="Save as file"><i class="si-disk"></i></button>
     <button onclick="file('download')" title="Download a remote file"><i class="si-download"></i></button>
@@ -59,15 +60,17 @@
 
 <main>
 
-<div>
+<div details="I/O Gadgets">
 
+<div details="SOP Viewer">
 <pre id="sop"></pre>
-    <hr>
+</div>
 
+<div details="SIP Editor">
 <textarea id="sip" wrap="off" rows="10"></textarea>
-    <hr>
+</div>
 
-<div>
+<div details="SIP Menu">
     <menu>
         <button class="math-plus" onclick="clearInput()" title="Clear Editor">CE</button>
         <button class="math-plus" onclick="persist()" title="Memory">M</button>
@@ -76,9 +79,10 @@
 </div>
 
 <div id="menuContainer"></div>
-    <hr>
+
+<div details="Canvas">
 <canvas id="canvas"></canvas>
-    <hr>
+</div>
 
 </div>
 
@@ -158,15 +162,23 @@ AppModules.list = function() {
     }
     const we = AppModules;
     const table = Array.from( we.map.keys() )
-        . filter( mods );
+        . filter( mods )
+        . map( mod => ( `Ⓜ️ ${mod}` ) );
     say( table.join( "\n" ) );
 }
 function _mods() {
     AppModules.list();
 }
+function _keys() {
+    say(
+        keyss()
+        . sort()
+        . join( "\n" )
+    );
+}
 </script>
 
-<script>
+<script details="SOP Write">
 function say( s ) {
     sop.innerText = ( s );
     return ( s );
@@ -177,7 +189,7 @@ function mention( s ) {
 }
 </script>
 
-<script>
+<script details="SOP Write with Decals">
 function blurt( s ) {
     return mention( `🟢=> ${s}` );
 }
@@ -230,26 +242,12 @@ function bummer( e ) {
 <script external src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
 <script external src="https://cdn.jsdelivr.net/npm/underscore@1.13.7/underscore-umd-min.js"></script>
 
-
-<!--
-TODO
-keep = function() {    
-    k = STORE_KEY;
-    v = sip.value;
-    save( k, v );
-    s = ( `Wrote ${k} to Store` );
-    console.log( s );
-    return ( s );
-};
-:   See chachi.js
--->
-
-<script>
+<script details="SIO Aliases">
 const sip = document.getElementById( 'sip' );
 const sop = document.getElementById( "sop" );
 </script>
 
-<script>
+<script details="Download API Module into SIP Editor">
 sip.fetchAPI = async function( url, target ) {
     if (! sip ) {
         throw new Error( "Missing SIP reference" );
@@ -281,17 +279,17 @@ sip.fetchAPI = async function( url, target ) {
 }
 </script>
 
-<script>
+<script details="Download memo.js API Module">
 sip.memoFetch = async function( target ) {
     sip.fetchAPI( "./api/memo.js" ); 
 }
 </script>
 
-<script>
+<script details="Load Event Handler">
 function main() {
     document.body.spellcheck = false;
-    keep = function() {    
-        k = STORE_KEY;
+    window.keep = function( k ) {    
+        k = ( k || window.STORE_KEY );
         v = sip.value;
         save( k, v );
         s = ( `Wrote ${k} to Store` );
@@ -312,31 +310,88 @@ function main() {
     }
     // Initial Editor Width
     sip.style.width = "80%";
-    // Application Version Gadget
+    // Application Version Gadget (chachi.js)
     initAppVersion();
-    // Math Menu
+    // Math Menu (chachi.js)
     initMathMenu();
-    // Initialize sip editor
+    // Initialize sip editor (chachi.js)
     initEditor( sip );
     // Make PRE elements editable
-    editables( 'pre' );
+    editables( "PRE" );
     // Load SIP API Script (sip-ops.js)
     sip.fetchAPI();
 }
 </script>
 
-<script>
-// <<======================================================[[[ TODO ]]]
+<script details="File I/O">
 function file( op ) {
-    switch( op ) {
-        case "open" :
-        case "save" :
-        case "download" :
-        case "upload"   :
-            break;
+    try {
+        let action = file.action[ op ];
+        if ( "function" === typeof action ) {
+            action();
+        } else {
+            alert( `No action is assigned for "${op}"` );
+        }
+    } catch ( e ) {
+        bummer( e );
     }
-    alert( `The "file ${op}"" feature is incomplete ` );
 }
+</script>
+
+<script details="File Prompt">
+file.prompt = function( query, value ) {
+    value = ( value || "" );
+    let s = window.prompt( query, value );
+    return (
+          ( s ) 
+        ? ( s.trim() )
+        : ( value )
+    );
+};
+file.action = {};
+file.recent = {
+  url : "https://nyteowldave.github.io/chachi/api/file.list"
+, filename : "chachi-script.js"
+};
+</script>
+
+<script details="File Open">
+file.action.open = function() {
+    chooseFile( sip );
+};
+</script>
+
+<script details="File Save">
+file.action.save = function() {
+    let filename = ( 
+           ( file.recent.filename )
+        || ( "chachi-script.js"   )
+    );
+    if (! filename ) { return; }
+    rico( sip.value, filename );
+    console.log( s );
+    mention( s );
+};
+</script>
+
+<script details="File Download">
+file.action.download = function() {
+    let url = ( 
+           ( file.recent.url )
+        || ( "https://nyteowldave.github.io/chachi/api/file.list" )
+    );
+    let query = "Address to Download?";
+    url = file.prompt( query, url );
+    if (! url ) { return; }
+    sip.fetchAPI( url );
+};
+</script>
+
+<script details="File Upload">
+file.action.upload = function() {
+    save( "Chachi Upload", sip.value );
+    window.open( "./upload.html" );
+};
 </script>
 
 <script>
@@ -424,7 +479,7 @@ addEventListener( 'load', () => {
 ] -->
 
 <!--
-    UPDATED ~ 2026-JAN-31 ~ Ryzen
+    UPDATED ~ 2026-FEB-09 ~ Legacy
 -->
 
 </body>

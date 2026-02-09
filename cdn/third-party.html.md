@@ -7,17 +7,6 @@
 <link rel="icon" href="./favicon.ico"></p>
 
 <style>
-
-/*
-
-# Removed
-@import url("http://dave-omega/Swill/style/swill.css");
-
-*/
-
-</style>
-
-<style>
 @import url("./../chachi/style/docs.css");
 </style>
 
@@ -818,17 +807,20 @@ tabulator.js
 <h1><i beep>🪄</i> Examples</h1>
 
 <menu>
-<a href="http://dave-legacy/42/app/stereogram/app/chachi.html" title="⭐ Chachi">
+<a href="./../chachi/chachi.html" title="⭐ Chachi">
     <i class="si-star""></i>
-    <br><br>⭐ Chachi
+<br><br>
+    <span>⭐ Chachi</span>
 </a>
-<a href="http://dave-legacy/42/dots/dot.cloud9.html" title="⛅ Cloud 9">
+<a href="./../std/examples/cloud9.html" title="⛅ Cloud 9">
     <i class="si-star""></i>
-    <br><br>⛅ Cloud 9
+<br><br>
+    <span>⛅ Cloud 9</span>
 </a>
-<a href="http://dave-tower/projects/examples/jquery/jquery.html" title="💬jQuery">
+<a href="./../std/examples/jquery.html" title="💬 jQuery">
     <i class="si-star""></i>
-    <br><br>💬 jQuery
+<br><br>
+    <span>💬 jQuery</span>
 </a>
 </menu>
 

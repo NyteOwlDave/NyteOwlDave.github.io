@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Chachi Upload</title>
+<link rel="shortcut icon" href="./favicon.ico">
+<style>
+@keyframes blossom {
+    from {
+        transform : scale( 1.0 );
+    }
+    to {
+        transform : scale( 1.2 );
+        box-shadow : 0 0 1ch navy;
+        background : mintcream;
+        color : midnightblue;
+    }
+}
+:root {
+    --border : 1px dashed transparent;
+}
+* {
+    border : var( --border );
+}
+html, body {
+    color : midnightblue;
+    background-color: #FF9;
+    text-align: center;
+}
+body {
+    margin-top    : 82px;
+    margin-bottom : 42vh;
+}
+fieldset {
+    margin-top : 42px;
+
+}
+div.setting ,
+form {
+    display : inline-block;
+    width : calc( 100vw - 20ch );
+    text-align: center;
+    box-sizing : border-box;
+}
+form div {
+    text-align: center;
+    width : 100%;
+    margin : 3px;
+    box-sizing : border-box;
+}
+input, label {
+    display : inline-block;
+}
+input:not([type="submit"]) {
+    width : 60%;
+}
+label {
+    width : 38%;
+}
+#content {
+    display : inline-block;
+    width : calc( 100vw - 30ch );
+    resize : vertical;
+    max-height : 50vh;
+    padding : 1.2ch;
+    font : 10pt monospace;
+    overflow-x : auto scroll;
+    overflow-y : scroll;
+    box-sizing : border-box;
+}
+.menu {
+    margin : 5px;
+}
+a , button ,
+input[type="submit"] ,
+label[for] {
+    cursor : pointer;
+    text-align : right;
+}
+a {
+    text-decoration: none;
+}
+input[type="submit"] ,
+a, button {
+    display: inline-block;
+    padding : 0.42ch;
+    padding-left  : 1.42ch;
+    padding-right : 1.42ch;
+    border : none;
+    border-radius : 2.2ch;
+    background : #44C4;
+}
+input[type="submit"] ,
+a , button ,
+a:visited {
+    color : inherit;
+}
+input[type="submit"]:hover ,
+a:hover ,
+button:hover {
+    animation: linear 0.15s blossom forwards;
+}
+header, footer {
+    position : fixed;
+    margin : 0;
+    width : 100%;
+    left : 0;
+    background : #08084022;
+}
+header {
+    top : 0;
+}
+footer {
+    bottom : 0;
+}
+</style>
+</head>
+<body>
+<h1>Chachi Uploader</h1>
+<form id="form" action="/submit.php" method="POST">
+    <div>
+        <textarea id="content" name="content" rows="10" spellcheck="false">
+        </textarea>
+    </div>
+    <div>
+        <label for="userid">User ID</label>
+        <input autofill id="userid" name="userid">
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+</form>
+<fieldset name="Server List">
+<legend><h2>Server List</h2></legend>
+<div class="setting">
+    <label for="server">Server Address</label>
+    <input list="server-list" id="server" name="server">
+    <datalist id="server-list"></datalist>
+</div>
+<div class="menu">
+    <button>Remember</button>
+    <button>Forget</button>
+    <button>Submit</button>
+    <button>Rollback</button>
+</div>
+</fieldset>
+<fieldset name="References">
+<legend><h2>References</h2></legend>
+<div class="menu">
+    <a href="https://www.w3schools.com/html/html_forms.asp">Using HTML Forms</a>
+</div>
+</fieldset>
+<header id="header"></header>
+<footer id="footer">
+    <div id="messages"></div>
+    <style>
+        .bummer {
+            background : #400;
+            color : gold;
+            text-shadow : 0 0 2px black;
+        }
+    </style>
+    <script>
+        function message( s ) {            
+            return ( messages.textContent = ( s || "" ) );
+        }
+        function blurt( s ) {
+            return ( message( `🟢 ${s}` ) );
+        }
+        function dangit( s ) {
+            return ( message( `🟡 ${s}` ) );
+        }
+        function bummer( s ) {
+            oneshot.start();
+            return ( message( `🔴 ${s}` ) );
+        }
+        let oneshot = {};
+        oneshot.stop  = function() {
+            if ( oneshot.id ) {
+                clearInterval( oneshot.id );
+                oneshot.id = null;
+            }
+            footer.classList.remove( "bummer" );
+        };
+        oneshot.start = function() {
+            oneshot.stop();
+            oneshot.id = setInterval( 
+                () => ( oneshot.stop() ), 4200
+            );
+            footer.classList.add( "bummer" );
+        };
+    </script>
+</footer>
+<!-- [[ SCRIPTS ]]-->
+<script name="Aliases">
+    let con = console;
+    let doc = document;
+    let stg = localStorage;
+    let wnd = window;
+</script>
+<script name="Gadget Ops">
+    let gid =( i )=> ( doc.getElementById( i ) );
+</script>
+<script name="Load Event Handler">
+    let SERVER = "https://nyteowldave.work:64321/chachi-upload.php";
+    function main( event ) {
+        try {
+            restore();
+        } catch ( e ) {
+            bummer ( e );
+        }
+    }
+</script>
+<script name="Store Ops">
+    function restore() {
+        let servers = gid( "server-list" );
+        servers.innerHTML = (
+               ( stg.getItem( "Chachi Servers" ) )
+            || ( "" )
+        );
+        server.value = (
+               ( stg.getItem( "Chachi Server" ) )
+            || ( SERVER )
+        );
+        form.action = (
+            server.value || form.action
+        );
+        content.value = ( 
+               ( stg.getItem( "Chachi Upload" ) )
+            || ( content.value )
+        );
+    }
+    function preserve() {
+        let servers = gid( "server-list" );
+        stg.setItem( "Chachi Servers", servers.innerHTML );
+        stg.setItem( "Chachi Server", server.value );
+    }
+</script>
+<script name="Komodo">
+    function komodo( event ) {
+        let ed = event.target;
+        if ( ed.nodeName !== "TEXTAREA" ) {
+            return;
+        }
+        let code = event.keyCode;
+        if ( komodo.echo ) {
+            let x = code.toString( 16 ).toUpperCase();
+            con.log( `${code} | 0x${x}` );
+        }
+        if ( event.altKey ) {
+            if ( code == 13 ) {
+                mine();
+                return execScript( ed );
+            }
+            if ( code == 90 ) { // "Z"
+                mine();
+                ed.requestFullscreen();
+                return;
+            }
+        }
+        if ( code === 9 ) {
+            mine();
+            let lo = ed.selectionStart;
+            let hi = ed.selectionEnd;
+            let pfx = ed.value.slice( 0, lo );
+            let sfx = ed.value.slice( hi );
+            ed.value = ( pfx + "\t" + sfx );
+            ed.selectionStart = ed.selectionEnd = ( 1 + lo );
+            ed.focus();
+            return;
+        }
+        function mine() {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
+</script>
+<script name="Script Ops">
+    function execScript( ed ) {
+        ed = ( ed || {} );
+        try {
+            ed.error  = "";
+            ed.input  = ed.value;
+            ed.output = window.eval( ed.input );
+        } catch ( e ) {
+            bummer ( e );
+            ed.error  = e.message;
+            ed.output = "";
+        }
+    }
+    function analyze( ed ) {
+        let er = [ "Error"  , ed.error  ];
+        let ip = [ "Input"  , ed.input  ];
+        let op = [ "Output" , ed.output ];
+        let id = [ "ID"     , ed.id     ];
+        let table = [ id, ip, op, er ];
+        con.group( "%cScript Analysis", analyze.style );
+        con.table( table );
+        con.groupEnd();
+    }
+    analyze.style = (`
+    display : inline-block;
+    font : 14pt sans-serif;
+    background : #114;
+    color : gold;
+    padding : 0.2ch;
+    padding-left  : 1.2ch;
+    padding-right : 1.2ch;
+    border-radius : 1.2ch;
+    `);
+</script>
+<script name="Listen for Events">
+addEventListener( "load", main );
+addEventListener( "beforeunload", preserve );
+addEventListener( "keydown", komodo );
+</script>
+</body>
+</html>
+
+
+
