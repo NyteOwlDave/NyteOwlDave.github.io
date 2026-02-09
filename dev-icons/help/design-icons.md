@@ -184,7 +184,27 @@ td:first-child { text-align : center; }
 
 ----------------------------------------------------------------
 
-- (pending)
+[gemini]: <https://gemini.google.com/> "Gemini Chat Bot"
+
+If you'd like to __preview__ an icon in a _popup_ window, you 
+just __left click__ on that icon.
+
+Note that modern browsers often _prevent popup windows_ by 
+default. You may receive a _warning_ message (or just no popup).
+In the former case, the browser will probably offer you the
+opportunity to _enable popups_. Do so and try again, if you so
+chose.
+
+If there is <u>no warning message</u>, you may need to open 
+your browser's __settings__ and search for _security_ and/or
+_permission_ options. There should be a way to permit popups
+via browser settings.
+
+If all else fails, ask your favorite __AI Chat Bot__ how to
+enable popups for your web browser. We'd 
+suggest &nbsp; ![logo](./art/png/gemini-tiny.png) 
+[Gemini][gemini] for this. Since `Google` makes both `Gemini` 
+and the `Chrome` browser.
 
 ----------------------------------------------------------------
 
@@ -192,7 +212,24 @@ td:first-child { text-align : center; }
 
 ----------------------------------------------------------------
 
-- (pending)
+[popover]:
+<https://www.youtube.com/watch?v=0_wgyB64a8I>
+"Youtube Tutorial for Popover API"
+
+If you're designing a web page and want to use these icons, it's
+really easy. Just add some `HTML` to your project.
+
+This page can generate some _example code_ for you. Just hold
+down the `SHIFT` key while __left-clicking__ any icon.
+
+You should see a [Popover Window][popover] with code you can
+copy and paste into your page's `HTML` source code.
+
+----------------------------------------------------------------
+
+__NOTE__ : Most modern browser support __Popovers__. For those
+older browsers, you'll see the popover at all times. Clicking
+an icon will merely update the code it displays.
 
 ----------------------------------------------------------------
 
@@ -200,15 +237,13 @@ td:first-child { text-align : center; }
 
 ----------------------------------------------------------------
 
-- (pending)
+<pre contenteditable>
 
-----------------------------------------------------------------
+&lt;figure center>
+  &lt;img src="http://dave-legacy/design-icon/art/dev-icon-1.svg">
+&lt;/figure>
 
-# Page Layout
-
-----------------------------------------------------------------
-
-- (pending)
+</pre>
 
 ----------------------------------------------------------------
 
@@ -218,18 +253,23 @@ td:first-child { text-align : center; }
 
 [home]: 
 <https://nyteowldave.github.io/>
+"Morpheus Home Page"
 
 [dev-icons]: 
 <https://nyteowldave.github.io/dev-icons/>
+"Design Icons Page"
 
 [examples]: 
 <https://nyteowldave.github.io/dev-icons/examples/>
+"Source Code Examples"
 
 [usage]: 
 <https://nyteowldave.github.io/dev-icons/examples/usage.html>
+"Design Icons Usage Example"
 
 [members]: 
 <https://nyteowldave.github.io/dev-icons/help/members.html>
+"Legends API Member Roll Call"
 
 1. [Examples][examples]
 2. [Icon Usage][usage]
