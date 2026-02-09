@@ -1,4 +1,12 @@
 
+[home]: 
+<https://nyteowldave.github.io/>
+"Morpheus Home Page"
+
+[dev-icons]: 
+<https://nyteowldave.github.io/dev-icons/>
+"Design Icons Page"
+
 ----------------------------------------------------------------
 
 > <em>Help Manual</em>
@@ -193,7 +201,7 @@ Note that modern browsers often _prevent popup windows_ by
 default. You may receive a _warning_ message (or just no popup).
 In the former case, the browser will probably offer you the
 opportunity to _enable popups_. Do so and try again, if you so
-chose.
+choose.
 
 If there is <u>no warning message</u>, you may need to open 
 your browser's __settings__ and search for _security_ and/or
@@ -219,8 +227,9 @@ and the `Chrome` browser.
 If you're designing a web page and want to use these icons, it's
 really easy. Just add some `HTML` to your project.
 
-This page can generate some _example code_ for you. Just hold
-down the `SHIFT` key while __left-clicking__ any icon.
+The [main page][dev-icons] can generate some _example code_ for
+you. Just hold down the `SHIFT` key while __left-clicking__ any
+icon.
 
 You should see a [Popover Window][popover] with code you can
 copy and paste into your page's `HTML` source code.
@@ -250,14 +259,6 @@ an icon will merely update the code it displays.
 > <em>Handy Links</em>
 
 ----------------------------------------------------------------
-
-[home]: 
-<https://nyteowldave.github.io/>
-"Morpheus Home Page"
-
-[dev-icons]: 
-<https://nyteowldave.github.io/dev-icons/>
-"Design Icons Page"
 
 [examples]: 
 <https://nyteowldave.github.io/dev-icons/examples/>
