@@ -1,6 +1,6 @@
 bonfire.js
 chachi.js
-chachi-table-api.js
+chachi-table.js
 chachi-todo.js
 cls-again.js
 coredoc.js
@@ -21,6 +21,8 @@ joni.js
 json2sql.js
 juba.js
 keisha.js
+legends-5.js
+legends-helper.js
 legends.js
 math.js
 mathplus.js
@@ -29,6 +31,7 @@ memo.js
 play-beep.js
 prep.js
 quadratic.js
+reggie-lite.js
 rimrod.js
 sio.js
 sip-ops.js

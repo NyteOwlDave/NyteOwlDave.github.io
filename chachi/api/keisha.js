@@ -37,6 +37,17 @@ function keisha( event ) {
             runInput( event.target );
             return handled();
         }
+        if ( code === ascii( 'g' ) ) {
+            let ed = event.target;
+            ed.value = (
+                all( `[name]` )
+                . map( whois )
+                . sort()
+                . map( k => ( `🎛️ ${k}` ) )
+                . join( "\n" )
+            );
+            return handled();
+        }
         if ( code === ascii( 'k' ) ) {
             let ed = event.target;
             ed.value = (
@@ -65,17 +76,6 @@ function keisha( event ) {
                 . map( whois )
                 . sort()
                 . map( k => ( `🎨 ${k}` ) )
-                . join( "\n" )
-            );
-            return handled();
-        }
-        if ( code === ascii( 'g' ) ) {
-            let ed = event.target;
-            ed.value = (
-                all( `[name]` )
-                . map( whois )
-                . sort()
-                . map( k => ( `🎛️ ${k}` ) )
                 . join( "\n" )
             );
             return handled();
@@ -118,30 +118,41 @@ function initEditor( editor ) {
 }
 
 
-const KeishaDoc = `
+var KeishaDoc = ( `
 keisha     | Key Event Handler 
 initEditor | Prepare TEXTAREA for Keyboard Events
 insertText | Replace Selected Text for TEXTAREA
-`;
+` );
 
 
-// 👋 Register Module
-if ( "object" === typeof AppModules ) {
-    const add = AppModules.add;
-    if ( "function" === typeof add ) {
-        add( "Function", { keisha } );
-        add( "Function", { initEditor } );
-    }
-    const doc = AppModules.doc;
-    if ( "function" === typeof doc ) {
-        doc( { KeishaDoc } );
-    }
-} else {
-    console.log( '📃', 'Loaded Local Module:', 'keisha.js' );
+var KeishaKeyDoc = ( `
+ALT + ENTER | Call Client-Defined runInput() Method
+ALT + G     | Edit Named HTML Element List
+ALT + K     | Edit Store Key List
+ALT + M     | Edit Named SCRIPT Element List
+ALT + S     | Edit Named STYLE Element List
+ALT + X     | Exchange SIP/SOP or Editor's 'memo' Property
+ALT + Z     | Zoom Editor to Full Screen Mode
+TAB         | Paste Tab Character over Hilite
+` );
+
+
+;(()=>{
+
+function register() {
+    let r = ReggieLite;
+    r.define ( "Function", { keisha     } );
+    r.define ( "Function", { initEditor } );
+    r.describe ( { KeishaDoc    } );
+    r.describe ( { KeishaKeyDoc } );
 }
 
+if ( "object" === typeof ReggieLite ) {
+    addEventListener( "load", register );
+}
 
-/*
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
-*/
+}) ();
+
+
+console.log( 'Ⓜ️', 'Loaded keisha.js API Module' );
 
