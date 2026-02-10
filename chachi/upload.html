@@ -140,6 +140,36 @@ footer:hover {
     font-size : larger;
 }
 </style>
+<style name="Table Components">
+table {
+    border-spacing: 8px;
+}
+th {
+    border-radius : 0.2ch;
+    background-color: #04042244;
+}
+th, td {
+    padding : 0px;
+    padding-left  : 8px;
+    padding-right : 8px;
+}
+</style>
+<style name="HotKeys Popover">
+#hotkeys {
+    box-shadow : 0 0 16px midnightblue;
+    border-radius : 16px;
+    padding : 16px;
+}
+#hotkeys table {
+    text-align : left;
+}
+#hotkeys table thead {
+    font-size : large;
+}
+#hotkeys table tbody {
+    font-family : monospace;
+}
+</style>
 </head>
 <body>
 <h1>Chachi Uploader</h1>
@@ -158,7 +188,9 @@ footer:hover {
     </div>
 </form>
 <div class="menu">
-    <button onclick="submitForm()">Submit</button>
+    <button onclick="submitForm()">Upload</button>
+    <button onclick="downloadContent()">Download</button>
+    <button onclick="clearContent()">Clear</button>
 </div>
 <fieldset name="Server List">
 <legend><h2>Server List</h2></legend>
@@ -179,15 +211,19 @@ footer:hover {
 <fieldset name="References">
 <legend><h2>References</h2></legend>
 <div class="menu">
-    <a href="https://www.w3schools.com/html/html_forms.asp">Using HTML Forms</a>
+    <a href="./dot/html-form.html">Using HTML Forms</a>
+    <a href="./dot/phpref.html">PHP Reference</a>
+    <a href="./dot/jsinfo.html">JavaScript Reference</a>
+    <a href="./dot/chrome-dev.html">Chrome Developers</a>
+    <a href="./dot/mdn.html">MDN</a>
 </div>
 </fieldset>
-<header id="header">
+<header name="Header" id="header">
     <a href="./chachi.html">Chachi</a>
     <a href="./dot/help.html">Help</a>
     <a href="./dot/home.html">Home</a>
 </header>
-<footer id="footer">
+<footer name="Footer" id="footer">
     <div id="messages"></div>
     <style name="Footer Styles">
         .bummer {
@@ -236,6 +272,17 @@ footer:hover {
         };
     </script>
 </footer>
+<div name="Hot Key Popover" id="hotkeys" popover="auto">
+    <table>
+        <thead>
+            <tr>
+                <th>Key(s)</th>
+                <th>Assigned Action</th>
+            </tr>
+        </thead>
+        <tbody id="hotkey-tbody"></tbody>
+    </table>
+</div>
 <!-- [[ SCRIPTS ]]-->
 <script name="Aliases">
     let con = console;
@@ -243,6 +290,19 @@ footer:hover {
     let stg = localStorage;
     let wnd = window;
     let Aliases = { con, doc, stg, wnd };
+</script>
+<script name="Debug Ops">
+    let cls   =( )=> con.clear();
+    let jot   =(s)=> (con.log( s ),s);
+    let jet   =(s)=> (con.warn( s ),s);
+    let jut   =(e)=> (con.error( e ),e);
+    let blast =(t)=> (con.table( t ),t);
+    let again =( )=> (location.reload());
+    let DebugOps = {
+        again , blast , 
+        cls ,
+        jot , jet , jut
+    };
 </script>
 <script name="Type Cast Ops">
     let _o_ =( o )=> ( o );
@@ -261,6 +321,18 @@ footer:hover {
     let gad =( o )=> ( o instanceof HTMLElement );
     let TypeCheckOps = { gad };
 </script>
+<script name="String Ops">
+    let asc =(ch)=> str( ch ).charCodeAt   ( 0 );
+    let chr =(n )=> String   .fromCharCode ( n );
+    let uni =(ch)=> str( ch ).codePointAt  ( 0 );
+    let emo =(n )=> String   .fromCodePoint( n );
+    let StringOps = {  asc, chr, uni, emo };
+</script>
+<script name="Math Ops">
+    let rnd =()=> Math.random();
+    let now =()=> Date.now();
+    let MathOps = { rnd, now };
+</script>
 <script name="Gadget Ops">
     let elx =( t )=> ( doc.createElement( t ) );
     let gid =( i )=> ( doc.getElementById( i ) );
@@ -274,7 +346,29 @@ footer:hover {
         form.action = server.value = server.value.trim();
         form.submit();
     }
-    let FormOps = { submitForm };
+    function downloadContent() {
+        let ed = gid( "content" );
+        let url = copyText( ed ).trim();
+        if (! url ) {
+           url = server.value = server.value.trim();
+        }
+        let options = downloadContent.options;
+        return ( 
+              fetch( url, options )
+            . then ( rsp => rsp.text() )
+            . then ( t => ( ed.value = t ) )
+            . catch( bummer )
+        );
+    }
+    function clearContent( ed ) {
+        ed = ( god( ed ) || gid( "content" ) );
+        ed.value = "";
+    }
+    let FormOps = { 
+        submitForm ,
+        downloadContent ,
+        clearContent
+    };
 </script>
 <script name="Editor Ops">
     function edit( value, ed ) {
@@ -309,6 +403,57 @@ footer:hover {
         con.table( table );
         con.groupEnd();
     }
+    function tigger( count ) {
+        count = parseInt( count );
+        if ( count > 0 ) {
+            let keys = [];
+            while ( count ) {
+                keys.push( tigger() );
+                count -= 1;
+            }
+            return ( keys );
+        }
+        let n =()=>(
+            ( rnd()*now() )
+            . toString( 33 )
+            . replace( ".", "" )
+        );
+        return ( "id-" + n() + "-" + n() );
+    }
+    function xed( id ) {
+        id = ( str( id ) || tigger() );        
+        let ed = ( gid( id ) || elx( "TEXTAREA" ) );
+        ed.id = id;
+        ed.wrap = "off";
+        ed.spellcheck = false;
+        ed.classList.add( "zeddicus" );
+        return doc.body.appendChild( ed );
+    }
+    function copyText( ed ) {
+        ed = ( god( ed ) || gid( "content" ) );
+        let lo = ed.selectionStart;
+        let hi = ed.selectionEnd;
+        let s = ed.value.slice( lo, hi );
+        jot( "Copied", ":", s );
+        return ( s );
+    }
+    function pasteText( ed, s ) {
+        ed = ( god( ed ) || gid( "content" ) );
+        s = str( s ); let n = s.length;
+        let lo = ed.selectionStart;
+        let hi = ed.selectionEnd;
+        let pfx = ed.value.slice( 0, lo );
+        let sfx = ed.value.slice( hi );
+        ed.value = ( pfx + s + sfx );
+        ed.selectionStart = ed.selectionEnd = ( lo + n );
+        ed.focus();
+    }
+    let EditorOps = { 
+        edit , 
+        copyText , pasteText ,
+        execScript , analyze , 
+        xed, tigger
+    };
     analyze.style = (`
     display : inline-block;
     font : 14pt sans-serif;
@@ -319,10 +464,9 @@ footer:hover {
     padding-right : 1.2ch;
     border-radius : 1.2ch;
     `);
-    let EditorOps = { edit, execScript, analyze };
 </script>
 <script name="Store Ops">
-    function restore() {
+    function recover() {
         let servers = gid( "server-list" );
         main.pool.recover();
         main.pool.populateItems( servers );
@@ -353,14 +497,33 @@ footer:hover {
         return edit( 
             getStoreKeys( store )
             . map( k => ( `🔑 ${k}` ) )
-            . join( "\n" ) 
+            . join( "\n" ),
+            ed 
+        );
+    }
+    function editStoreEntry( key, store, ed ) {
+        store = ( store || stg );
+        key = ( store.key( key ) || key );
+        return edit(
+            store.getItem( key ) ,
+            ed
+        );
+    }
+    function acceptStoreEntry( key, store, ed ) {
+        ed = ( god( ed ) || gid( "content" ) );
+        store = ( store || stg );
+        key = ( store.key( key ) || key );
+        ed.value = (
+            store.getItem( key ) || ed.value
         );
     }
     let StoreOps = { 
-        restore  , 
+        recover  , 
         preserve ,
-        getStoreKeys ,
-        editStoreKeys
+        getStoreKeys   ,
+        editStoreKeys  ,
+        editStoreEntry ,
+        acceptStoreEntry
     };
 </script>
 <script name="Key Ops">
@@ -374,16 +537,59 @@ footer:hover {
             let x = code.toString( 16 ).toUpperCase();
             con.log( `${code} | 0x${x}` );
         }
+        if (
+               event.ctrlKey 
+            || event.metaKey
+            || event.shiftKey
+        ) { return; }
         if ( event.altKey ) {
-            if ( code == 13 ) {
+            if ( code === 13 ) {
                 mine();
                 return execScript( ed );
             }
-            if ( code == 90 ) { // "Z"
+            if ( code === 72 ) { // "H"
+                mine();
+                showHotKeys();
+                return;
+            }
+            if ( code === 74 ) { // "J"
+                mine();
+                Jarvis.edit();
+                return;
+            }
+            if ( code === 75 ) { // "K"
+                mine();
+                editStoreKeys( stg, ed );
+                return;
+            }
+            if ( code === 77 ) { // "M"
+                mine();
+                let s = ( 
+                    all( `script[name]` )
+                    . map( s => `Ⓜ️ ${whois(s)}` )
+                    . sort()
+                    . join( "\n" )
+                );
+                edit( s, ed );
+                return;
+            }
+            if ( code === 83 ) { // "S"
+                mine();
+                let s = ( 
+                    all( `style[name]` )
+                    . map( s => `🎨 ${whois(s)}` )
+                    . sort()
+                    . join( "\n" )
+                );
+                edit( s, ed );
+                return;
+            }
+            if ( code === 90 ) { // "Z"
                 mine();
                 ed.requestFullscreen();
                 return;
             }
+            return;
         }
         if ( code === 9 ) {
             mine();
@@ -396,19 +602,52 @@ footer:hover {
             ed.focus();
             return;
         }
+        function whois( o ) {
+            return ( o.getAttribute( "name" ) );
+        }
         function mine() {
             event.preventDefault();
             event.stopPropagation();
         }
     }
-    let KeyOps = { komodo };
+    komodo.hotkeys = {
+        "ALT+ENTER" : "Run Script"
+    ,   "ALT+H" : "Show Hot Key Assignments"
+    ,   "ALT+J" : "Edit Jarvis Members"
+    ,   "ALT+K" : "Edit Store Keys"
+    ,   "ALT+M" : "Edit Named API Modules"
+    ,   "ALT+S" : "Edit Named CSS Modules"
+    ,   "ALT+Z" : "Zoom Editor to Full Screen Mode"
+    ,   "TAB"   : "Paste Tab Character into Editor"
+    };
+    function initHotKeys() {
+        let be = gid( "hotkey-tbody" );
+        let defs = komodo.hotkeys;
+        let keys = Object.keys( defs );
+        be.innerHTML = "";
+        // let x = document.createElement( "TBODY" );
+        keys.forEach( 
+            k => {
+                let re = be.insertRow();
+                re.insertCell().textContent = k;
+                re.insertCell().textContent = defs[ k ];
+            }
+        );
+    }
+    function showHotKeys() {
+        hotkeys.showPopover();
+    }
+    let KeyOps = { komodo, showHotKeys, initHotKeys };
 </script>
 <script name="Ops">
     let Ops = {
         type  : {
             checks : TypeCheckOps ,
-            casts  : TypeCastOps
+            casts  : TypeCastOps  ,
+            string : StringOps
         } ,
+        debug  : DebugOps  ,
+        math   : MathOps   ,
         gadget : GadgetOps ,
         form   : FormOps   ,
         editor : EditorOps ,
@@ -461,7 +700,8 @@ function getActionMap() {
             ServerPool.initActions( 
                 getActionMap()
             );
-            restore();
+            StoreOps.recover();
+            KeyOps.initHotKeys();
         } catch ( e ) {
             bummer ( e );
         }
@@ -779,6 +1019,17 @@ addEventListener( "keydown", komodo );
         if ( map.edit    ) { we.initEdit   ( map.edit    ); }
         if ( map.accept  ) { we.initAccept ( map.accept  ); }
     }
+</script>
+<script name="Jarvis">
+    let Jarvis = {};
+    Jarvis.edit = function() {
+        edit( Jarvis.members.sort().join( "\n" ) );
+    };
+    Jarvis.members = Object.keys( Ops ).map( k => `Ops.${k}` );
+    Jarvis.members.push( 
+        ... Object.keys( Ops.type ).map( k => `Ops.type.${k}` )
+    );
+    Jarvis.members.push( "Aliases", "Jarvis", "ServerPool" );
 </script>
 </body>
 </html>

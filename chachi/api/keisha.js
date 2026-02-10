@@ -19,28 +19,90 @@ function keisha( event ) {
         return s.toUpperCase().charCodeAt( 0 );
     }
     const code = event.keyCode;
+    if ( 
+           event.ctrlKey 
+        || event.metaKey
+        || event.shiftKey
+    ) {
+        return;
+    }
+    if ( event.altKey ) {
+        let all = function( q ) {
+            let d = document;
+            return Array.from( 
+                d.querySelectorAll( q )
+            );
+        };
+        if ( code === 13 ) {
+            runInput( event.target );
+            return handled();
+        }
+        if ( code === ascii( 'k' ) ) {
+            let ed = event.target;
+            ed.value = (
+                Object.keys( localStorage )
+                . sort()
+                . map( k => ( `🔑 ${k}` ) )
+                . join( "\n" )
+            );
+            return handled();
+        }
+        if ( code === ascii( 'm' ) ) {
+            let ed = event.target;
+            ed.value = (
+                all( `script[name]` )
+                . sort()
+                . map( k => ( `Ⓜ️ ${k}` ) )
+                . join( "\n" )
+            );
+            return handled();
+        }
+        if ( code === ascii( 's' ) ) {
+            let ed = event.target;
+            ed.value = (
+                all( `style[name]` )
+                . sort()
+                . map( k => ( `🎨 ${k}` ) )
+                . join( "\n" )
+            );
+            return handled();
+        }
+        if ( code === ascii( 'g' ) ) {
+            let ed = event.target;
+            ed.value = (
+                all( `[name]` )
+                . sort()
+                . map( k => ( `🎛️ ${k}` ) )
+                . join( "\n" )
+            );
+            return handled();
+        }
+        if ( code === ascii( 'z' ) ) {
+            event.target.requestFullscreen();
+            return handled();
+        }
+        if ( code === ascii( 'x') ) {
+            if ( gid( "sip" ) && gid( "sop" ) ) {
+                const s = sip.value;
+                sip.value = sop.textContent;
+                sop.textContent = s;
+                return handled();
+            } else {
+                let ed = event.target;
+                let tmp = ed.value;
+                ed.value = ( ed.memo || "" );
+                ed.memo = temp;
+                return handled();
+            }
+        }
+        return;
+    }
     if ( code === 9 ) {
         if ( event.shiftKey ||
              event.altKey ||
              event.ctrlKey ) return;
         insertText( event.target, "\t" );
         return handled();
-    }
-    if ( code === 13 ) {
-        if ( event.altKey ) {
-            runInput();
-            return handled();
-        }
-    }
-    if ( code === ascii( 'x') ) {
-        if ( event.altKey ) {
-            if ( gid( "sip" ) && gid( "sop" ) ) {
-                const s = sip.value;
-                sip.value = sop.textContent;
-                sop.textContent = s;
-                return handled();
-            }
-        }
     }
 }
 
