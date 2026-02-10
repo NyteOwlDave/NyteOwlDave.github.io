@@ -90,7 +90,7 @@ function keisha( event ) {
                 let ed = event.target;
                 let tmp = ed.value;
                 ed.value = ( ed.memo || "" );
-                ed.memo = temp;
+                ed.memo = tmp;
                 return handled();
             }
         }
