@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Chachi Upload</title>
 <link rel="shortcut icon" href="./favicon.ico">
-<style>
+<style name="Blossom Animation">
 @keyframes blossom {
     from {
         transform : scale( 1.0 );
@@ -16,12 +16,18 @@
         color : midnightblue;
     }
 }
+</style>
+<style name="Root Styles">
 :root {
     --border : 1px dashed transparent;
 }
+</style>
+<style name="Global Styles">
 * {
     border : var( --border );
 }
+</style>
+<style name="HTML and BODY">
 html, body {
     color : midnightblue;
     background-color: #FF9;
@@ -31,6 +37,8 @@ body {
     margin-top    : 82px;
     margin-bottom : 42vh;
 }
+</style>
+<style name="FORM and FIELDSET">
 fieldset {
     margin-top : 42px;
 
@@ -48,15 +56,8 @@ form div {
     margin : 3px;
     box-sizing : border-box;
 }
-input, label {
-    display : inline-block;
-}
-input:not([type="submit"]) {
-    width : 60%;
-}
-label {
-    width : 38%;
-}
+</style>
+<style name="Content Editor">
 #content {
     display : inline-block;
     width : calc( 100vw - 30ch );
@@ -68,8 +69,21 @@ label {
     overflow-y : scroll;
     box-sizing : border-box;
 }
+</style>
+<style name="Menu Class">
 .menu {
     margin : 5px;
+}
+</style>
+<style name="Control Gadgets">
+input, label {
+    display : inline-block;
+}
+input:not([type="submit"]) {
+    width : 60%;
+}
+label {
+    width : 38%;
 }
 a , button ,
 input[type="submit"] ,
@@ -100,24 +114,36 @@ a:hover ,
 button:hover {
     animation: linear 0.15s blossom forwards;
 }
+</style>
+<style name="HEADER and FOOTER">
 header, footer {
     position : fixed;
-    margin : 0;
+    margin   : 0;
+    padding  : 0.42ch;
+    padding-left  : 1.42ch;
+    padding-right : 1.42ch;
     width : 100%;
-    left : 0;
-    background : #08084022;
+    left  : 0;
+    background : #08084077;    
+    color      : #080840EE;
 }
 header {
     top : 0;
 }
 footer {
     bottom : 0;
+    color : gold;
+    text-shadow : 0 0 2px black;
+}
+footer:hover {
+    cursor : none;
+    font-size : larger;
 }
 </style>
 </head>
 <body>
 <h1>Chachi Uploader</h1>
-<form id="form" action="/submit.php" method="POST">
+<form id="form" method="POST">
     <div>
         <textarea id="content" name="content" rows="10" spellcheck="false">
         </textarea>
@@ -130,10 +156,10 @@ footer {
         <label for="password">Password</label>
         <input type="password" id="password" name="password">
     </div>
-    <div>
-        <input type="submit" value="Submit">
-    </div>
 </form>
+<div class="menu">
+    <button onclick="submitForm()">Submit</button>
+</div>
 <fieldset name="Server List">
 <legend><h2>Server List</h2></legend>
 <div class="setting">
@@ -142,10 +168,12 @@ footer {
     <datalist id="server-list"></datalist>
 </div>
 <div class="menu">
-    <button>Remember</button>
-    <button>Forget</button>
-    <button>Submit</button>
-    <button>Rollback</button>
+    <button id="server_add">Remember</button>
+    <button id="server_remove">Forget</button>
+    <button id="servers_persist">Submit</button>
+    <button id="servers_recover">Rollback</button>
+    <button id="servers_edit">Edit</button>
+    <button id="servers_accept">Accept</button>
 </div>
 </fieldset>
 <fieldset name="References">
@@ -154,17 +182,21 @@ footer {
     <a href="https://www.w3schools.com/html/html_forms.asp">Using HTML Forms</a>
 </div>
 </fieldset>
-<header id="header"></header>
+<header id="header">
+    <a href="./chachi.html">Chachi</a>
+    <a href="./dot/help.html">Help</a>
+    <a href="./dot/home.html">Home</a>
+</header>
 <footer id="footer">
     <div id="messages"></div>
-    <style>
+    <style name="Footer Styles">
         .bummer {
             background : #400;
             color : gold;
             text-shadow : 0 0 2px black;
         }
     </style>
-    <script>
+    <script name="Footer Messages">
         function message( s ) {            
             return ( messages.textContent = ( s || "" ) );
         }
@@ -174,11 +206,19 @@ footer {
         function dangit( s ) {
             return ( message( `🟡 ${s}` ) );
         }
-        function bummer( s ) {
+        function bummer( e ) {
+            let s;
+            if ( e instanceof Error ) {
+                s = e.message;
+            } else {
+                s = str( e );
+            }
             oneshot.start();
-            return ( message( `🔴 ${s}` ) );
+            message( `🔴 ${s}` );
+            throw new Error( e );
         }
         let oneshot = {};
+        oneshot.delay = 6400;
         oneshot.stop  = function() {
             if ( oneshot.id ) {
                 clearInterval( oneshot.id );
@@ -189,7 +229,8 @@ footer {
         oneshot.start = function() {
             oneshot.stop();
             oneshot.id = setInterval( 
-                () => ( oneshot.stop() ), 4200
+                  ( () => ( oneshot.stop() ) )
+                , ( oneshot.delay )
             );
             footer.classList.add( "bummer" );
         };
@@ -201,27 +242,90 @@ footer {
     let doc = document;
     let stg = localStorage;
     let wnd = window;
+    let Aliases = { con, doc, stg, wnd };
+</script>
+<script name="Type Cast Ops">
+    let _o_ =( o )=> ( o );
+    let str =( s )=> ( String( s || "" ).trim() );
+    let arr =( o )=> ( Array.from( o ) );
+    let unq =( o )=> ( new Set( arr( o ) ) );
+    let jst =( o )=> ( JSON.stringify( o, null, 2 ) );
+    let jso =( t )=> ( JSON.parse( t ) );
+    let int =( n )=> ( parseInt  ( n ) || 0 );
+    let flt =( n )=> ( parseFloat( n ) || 0 );
+    let TypeCastOps = {
+        _o_, str, arr, unq, jst, jso, int, flt
+    };
+</script>
+<script name="Type Check Ops">
+    let gad =( o )=> ( o instanceof HTMLElement );
+    let TypeCheckOps = { gad };
 </script>
 <script name="Gadget Ops">
+    let elx =( t )=> ( doc.createElement( t ) );
     let gid =( i )=> ( doc.getElementById( i ) );
+    let god =( o )=> ( gad( o ) ? ( o ) : gid( o ) );
+    let one =( q, o )=> _o_( (o||doc).querySelector   ( q ) );
+    let all =( q, o )=> arr( (o||doc).querySelectorAll( q ) );
+    let GadgetOps = { elx, gid, god, one, all };
 </script>
-<script name="Load Event Handler">
-    let SERVER = "https://nyteowldave.work:64321/chachi-upload.php";
-    function main( event ) {
+<script name="Form Ops">
+    function submitForm() {
+        form.action = server.value = server.value.trim();
+        form.submit();
+    }
+    let FormOps = { submitForm };
+</script>
+<script name="Editor Ops">
+    function edit( value, ed ) {
+        ed = ( god( ed ) || gid( "content" ) );
+        ed.memo  = ( ed.value );
+        ed.value = ( value    );
+        return content;
+    }
+    function execScript( ed ) {
+        ed = ( ed || {} );
         try {
-            restore();
+            ed.recent = ed.input;
+            ed.error  = "";
+            ed.input  = ed.value;
+            ed.output = window.eval( ed.input );
         } catch ( e ) {
             bummer ( e );
+            ed.error  = e.message;
+            ed.output = "";
+        } finally {
+            ed.stack = ( ed.stack || [] );
+            ed.stack.push( ed.recent );
         }
     }
+    function analyze( ed ) {
+        let er = [ "Error"  , ed.error  ];
+        let ip = [ "Input"  , ed.input  ];
+        let op = [ "Output" , ed.output ];
+        let id = [ "ID"     , ed.id     ];
+        let table = [ id, ip, op, er ];
+        con.group( "%cScript Analysis", analyze.style );
+        con.table( table );
+        con.groupEnd();
+    }
+    analyze.style = (`
+    display : inline-block;
+    font : 14pt sans-serif;
+    background : #114;
+    color : gold;
+    padding : 0.2ch;
+    padding-left  : 1.2ch;
+    padding-right : 1.2ch;
+    border-radius : 1.2ch;
+    `);
+    let EditorOps = { edit, execScript, analyze };
 </script>
 <script name="Store Ops">
     function restore() {
         let servers = gid( "server-list" );
-        servers.innerHTML = (
-               ( stg.getItem( "Chachi Servers" ) )
-            || ( "" )
-        );
+        main.pool.recover();
+        main.pool.populateItems( servers );
         server.value = (
                ( stg.getItem( "Chachi Server" ) )
             || ( SERVER )
@@ -235,12 +339,31 @@ footer {
         );
     }
     function preserve() {
-        let servers = gid( "server-list" );
-        stg.setItem( "Chachi Servers", servers.innerHTML );
+        main.pool.persist();
         stg.setItem( "Chachi Server", server.value );
     }
+    function getStoreKeys( store ) {
+        return (
+            Object
+            . keys( store || stg )
+            . sort()
+        );
+    }
+    function editStoreKeys( store, ed ) {
+        return edit( 
+            getStoreKeys( store )
+            . map( k => ( `🔑 ${k}` ) )
+            . join( "\n" ) 
+        );
+    }
+    let StoreOps = { 
+        restore  , 
+        preserve ,
+        getStoreKeys ,
+        editStoreKeys
+    };
 </script>
-<script name="Komodo">
+<script name="Key Ops">
     function komodo( event ) {
         let ed = event.target;
         if ( ed.nodeName !== "TEXTAREA" ) {
@@ -278,45 +401,384 @@ footer {
             event.stopPropagation();
         }
     }
+    let KeyOps = { komodo };
 </script>
-<script name="Script Ops">
-    function execScript( ed ) {
-        ed = ( ed || {} );
+<script name="Ops">
+    let Ops = {
+        type  : {
+            checks : TypeCheckOps ,
+            casts  : TypeCastOps
+        } ,
+        gadget : GadgetOps ,
+        form   : FormOps   ,
+        editor : EditorOps ,
+        store  : StoreOps  ,
+        key    : KeyOps
+    };
+    Ops.edit = function( key, ed ) {
+        blurt( "HINT : 'Ops.edit()' accepts a key and editor" )
+        let o = Ops[ key ];
+        return editStoreKeys( o || Ops, ed );
+    };
+</script>
+<script name="Action Map">
+function getActionMap() {
+    let owner = gid( "server-list" );
+    let pool  = ( main.pool ) || ( new ServerPool( owner ) );
+    main.pool = pool;
+    return {
+        add : {
+            button : server_add  ,
+            owner  , pool
+        } ,
+        remove : {
+            button : server_remove ,
+            owner  , pool
+        } ,
+        persist : {
+            button : servers_persist ,
+            owner  , pool
+        } ,
+        recover : {
+            button : servers_recover ,
+            owner  , pool
+        } ,
+        edit : {
+            button : servers_edit ,
+            owner  , pool
+        } ,
+        accept : {
+            button : servers_accept ,
+            owner  , pool
+        } 
+    };
+}
+</script>
+<script name="Load Event Handler">
+    let SERVER = "https://nyteowldave.work:64321/chachi-upload.php";
+    function main( event ) {
         try {
-            ed.error  = "";
-            ed.input  = ed.value;
-            ed.output = window.eval( ed.input );
+            ServerPool.initActions( 
+                getActionMap()
+            );
+            restore();
         } catch ( e ) {
             bummer ( e );
-            ed.error  = e.message;
-            ed.output = "";
         }
     }
-    function analyze( ed ) {
-        let er = [ "Error"  , ed.error  ];
-        let ip = [ "Input"  , ed.input  ];
-        let op = [ "Output" , ed.output ];
-        let id = [ "ID"     , ed.id     ];
-        let table = [ id, ip, op, er ];
-        con.group( "%cScript Analysis", analyze.style );
-        con.table( table );
-        con.groupEnd();
-    }
-    analyze.style = (`
-    display : inline-block;
-    font : 14pt sans-serif;
-    background : #114;
-    color : gold;
-    padding : 0.2ch;
-    padding-left  : 1.2ch;
-    padding-right : 1.2ch;
-    border-radius : 1.2ch;
-    `);
 </script>
 <script name="Listen for Events">
 addEventListener( "load", main );
 addEventListener( "beforeunload", preserve );
 addEventListener( "keydown", komodo );
+</script>
+<script name="Server Pool Class">
+    class ServerPool {
+        constructor( owner ) {
+            this.reset();
+            this.acquireItems( owner );
+        }
+        get state() { return this._state; }
+        get length() { 
+            return this._state.items.size; 
+        }
+        get title() {
+            return ( this.state.title || "Chachi ~ Server Pool" );
+        }
+        set title( text ) {
+            this.state.title = str( text );
+        }
+        reset() {
+            this._state = {
+                items : new Set()
+            };
+            return this;
+        }
+        report( s ) { 
+            con.log( s );
+            return blurt( s );
+        }
+        reportTitle() {
+            return this.report( this.title );
+        }
+        reportLength() {
+            return this.report( "Server Count : " + this.length );
+        }
+        inspectLength() {
+            con.log( "Server Count", ":" , this.length );
+            return this;
+        }
+        has( address ) {
+            return ( this.state.items.has( address ) );
+        }
+        add( address ) {
+            address = str( address );
+            if (! address ) {
+                let s;
+                con.warn( s = `Empty server address ignored` );
+                dangit( s );
+                return this;
+            }
+            this.state.items.add( address );
+            this.report( `Added address : ${address}` );
+            return this;
+        }
+        remove( address ) {
+            if ( this.has( address ) ) {
+                this.state.items.delete( address );
+                this.report( `Removed address : ${address}` );
+            } else {
+                this.report( `No such address` );
+            }
+            return this;
+        }
+        getAddressList() {            
+            return ( this.cleanList() );
+        }
+        setAddressList( addresses ) {
+            this.state.items = ( 
+                this.cleanGroup( addresses )
+            );
+            return this.inspectLength();
+        }
+        getAddressDoc() {
+            return ( 
+                ( this )
+                . getAddressList()
+                . join( "\n" ) 
+            );
+        }
+        setAddressDoc( text ) {
+            return ( 
+                ( this )
+                . setAddressList( 
+                    str( text )
+                    . split ( "\n"          )
+                    . map   ( s => s.trim() )
+                    . filter( s => (!! s  ) )
+                ) 
+            );
+        }
+        getOptions( owner ) {
+            owner = this.resolve( owner, "Gadget" );
+            return arr( owner.querySelectorAll( "OPTION" ) );
+        }
+        cleanList( o ) {
+            if (! Array.isArray( o ) ) {
+                o = arr( o || this.state.items );
+            }
+            return ( 
+                ( o )
+                . map( str )
+                . filter( s => (!! s ) )
+                . sort()
+            );
+        }
+        cleanGroup( o ) {
+            return new Set( this.cleanList( o ) );
+        }
+        acquireItem( o ) {
+            o = this.resolve( o, "Gadget" );
+            return this.add( o.value || o.textContent );            
+        }
+        acquireItems( owner ) {
+            owner = this.resolve( owner, "Gadget" );
+            this.title = ( owner.title || owner.name );
+            return this.setAddressList( 
+                ( this )
+                . getOptions( owner )
+                . map( option => option.value )
+            );
+        }
+        populateItems( owner ) {
+            owner = this.resolve( owner, "Gadget" );
+            owner.innerHTML = "";
+            let addresses = this.getAddressList();
+            addresses.forEach( 
+                address => {
+                    this.createOption( address, owner );
+                } 
+            );
+            return this.inspectLength();
+        }
+        createOption( address, owner ) {
+            let option = elx( "OPTION" );
+            option.value = address;
+            owner = this.resolve( owner );
+            return ( 
+                  ( owner )
+                ? ( owner.appendChild( option ) ) 
+                : ( option )
+            );
+        }
+        resolve( o, type ) { 
+            o = god( o );
+            if ( o ) { return ( o ); };
+            if ( type = str( type ) ) {
+                con.warn( `Expected Type : ${type}` );
+                throw new TypeError( o );
+            }
+            return ( o );
+        }
+        analyze() {
+            let raw = this.getRawObject();
+            con.group( raw.title );
+            con.table( raw.addresses );
+            con.groupEnd();
+            return ( raw );
+        }
+        edit( ed ) {
+            ed = this.resolve( ed, "Editor" )
+            ed . value = ( this.getAddressDoc() );
+            return this;
+        }
+        acceptChanges( ed ) {
+            ed = this.resolve( ed, "Editor" );
+            return this.setAddressDoc(
+                ed.value || ed.innerText
+            );
+        }
+        getRawObject() {
+            let title = this.title;
+            let addresses = this.getAddressList();
+            return ( { title, addresses } );
+        }
+        composeJSON() {
+            return jst( this.getRawObject() );
+        }
+        parseJSON( json ) {
+            let raw = jso( json );
+            if ( "string" === typeof raw.title ) {
+                if ( Array.isArray( raw.addresses ) ) {
+                    this.title = raw.title;
+                    this.setAddressList( 
+                        raw.addresses
+                    );
+                    return raw;
+                }
+            }
+            con.warn( "Expected valid JSON" );
+            throw new TypeError( json );
+        }
+        persist( key, store ) {
+            key = this.getStoreKey( key );
+            store = this.getStore( store );
+            let value = this.composeJSON();
+            store.setItem( key, value );
+            this.report( `Wrote "${key}" to Store` );
+            return this;
+        }
+        recover( key, store ) {
+            key = this.getStoreKey( key );
+            store = this.getStore( store );
+            let value = store.getItem( key );
+            if ( null === value ) {
+                return this.persist( key, store );
+            }
+            this.report( `Read "${key}" from Store` );
+            return this.parseJSON( value );
+        }
+        getStore( store ) {
+            if ( store ) {
+                if ( store instanceof Storage ) {
+                    return ( store );
+                }
+                con.warn( "Expected Type : Storage" );
+                throw new TypeError( store );
+            }
+            return ( stg );
+        }
+        getStoreKey( key ) {
+            return ( str( key ) || ( this.title ) );
+        }
+    }
+    ServerPool.getInput = function( owner ) {
+        owner = god( owner );
+        return one( `input[list="${owner.id}"]` );
+    }
+    ServerPool.initDone = function( title ) {
+        con.log( "Initialized Button", ":", title );
+    }
+    ServerPool.initAdd = function( { button, owner, pool } ) {
+        let input = ServerPool.getInput( owner );
+        ( button )
+        . addEventListener( 
+            "click" ,
+            ( e ) => {
+                input.value = input.value.trim();
+                pool . add( input.value );
+                pool . populateItems( owner );
+            }
+        );
+        ServerPool.initDone( "Add Server to Pool" );
+    }
+    ServerPool.initRemove = function( { button, owner, pool } ) {
+        let input = ServerPool.getInput( owner );
+        ( button )
+        . addEventListener( 
+            "click" ,
+            ( e ) => {
+                input.value = input.value.trim();
+                pool . remove( input.value );
+                pool . populateItems( owner );
+            }
+        );
+        ServerPool.initDone( "Remove Server from Pool" );
+    }
+    ServerPool.initPersist = function( { button, owner, pool } ) {
+        ( button )
+        . addEventListener( 
+            "click" ,
+            ( e ) => {
+                pool . acquireItems( owner );
+                pool . persist();
+            }
+        );
+        ServerPool.initDone( "Persist Server Pool" );
+    }
+    ServerPool.initRecover = function( { button, owner, pool } ) {
+        ( button )
+        . addEventListener( 
+            "click" ,
+            ( e ) => {
+                pool . recover();
+                pool . populateItems( owner );
+            }
+        );
+        ServerPool.initDone( "Recover Server Pool" );
+    }
+    ServerPool.initEdit = function( { button, owner, pool } ) {
+        let ed = gid( "content" );
+        ( button )
+        . addEventListener( 
+            "click" ,
+            ( e ) => {
+                pool . edit( ed );
+            }
+        );
+        ServerPool.initDone( "Edit Server Pool" );
+    }
+    ServerPool.initAccept = function( { button, owner, pool } ) {
+        let ed = gid( "content" );
+        ( button )
+        . addEventListener( 
+            "click" ,
+            ( e ) => {
+                pool . acceptChanges( ed );
+                pool . populateItems( owner );
+            }
+        );
+        ServerPool.initDone( "Accept Server Pool Changes" );
+    }
+    ServerPool.initActions = function( map ) {
+        let we = ServerPool;
+        if ( map.add     ) { we.initAdd    ( map.add     ); }
+        if ( map.remove  ) { we.initRemove ( map.remove  ); }
+        if ( map.persist ) { we.initPersist( map.persist ); }
+        if ( map.recover ) { we.initRecover( map.recover ); }
+        if ( map.edit    ) { we.initEdit   ( map.edit    ); }
+        if ( map.accept  ) { we.initAccept ( map.accept  ); }
+    }
 </script>
 </body>
 </html>
