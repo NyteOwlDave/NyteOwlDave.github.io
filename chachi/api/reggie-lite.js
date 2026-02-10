@@ -54,13 +54,14 @@ ReggieLite.hint = function( msg ) {
 
 ReggieLite.define = function( typeName, o ) {
     let we = ReggieLite;
+    let mods = we.state.modules;
     if ( "object" !== typeof o ) {
         we.wrongType( o, "Object" );
     }
     if ( "string" !== typeof typeName ) {
         we.wrongType( type, "String" );
     }
-    we.modules.push(  [ typeName, o ] );
+    mods.push( [ typeName, o ] );
     if ( we.hasAppMethod( "add" ) ) {
         AppModules.add( type, o );
     } else {
@@ -71,10 +72,11 @@ ReggieLite.define = function( typeName, o ) {
 
 ReggieLite.describe = function( o ) {
     let we = ReggieLite;
+    let notes = we.state.notes;
     if ( "object" !== typeof o ) {
         we.wrongType( o, "Object" );
     }
-    we.notes.push( o );
+    notes.push( o );
     if ( we.hasAppMethod( "add" ) ) {
         AppModules.add( type, o );
     } else {
