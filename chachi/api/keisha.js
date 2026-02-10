@@ -51,6 +51,7 @@ function keisha( event ) {
             let ed = event.target;
             ed.value = (
                 all( `script[name]` )
+                . map( whois )
                 . sort()
                 . map( k => ( `Ⓜ️ ${k}` ) )
                 . join( "\n" )
@@ -61,6 +62,7 @@ function keisha( event ) {
             let ed = event.target;
             ed.value = (
                 all( `style[name]` )
+                . map( whois )
                 . sort()
                 . map( k => ( `🎨 ${k}` ) )
                 . join( "\n" )
@@ -71,14 +73,11 @@ function keisha( event ) {
             let ed = event.target;
             ed.value = (
                 all( `[name]` )
+                . map( whois )
                 . sort()
                 . map( k => ( `🎛️ ${k}` ) )
                 . join( "\n" )
             );
-            return handled();
-        }
-        if ( code === ascii( 'z' ) ) {
-            event.target.requestFullscreen();
             return handled();
         }
         if ( code === ascii( 'x') ) {
@@ -95,6 +94,10 @@ function keisha( event ) {
                 return handled();
             }
         }
+        if ( code === ascii( 'z' ) ) {
+            event.target.requestFullscreen();
+            return handled();
+        }
         return;
     }
     if ( code === 9 ) {
@@ -103,6 +106,9 @@ function keisha( event ) {
              event.ctrlKey ) return;
         insertText( event.target, "\t" );
         return handled();
+    }
+    function whois( o ) {
+        return ( o.getAttribute( "name" ) );
     }
 }
 
