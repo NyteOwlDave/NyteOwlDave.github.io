@@ -7,6 +7,13 @@
 <https://nyteowldave.github.io/dev-icons/>
 "Design Icons Page"
 
+<script>
+/*
+- [Explore](./)
+*/
+</script>
+
+
 ----------------------------------------------------------------
 
 > <em>Help Manual</em>
