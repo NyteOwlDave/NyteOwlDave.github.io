@@ -1,0 +1,373 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+/*
+
+  plain.css
+  Basic Web Page Style
+
+*/
+
+:root {
+    --fgc : mintcream;
+    --bgc : #114;
+}
+
+[center] { text-align : center; }
+
+@keyframes blossom {
+    from {
+        box-shadow : none;
+        transform  : scale( 1.0 );
+    }
+    to {
+        box-shadow : 0 0 20px gold;
+        transform  : scale( 1.2 );
+    }
+}
+
+.error {
+    background-color : red    !important;
+    color            : yellow !important;
+    text-shadow      : 0 0 2px black;
+}
+
+html, body {
+    color : var( --fgc );
+    background-color : var( --bgc );
+}
+
+body {
+    margin-top    : 82px;
+    margin-bottom : 82vh;
+}
+
+header , footer {
+    position : fixed;
+    left     : 0;
+    width    : 100%;
+    margin   : 0;
+    border   : none;
+    text-align : center;
+    z-index : 100;
+    color : #111E;
+    background-color : #FFAD;
+    padding : 1.1ch;
+}
+
+header {
+    top : 0;
+}
+
+footer {
+    bottom : 0;
+}
+
+hr {
+   background-color : var( --hrc );
+   border : none;
+   border-bottom : 1px solid #1142;
+}
+
+h1, h2, h3, h4, h5, h6,
+fieldset,
+figure {
+    text-align : center;
+}
+
+blockquote em {
+    border : 1px solid #9728;
+    border-radius : 2ch;
+    margin  : 0;
+    padding : 1ch;
+    display : inline-block;
+    width : calc( 100% - 2ch );
+    text-align : center;
+    font-style : normal;
+    text-decoration : none;
+    font-size : xx-large;
+    font-weight : 700;
+    color : #CC8A;
+    background-color : #AA02;
+    box-shadow : 0 0 16px #002;
+}
+
+pre {
+    padding       : 0.25ch;
+    padding-left  : 1.5ch;
+    padding-right : 1.5ch;
+    overflow-x : auto scroll;
+    overflow-y : auto scroll;
+    max-height : calc( 100vh - 200px );
+    min-height : calc( 20px  );
+    background-color : #1104;
+}
+
+pre:not([contenteditable]):hover {
+    background-color : #E724;
+}
+
+textarea:focus ,
+pre:focus {
+    background-color : #DE93;
+}
+
+textarea:hover ,
+pre[contenteditable]:hover {
+    background-color : #9EA4;
+}
+
+[contenteditable] {
+    border : 1px dashed gold;
+    cursor : pointer;
+}
+
+ol, ul {
+    margin  : 10px;
+    background-color : #4415;
+    border-radius : 1.2ch;
+    border : 1px dotted gold;
+    padding : 1.2ch;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+ol {
+    text-align : center;
+}
+
+ol li {
+    display : inline-block;
+    margin  : 2px;
+    background-color : transparent;
+    color : inherit;
+}
+
+ol li a {
+    min-width : 18ch;
+    max-width : 18ch;
+}
+
+a[href] ,
+button[onclick] {
+    display : inline-block;
+    cursor  : pointer;
+    border  : none;
+    outline : none;
+    border-radius : 2.2ch;
+    padding : 0.42ch;
+    padding-left  : 2.2ch;
+    padding-right : 2.2ch;
+    margin : 2px;
+    color  : lemonchiffon;
+    background-color : #ED58;
+    text-shadow : 0 0 2px black;
+    text-decoration : none !important;
+}
+
+button:hover  ,
+a[href]:hover {
+    display    : inline-block;
+    cursor     : pointer;
+    animation  : linear 0.15s blossom forwards;
+}
+
+code, var {
+    color : #AFF9;
+    text-shadow : 0 0 1px black
+}
+
+u, i, b, em ,
+strong {
+    color : gold;
+    text-shadow : 0 0 1px black
+}
+
+p {
+    padding : 1px;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>manifest</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<style>
+@import url("http://dave-legacy/rt/style/plain.css");
+@import url("http://dave-legacy/math/toolkit/style/area-solver.css");
+</style>
+
+<style>
+pre {
+    overflow : scroll;
+    font-family : "Noto Mono", monospace;
+    text-align  : left;
+    max-width   : calc( 100vw - 20ch );
+    max-height  : calc( 60vh );
+}
+footer div {
+    display : inline-block;
+    margin-left  : 1ch;
+    margin-right : 1ch;
+}
+</style>
+
+<hr>
+<header> Manifest ~ Thalia NOW! </header>
+
+<script>
+addEventListener( "load", () => {
+    document . title = (
+        document
+        . querySelector( "HEADER" )
+        . textContent
+    );
+} );
+</script>
+
+<footer id="footer">
+    <div id="button_tray"> (tray) </div>
+    <div id="messages"> (status) </div>
+</footer>
+
+<script>
+function message( o ) {
+    let s;
+    if ( o instanceof ? ) {
+        if ( o instanceof ? ) {
+            s = String( o.message );
+            s = ( `🔴 ${s}` );
+        } else {
+            s = JSON.stringify( o );
+        }
+    } else {
+        s = String( s );
+    }
+    ; return (
+        messages.textContent = ( s )
+    );
+}
+</script>
+
+<script>
+function defineButton( decal, action, hint ) {
+    return { decal, action, hint };
+}
+</script>
+
+<script>
+function addButton( buttonDef ) {
+    try {
+        let be = document.createElement( "BUTTON" );
+        be.textContent = ( decal );
+        be.title = composeHint( decal, hint );
+        be.addEventListener( "click", action );
+        return ( button_tray.appendChild( be ) );
+    } catch ( e ) {
+        messages.textContent = composeError( e );
+        return ( e );
+    }
+}
+</script>
+
+<script>
+function composeHint( decal, hint ) {
+    let d = ( decal || "?" );
+    let h = String( hint || "Unknown" ).trim();
+    return ( `${d} ${h}` );
+}
+</script>
+
+<script>
+// 🟢 🟡 🔴
+function composeError( e ) {
+    return composeHint( "🔴", e.message );
+}
+function composeWarning( e ) {
+    return composeHint( "🟡", e.message );
+}
+function composeSuccess( e ) {
+    return composeHint( "🟢", e.message );
+}
+function composeAdvice( e ) {
+    return composeHint( "🟢", e.message );
+}
+function composeNotice( e ) {
+    return composeHint( "🟢", e.message );
+}
+</script>
+
+<script>
+function removeButton( decal ) {}
+</script>
+
+<script>
+function getButton( decal ) {}
+</script>
+
+<script>
+function clickButton( decal ) {}
+</script>
+
+<hr>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent</td>
+<td>firefox</td>
+</tr>
+<tr>
+<td>Client</td>
+<td>dave-legacy</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>dave-legacy</td>
+</tr>
+<tr>
+<td>Store Key</td>
+<td>NOW!.md</td>
+</tr>
+<tr>
+<td>Title</td>
+<td>Thalia NOW!</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>TiKey</td>
+<td>ffb0f5c0-1289-11f1-b0dd-b3517a073dfa</td>
+</tr>
+<tr>
+<td>Updated</td>
+<td>2026-FEB-25</td>
+</tr>
+<tr>
+<td>Whiteboard</td>
+<td>(pending)</td>
+</tr>
+<tr>
+<td>Registered</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+</body>
+</html>
