@@ -460,7 +460,7 @@ function getStoreKeys() {
     let keys = [];
     let store = localStorage;
     if ( store !== null ) {
-        while ( keys.length < 42 ) {
+        while ( keys.length < 420 ) {
             let k = store.key( keys.length );
             if ( k === null ) break;
             keys.push( k );
