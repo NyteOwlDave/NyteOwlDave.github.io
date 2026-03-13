@@ -1,3 +1,4 @@
-*.html.md
-thalia.html.md
+./*.html.md
+./removed
+./removed/thalia.html.md
 
