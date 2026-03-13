@@ -1,4 +1,6 @@
 _
 desktop.ini
 /(removed)
-.html.md
+*.html.md
+./thalia/thalia.html.md
+
