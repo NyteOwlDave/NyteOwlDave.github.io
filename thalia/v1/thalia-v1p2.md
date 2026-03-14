@@ -1,4 +1,8 @@
 
+<script>
+FAVORITES_STORE_KEY = "thalias-faves.html";
+</script>
+
 [wksp]:
 <./>
 "🗃️ Explore File System"
@@ -86,12 +90,18 @@ body {
 ----------------------------------------------------------------
 
 <header id="page_title">
- Version 1.2 (preliminary)
+ Version 1.2.1 (preliminary)
 </header>
+
+<footer id="footer">
+  <div id="messages">(pending)</div>
+</footer>
 
 ----------------------------------------------------------------
 
 # [🗃️ Thalia][wksp]{#title}
+
+----------------------------------------------------------------
 
 > [🔐 NOW!][now!]
 > [🔐 Legacy][legacy]
@@ -104,6 +114,8 @@ body {
 > [🔐 Pi][pi]
 > [🔐 Netwide][netwide]
 > [🔐 Morpheus][morpheus]
+
+----------------------------------------------------------------
 
 <div center>
 <style>
@@ -156,6 +168,8 @@ function clearSOP() {
 </div>
 
 </div>
+
+----------------------------------------------------------------
 
 <div center>
 <style>
@@ -220,10 +234,6 @@ doc = document;
 gad =( o )=> ( o instanceof HTMLElement );
 gid =( i )=> ( doc.getElementById( i ) );
 god =( o )=> ( gad( o ) ? ( o ) : gid(o ) );
-</script>
-
-<script>
-doc . title = gid( 'page_title' ).textContent;
 </script>
 
 <script>
@@ -533,7 +543,6 @@ function zap( button ) {
   <button onclick="zap(this)">🔐 Refresh Keys</button>
 </div>
 
-
 <div class="settings">
   <span decal title="Reset Key" onclick="rst(this)" key="Thalia Decals">🔑</span>
   <span decal title="Copy Key from Filename" onclick="copyValue('store-key','filename')">📃</span>
@@ -547,6 +556,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist
   </datalist>
   <span id="key-count" title="Key Count">0</span>
 </div>
+
 </div>
 
 ----------------------------------------------------------------
@@ -592,6 +602,9 @@ details nav {
 <div center>
 <details>
 <summary>🧭 Navigation</summary>
+<nav id="dot-rockets">
+ <a title="Thalia's Whiteboard" href="./dot/whiteboard.html">Whiteboard</a>
+</nav>
 <nav id="favorites">
  <a title="Home Site" href="http://dave-legacy/app/thalia/">Legacy</a>
  <a title="Zed Editor" href="http://dave-legacy/app/zed/zed-demo.html">Zed</a>
@@ -610,6 +623,38 @@ details nav {
 </details>
 </div>
 
+----------------------------------------------------------------
+
+<script>
+function main() {
+    function persist( event ) {
+        persistFavorites();
+    }
+    try {
+        doc . title = gid( 'page_title' ).textContent;
+        hideFileSystem();
+        recoverFavorites();
+        addEventListener( "beforeunload", persist );
+        messages.textContent = "Ready for Action!";
+    } catch ( e ) {
+        console.error( e );
+        mention( e.message );
+    }
+}
+addEventListener( "load", main );
+</script>
+
+<script>
+function hideFileSystem() {
+    let nav = navigator;
+    let agent = nav.userAgent.toLowerCase();
+    if ( agent.includes( "retext" ) ) {
+        return;
+    }
+    gid( "file-system" ).remove();
+}
+</script>
+
 <script>
 function persistFavorites() {
     try {
@@ -618,7 +663,8 @@ function persistFavorites() {
             , favorites.innerHTML
         );
     } catch ( e ) {
-        console.log( e );
+        console.error( e );
+        messages.textContent = ( e.message );
     }
 }
 function recoverFavorites() {
@@ -631,7 +677,8 @@ function recoverFavorites() {
         }
         favorites.innerHTML = ( v );
     } catch ( e ) {
-        console.log( e );
+        console.error( e );
+        messages.textContent = ( e.message );
     }
 }
 function addFavorite( href, title, hint ) {

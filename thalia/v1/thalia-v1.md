@@ -7,69 +7,85 @@ body {
 
 [wksp]:
 <./>
-"Explore Files"
+"🗃️ Explore File System"
 
 [now!]:
 <http://dave-legacy/app/thalia/>
-"Thalia ~ NOW!"
+"🔐 Thalia ~ NOW!"
 
 [legacy]:
 <http://dave-legacy/app/thalia-v1/>
-"Thalia 1.0 ~ Legacy"
+"🔐 Thalia 1.0 ~ Legacy"
 
 [ryzen]:
 <http://dave-ryzen/thalia/>
-"Thalia ~ Ryzen"
+"🔐 Thalia ~ Ryzen"
 
 [omega]:
 <http://dave-omega/app/thalia/>
-"Thalia ~ Omega"
+"🔐 Thalia ~ Omega"
 
 [tower]:
 <http://dave-tower/app/thalia/>
-"Thalia ~ Tower"
+"🔐 Thalia ~ Tower"
 
 [zombie]:
 <http://dave-zombie/app/thalia/>
-"Thalia ~ Zombie"
+"🔐 Thalia ~ Zombie"
 
 [lenovo]:
 <http://dave-lenovo/app/thalia/>
-"Thalia ~ Lenovo"
+"🔐 Thalia ~ Lenovo"
 
 [probook]:
 <http://dave-probook/app/thalia/>
-"Thalia ~ Probook"
+"🔐 Thalia ~ Probook"
 
 [pi]:
 <http://dave-pi/app/thalia/>
-"Thalia ~ Pi"
+"🔐 Thalia ~ Pi"
 
 [netwide]:
 <http://192.168.1.3/shares/workspace/Thalia/>
-"Thalia ~ Netwide"
+"🔐 Thalia ~ Netwide"
 
 [morpheus]:
 <https://nyteowldave/github.io/thalia/thalia.html>
-"Thalia ~ Morpheus"
+"🔐 Thalia ~ Morpheus"
+
+[wbrd]:
+<./dot/whiteboard.html>
+"🔲 Thalia's ~ Whiteboard"
 
 ----------------------------------------------------------------
 
-<header> Version 1.1 </header>
+<header id="page_title">
+ Version 1.1.1
+</header>
 
-# [Thalia][wksp]{#title}
+<footer id="footer">
+  <div id="messages">(pending)</div>
+</footer>
 
-> [NOW!][now!]
-> [Legacy][legacy]
-> [Omega][omega]
-> [Ryzen][ryzen]
-> [Tower][tower]
-> [Zombie][zombie]
-> [Lenovo][lenovo]
-> [Probook][probook]
-> [Pi][pi]
-> [Netwide][netwide]
-> [Morpheus][morpheus]
+----------------------------------------------------------------
+
+# [🗃️ Thalia][wksp]{#title}
+
+----------------------------------------------------------------
+
+> [🔐 NOW!][now!]
+> [🔐 Legacy][legacy]
+> [🔐 Omega][omega]
+> [🔐 Ryzen][ryzen]
+> [🔐 Tower][tower]
+> [🔐 Zombie][zombie]
+> [🔐 Lenovo][lenovo]
+> [🔐 Probook][probook]
+> [🔐 Pi][pi]
+> [🔐 Netwide][netwide]
+> [🔐 Morpheus][morpheus]
+
+----------------------------------------------------------------
 
 <div center>
 <style>
@@ -181,7 +197,6 @@ input ,
 doc = document;
 gid = id => doc.getElementById( id );
 gad = ed => ( ( ed instanceof Object ) ? ed : gid( ed ) );
-doc . title = gid( 'title' ).textContent;
 </script>
 
 <script>
@@ -459,6 +474,9 @@ details nav {
 <div center>
 <details>
 <summary>Navigation</summary>
+<nav id="dot-rockets">
+ <a title="Thalia's Whiteboard" href="./dot/whiteboard.html">Whiteboard</a>
+</nav>
 <nav id="favorites">
  <a title="Home Site" href="http://dave-legacy/app/thalia/">Legacy</a>
  <a title="Zed Editor" href="http://dave-legacy/app/zed/zed-demo.html">Zed</a>
@@ -471,59 +489,36 @@ details nav {
  <a title="Web Dev @ MDN" href="https://developer.mozilla.org/en-US/docs/Web/">MDN</a>
  <a title="PSK Example @ Legacy"  href="http://dave-legacy/~/examples/psk.html">PSK</a>
 </nav>
+<nav id="file-system">
+ <a title="Explore File System" href="./">Explore</a>
+</nav>
 </details>
 </div>
 
+----------------------------------------------------------------
+
 <script>
-function persistFavorites() {
+function main() {
     try {
-        localStorage.setItem(
-              FAVORITES_STORE_KEY
-            , favorites.innerHTML
-        );
+        doc . title = gid( 'page_title' ).textContent;
+        hideFileSystem();
+        messages.textContent = "Ready for Action!";
     } catch ( e ) {
-        console.log( e );
+        console.error( e );
+        mention( e.message );
     }
 }
-function recoverFavorites() {
-    try {
-        let v = localStorage.getItem(
-              FAVORITES_STORE_KEY
-        );
-        if ( null === v ) {
-            return persistFavorites();
-        }
-        favorites.innerHTML = ( v );
-    } catch ( e ) {
-        console.log( e );
-    }
-}
-function addFavorite( href, title, hint ) {
-    let ae = favorites.appendChild(
-        doc.createElement( "A" )
-    );
-    ae.href = ( href || "./" );
-    title = String( title || "" ).trim();
-    title = ( title || "Untitled" );
-    hint  = String( hint || "" ).trim();
-    hint  = ( hint || title );
-    ae.title = hint;
-    ae.textContent = title;
-    return ( ae );
-}
-function removeFavorite( href ) {
-    let ae = locateFavorite( href );
-    ae.remove();
-}
-function locateFavorite( href ) {
-    let doc = document;
-    let arr =( o )=> Array.from( o );
-    let faves = arr( favorites.querySelectorAll( "A" ) );
-    function matches( ae ) {
-        return ( ae.href === href );
-    }
-    return ( faves.filter( matches ) [ 0 ] );
-}
+addEventListener( "load", main );
 </script>
 
+<script>
+function hideFileSystem() {
+    let nav = navigator;
+    let agent = nav.userAgent.toLowerCase();
+    if ( agent.includes( "retext" ) ) {
+        return;
+    }
+    gid( "file-system" ).remove();
+}
+</script>
 

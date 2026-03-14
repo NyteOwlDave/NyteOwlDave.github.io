@@ -67,6 +67,7 @@ button.bar:hover {
     <a href="https://nyteowldave.github.io/" id="title" title="🏠 Home Site">🏠 Home</a>
     <a href="./v1/thalia-v1.html" id="title" title="🔐 Version 1.1">🔐 Thalia v1.1</a>
     <a href="./v1/thalia-v1p2.html" id="title" title="🔐 Version 1.2">🔐 Thalia v1.2</a>
+    <a href="./dot/whiteboard.html" id="title" title="🔲 Thalia's Whiteboard">🔲 Whiteboard</a>
     <button class="bar" onclick="showVersionDetails()" title="🏷️ Version">🏷️ Version</button>
 </h2>
 
@@ -520,11 +521,6 @@ const AppLinks = [
     ] ,
 ];
 
-addEventListener( "load", function(e) {
-    populateNavBar( AppLinks );
-    messages.innerText = "Ready for Action!";
-} );
-
 </script>
 
 <script>
@@ -667,6 +663,19 @@ function komodo( ev ) {
 
 <script>
 addEventListener( "keydown", komodo );
+</script>
+
+<script>
+function main() {
+    try {
+        populateNavBar( AppLinks );
+        messages.innerText = "Ready for Action!";
+    } catch ( e ) {
+        console.error( e );
+        mention( e.message );
+    }
+}
+addEventListener( "load", main );
 </script>
 
 </body>

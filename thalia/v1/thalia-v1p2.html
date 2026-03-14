@@ -199,6 +199,10 @@ p {
 </style>
 </head>
 <body>
+<script>
+FAVORITES_STORE_KEY = "thalias-faves.html";
+</script>
+
 <style>
 body {
     margin-bottom : 42vh;
@@ -237,11 +241,16 @@ body {
 
 <hr>
 <header id="page_title">
- Version 1.2 (preliminary)
+ Version 1.2.1 (preliminary)
 </header>
+
+<footer id="footer">
+  <div id="messages">(pending)</div>
+</footer>
 
 <hr>
 <h1><a href="./" id="title" title="🗃️ Explore File System">🗃️ Thalia</a></h1>
+<hr>
 <blockquote>
 <p><a href="http://dave-legacy/app/thalia/" title="🔐 Thalia ~ NOW!">🔐 NOW!</a>
 <a href="http://dave-legacy/app/thalia-v1/thalia-v1p2.html" title="🔐 Thalia 1.2 ~ Legacy">🔐 Legacy</a>
@@ -255,6 +264,7 @@ body {
 <a href="http://192.168.1.3/shares/workspace/Thalia/" title="🔐 Thalia ~ Netwide">🔐 Netwide</a>
 <a href="https://nyteowldave/github.io/thalia/thalia.html" title="🔐 Thalia ~ Morpheus">🔐 Morpheus</a></p>
 </blockquote>
+<hr>
 <div center>
 <style>
 button {
@@ -307,6 +317,7 @@ function clearSOP() {
 
 </div>
 
+<hr>
 <div center>
 <style>
 @import url("http://dave-legacy/sio/style/just/siox.css");
@@ -370,10 +381,6 @@ doc = document;
 gad =( o )=> ( o instanceof HTMLElement );
 gid =( i )=> ( doc.getElementById( i ) );
 god =( o )=> ( gad( o ) ? ( o ) : gid(o ) );
-</script>
-
-<script>
-doc . title = gid( 'page_title' ).textContent;
 </script>
 
 <script>
@@ -683,7 +690,6 @@ function zap( button ) {
   <button onclick="zap(this)">🔐 Refresh Keys</button>
 </div>
 
-
 <div class="settings">
   <span decal title="Reset Key" onclick="rst(this)" key="Thalia Decals">🔑</span>
   <span decal title="Copy Key from Filename" onclick="copyValue('store-key','filename')">📃</span>
@@ -697,6 +703,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist
   </datalist>
   <span id="key-count" title="Key Count">0</span>
 </div>
+
 </div>
 
 <hr>
@@ -739,6 +746,9 @@ details nav {
 <div center>
 <details>
 <summary>🧭 Navigation</summary>
+<nav id="dot-rockets">
+ <a title="Thalia's Whiteboard" href="./dot/whiteboard.html">Whiteboard</a>
+</nav>
 <nav id="favorites">
  <a title="Home Site" href="http://dave-legacy/app/thalia/">Legacy</a>
  <a title="Zed Editor" href="http://dave-legacy/app/zed/zed-demo.html">Zed</a>
@@ -757,6 +767,37 @@ details nav {
 </details>
 </div>
 
+<hr>
+<script>
+function main() {
+    function persist( event ) {
+        persistFavorites();
+    }
+    try {
+        doc . title = gid( 'page_title' ).textContent;
+        hideFileSystem();
+        recoverFavorites();
+        addEventListener( "beforeunload", persist );
+        messages.textContent = "Ready for Action!";
+    } catch ( e ) {
+        console.error( e );
+        mention( e.message );
+    }
+}
+addEventListener( "load", main );
+</script>
+
+<script>
+function hideFileSystem() {
+    let nav = navigator;
+    let agent = nav.userAgent.toLowerCase();
+    if ( agent.includes( "retext" ) ) {
+        return;
+    }
+    gid( "file-system" ).remove();
+}
+</script>
+
 <script>
 function persistFavorites() {
     try {
@@ -765,7 +806,8 @@ function persistFavorites() {
             , favorites.innerHTML
         );
     } catch ( e ) {
-        console.log( e );
+        console.error( e );
+        messages.textContent = ( e.message );
     }
 }
 function recoverFavorites() {
@@ -778,7 +820,8 @@ function recoverFavorites() {
         }
         favorites.innerHTML = ( v );
     } catch ( e ) {
-        console.log( e );
+        console.error( e );
+        messages.textContent = ( e.message );
     }
 }
 function addFavorite( href, title, hint ) {
