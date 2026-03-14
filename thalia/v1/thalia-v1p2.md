@@ -48,7 +48,7 @@ FAVORITES_STORE_KEY = "thalias-faves.html";
 "🔐 Thalia ~ Netwide"
 
 [morpheus]:
-<https://nyteowldave/github.io/thalia/thalia.html>
+<https://nyteowldave.github.io/thalia/thalia.html>
 "🔐 Thalia ~ Morpheus"
 
 <style>
