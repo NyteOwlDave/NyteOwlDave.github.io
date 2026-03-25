@@ -1,5 +1,6 @@
 
 <style>
+@import url("./style/plain.css");
 * { text-align : center }
 </style>
 
