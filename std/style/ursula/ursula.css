@@ -1,7 +1,7 @@
 
 /* ursula.css */
 
-@import url("http://dave-legacy/rt/style/plain.css");
+@import url("plain.css");
 
 html {
    background : gold;
@@ -9,7 +9,7 @@ html {
 }
 
 body {
-   background-image  : url( "http://dave-ryzen/art/backgrounds/ursula.png" );
+   background-image  : url( "https://nyteowldave.github.io/std/art/bgi/ursula.png" );
    background-repeat : no-repeat;
    background-size: cover;
    min-height : 150vw;
