@@ -1,0 +1,45 @@
+
+/* ursula.css */
+
+@import url("http://dave-legacy/rt/style/plain.css");
+
+html {
+   background : gold;
+   box-sizing : border-box;
+}
+
+body {
+   background-image  : url( "http://dave-ryzen/art/backgrounds/ursula.png" );
+   background-repeat : no-repeat;
+   background-size: cover;
+   min-height : 150vw;
+   padding : 20px;
+   box-sizing : border-box;
+}
+
+details {
+   text-align : center;
+}
+
+details ul {
+   text-align : left;
+}
+
+details textarea {
+   text-align : left;
+}
+
+textarea.wide {
+    min-width : 80%;
+}
+
+textarea {
+    background : rgba(  55,  78,  70 );
+    color      : rgba( 240, 190, 140 );
+    min-height : 8em;
+}
+
+textarea:focus {
+    background : rgba( 210, 255, 240 );
+    color      : rgba(  10,  55,  40 );
+}
