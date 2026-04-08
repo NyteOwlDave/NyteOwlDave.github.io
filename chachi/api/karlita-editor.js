@@ -5,7 +5,7 @@
 function karlita( event ) {
     const ed = event.target;
     const code = event.keyCode;
-    if ( isModifier( code ) ) return;
+    if ( is_modifier( code ) ) return;
     if ( event.ctrlKey  ) return;
     if ( event.metaKey  ) return;
     if ( event.shiftKey ) return;
@@ -38,7 +38,7 @@ function karlita( event ) {
     }
     if ( code === 9 ) {
         mine( event );
-        replaceText( ed, "\t" );
+        replace_text( ed, "\t" );
     }
 }
 
@@ -329,6 +329,5 @@ function exec( ge ) {
 
 console.log( `📝 Loaded karlita-editor.js API Module` );
 console.info( `🧙‍ Remember to call init_editor() ...` );
-
 
 
