@@ -9,6 +9,7 @@ create-meta-table.js
 editables.js
 energize.js
 eratothenes.js
+explore.list
 factors.js
 file.list
 folder.list
@@ -23,11 +24,14 @@ jasoom.js
 joni.js
 json2sql.js
 juba.js
+karlita-editor.html
+karlita-editor.js
 keisha.js
 legends-5.js
 legends-helper.js
 legends.js
 legends.json
+list.list
 math.js
 mathplus.js
 mathvec.js
@@ -40,6 +44,7 @@ prep.js
 quadratic.js
 reggie-lite.js
 rimrod.js
+simple-messaging.js
 sio.js
 sip-ops.js
 starz.js
@@ -50,3 +55,4 @@ trig.js
 vec.js
 vibe-coder.js
 ws-api.png
+zed-prolog.js

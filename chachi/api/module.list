@@ -20,6 +20,7 @@ jasoom.js
 joni.js
 json2sql.js
 juba.js
+karlita-editor.js
 keisha.js
 legends-5.js
 legends-helper.js
@@ -33,6 +34,7 @@ prep.js
 quadratic.js
 reggie-lite.js
 rimrod.js
+simple-messaging.js
 sio.js
 sip-ops.js
 starz.js
@@ -42,3 +44,4 @@ transcend.js
 trig.js
 vec.js
 vibe-coder.js
+zed-prolog.js
