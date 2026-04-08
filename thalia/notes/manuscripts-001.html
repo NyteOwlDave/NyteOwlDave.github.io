@@ -1,0 +1,690 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+/*
+
+  plain.css
+  Basic Web Page Style
+
+*/
+
+:root {
+    --fgc : mintcream;
+    --bgc : #114;
+}
+
+[center] { text-align : center; }
+
+@keyframes blossom {
+    from {
+        box-shadow : none;
+        transform  : scale( 1.0 );
+    }
+    to {
+        box-shadow : 0 0 20px gold;
+        transform  : scale( 1.2 );
+    }
+}
+
+.error {
+    background-color : red    !important;
+    color            : yellow !important;
+    text-shadow      : 0 0 2px black;
+}
+
+html, body {
+    color : var( --fgc );
+    background-color : var( --bgc );
+}
+
+body {
+    margin-top    : 82px;
+    margin-bottom : 82vh;
+}
+
+header , footer {
+    position : fixed;
+    left     : 0;
+    width    : 100%;
+    margin   : 0;
+    border   : none;
+    text-align : center;
+    z-index : 100;
+    color : #111E;
+    background-color : #FFAD;
+    padding : 1.1ch;
+}
+
+header {
+    top : 0;
+}
+
+footer {
+    bottom : 0;
+}
+
+hr {
+   background-color : var( --hrc );
+   border : none;
+   border-bottom : 1px solid #1142;
+}
+
+h1, h2, h3, h4, h5, h6,
+fieldset,
+figure {
+    text-align : center;
+}
+
+blockquote em {
+    border : 1px solid #9728;
+    border-radius : 2ch;
+    margin  : 0;
+    padding : 1ch;
+    display : inline-block;
+    width : calc( 100% - 2ch );
+    text-align : center;
+    font-style : normal;
+    text-decoration : none;
+    font-size : xx-large;
+    font-weight : 700;
+    color : #CC8A;
+    background-color : #AA02;
+    box-shadow : 0 0 16px #002;
+}
+
+pre {
+    padding       : 0.25ch;
+    padding-left  : 1.5ch;
+    padding-right : 1.5ch;
+    overflow-x : auto scroll;
+    overflow-y : auto scroll;
+    max-height : calc( 100vh - 200px );
+    min-height : calc( 20px  );
+    background-color : #1104;
+}
+
+pre:not([contenteditable]):hover {
+    background-color : #E724;
+}
+
+textarea:focus ,
+pre:focus {
+    background-color : #DE93;
+}
+
+textarea:hover ,
+pre[contenteditable]:hover {
+    background-color : #9EA4;
+}
+
+[contenteditable] {
+    border : 1px dashed gold;
+    cursor : pointer;
+}
+
+ol, ul {
+    margin  : 10px;
+    background-color : #4415;
+    border-radius : 1.2ch;
+    border : 1px dotted gold;
+    padding : 1.2ch;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+ol {
+    text-align : center;
+}
+
+ol li {
+    display : inline-block;
+    margin  : 2px;
+    background-color : transparent;
+    color : inherit;
+}
+
+ol li a {
+    min-width : 18ch;
+    max-width : 18ch;
+}
+
+a[href] ,
+button[onclick] {
+    display : inline-block;
+    cursor  : pointer;
+    border  : none;
+    outline : none;
+    border-radius : 2.2ch;
+    padding : 0.42ch;
+    padding-left  : 2.2ch;
+    padding-right : 2.2ch;
+    margin : 2px;
+    color  : lemonchiffon;
+    background-color : #ED58;
+    text-shadow : 0 0 2px black;
+    text-decoration : none !important;
+}
+
+button:hover  ,
+a[href]:hover {
+    display    : inline-block;
+    cursor     : pointer;
+    animation  : linear 0.15s blossom forwards;
+}
+
+code, var {
+    color : #AFF9;
+    text-shadow : 0 0 1px black
+}
+
+u, i, b, em ,
+strong {
+    color : gold;
+    text-shadow : 0 0 1px black
+}
+
+p {
+    padding : 1px;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>manuscripts-001</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<script>
+EDITABLE_TABLES = true;
+</script>
+
+<style group="Every Page Theme" host="dave-legacy">
+@import url("http://dave-legacy/~/style/every-page.css")
+</style>
+
+<style group="Every Page Theme" host="dave-legacy">
+@import url("http://dave-legacy/~/style/every-page-todo.css")
+</style>
+
+<hr>
+<header id="page_title">
+    Thalia's New Manuscripts
+</header>
+
+<footer id="footer">
+    <div id="button_tray"> &nbsp; </div>
+    <div id="messages"> &nbsp; </div>
+</footer>
+
+<hr>
+<h1>[x]  Dave's Fave Colors</h1>
+<hr>
+<blockquote>
+<p>This is a manuscript for <code>Hysteresis</code>. It manages colors and
+named pairs of colors.</p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STORE_KEY</td>
+<td>daves-fave-colors.json</td>
+<td></td>
+</tr>
+<tr>
+<td>Primary</td>
+<td>dave-legacy</td>
+<td></td>
+</tr>
+<tr>
+<td>Agent</td>
+<td>Firefox</td>
+<td></td>
+</tr>
+<tr>
+<td>Application</td>
+<td>Hysteresis</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>[?] Features</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Peach Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TableManager</td>
+<td>HTML table manager</td>
+<td></td>
+</tr>
+<tr>
+<td>ColorTable</td>
+<td>Color pair HTML table</td>
+<td></td>
+</tr>
+<tr>
+<td>ColorOps</td>
+<td>Core color operations</td>
+<td></td>
+</tr>
+<tr>
+<td>ColorGadget</td>
+<td>Color input gadget</td>
+<td></td>
+</tr>
+<tr>
+<td>ColorPair</td>
+<td>Named color pair</td>
+<td></td>
+</tr>
+<tr>
+<td>PairGroup</td>
+<td>Named color pair group</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1>[?] Link Table Creator</h1>
+<hr>
+<blockquote>
+<p>This is a manuscript for <code>Q-Editor</code>. It creates <strong>checklists</strong>
+from <code>Navigation Docs</code>. It also provides a bunch of list and
+<i>text manipulation</i> functions.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>One of the more powerful features is the ability to scrape
+comments with special <code>Marker</code> tags (prefixes). This is very
+similar to the <code>Cody</code> self-documenting paradigm.</p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STORE_KEY</td>
+<td>link-table-creator.json</td>
+<td></td>
+</tr>
+<tr>
+<td>Primary</td>
+<td>dave-legacy</td>
+<td></td>
+</tr>
+<tr>
+<td>Agent</td>
+<td>Firefox</td>
+<td></td>
+</tr>
+<tr>
+<td>Application</td>
+<td>Q-Editor</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>[x] Features</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manuscripts</td>
+<td>Composes Q-Editor Manuscript</td>
+<td></td>
+</tr>
+<tr>
+<td>Markers</td>
+<td>Extracts Markers as CoreDoc</td>
+<td></td>
+</tr>
+<tr>
+<td>Check List</td>
+<td>Composes Checklist for Nav Docs</td>
+<td></td>
+</tr>
+<tr>
+<td>String Ops</td>
+<td>Lots of String Manipulation</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>[x] Members</h2>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MANUSCRIPT_TITLE</td>
+<td>User Friendy Title</td>
+<td></td>
+</tr>
+<tr>
+<td>MANUSCRIPT_VERSION</td>
+<td>Version Number</td>
+<td></td>
+</tr>
+<tr>
+<td>STORE_KEY</td>
+<td>Manuscript Store Key (*.json)</td>
+<td></td>
+</tr>
+<tr>
+<td>PEACH_KEY</td>
+<td>JavaScript Peach Key (*.js)</td>
+<td></td>
+</tr>
+<tr>
+<td>con</td>
+<td>Alias console</td>
+<td></td>
+</tr>
+<tr>
+<td>jot</td>
+<td>Alias console.log</td>
+<td></td>
+</tr>
+<tr>
+<td>jet</td>
+<td>Alias console.warn</td>
+<td></td>
+</tr>
+<tr>
+<td>jut</td>
+<td>Alias console.error</td>
+<td></td>
+</tr>
+<tr>
+<td>jit</td>
+<td>Alias console.table</td>
+<td></td>
+</tr>
+<tr>
+<td>jgo</td>
+<td>Alias console.group</td>
+<td></td>
+</tr>
+<tr>
+<td>jgc</td>
+<td>Alias console.groupEnd</td>
+<td></td>
+</tr>
+<tr>
+<td>arr</td>
+<td>Create Array from Iterable</td>
+<td></td>
+</tr>
+<tr>
+<td>unq</td>
+<td>Create Set from Iterable</td>
+<td></td>
+</tr>
+<tr>
+<td>str</td>
+<td>Create Trimmed String</td>
+<td></td>
+</tr>
+<tr>
+<td>jsn</td>
+<td>Alias JSON</td>
+<td></td>
+</tr>
+<tr>
+<td>jso</td>
+<td>Alias JSON.parse</td>
+<td></td>
+</tr>
+<tr>
+<td>jst</td>
+<td>Alias JSON.stringify</td>
+<td></td>
+</tr>
+<tr>
+<td>jsp</td>
+<td>Prettify JSON text</td>
+<td></td>
+</tr>
+<tr>
+<td>ged</td>
+<td>Verify Arg is a Gadget Reference</td>
+<td></td>
+</tr>
+<tr>
+<td>god</td>
+<td>Resolve Gadget ID or Reference</td>
+<td></td>
+</tr>
+<tr>
+<td>remove_prefix_N</td>
+<td>Remove arbitrary length prefix</td>
+<td></td>
+</tr>
+<tr>
+<td>remove_prefix_2</td>
+<td>Remove 2-character prefix</td>
+<td></td>
+</tr>
+<tr>
+<td>remove_prefix_3</td>
+<td>Remove 3-character prefix</td>
+<td></td>
+</tr>
+<tr>
+<td>CHECKBOX</td>
+<td>Checkbox Prefix Literal</td>
+<td></td>
+</tr>
+<tr>
+<td>checkbox</td>
+<td>Insert checkbox prefix</td>
+<td></td>
+</tr>
+<tr>
+<td>remove_checkbox</td>
+<td>Remove checkbox prefix</td>
+<td></td>
+</tr>
+<tr>
+<td>read_title</td>
+<td>Read Nav Link Title (removes prefix)</td>
+<td></td>
+</tr>
+<tr>
+<td>read_titles</td>
+<td>Read all Nav Link Titles (removes prefix)</td>
+<td></td>
+</tr>
+<tr>
+<td>title_checklist</td>
+<td>Generate Nav Link Title Checklist</td>
+<td></td>
+</tr>
+<tr>
+<td>manuscript</td>
+<td>Compose Manuscript</td>
+<td></td>
+</tr>
+<tr>
+<td>resolve_ioc</td>
+<td>Resolve sip/sop/code editor references</td>
+<td></td>
+</tr>
+<tr>
+<td>resolve_ioc</td>
+<td>Resolve hdrs array</td>
+<td></td>
+</tr>
+<tr>
+<td>resolve_hdr</td>
+<td>Resolve Header by Index</td>
+<td></td>
+</tr>
+<tr>
+<td>read_hdr</td>
+<td>Read Header Text by Index</td>
+<td></td>
+</tr>
+<tr>
+<td>write_hdr</td>
+<td>Write Header Text by Index</td>
+<td></td>
+</tr>
+<tr>
+<td>apply_manuscript</td>
+<td>Apply Manuscript to Web App</td>
+<td></td>
+</tr>
+<tr>
+<td>edit_manuscript</td>
+<td>Write Manuscript to Editor</td>
+<td></td>
+</tr>
+<tr>
+<td>request_manuscript</td>
+<td>Request Manuscript from Remote Server</td>
+<td></td>
+</tr>
+<tr>
+<td>read_marker_comments</td>
+<td>Read Marker Comments</td>
+<td></td>
+</tr>
+<tr>
+<td>test_markers</td>
+<td>Text Marker Ops</td>
+<td></td>
+</tr>
+<tr>
+<td>enclose</td>
+<td>Enclose Single String</td>
+<td></td>
+</tr>
+<tr>
+<td>enclose_lines</td>
+<td>Enclose All Editor Lines</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1>[?] PMS Notes</h1>
+<hr>
+<h2>[x] Hysteresis Editor Scraper</h2>
+<hr>
+<blockquote>
+<p>I've written code for Hysteresis that reads all editors
+and extracts <code>PEACH_KEY</code> or <code>STORE_KEY</code>. This needs to be
+located. Use this tool to fill in the tables on this page.</p>
+</blockquote>
+<hr>
+<h1>[x] JavaScript Gems</h1>
+<hr>
+<blockquote>
+<p>There's a <code>Gem</code> subfolder for the <code>Peach Cloud Store</code>. As a
+temporary measure, I'm embedding some Gems in this document.</p>
+</blockquote>
+<hr>
+<h2>nop() ~ No Operation</h2>
+<hr>
+<pre><code class="language-javascript">
+PEACH_KEY = ( `some-peach.js` );
+
+// App = Hysteresis
+nop = function() {
+   blurt( `Loaded ${PEACH_KEY} peach` );
+}
+
+</code></pre>
+<hr>
+<blockquote>
+<p><a href="http://dave-legacy/app/thalia/notes/manuscripts-001.html" title="Home Page">Home</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><a href="./">Explore</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>( <code>manuscripts-001.md</code> ) ~ ( <code>app/thalia/notes</code> ) ~ ( <code>dave-legacy</code> )</p>
+</blockquote>
+<hr>
+<!-- ~~~~~~~~~~~~~~ [[ SUPPORT API MODULES ]] ~~~~~~~~~~~~~~ -->
+
+<script src="http://dave-legacy/app/zed/api/prolog.js">
+</script>
+
+<script src="http://dave-legacy/~/api/just/lando.js">
+</script>
+
+<script src="http://dave-legacy/~/api/just/replace-decals.js">
+</script>
+
+<script src="http://dave-legacy/~/api/just/simple-messaging.js">
+</script>
+
+<script src="http://dave-legacy/~/api/transport/open-file-3.js">
+</script>
+
+<script src="http://dave-legacy/~/api/transport/zapper.js">
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~ [[ PAGE LOAD EVENT ]] ~~~~~~~~~~~~~~~~ -->
+
+<script file="app-logic.js" hint="Page Initialization">
+function main() {
+    doc . title = page_title.textContent.trim();
+    replaceHeaderDecals();
+    replaceListDecals();
+}
+</script>
+
+<script file="app-logic.js" hint="Page Load Event Handler">
+function __init__( event ) { lando( main ); }
+</script>
+
+<script file="app-logic.js" hint="Page Load Event Listener">
+addEventListener( "load", __init__ );
+</script>
+
+<!-- ~~~~~~~~~~~~~~~ [[ APPLICATION LOGIC ]] ~~~~~~~~~~~~~~~ -->
+
+</body>
+</html>
