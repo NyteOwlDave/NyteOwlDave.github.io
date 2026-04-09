@@ -321,6 +321,66 @@ function saveThaliaNotes() {
 </details>
 
 <hr>
+<details>
+<summary>
+Thalia's Helpers (thalia-helpers.js)
+</summary>
+<div center>
+<pre>
+
+RS = "\n";
+
+arr =( o  )=> Array.from( o );
+unq =( o  )=> ( new Set( o ) );
+
+con = console;
+doc = document;
+stg = localStorage;
+wnd = window;
+
+elx =( nt )=> doc.createElement ( nt );
+ebi =( id )=> doc.getElementById( id );
+one =( qu )=> doc.querySelector( qu );
+all =( qu )=> arr( doc.querySelectorAll( qu ) );
+
+resolve = function( o ) {
+    return (
+        ( o instanceof HTMLElement ) 
+      ? ( o )
+      : ( ebi( o ) )
+    )
+};
+
+run =( ed )=> window.eval( resolve( ed ).value );
+
+readLines = function( o ) {
+   o = resolve( o );
+   return ( 
+      ( o.value.trim() )
+      . split( RS )
+      . map( s => s.trim() )
+      . filter( s => ( !!s ) ) 
+   );
+};
+
+writeLines = function( o, list ) {
+   resolve( o )
+   . value = list.join( RS );
+};
+
+sortEditor = function( o ) {
+   o = resolve( o || "sip" );
+   let list = readLines( o );
+   writeLines( o, list.sort() );
+}
+
+"OK!";
+
+</pre>
+</div>
+</details>
+
+<hr>
 <blockquote>
 <p><a href="./">Explore</a></p>
 </blockquote>
