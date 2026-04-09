@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+/*
+
+  plain.css
+  Basic Web Page Style
+
+*/
+
+:root {
+    --fgc : mintcream;
+    --bgc : #114;
+}
+
+[center] { text-align : center; }
+
+@keyframes blossom {
+    from {
+        box-shadow : none;
+        transform  : scale( 1.0 );
+    }
+    to {
+        box-shadow : 0 0 20px gold;
+        transform  : scale( 1.2 );
+    }
+}
+
+.error {
+    background-color : red    !important;
+    color            : yellow !important;
+    text-shadow      : 0 0 2px black;
+}
+
+html, body {
+    color : var( --fgc );
+    background-color : var( --bgc );
+}
+
+body {
+    margin-top    : 82px;
+    margin-bottom : 82vh;
+}
+
+header , footer {
+    position : fixed;
+    left     : 0;
+    width    : 100%;
+    margin   : 0;
+    border   : none;
+    text-align : center;
+    z-index : 100;
+    color : #111E;
+    background-color : #FFAD;
+    padding : 1.1ch;
+}
+
+header {
+    top : 0;
+}
+
+footer {
+    bottom : 0;
+}
+
+hr {
+   background-color : var( --hrc );
+   border : none;
+   border-bottom : 1px solid #1142;
+}
+
+h1, h2, h3, h4, h5, h6,
+fieldset,
+figure {
+    text-align : center;
+}
+
+blockquote em {
+    border : 1px solid #9728;
+    border-radius : 2ch;
+    margin  : 0;
+    padding : 1ch;
+    display : inline-block;
+    width : calc( 100% - 2ch );
+    text-align : center;
+    font-style : normal;
+    text-decoration : none;
+    font-size : xx-large;
+    font-weight : 700;
+    color : #CC8A;
+    background-color : #AA02;
+    box-shadow : 0 0 16px #002;
+}
+
+pre {
+    padding       : 0.25ch;
+    padding-left  : 1.5ch;
+    padding-right : 1.5ch;
+    overflow-x : auto scroll;
+    overflow-y : auto scroll;
+    max-height : calc( 100vh - 200px );
+    min-height : calc( 20px  );
+    background-color : #1104;
+}
+
+pre:not([contenteditable]):hover {
+    background-color : #E724;
+}
+
+textarea:focus ,
+pre:focus {
+    background-color : #DE93;
+}
+
+textarea:hover ,
+pre[contenteditable]:hover {
+    background-color : #9EA4;
+}
+
+[contenteditable] {
+    border : 1px dashed gold;
+    cursor : pointer;
+}
+
+ol, ul {
+    margin  : 10px;
+    background-color : #4415;
+    border-radius : 1.2ch;
+    border : 1px dotted gold;
+    padding : 1.2ch;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+ol {
+    text-align : center;
+}
+
+ol li {
+    display : inline-block;
+    margin  : 2px;
+    background-color : transparent;
+    color : inherit;
+}
+
+ol li a {
+    min-width : 18ch;
+    max-width : 18ch;
+}
+
+a[href] ,
+button[onclick] {
+    display : inline-block;
+    cursor  : pointer;
+    border  : none;
+    outline : none;
+    border-radius : 2.2ch;
+    padding : 0.42ch;
+    padding-left  : 2.2ch;
+    padding-right : 2.2ch;
+    margin : 2px;
+    color  : lemonchiffon;
+    background-color : #ED58;
+    text-shadow : 0 0 2px black;
+    text-decoration : none !important;
+}
+
+button:hover  ,
+a[href]:hover {
+    display    : inline-block;
+    cursor     : pointer;
+    animation  : linear 0.15s blossom forwards;
+}
+
+code, var {
+    color : #AFF9;
+    text-shadow : 0 0 1px black
+}
+
+u, i, b, em ,
+strong {
+    color : gold;
+    text-shadow : 0 0 1px black
+}
+
+p {
+    padding : 1px;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>thalias-faves</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<style>
+html, body {
+    text-align : center;
+}
+summary[big] {
+    font : 24px sans-serif;
+}
+summary {
+    cursor : pointer;
+    color  : gold;
+}
+</style>
+
+<!doctype mkd>
+
+<hr>
+<header>
+    Thalia's Faves
+</header>
+
+<hr>
+<details>
+<summary big>Indy Datalist Links</summary>
+<h3>STORE_KEY =: thalias-faves.html</h3>
+<nav>
+ <a title="Home Site" href="http://dave-legacy/app/thalia/">Legacy</a>
+ <a title="Zed Editor" href="http://dave-legacy/app/zed/zed-demo.html">Zed</a>
+ <a title="Elmer ~ Legacy" href="http://dave-legacy/app/elmer/">Elmer</a>
+ <a title="Indy ~ Legacy" href="http://dave-legacy/app/">Indy</a>
+ <a title="Sulu Navigator" href="http://dave-legacy/nav/">Sulu</a>
+ <a title="Calliope Decals" href="http://dave-legacy/app/calliope/">Calliope</a>
+ <a title="Chronos" href="http://dave-omega/app/chronos/chronos.html">Chronos</a>
+ <a title="Dave's Notes" href="http://tiny.cc/daves-notes">Dave's Notes</a>
+ <a title="Web Dev @ MDN" href="https://developer.mozilla.org/en-US/docs/Web/">MDN</a>
+ <a title="PSK Example @ Legacy" href="http://dave-legacy/~/examples/psk.html">PSK</a>
+</nav>
+</details>
+
+<hr>
+<blockquote>
+<p><a href="./">Explore</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>( <code>thalias-faves.md</code> )
+~ ( <code>app/thalia/notes</code> )
+~ ( <code>dave-legacy</code> )</p>
+</blockquote>
+<hr>
+<script>
+doc = document;
+doc . title = "Thalia's Faves";
+</script>
+
+</body>
+</html>
