@@ -1,11 +1,17 @@
 <!doctype mkd>
 
 <style group="Every Page Theme" host="dave-legacy">
-@import url("http://dave-legacy/~/style/every-page.css")
+@import url("https://nyteowldave.github.io/std/style/every-page.css")
 </style>
 
-<style group="Every Page Theme" host="dave-legacy">
-@import url("http://dave-legacy/~/style/every-page-todo.css")
+<!-- [ TEMPORARY HACKS ]] -->
+<style>
+pre {
+    max-height : 64vh;
+    overflow : scroll;
+    text-align : left;
+    font : 12pt monospace;
+}
 </style>
 
 ----------------------------------------------------------------
@@ -23,6 +29,19 @@
 > Version 1.1 and 2.0 still reference CSS files located
 > on Dave's Tower. This host is out of service. The
 > missing links cause severely degraded load times.
+
+----------------------------------------------------------------
+
+# Common Themes
+
+----------------------------------------------------------------
+
+> I've already begun working on a fix for the CSS issue.
+> There's a mini-project named __Common Themes__. This new
+> project contains the essential themes for all of my never
+> Web Pages. It's located in `JEFR's Notes` of the `Legacy`
+> host. This document references the URL where the uploaded
+> combination `CSS` file should be stored in `Morpheus`.
 
 ----------------------------------------------------------------
 
