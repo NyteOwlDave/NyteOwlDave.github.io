@@ -17,7 +17,7 @@ function karlita( event ) {
         }
         if ( code === ascii( "Z" ) ) {
             mine( event );
-            exec( ed );
+            zoom( ed );
             return;
         }
         if ( code === ascii( "X" ) ) {
@@ -316,6 +316,7 @@ addEventListener( "load" , function() {
 // + exec | Run Editor content as JavaScript
 function exec( ge ) {
     try {
+        ge.prior = ( ge.input || "" );
         ge.input = ge.value;
         ge.output = window.eval( ge.input );
         delete ge.error;
