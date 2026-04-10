@@ -8,7 +8,16 @@ function karlita( event ) {
     if ( is_modifier( code ) ) return;
     if ( event.ctrlKey  ) return;
     if ( event.metaKey  ) return;
-    if ( event.shiftKey ) return;
+    if ( event.shiftKey ) {
+        if ( event.altKey ) {
+            if ( code === 46 ) {
+                mine( event );
+                ed.remove();
+                return;
+            }
+        }
+        return;
+    }
     if ( event.altKey ) {
         if ( code === 13 ) {
             mine( event );
@@ -62,6 +71,7 @@ karlita.hotkeys = {
 , "ALT+X" : "Exchange Memo"
 , "ALT+R" : "Read Store Entry"
 , "ALT+W" : "Write Store Entry"
+, "ALT+SHIFT+DELETE" : "Remove Editor"
 };
 
 // + karlita.links | Links to related content
