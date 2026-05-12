@@ -40,6 +40,7 @@
 ----------------------------------------------------------------
 
 > [Explore](./)
+> [Tables](./karlita-tables.html)
 > [Editions](./karlita-editions.html)
 > [Home](https://nyteowldave.github.io/chachi/api/karlita-editor.html)
 > [Whiteboard][wbrd]
@@ -78,6 +79,7 @@ function on_math( event ) {
 <script>
 function main( event ) {
     try {
+        doc . title = page_title.textContent;
         init_editor( sce );
         ready( "Ready for Action!" );
     } catch ( e ) {

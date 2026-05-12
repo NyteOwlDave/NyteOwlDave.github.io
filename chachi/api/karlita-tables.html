@@ -194,7 +194,7 @@ p {
 
 </style>
 <meta name="generator" content="ReText 7.2.3">
-<title>karlita-editor</title>
+<title>karlita-tables</title>
 <style type="text/css">
 </style>
 </head>
@@ -210,7 +210,7 @@ p {
 
 <hr>
 <header id="page_title">
-    🦩 Karlita Sandbox ~ Morpheus Edition
+    🦩 Karlita Notes ~ Morpheus Edition
 </header>
 
 <footer id="footer">
@@ -219,25 +219,192 @@ p {
 </footer>
 
 <hr>
-<fieldset center>
-<legend> Karlita Sandbox </legend>
-<div>
-  <textarea id="sce"></textarea>
-</div>
-<div>
-  <button onclick="on_zoom(event)">Zoom</button>
-  <button onclick="on_exec(event)">Run</button>
-  <button onclick="on_math(event)">Math</button>
-</div>
-</fieldset>
+<h1>KarlitaOps Member Tables</h1>
+<hr>
+<article center>
+These members are accessed via the <code>KarlitaOps</code>
+accessor object.
+</article>
 
 <hr>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Action Taken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ascii</td>
+<td>ASCII Code from Character</td>
+</tr>
+<tr>
+<td>create_editor_manuscript</td>
+<td>Create Editor Manuscript</td>
+</tr>
+<tr>
+<td>exec</td>
+<td>Execute Editor Content as JS</td>
+</tr>
+<tr>
+<td>get_store</td>
+<td>Obtain Store Reference</td>
+</tr>
+<tr>
+<td>init_editor</td>
+<td>Initialize Editor Gadget</td>
+</tr>
+<tr>
+<td>input_store_key</td>
+<td>Input Editor Key Property</td>
+</tr>
+<tr>
+<td>is_modifier</td>
+<td>Verify Modifier Key Code</td>
+</tr>
+<tr>
+<td>karlita</td>
+<td>Key Down Event Handler</td>
+</tr>
+<tr>
+<td>members</td>
+<td>Obtain List of Object Members</td>
+</tr>
+<tr>
+<td>mine</td>
+<td>Signal Event as Handled</td>
+</tr>
+<tr>
+<td>persist_editor</td>
+<td>Write Editor Content to Store</td>
+</tr>
+<tr>
+<td>recover_editor</td>
+<td>Read Editor Content from Store</td>
+</tr>
+<tr>
+<td>replace_text</td>
+<td>Replace Selected Editor Text</td>
+</tr>
+<tr>
+<td>swap_memo</td>
+<td>Swap Editor Content with Memo</td>
+</tr>
+<tr>
+<td>unzoom</td>
+<td>Unzoom Editor Gadget</td>
+</tr>
+<tr>
+<td>zoom</td>
+<td>Zoom Editor Gadget</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1>Karlita Member Tables</h1>
+<hr>
+<article center>
+These members are accessed via the <code>karlita</code> method,
+which doubles as an accessor.
+</article>
+
+<hr>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Action Taken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>acquire</td>
+<td>Acquire API Module</td>
+</tr>
+<tr>
+<td>edit</td>
+<td>Request Remote Content for Editor</td>
+</tr>
+<tr>
+<td>math</td>
+<td>Acquire math.js API Module</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Show Message or Alert Popup</td>
+</tr>
+<tr>
+<td>request</td>
+<td>Download Remote Content</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hotkeys</td>
+<td>object</td>
+<td>Hot Key Map</td>
+</tr>
+<tr>
+<td>links</td>
+<td>object</td>
+<td>URL Address Map</td>
+</tr>
+<tr>
+<td>tidate</td>
+<td>string</td>
+<td>Registration Date</td>
+</tr>
+<tr>
+<td>tikey</td>
+<td>string</td>
+<td>Registration Key</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>API Title</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>string</td>
+<td>Date of Change</td>
+</tr>
+<tr>
+<td>version</td>
+<td>string</td>
+<td>Version Number</td>
+</tr>
+</tbody>
+</table>
+<hr>
 <blockquote>
-<p><a href="./">Explore</a>
-<a href="./karlita-tables.html">Tables</a>
-<a href="./karlita-editions.html">Editions</a>
-<a href="https://nyteowldave.github.io/chachi/api/karlita-editor.html">Home</a>
-<a href="https://whiteboard.cloud.microsoft/me/whiteboards/6729c449-c4df-4795-9b02-0fc607d1feed" title="API Modules Whiteboard">Whiteboard</a></p>
+<p><a href="./karlita-editor.html">Editor</a></p>
 </blockquote>
 <hr>
 <script src="https://nyteowldave.github.io/chachi/api/zed-prolog.js"></script>
@@ -245,36 +412,9 @@ p {
 <script src="https://nyteowldave.github.io/chachi/api/karlita-editor.js"></script>
 
 <script>
-function on_zoom( event ) {
-    try {
-        zoom( sce );
-    } catch ( e ) {
-        fatal ( e );
-    }
-}
-function on_exec( event ) {
-    try {
-        exec( sce );
-    } catch ( e ) {
-        fatal ( e );
-    }
-}
-function on_math( event ) {
-    try {
-        karlita.math();
-        remark( `Loading Math API Module` );
-    } catch ( e ) {
-        fatal ( e );
-    }
-}
-</script>
-
-<script>
 function main( event ) {
     try {
-        doc . title = page_title.textContent;
-        init_editor( sce );
-        ready( "Ready for Action!" );
+        document . title = page_title.textContent;
     } catch ( e ) {
         fatal ( e );
     }
