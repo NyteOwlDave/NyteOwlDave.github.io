@@ -199,17 +199,18 @@ p {
 </style>
 </head>
 <body>
-<style group="Every Page Theme" host="dave-legacy">
-@import url("http://dave-legacy/~/style/every-page.css")
+<style>
+@import url("https://nyteowldave.github.io/std/style/every-page.css");
+@import url("https://nyteowldave.github.io/std/style/noto-mono.css");
 </style>
 
-<style group="Every Page Theme" host="dave-legacy">
-@import url("http://dave-legacy/~/style/every-page-todo.css")
-</style>
+<script>
+; iwm = Object.keys( window ).sort();
+</script>
 
 <hr>
 <header id="page_title">
-    Justin API Modules
+    🦩 Karlita Sandbox ~ Morpheus Edition
 </header>
 
 <footer id="footer">
@@ -224,21 +225,48 @@ p {
   <textarea id="sce"></textarea>
 </div>
 <div>
-  <button onclick="zoom(sce)">Zoom</button>
-  <button onclick="exec(sce)">Run</button>
+  <button onclick="on_zoom(event)">Zoom</button>
+  <button onclick="on_exec(event)">Run</button>
+  <button onclick="on_math(event)">Math</button>
 </div>
 </fieldset>
 
 <hr>
 <blockquote>
 <p><a href="./">Explore</a>
-<a href="http://dave-legacy/~/api/just/karlita-editor.html">Home</a>
+<a href="./karlita-editions.html">Editions</a>
+<a href="https://nyteowldave.github.io/chachi/api/karlita-editor.html">Home</a>
 <a href="https://whiteboard.cloud.microsoft/me/whiteboards/6729c449-c4df-4795-9b02-0fc607d1feed" title="API Modules Whiteboard">Whiteboard</a></p>
 </blockquote>
 <hr>
-<script src="http://dave-legacy/app/zed/api/prolog.js"></script>
-<script src="http://dave-legacy/~/api/just/simple-messaging.js"></script>
-<script src="./karlita-editor.js"></script>
+<script src="https://nyteowldave.github.io/chachi/api/zed-prolog.js"></script>
+<script src="https://nyteowldave.github.io/chachi/api/simple-messaging.js"></script>
+<script src="https://nyteowldave.github.io/chachi/api/karlita-editor.js"></script>
+
+<script>
+function on_zoom( event ) {
+    try {
+        zoom( sce );
+    } catch ( e ) {
+        fatal ( e );
+    }
+}
+function on_exec( event ) {
+    try {
+        exec( sce );
+    } catch ( e ) {
+        fatal ( e );
+    }
+}
+function on_math( event ) {
+    try {
+        karlita.math();
+        remark( `Loading Math API Module` );
+    } catch ( e ) {
+        fatal ( e );
+    }
+}
+</script>
 
 <script>
 function main( event ) {

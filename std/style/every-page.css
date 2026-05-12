@@ -91,7 +91,7 @@ pre {
     padding-right : 1.5ch;
     overflow      : scroll;
     max-height    : calc( 100vh - 200px );
-    min-height    : calc( 20px  );
+    min-height    : calc( 20px );
     background-color : #1104;
 }
 
@@ -101,12 +101,14 @@ pre:not([contenteditable]):hover {
 
 textarea:focus ,
 pre:focus {
-    background-color : #DE93;
+    background-color : lemonchiffon;
+    color : midnightblue;
 }
 
 textarea:hover ,
 pre[contenteditable]:hover {
-    background-color : #9EA4;
+    background-color : lemonchiffon;
+    color : midnightblue;
 }
 
 [contenteditable] {
@@ -381,6 +383,12 @@ summary:hover {
     display    : inline-block;
     max-width  : 42%;
     max-height : 40vh;
+}
+
+.siox:focus, 
+.zeddicus:focus {
+    background-color : mintcream;
+    color : midnightblue;
 }
 
 .hide ,

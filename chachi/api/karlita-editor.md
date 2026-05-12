@@ -1,11 +1,7 @@
 
-<style group="Every Page Theme" host="dave-legacy">
-@import url("http://dave-legacy/~/style/every-page.css")
-@import url("http://dave-legacy/~/style/every-page-todo.css")
-</style>
-
-<style group="Every Page Theme" host="dave-legacy">
-@import url("https://nyteowldave.github.io/std/style/every-page.css")
+<style>
+@import url("https://nyteowldave.github.io/std/style/every-page.css");
+@import url("https://nyteowldave.github.io/std/style/noto-mono.css");
 </style>
 
 <script>
@@ -15,7 +11,7 @@
 ----------------------------------------------------------------
 
 <header id="page_title">
-    Karlita Sandbox ~ Morpheus Edition
+    🦩 Karlita Sandbox ~ Morpheus Edition
 </header>
 
 <footer id="footer">
@@ -35,8 +31,9 @@
   <textarea id="sce"></textarea>
 </div>
 <div>
-  <button onclick="zoom(sce)">Zoom</button>
-  <button onclick="exec(sce)">Run</button>
+  <button onclick="on_zoom(event)">Zoom</button>
+  <button onclick="on_exec(event)">Run</button>
+  <button onclick="on_math(event)">Math</button>
 </div>
 </fieldset>
 
@@ -52,6 +49,31 @@
 <script src="https://nyteowldave.github.io/chachi/api/zed-prolog.js"></script>
 <script src="https://nyteowldave.github.io/chachi/api/simple-messaging.js"></script>
 <script src="https://nyteowldave.github.io/chachi/api/karlita-editor.js"></script>
+
+<script>
+function on_zoom( event ) {
+    try {
+        zoom( sce );
+    } catch ( e ) {
+        fatal ( e );
+    }
+}
+function on_exec( event ) {
+    try {
+        exec( sce );
+    } catch ( e ) {
+        fatal ( e );
+    }
+}
+function on_math( event ) {
+    try {
+        karlita.math();
+        remark( `Loading Math API Module` );
+    } catch ( e ) {
+        fatal ( e );
+    }
+}
+</script>
 
 <script>
 function main( event ) {
