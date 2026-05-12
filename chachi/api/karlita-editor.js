@@ -131,6 +131,12 @@ karlita.acquire = function( url ) {
     return ( mod );
 };
 
+karlita.math = function() {
+    const url = karlita.links.mathjs;
+    console.info( "Acquiring Math JS" );
+    return ( karlita.acquire( url ) );
+};
+
 // + karlita.edit | Edit Karlita's API Module
 karlita.edit = function( ed, url ) {
 	url = ( url || karlita.links.morpheus );
