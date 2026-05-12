@@ -58,8 +58,8 @@ function karlita( event ) {
 // + karlita.tikey   | Registration ID
 
 karlita.title   = "Karlita Editor";
-karlita.version = "1.0";
-karlita.updated = "2026-APR-08";
+karlita.version = "1.1";
+karlita.updated = "2026-MAY-12";
 karlita.tidate  = "2026-APR-08";
 karlita.tikey   = "35700578-333e-11f1-b3e1-cf7a2b15b449";
 
@@ -82,6 +82,7 @@ karlita.links = {
 , "cloud"      : "http://dave-legacy/jefr/dot/pending.html"
 , "morpheus"   : "https://nyteowldave.github.io/chachi/api/karlita-editor.js"
 , "whiteboard" : "https://whiteboard.cloud.microsoft/me/whiteboards/6729c449-c4df-4795-9b02-0fc607d1feed"
+, "mathjs"     : "https://unpkg.com/mathjs@14.5.2/lib/browser/math.js"
 };
 
 // + karlita.message | Alert or message (if available)
@@ -108,6 +109,26 @@ karlita.request = function( url, accept, reject ) {
 	. then  ( r => r.text() )
 	. then  ( accept )
 	. catch ( reject );
+};
+
+// + karlita.acquire | Import API Module
+karlita.acquire = function( url ) {
+    const doc = document;
+    const elx =( t )=> doc.createElement( t );
+    const arr =( o )=> Array.from( o );
+    const all =( q )=> arr( doc.querySelectorAll( q ) );
+    const want =( o )=> ( o.src === url );
+    const mods = ( 
+        all( "SCRIPT" ) 
+        . filter( want )
+    );
+    if ( mods.length ) {
+        mods[ 0 ].remove();
+    }
+    const mod = elx( "SCRIPT" );
+    doc.head.appendChild( mod );
+    mod.src = ( url );
+    return ( mod );
 };
 
 // + karlita.edit | Edit Karlita's API Module
@@ -145,7 +166,7 @@ function replace_text( ed, t ) {
     const old = ed.value;
     const n = ed.selectionStart;
     ed.value = [
-         old.slice( 0, n ) 
+         old.slice( 0, n )
        , old.slice( ed.selectionEnd )
     ] . join( t );
     ed.selectionStart =
@@ -310,16 +331,16 @@ zoom.style = ( `
 zoom.init = function() {
     const doc = document;
     const he = doc.querySelector( "HEAD" );
-    const se = he.appendChild( 
+    const se = he.appendChild(
         doc.createElement( "STYLE" )
     );
-    se.innerHTML = [ 
-      	  zoom.style 
+    se.innerHTML = [
+      	  zoom.style
     	, swap_memo.style
     ] . join( "\n" );
 };
 
-addEventListener( "load" , function() { 
+addEventListener( "load" , function() {
     zoom.init();
 } );
 
@@ -338,7 +359,31 @@ function exec( ge ) {
     return ( ge );
 }
 
-console.log( `📝 Loaded karlita-editor.js API Module` );
-console.info( `🧙‍ Remember to call init_editor() ...` );
+KarlitaOps = {
+  karlita
+, mine, ascii
+, is_modifier
+, replace_text, init_editor
+, swap_memo, exec, zoom, unzoom
+, get_store
+, persist_editor
+, recover_editor
+, input_store_key
+, create_editor_manuscript
+, members : function( o ) {
+    o = (
+          ( o instanceof Object )
+        ? ( o )
+        : ( KarlitaOps )
+    );
+    return (
+        Object
+        . keys( o )
+        . sort()
+    );
+}
+};
 
+console.info( `📝 Loaded "karlita-editor.js" API Ⓜ️ Module` );
+console.info( `🧙‍ Remember to call KarlitaOps.init_editor() ...` );
 
