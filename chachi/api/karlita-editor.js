@@ -11,8 +11,14 @@ function karlita( event ) {
     if ( event.shiftKey ) {
         if ( event.altKey ) {
             if ( code === 46 ) {
-                mine( event );
+                mine( event );                
+                const sib = ( 
+                     ed.previousSibling 
+                  || ed.nextElementSibling
+                  || document.querySelector( "TEXTAREA" )
+                );
                 ed.remove();
+                if ( sib ) { sib.focus(); }
                 return;
             }
         }
@@ -141,8 +147,13 @@ karlita.math = function() {
 karlita.edit = function( ed, url ) {
 	url = ( url || karlita.links.morpheus );
 	function accept( s ) {
-		if ( ed ) { ed.value = s; }
-		else { console.info( s ); }
+		if ( ed ) { 
+            ed.value = s; 
+            ed.address = url;
+        }
+		else { 
+            console.info( s );
+        }
 	}
 	return karlita.request( url, accept );
 };
