@@ -73,3 +73,5 @@ function karlita_extender( event ) {
 
 addEventListener( "keydown", karlita_extender );
 
+console.info( `🦩 Loaded "karlita-extender.js" API Ⓜ️ Module` );
+

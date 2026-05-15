@@ -265,6 +265,7 @@ function persist_editor( ed ) {
             karlita.message( "Cancelled" );
             return;
         }
+        const man = create_editor_manuscript( ed );
         const v = JSON.stringify( man, null, 2 );
         store.setItem( k, v );
         karlita.message( `Wrote "${k}" to Store` );
@@ -401,6 +402,6 @@ KarlitaOps = {
 }
 };
 
-console.info( `📝 Loaded "karlita-editor.js" API Ⓜ️ Module` );
+console.info( `🦩 Loaded "karlita-editor.js" API Ⓜ️ Module` );
 console.info( `🧙‍ Remember to call KarlitaOps.init_editor() ...` );
 
