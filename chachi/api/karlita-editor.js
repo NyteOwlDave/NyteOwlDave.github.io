@@ -13,6 +13,12 @@ function karlita( event ) {
             if ( code === 46 ) {
                 mine( event );
                 if ( ed.locked ) { return; }
+                if ( ed.hasAttribute( "locked" ) ) {
+                    return;
+                }
+                if ( ed.classList.contains( "locked" ) ) {
+                    return;
+                }
                 const sib = ( 
                      ed.previousSibling 
                   || ed.nextElementSibling
