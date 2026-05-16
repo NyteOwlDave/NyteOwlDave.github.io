@@ -25,7 +25,7 @@ function karlita( event ) {
                   || document.querySelector( "TEXTAREA" )
                 );
                 ed.remove();
-                if ( sib ) { sib.focus(); }
+                if ( sib && sib.focus ) { sib.focus(); }
                 return;
             }
         }
