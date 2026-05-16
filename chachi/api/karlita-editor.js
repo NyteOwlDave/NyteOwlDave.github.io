@@ -11,7 +11,8 @@ function karlita( event ) {
     if ( event.shiftKey ) {
         if ( event.altKey ) {
             if ( code === 46 ) {
-                mine( event );                
+                mine( event );
+                if ( ed.locked ) { return; }
                 const sib = ( 
                      ed.previousSibling 
                   || ed.nextElementSibling

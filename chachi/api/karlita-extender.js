@@ -9,6 +9,13 @@ function karlita_extender( event ) {
     if ( ge.nodeName !== "TEXTAREA" ) {
         return;
     }
+    const ops = karlita_extender;
+    if ( "function" === typeof ops.client ) {
+        ops.client( event );
+        if ( event.defaultPrevented ) {
+            return;
+        }
+    }
     if ( event.ctrlKey || event.metaKey ) {
         return;
     }
@@ -70,6 +77,9 @@ function karlita_extender( event ) {
         return mine( event );
     }
 };
+
+karlita_extender.client = null;
+
 
 addEventListener( "keydown", karlita_extender );
 
