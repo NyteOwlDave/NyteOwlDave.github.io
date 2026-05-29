@@ -49,12 +49,12 @@ function karlita( event ) {
         }
         if ( code === ascii( "R" ) ) {
             mine( event );
-            persist_editor( ed );
+            recover_editor( ed );
             return;
         }
         if ( code === ascii( "W" ) ) {
             mine( event );
-            recover_editor( ed );
+            persist_editor( ed );
             return;
         }
     }
