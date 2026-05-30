@@ -71,12 +71,12 @@ function karlita_extender( event ) {
     function edit_ok( o, id ) {
         if ( "function" !== typeof zed ) {
             const c = console;
+            c.clear();
             c.group( id );
-            if ( Array.isArray( o ) ) {
-                c.table( o );
-            } else {
-                c.log( o );
+            if (! Array.isArray( o ) ) {
+                o = ops.tabbify( o );
             }
+            c.table( o );
             c.groupEnd();
             karlita.message( `See the Console for Results` );
             return ( false );
@@ -119,6 +119,37 @@ karlita_extender.hotkeys = {
 , "ALT+M" : "Edit Karlita Members"
 , "ALT+SHIFT+DELETE" : "Remove Editor"
 , "ALT+SHIFT+INSERT" : "New Editor"
+};
+
+karlita_extender.tabbify = function( o, rex ) {
+    const ops = karlita_extender;
+    const m = Object.keys( o );
+    const u = ops.filter( m, rex );
+    return (
+        ( u )
+        . sort( )
+        . map( 
+            k => {
+                const v = ( o[ k ]   );
+                const t = ( typeof v );
+                return ( [ t, k, v ] );
+            }            
+        )
+    );
+};
+
+karlita_extender.filter = function( list, rex ) {
+    if ( rex ) {
+        rex = new RegExp( rex );
+        return ( 
+            ( list )
+            . map( 
+                k => ( rex.test( k ) ) 
+            )
+        );
+    } else {
+        return ( list );
+    }
 };
 
 addEventListener( "keydown", karlita_extender );
