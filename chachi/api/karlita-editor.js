@@ -265,13 +265,23 @@ function create_editor_manuscript( ed ) {
 }
 
 // + persist_editor | Write editor manuscript to store
-function persist_editor( ed ) {
+function persist_editor( ed, silent ) {
+    let k;
     const store = get_store();
     if ( store ) {
-        const k = input_store_key( ed );
-        if (! k ) {
-            karlita.message( "Cancelled" );
-            return;
+        if ( silent ) {
+            k = ed . store_key;
+            if (! k ) {
+                ed . store_key = (
+                    k = ( `karlita-auto-store-key.json` )
+                );
+            }
+        } else {
+            k = input_store_key( ed );
+            if (! k ) {
+                karlita.message( "Cancelled" );
+                return;
+            }
         }
         const man = create_editor_manuscript( ed );
         const v = JSON.stringify( man, null, 2 );
@@ -281,13 +291,24 @@ function persist_editor( ed ) {
 }
 
 // + recover_editor | Read editor manuscript from store
-function recover_editor( ed ) {
+function recover_editor( ed, silent ) {
+    let k;
     const store = get_store();
     if ( store ) {
-        const k = input_store_key( ed );
-        if (! k ) {
-            karlita.message( "Cancelled" );
-            return;
+        if ( silent ) {
+            k = ed . store_key;
+            if (! k ) {
+                console.warn( 
+                    `Editor has no "store_key" property`
+                );
+                return;
+            }
+        } else {
+            k = input_store_key( ed );
+            if (! k ) {
+                karlita.message( "Cancelled" );
+                return;
+            }
         }
         try {
             const v = store.getItem( k );
