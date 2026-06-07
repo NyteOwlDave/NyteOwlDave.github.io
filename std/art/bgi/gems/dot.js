@@ -10,8 +10,8 @@
 function dot( s ) {
     s = ( str( s ) );
     let p = ( location.href ).split( "/" );
-    p.pop();
-    p = .join( "/" );
+    p . pop();
+    p = p.join( "/" );
     if ( s ) {
         let u;
         if ( s.includes( "." ) ) {
