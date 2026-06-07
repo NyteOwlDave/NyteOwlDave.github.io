@@ -1,4 +1,8 @@
 
+<head>
+  <link rel="icon" href="./icons/select-bgi.png" />
+</head>
+
 <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
 <script>
@@ -140,19 +144,37 @@ textarea:hover {
   <img class="icon32" src="https://nyteowldave.github.io/icons/32/hysteresis.png" alt="Hyss">
 </a>
 
-<a f4="" class="fixed" href="https://nyteowldave.github.io/art/std/bgi/select.html" title="Home">
+<a f4="" class="fixed" href="./tree-editor.html" title="Tree Editor">
+  <img class="icon32" src="https://nyteowldave.github.io/icons/32/tree-editor.png" alt="Tred">
+</a>
+
+<a f10="" class="fixed" href="./key-magic.html" title="Key Magic">
+  <img class="icon32" src="https://nyteowldave.github.io/icons/32/key-magic.png" alt="KMagic">
+</a>
+
+<a f11="" class="fixed" href="./dot/chachi.html" title="Chachi Calculator">
+  <img class="icon32" src="https://nyteowldave.github.io/icons/32/chachi.png" alt="Chachi">
+</a>
+
+<a f12="" class="fixed" href="./dot/morpheus.html" title="Morpheus Home">
+  <img class="icon32" src="https://nyteowldave.github.io/icons/32/morpheus.png" alt="Morph">
+</a>
+
+<a f13="" class="fixed" href="https://nyteowldave.github.io/art/std/bgi/select.html" title="Select Background">
   <img class="icon32" src="https://nyteowldave.github.io/icons/32/home-dark.png" alt="Home">
 </a>
 
 <style>
-.icon32 { width : 32px;    }
-.fixed { position : fixed; z-index : 99999; }
-a[f1] { bottom :  50px; right : 10px; }
-a[f2] { bottom : 100px; right : 10px; }
-a[f3] { bottom : 150px; right : 10px; }
-a[f4] { bottom : 200px; right : 10px; }
-a[f5] { bottom : 250px; right : 10px; }
-a[f6] { bottom : 300px; right : 10px; }
+.icon32 { width : 32px; }
+.fixed { position : fixed; z-index : 99999; border : 2px solid black !important; }
+a[f1]  { bottom :  50px; right :  10px; }
+a[f2]  { bottom : 100px; right :  10px; }
+a[f3]  { bottom : 150px; right :  10px; }
+a[f4]  { bottom : 200px; right :  10px; }
+a[f10] { bottom :  50px; right : 100px; }
+a[f11] { bottom : 100px; right : 100px; }
+a[f12] { bottom : 150px; right : 100px; }
+a[f13] { bottom : 200px; right : 100px; }
 </style>
 
 
