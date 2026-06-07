@@ -136,11 +136,11 @@ textarea:hover {
   <img class="icon32" src="https://nyteowldave.github.io/icons/32/math-js.png" alt="MathJS">
 </a>
 
-<a f2="" class="fixed" href="./dot/thalia/" title="Thalia">
+<a f2="" class="fixed" href="./dot/thalia.html" title="Thalia">
   <img class="icon32" src="https://nyteowldave.github.io/icons/32/thalia.png" alt="Thalia">
 </a>
 
-<a f3="" class="fixed" href="./dot/hysteresis/" title="Hysteresis">
+<a f3="" class="fixed" href="./dot/hysteresis.html" title="Hysteresis">
   <img class="icon32" src="https://nyteowldave.github.io/icons/32/hysteresis.png" alt="Hyss">
 </a>
 
