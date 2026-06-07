@@ -1,0 +1,25 @@
+
+/*
+
+    footer-input.css
+
+*/
+
+footer { margin : 0; padding : 5px; }
+
+#footer_input {
+    display : inline-block;
+    width   : calc( 100vw - 40ch );
+    font    : 12pt monospace;
+    outline : none;
+    margin  : 0;
+    background : #080832;
+    color      : #EEFFFF;
+    border-radius : 0;
+    border-top-right-radius : 3ch;
+    border-bottom-right-radius : 3ch;
+    padding : 5px;
+    padding-left  : 1ch;
+    padding-right : 1ch;
+}
+

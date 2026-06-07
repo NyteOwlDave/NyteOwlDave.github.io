@@ -1,0 +1,427 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+/*
+
+  plain.css
+  Basic Web Page Style
+
+*/
+
+:root {
+    --fgc : mintcream;
+    --bgc : #114;
+}
+
+[center] { text-align : center; }
+
+@keyframes blossom {
+    from {
+        box-shadow : none;
+        transform  : scale( 1.0 );
+    }
+    to {
+        box-shadow : 0 0 20px gold;
+        transform  : scale( 1.2 );
+    }
+}
+
+.error {
+    background-color : red    !important;
+    color            : yellow !important;
+    text-shadow      : 0 0 2px black;
+}
+
+html, body {
+    color : var( --fgc );
+    background-color : var( --bgc );
+}
+
+body {
+    margin-top    : 82px;
+    margin-bottom : 82vh;
+}
+
+header , footer {
+    position : fixed;
+    left     : 0;
+    width    : 100%;
+    margin   : 0;
+    border   : none;
+    text-align : center;
+    z-index : 100;
+    color : #111E;
+    background-color : #FFAD;
+    padding : 1.1ch;
+}
+
+header {
+    top : 0;
+}
+
+footer {
+    bottom : 0;
+}
+
+hr {
+   background-color : var( --hrc );
+   border : none;
+   border-bottom : 1px solid #1142;
+}
+
+h1, h2, h3, h4, h5, h6,
+fieldset,
+figure {
+    text-align : center;
+}
+
+blockquote em {
+    border : 1px solid #9728;
+    border-radius : 2ch;
+    margin  : 0;
+    padding : 1ch;
+    display : inline-block;
+    width : calc( 100% - 2ch );
+    text-align : center;
+    font-style : normal;
+    text-decoration : none;
+    font-size : xx-large;
+    font-weight : 700;
+    color : #CC8A;
+    background-color : #AA02;
+    box-shadow : 0 0 16px #002;
+}
+
+pre {
+    padding       : 0.25ch;
+    padding-left  : 1.5ch;
+    padding-right : 1.5ch;
+    overflow-x : auto scroll;
+    overflow-y : auto scroll;
+    max-height : calc( 100vh - 200px );
+    min-height : calc( 20px  );
+    background-color : #1104;
+}
+
+pre:not([contenteditable]):hover {
+    background-color : #E724;
+}
+
+textarea:focus ,
+pre:focus {
+    background-color : #DE93;
+}
+
+textarea:hover ,
+pre[contenteditable]:hover {
+    background-color : #9EA4;
+}
+
+[contenteditable] {
+    border : 1px dashed gold;
+    cursor : pointer;
+}
+
+ol, ul {
+    margin  : 10px;
+    background-color : #4415;
+    border-radius : 1.2ch;
+    border : 1px dotted gold;
+    padding : 1.2ch;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+ol {
+    text-align : center;
+}
+
+ol li {
+    display : inline-block;
+    margin  : 2px;
+    background-color : transparent;
+    color : inherit;
+}
+
+ol li a {
+    min-width : 18ch;
+    max-width : 18ch;
+}
+
+a[href] ,
+button[onclick] {
+    display : inline-block;
+    cursor  : pointer;
+    border  : none;
+    outline : none;
+    border-radius : 2.2ch;
+    padding : 0.42ch;
+    padding-left  : 2.2ch;
+    padding-right : 2.2ch;
+    margin : 2px;
+    color  : lemonchiffon;
+    background-color : #ED58;
+    text-shadow : 0 0 2px black;
+    text-decoration : none !important;
+}
+
+button:hover  ,
+a[href]:hover {
+    display    : inline-block;
+    cursor     : pointer;
+    animation  : linear 0.15s blossom forwards;
+}
+
+code, var {
+    color : #AFF9;
+    text-shadow : 0 0 1px black
+}
+
+u, i, b, em ,
+strong {
+    color : gold;
+    text-shadow : 0 0 1px black
+}
+
+p {
+    padding : 1px;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>select</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+;
+; iwm = Object.keys( window ).sort()
+;
+</script>
+
+<script>
+;
+; str =( o )=> ( String( o || "" ).trim() )
+;
+</script>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<style>
+html, body, textarea, pre {
+    box-sizing : border-box;
+    border  : none;
+    margin  : 0;
+    padding : 0;
+}
+html {
+    background-image : url("x-files.png");
+}
+body {
+    background : transparent;
+    text-align : center;
+}
+</style>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<style>
+select {
+    display : inline-block;
+    width   : 20em;
+    font    : 14pt monospace;
+}
+#preview {
+    display    : inline-block;
+    width      : 300px;
+    background : navy;
+    margin     : 20px;
+    border     : 1px dotted gold;
+    box-shadow : 0 0 20px black;
+}
+button {
+    border : 2px solid black !important;
+    font-size : 20pt;
+}
+h1, h2, h3,
+h4, h5, h6 {
+    text-shadow : 1px 1px 3px black;
+}
+</style>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<style>
+*:focus {
+    background : mintcream  !important;
+    color : rgb( 8, 8, 22 ) !important;
+}
+</style>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<style>
+textarea {
+    position : fixed;
+    left     : 0;
+    width    : 100%;
+    outline  : none;
+    white-space : nowrap;
+    padding  : 4px;
+    padding-left  : 14px;
+    padding-right : 14px;
+}
+textarea {
+    top  : 0;
+    max-height : calc( 100vh - 100px );
+    resize : vertical;
+    overflow-x : scroll;
+    overflow-y : scroll;
+    font       : 11pt monospace;
+}
+textarea:hover {
+    background : mintcream  !important;
+    color : rgb( 8, 8, 22 ) !important;
+}
+</style>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<h1> Choose Background </h1>
+
+<div>
+    <select id="bgi_choice"></select>
+</div>
+
+<div>
+    <img id="preview" src="x-files.png" alt="Preview" />
+</div>
+
+<div>
+    <button onclick="ok()">Apply</button>
+</div>
+
+<hr>
+<style>
+@import url("./../style/footer-input.css");
+</style>
+
+<footer>
+  <input id="footer_input" onchange="perform(event)" />
+</footer>
+
+<hr>
+<p><a f1="" class="fixed" href="http://localhost/dot/km/mathjs/" title="Math JS">
+  <img class="icon32" src="http://dave-legacy/art/icons/32/math-js.png" alt="MathJS">
+</a></p>
+<p><a f2="" class="fixed" href="http://localhost/dot/km/sknm/" title="Store Key Note Manager">
+  <img class="icon32" src="http://dave-legacy/art/icons/32/sknm.png" alt="SKNM">
+</a></p>
+<p><a f3="" class="fixed" href="http://localhost/dot/km/thalia/" title="Thalia">
+  <img class="icon32" src="http://dave-legacy/art/icons/32/thalia.png" alt="Thalia">
+</a></p>
+<p><a f4="" class="fixed" href="http://localhost/dot/km/hysteresis/" title="Hysteresis">
+  <img class="icon32" src="http://dave-legacy/art/icons/32/hysteresis.png" alt="Hyss">
+</a></p>
+<p><a f5="" class="fixed" href="http://localhost/dot/km/locutus/" title="Locutus">
+  <img class="icon32" src="http://dave-legacy/art/icons/32/locutus.png" alt="Locutus">
+</a></p>
+<p><a f6="" class="fixed" href="http://localhost/dot/bgi/select.html" title="Home">
+  <img class="icon32" src="http://dave-legacy/art/icons/32/home-dark.png" alt="Home">
+</a></p>
+<style>
+.icon32 { width : 32px;    }
+.fixed { position : fixed; z-index : 99999; }
+a[f1] { bottom :  50px; right : 10px; }
+a[f2] { bottom : 100px; right : 10px; }
+a[f3] { bottom : 150px; right : 10px; }
+a[f4] { bottom : 200px; right : 10px; }
+a[f5] { bottom : 250px; right : 10px; }
+a[f6] { bottom : 300px; right : 10px; }
+</style>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<!-- [[ Background Image Names ]] -->
+<script src="./bgi-choices.js"></script>
+
+<!-- [[ Parse Name Core List ]] -->
+<script src="./../gems/pcl.js"></script>
+
+<!-- [[ Gadget Ops ]] -->
+<script src="./../gems/populate-list.js"></script>
+<script src="./../gems/select-source.js"></script>
+<script src="./../gems/apply-bgi.js"></script>
+<script src="./../gems/advance-index.js"></script>
+
+<!-- [[ Footer Input Ops ]] -->
+<script src="./../gems/dot.js"></script>
+<script src="./../gems/exec.js"></script>
+<script src="./../gems/macro.js"></script>
+<script src="./../gems/perform.js"></script>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+function ok( event ) {
+    const gadget = doc.firstElementChild;
+    const address = bgi_choice.value;
+    apply_bgi( gadget, address );
+}
+</script>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+function look( event ) {
+    select_source( preview, bgi_choice );
+}
+</script>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+function advance( event ) {
+    const select = bgi_choice;
+    const reverse = event.ctrlKey;
+    advance_index( select, reverse );
+    look();
+}
+</script>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+function main( event ) {
+    const select  = bgi_choice;
+    const options = bgi_choices;
+    populate_list( select, options );
+    select . addEventListener( "change", look );
+    look();
+    preview.onclick = advance;
+}
+</script>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+;
+; doc = document
+; doc . title = ( `Background Selection` )
+;
+; addEventListener( "load", main )
+;
+</script>
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+</body>
+</html>

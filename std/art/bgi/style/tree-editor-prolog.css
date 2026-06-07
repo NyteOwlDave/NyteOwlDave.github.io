@@ -1,0 +1,26 @@
+
+/*
+
+    tree-editor-prolog.css
+
+*/
+
+*:focus {
+    background : mintcream  !important;
+    color : rgb( 8, 8, 22 ) !important;
+}
+
+html, body, textarea, pre {
+    box-sizing : border-box;
+    border  : none;
+    margin  : 0;
+    padding : 0;
+}
+
+html {
+    background-image : url("./../bgi/suzanna.png");
+}
+
+body {
+    background : transparent;
+}

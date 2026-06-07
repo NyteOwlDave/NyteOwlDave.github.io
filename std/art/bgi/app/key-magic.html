@@ -1,0 +1,828 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+/*
+
+  plain.css
+  Basic Web Page Style
+
+*/
+
+:root {
+    --fgc : mintcream;
+    --bgc : #114;
+}
+
+[center] { text-align : center; }
+
+@keyframes blossom {
+    from {
+        box-shadow : none;
+        transform  : scale( 1.0 );
+    }
+    to {
+        box-shadow : 0 0 20px gold;
+        transform  : scale( 1.2 );
+    }
+}
+
+.error {
+    background-color : red    !important;
+    color            : yellow !important;
+    text-shadow      : 0 0 2px black;
+}
+
+html, body {
+    color : var( --fgc );
+    background-color : var( --bgc );
+}
+
+body {
+    margin-top    : 82px;
+    margin-bottom : 82vh;
+}
+
+header , footer {
+    position : fixed;
+    left     : 0;
+    width    : 100%;
+    margin   : 0;
+    border   : none;
+    text-align : center;
+    z-index : 100;
+    color : #111E;
+    background-color : #FFAD;
+    padding : 1.1ch;
+}
+
+header {
+    top : 0;
+}
+
+footer {
+    bottom : 0;
+}
+
+hr {
+   background-color : var( --hrc );
+   border : none;
+   border-bottom : 1px solid #1142;
+}
+
+h1, h2, h3, h4, h5, h6,
+fieldset,
+figure {
+    text-align : center;
+}
+
+blockquote em {
+    border : 1px solid #9728;
+    border-radius : 2ch;
+    margin  : 0;
+    padding : 1ch;
+    display : inline-block;
+    width : calc( 100% - 2ch );
+    text-align : center;
+    font-style : normal;
+    text-decoration : none;
+    font-size : xx-large;
+    font-weight : 700;
+    color : #CC8A;
+    background-color : #AA02;
+    box-shadow : 0 0 16px #002;
+}
+
+pre {
+    padding       : 0.25ch;
+    padding-left  : 1.5ch;
+    padding-right : 1.5ch;
+    overflow-x : auto scroll;
+    overflow-y : auto scroll;
+    max-height : calc( 100vh - 200px );
+    min-height : calc( 20px  );
+    background-color : #1104;
+}
+
+pre:not([contenteditable]):hover {
+    background-color : #E724;
+}
+
+textarea:focus ,
+pre:focus {
+    background-color : #DE93;
+}
+
+textarea:hover ,
+pre[contenteditable]:hover {
+    background-color : #9EA4;
+}
+
+[contenteditable] {
+    border : 1px dashed gold;
+    cursor : pointer;
+}
+
+ol, ul {
+    margin  : 10px;
+    background-color : #4415;
+    border-radius : 1.2ch;
+    border : 1px dotted gold;
+    padding : 1.2ch;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+ol {
+    text-align : center;
+}
+
+ol li {
+    display : inline-block;
+    margin  : 2px;
+    background-color : transparent;
+    color : inherit;
+}
+
+ol li a {
+    min-width : 18ch;
+    max-width : 18ch;
+}
+
+a[href] ,
+button[onclick] {
+    display : inline-block;
+    cursor  : pointer;
+    border  : none;
+    outline : none;
+    border-radius : 2.2ch;
+    padding : 0.42ch;
+    padding-left  : 2.2ch;
+    padding-right : 2.2ch;
+    margin : 2px;
+    color  : lemonchiffon;
+    background-color : #ED58;
+    text-shadow : 0 0 2px black;
+    text-decoration : none !important;
+}
+
+button:hover  ,
+a[href]:hover {
+    display    : inline-block;
+    cursor     : pointer;
+    animation  : linear 0.15s blossom forwards;
+}
+
+code, var {
+    color : #AFF9;
+    text-shadow : 0 0 1px black
+}
+
+u, i, b, em ,
+strong {
+    color : gold;
+    text-shadow : 0 0 1px black
+}
+
+p {
+    padding : 1px;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>key-magic</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<!doctype html>
+<p><html>
+<head></p>
+<p><meta charset="utf-8" />
+<title> Key 🔑 Magic 2.1 </title>
+<link rel="icon" href="http://localhost/dot/km/favicon.ico" /></p>
+<style type="text/css">
+
+/*
+
+  plain.css
+  Basic Web Page Style
+
+*/
+
+:root {
+    --fgc : mintcream;
+    --bgc : #114;
+}
+
+[center] { text-align : center; }
+
+@keyframes blossom {
+    from {
+        box-shadow : none;
+        transform  : scale( 1.0 );
+    }
+    to {
+        box-shadow : 0 0 20px gold;
+        transform  : scale( 1.2 );
+    }
+}
+
+.error {
+    background-color : red    !important;
+    color            : yellow !important;
+    text-shadow      : 0 0 2px black;
+}
+
+html, body {
+    color : var( --fgc );
+    background-color : var( --bgc );
+}
+
+body {
+    margin-top    : 82px;
+    margin-bottom : 82vh;
+}
+
+header , footer {
+    position : fixed;
+    left     : 0;
+    width    : 100%;
+    margin   : 0;
+    border   : none;
+    text-align : center;
+    z-index : 100;
+    color : #111E;
+    background-color : #FFAD;
+    padding : 1.1ch;
+}
+
+header {
+    top : 0;
+}
+
+footer {
+    bottom : 0;
+}
+
+hr {
+   background-color : var( --hrc );
+   border : none;
+   border-bottom : 1px solid #1142;
+}
+
+h1, h2, h3, h4, h5, h6,
+fieldset,
+figure {
+    text-align : center;
+}
+
+blockquote em {
+    border : 1px solid #9728;
+    border-radius : 2ch;
+    margin  : 0;
+    padding : 1ch;
+    display : inline-block;
+    width : calc( 100% - 2ch );
+    text-align : center;
+    font-style : normal;
+    text-decoration : none;
+    font-size : xx-large;
+    font-weight : 700;
+    color : #CC8A;
+    background-color : #AA02;
+    box-shadow : 0 0 16px #002;
+}
+
+pre {
+    padding       : 0.25ch;
+    padding-left  : 1.5ch;
+    padding-right : 1.5ch;
+    overflow-x    : scroll;
+    overflow-y    : scroll;
+    max-height    : calc( 100vh - 200px );
+    min-height    : calc( 20px  );
+    background-color : #101040;
+    color            : #DEFEFE;
+}
+
+pre:not([contenteditable]):hover {
+    background-color : #E724;
+}
+
+textarea:focus ,
+pre:focus {
+    background-color : mintcream;
+    color : #040422;
+}
+
+textarea:hover ,
+pre[contenteditable]:hover {
+    background-color : #9EA3;
+}
+
+[contenteditable] {
+    border : 1px dashed gold;
+    cursor : pointer;
+}
+
+ol, ul {
+    margin  : 10px;
+    background-color : #4415;
+    border-radius : 1.2ch;
+    border : 1px dotted gold;
+    padding : 1.2ch;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+ol {
+    text-align : center;
+}
+
+ol li {
+    display : inline-block;
+    margin  : 2px;
+    background-color : transparent;
+    color : inherit;
+}
+
+ol li a {
+    min-width : 18ch;
+    max-width : 18ch;
+}
+
+a[href] ,
+button[onclick] {
+    display : inline-block;
+    cursor  : pointer;
+    border  : none;
+    outline : none;
+    border-radius : 2.2ch;
+    padding : 0.42ch;
+    padding-left  : 2.2ch;
+    padding-right : 2.2ch;
+    margin : 2px;
+    color  : lemonchiffon;
+    background-color : #ED58;
+    text-shadow : 0 0 2px black;
+    text-decoration : none !important;
+}
+
+button:hover  ,
+a[href]:hover {
+    display    : inline-block;
+    cursor     : pointer;
+    animation  : linear 0.15s blossom forwards;
+}
+
+code, var {
+    color : #AFF9;
+    text-shadow : 0 0 1px black
+}
+
+u, i, b, em ,
+strong {
+    color : gold;
+    text-shadow : 0 0 1px black
+}
+
+p {
+    padding : 1px;
+    padding-left  : 3ch;
+    padding-right : 3ch;
+}
+
+</style>
+
+<p></head></p>
+<body>
+<!--
+
+IMPORTANT!
+
+This page has ZERO JS Dependencies.
+This is a DESIGN CHOICE... keep it this way.
+
+The Primary Host is Dave's Legacy.
+The Project Workspace is WWW/dot/km
+
+-->
+
+<!--
+<link rel="stylesheet" href="http://dave-legacy/jefr/style/every-page.css" />
+-->
+
+<script>
+;
+; iwm = Object.keys( window ).sort()
+;
+</script>
+
+<script>
+;
+; con = console
+; doc = document
+; ssg = sessionStorage
+; stg = localStorage
+; idb = indexedDB
+;
+</script>
+
+<script>
+;
+; str =( s )=> ( String( s || "" ).trim() )
+; arr =( o )=> ( Array.from( o || [] ) )
+; unq =( o )=> (    new Set( o || [] ) )
+;
+</script>
+
+<script>
+;
+; mem =( o )=> ( Object.keys( o || {} ).sort() )
+; dir =( o )=> ( mem( o || stg       ) )
+; tmp =( o )=> ( mem( o || ssg       ) )
+; zak =( o )=> ( mem( o || window    ) )
+; zek =( o )=> ( mem( o || document  ) )
+; zik =( o )=> ( mem( o || navigator ) )
+; zok =( o )=> ( mem( o || location  ) )
+; zuk =( o )=> ( mem( o || indexedDB ) )
+;
+</script>
+
+<script>
+;
+; cls =()=> con.clear()
+;
+</script>
+
+<script>
+;
+who =( [
+  `iwm` , `con` , `doc`
+, `str` , `arr` , `unq`
+, `ssg` , `stg` , `idb`
+, `mem` , `dir` , `tmp`
+, `zak` , `zek` , `zik`
+, `zok` , `zuk` , `cls`
+, `who` , `how` , `why`
+, `sed` , `svw` , `tog`
+, `agn` , `cpy` , `elx`
+, `sop` , `sop.isk`
+, `snk` , `snk.home`
+, `perform` , `macro`, `exec`
+, `acquire` , `request`
+, `epilog`  , `dot`
+] )
+;
+</script>
+
+<header id="header"> [==AUTO-FILL==] </header>
+
+<pre id="sop"></pre>
+
+<div center>
+  <button onclick="agn()" title="♻️ Reload Web Page">♻️</button>
+  <button onclick="fsm()" title="💠 Full Screen Mode">💠</button>
+  <button onclick="tog()" title="📝/📑 Toggle Edit/View Mode" id="teb">📝</button>
+  <button onclick="how()" title="ℹ️ Show Member Names">ℹ️</button>
+  <button onclick="cls()" title="🚽 Clear Console">🚽</button>
+  <button onclick="cpy()" title="📋 Copy to Clipboard">📋</button>
+  <button onclick="snk()" title="🐍 Visit Hysteresis">🐍</button>
+</div>
+
+<div id="page"></div>
+
+<style>
+footer { margin : 0; padding : 5px; }
+#footer_input {
+    display : inline-block;
+    width   : calc( 100vw - 40ch );
+    font    : 12pt monospace;
+    outline : none;
+    margin  : 0;
+    background : #080832;
+    color      : #EEFFFF;
+    border-radius : 0;
+    border-top-right-radius : 3ch;
+    border-bottom-right-radius : 3ch;
+    padding : 5px;
+    padding-left  : 1ch;
+    padding-right : 1ch;
+}
+</style>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<footer>
+  <input id="footer_input" onchange="perform(event)" />
+</footer>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+function perform( event ) {
+    try {
+        const ge = event.target;
+        const ip = ge.value.trim();
+        if (! ip ) { return; }
+        if ( macro( ip ) ) { return; }
+        const op = exec( ip );
+        console.log( op );
+    } catch ( e ) {
+        console . error ( e );
+        window  . alert ( e );
+    }
+}
+</script>
+
+<script>
+function exec( cmd ) {
+    return window.eval( cmd );
+}
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+function macro( cmd ) {
+    try {
+        cmd = str( cmd );
+        const pfx = cmd.charAt( 0 );
+        cmd = str( cmd.slice( 1 ) );
+        if ( "." === pfx ) {
+            dot( cmd );
+            return true;
+        }
+        if ( "@" === pfx ) {
+            dot.visit( cmd );
+            return true;
+        }
+    } catch ( e ) {
+        console . error ( e );
+    } finally {
+        console.debug( `TODO ~ Finish Macro Interpreter` );
+    }
+    return ( false );
+}
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+function dot( s ) {
+    s = ( str( s ) );
+    if ( s ) {
+        let u;
+        if ( s.includes( "." ) ) {
+           u = ( `http://localhost/dot/${s}` );
+        } else {
+           u = ( `http://localhost/dot/${s}.html` );
+        }
+       return ( dot.visit( u ) );
+    } else {
+        console.warn( `Ignored Empty Dot Rocket Name` );
+    }
+}
+</script>
+
+<script>
+dot.visit = function( url ) {
+    url = ( str( url ) );
+    if ( url ) {
+        if ( dot.agent( "retext" ) ) {
+            dot.click( url );
+            return;
+        } else {
+           return ( window.open( url, url, dot.options ) );
+        }
+    } else {
+        console.warn( `Ignored URL Address` );
+    }
+}
+;
+; dot.options = ( `left=10,top=10,width=800,height=680` )
+;
+</script>
+
+<script>
+dot.click = function( url ) {
+    url = str( url );
+    const d = document;
+    const a = d.createElement( "A" );
+    a.target = ( a.href = url );
+    a.click();
+}
+</script>
+
+<script>
+dot.agent = function( s ) {
+    s = str( s ).toLowerCase();
+    const n = navigator;
+    const u = n.userAgent.toLowerCase();
+    return ( u.includes( s ) );
+}
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+function acquire( url ) {
+    const _S_ = ( `SCRIPT` );
+    const d = document;
+    const h = d.head;
+    const s = d.createElemenent( _S_ );
+    h . appendChild( s );
+    console.info( `Acquiring : ${url}` );
+    s . src = ( url );
+    return ( s );
+}
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+function request( url, text_receiver, html_receiver ) {
+    const gid  =( o )=> ( document.getElementById( o ) );
+    const sop  = ( text_receiver || gid( "sop"  ) );
+    const page = ( html_receiver || gid( "page" ) || sop );
+    function accept( s ) {
+        if ( s.trimStart().startsWith( "<" ) ) {
+            page.innerHTML = ( s );
+        } else {
+            sop.innerText = ( s );
+        }
+        return ( s );
+    }
+    const rp = fetch( url );
+    return (
+        ( rp )
+        . then  ( r => r.text() )
+        . then  ( accept        )
+        . catch ( accept        )
+    );
+}
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<!-- 💠 ♻️📋 📑 📝 🚽 ℹ️🐍 -->
+
+<script>
+;
+; agn =(   )=> ( location.reload() )
+; elx =( t )=> ( doc.createElement( t ) )
+;
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script id="snake.js">
+function snk() {
+    const key = prompt( "Store Key to Edit?" );
+    if (! key ) return;
+    let q = key.trim();
+    if (! q ) return;
+    q = ( `?key=` ) + encodeURIComponent( q );
+    const url = snk.home + q;
+    return ( window.open( url, url ) );
+}
+snk.home = ( `http://dave-legacy/app/hysteresis/pen.html` );
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+cpy = function() {
+   const ed = elx( "TEXTAREA" );
+   doc.body.appendChild( ed );
+   ed.style.opacity = "0";
+   ed.value = sop.innerText;
+   ed.select();
+   ed.focus();
+   doc.execCommand( "copy" );
+   doc.body.removeChild( ed );
+   sop.focus();
+   con.info( `📋 Copied to Clipboard` );
+}
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script id="toggle-sop-mode.js">
+_CE = "contenteditable";
+sed = function() {
+  sop.setAttribute( _CE, "" );
+  sop.focus();
+  teb.textContent = "📑";
+};
+svw = function() {
+  sop.removeAttribute( _CE );
+  teb.textContent = "📝";
+};
+tog = function() {
+   if ( sop.hasAttribute( _CE ) ) { svw(); }
+   else { sed(); }
+};
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+fsm = function() { sop.requestFullscreen(); }
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+how = function() {
+    sop . innerText = (
+        ( who )
+        . join( "\n" )
+    );
+};
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+function why() {
+    header.textContent = ( epilog.title );
+    const m = sop.isk = dir();
+    const v = m.map( k => ( `🔑 ${k}` ) );
+    sop . innerText = v.join( "\n" );
+};
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<a f1="" class="fixed" href="http://localhost/dot/km/mathjs/" title="Math JS">
+  <img class="icon32" src="http://dave-legacy/art/icons/32/math-js.png" alt="MathJS">
+</a>
+
+<a f2="" class="fixed" href="http://localhost/dot/km/sknm/" title="Store Key Note Manager">
+  <img class="icon32" src="http://dave-legacy/art/icons/32/sknm.png" alt="SKNM">
+</a>
+
+<a f3="" class="fixed" href="http://localhost/dot/km/thalia/" title="Thalia">
+  <img class="icon32" src="http://dave-legacy/art/icons/32/thalia.png" alt="Thalia">
+</a>
+
+<a f4="" class="fixed" href="http://localhost/dot/km/hysteresis/" title="Hysteresis">
+  <img class="icon32" src="http://dave-legacy/art/icons/32/hysteresis.png" alt="Hyss">
+</a>
+
+<a f5="" class="fixed" href="http://localhost/dot/km/locutus/" title="Locutus">
+  <img class="icon32" src="http://dave-legacy/art/icons/32/locutus.png" alt="Locutus">
+</a>
+
+<style>
+.icon32 { width : 32px;    }
+.fixed { position : fixed; z-index : 99999; }
+a[f1] { bottom :  50px; right : 10px; }
+a[f2] { bottom : 100px; right : 10px; }
+a[f3] { bottom : 150px; right : 10px; }
+a[f4] { bottom : 200px; right : 10px; }
+a[f5] { bottom : 250px; right : 10px; }
+</style>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script>
+;
+; epilog = {}
+;
+; epilog . title   = ( `Key 🔑 Magic ❤️‍🔥 2.2` )
+; epilog . version = ( `2.2 ` )
+;
+; doc . title = ( epilog.title )
+;
+; addEventListener( "load" , why );
+;
+</script>
+
+</body>
+
+<p></html></p>
+
+</body>
+</html>

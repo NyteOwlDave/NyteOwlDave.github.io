@@ -1,0 +1,41 @@
+
+/*
+
+    tree-editor-pre.css
+
+*/
+
+.trvw {
+    position : fixed;
+    left     : 0;
+    width    : 100%;
+    outline  : none;
+    white-space : nowrap;
+    padding  : 4px;
+    padding-left  : 14px;
+    padding-right : 14px;
+}
+
+.trvw {
+    bottom : 0;
+    resize : none;
+    overflow-x : clipped;
+    overflow-y : clipped;
+    font       : 16pt monospace;
+}
+
+.trvw[onclick] ,
+.trvw[clickable] {
+    cursor : pointer;
+}
+
+.trvw:hover {
+    color      : gold  !important;
+    background : black !important;
+}
+
+.trvw * {
+    color : inherit !important;
+}
+
+

@@ -280,7 +280,7 @@ manifest    | Object   | Module Manifest
 } ) 
 ( TiGG.manifest );
 
+;
+; console.info( `🦇 Loaded TiGG API Module` )
+;
 
-/*
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-11 ~ Omega
-*/

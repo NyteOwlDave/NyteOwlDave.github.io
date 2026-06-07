@@ -1,0 +1,34 @@
+
+/*
+    status-bar.css
+*/
+
+.status-bar {
+    position : fixed;
+    left     : 0;
+    width    : 100%;
+    outline  : none;
+    white-space : nowrap;
+    margin   : 0;
+    padding  : 4px;
+    padding-left  : 14px;
+    padding-right : 14px;
+}
+
+.status-bar {
+    bottom     : 0;
+    resize     : none;
+    overflow-x : clipped;
+    overflow-y : clipped;
+    font       : 16pt monospace;
+}
+
+.status-bar:hover {
+    color      : gold  !important;
+    background : black !important;
+}
+
+.status-bar * {
+    color : inherit !important;
+}
+

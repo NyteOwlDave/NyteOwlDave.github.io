@@ -1,0 +1,35 @@
+
+/*
+
+    tree-editor-textarea.css
+
+    class = "tred"
+    type  = "textarea"
+
+*/
+
+.tred {
+    position : fixed;
+    left     : 0;
+    width    : 100%;
+    outline  : none;
+    white-space : nowrap;
+    padding  : 4px;
+    padding-left  : 14px;
+    padding-right : 14px;
+}
+
+.tred {
+    top  : 0;
+    max-height : calc( 100vh - 100px );
+    resize : vertical;
+    overflow-x : scroll;
+    overflow-y : scroll;
+    font       : 11pt monospace;
+}
+
+.tred:hover {
+    background : mintcream  !important;
+    color : rgb( 8, 8, 22 ) !important;
+}
+
