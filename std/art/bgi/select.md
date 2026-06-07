@@ -160,7 +160,7 @@ textarea:hover {
   <img class="icon32" src="https://nyteowldave.github.io/icons/32/morpheus.png" alt="Morph">
 </a>
 
-<a f13="" class="fixed" href="https://nyteowldave.github.io/art/std/bgi/select.html" title="Select Background">
+<a f13="" class="fixed" href="https://nyteowldave.github.io/std/art/bgi/select.html" title="Select Background">
   <img class="icon32" src="https://nyteowldave.github.io/icons/32/home-dark.png" alt="Home">
 </a>
 
