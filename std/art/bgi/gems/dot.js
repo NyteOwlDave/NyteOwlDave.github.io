@@ -9,14 +9,17 @@
 
 function dot( s ) {
     s = ( str( s ) );
+    let p = ( location.href ).split( "/" );
+    p.pop();
+    p = .join( "/" );
     if ( s ) {
         let u;
         if ( s.includes( "." ) ) {
-           u = ( `http://localhost/dot/${s}` );
+           u = ( `${p}/dot/${s}` );
         } else {
-           u = ( `http://localhost/dot/${s}.html` );
+           u = ( `${p}/dot/${s}.html` );
         }
-       return ( dot.visit( u ) );
+        return ( dot.visit( u ) );
     } else {
         console.warn( `Ignored Empty Dot Rocket Name` );
     }
