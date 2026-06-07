@@ -118,6 +118,7 @@ textarea:hover {
     <button onclick="ok()">Apply</button>
 </div>
 
+> [Explore](./)
 
 ----------------------------------------------------------------
 
@@ -242,6 +243,18 @@ function main( event ) {
     look();
     preview.onclick = advance;
 }
+</script>
+
+<script>
+function github() {
+    const u = github.repo;
+    window.open( u, u );
+}
+;
+github.repo = (
+  `https://github.com/NyteOwlDave/NyteOwlDave.github.io`
+)
+;
 </script>
 
 

@@ -312,6 +312,9 @@ textarea:hover {
     <button onclick="ok()">Apply</button>
 </div>
 
+<blockquote>
+<p><a href="./">Explore</a></p>
+</blockquote>
 <hr>
 <style>
 @import url("./style/footer-input.css");
@@ -419,6 +422,18 @@ function main( event ) {
     look();
     preview.onclick = advance;
 }
+</script>
+
+<script>
+function github() {
+    const u = github.repo;
+    window.open( u, u );
+}
+;
+github.repo = (
+  `https://github.com/NyteOwlDave/NyteOwlDave.github.io`
+)
+;
 </script>
 
 <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
