@@ -1,9 +1,25 @@
 <!doctype html>
+
 <html>
+
 <head>
+
 <meta charset="utf-8" />
 <title> Key 🔑 Magic 2.2 </title>
+
+<!-- [[ REMINDER ]]
+
+
+    This link should be UPDATED
+    based on Edition ( WWW or LAN )
+
+LAN ~ href="http://dave-legacy/dot/km/icons/key-magic.ico"
+WWW ~ href="./icons/key-magic.ico"
+
+-->
+
 <link rel="icon" href="./icons/key-magic.ico" />
+
 <style type="text/css">
 
 /*
@@ -81,20 +97,20 @@ figure {
 }
 
 blockquote em {
-    border : 1px solid #9728;
-    border-radius : 2ch;
-    margin  : 0;
-    padding : 1ch;
-    display : inline-block;
-    width : calc( 100% - 2ch );
-    text-align : center;
-    font-style : normal;
-    text-decoration : none;
-    font-size : xx-large;
-    font-weight : 700;
-    color : #CC8A;
+    border           : 1px solid #9728;
+    border-radius    : 2ch;
+    margin           : 0;
+    padding          : 1ch;
+    display          : inline-block;
+    width            : calc( 100% - 2ch );
+    text-align       : center;
+    font-style       : normal;
+    text-decoration  : none;
+    font-size        : xx-large;
+    font-weight      : 700;
+    color            : #CC8A;
     background-color : #AA02;
-    box-shadow : 0 0 16px #002;
+    box-shadow       : 0 0 16px #002;
 }
 
 pre {
@@ -196,25 +212,16 @@ p {
     padding-right : 3ch;
 }
 
+pre {
+    font : 12pt monospace;
+    min-height : 5em;
+}
+
 </style>
 
-<p></head></p>
+</head>
+
 <body>
-<!--
-
-IMPORTANT!
-
-This page has ZERO JS Dependencies.
-This is a DESIGN CHOICE... keep it this way.
-
-The Primary Host is Dave's Legacy.
-The Project Workspace is WWW/dot/km
-
--->
-
-<!--
-<link rel="stylesheet" href="http://dave-legacy/jefr/style/every-page.css" />
--->
 
 <script>
 ;
@@ -222,13 +229,14 @@ The Project Workspace is WWW/dot/km
 ;
 </script>
 
-<script>
+<script modified="prolog-alias.js">
 ;
 ; con = console
 ; doc = document
 ; ssg = sessionStorage
 ; stg = localStorage
 ; idb = indexedDB
+; jsn = JSON
 ;
 </script>
 
@@ -250,6 +258,7 @@ The Project Workspace is WWW/dot/km
 ; zik =( o )=> ( mem( o || navigator ) )
 ; zok =( o )=> ( mem( o || location  ) )
 ; zuk =( o )=> ( mem( o || indexedDB ) )
+; zjs =( o )=> ( mem( o || JSON      ) )
 ;
 </script>
 
@@ -259,24 +268,100 @@ The Project Workspace is WWW/dot/km
 ;
 </script>
 
-<script>
+<script modified="who">
 ;
-who =( [
+who = ( [
   `iwm` , `con` , `doc`
 , `str` , `arr` , `unq`
-, `ssg` , `stg` , `idb`
+, `ssg` , `stg`
+, `idb` , `jsn`
 , `mem` , `dir` , `tmp`
 , `zak` , `zek` , `zik`
-, `zok` , `zuk` , `cls`
-, `who` , `how` , `why`
+, `zok` , `zuk` , `zjs`
+, `cls`
+, `who` , `how`
+, `why`
+, `why.keyify`
+, `why.recent`
 , `sed` , `svw` , `tog`
 , `agn` , `cpy` , `elx`
 , `sop` , `sop.isk`
 , `snk` , `snk.home`
-, `perform` , `macro`, `exec`
+, `perform`
+, `perform.out`
+, `perform.history`
+, `macro`
+, `exec`    , `show`
 , `acquire` , `request`
-, `epilog`  , `dot`
+, `modified`
+, `out`
+, `dot`
+, `dot.visit`
+, `dot.click`
+, `dot.agent`
+, `epilog`
 ] )
+;
+</script>
+
+<script modified="who.cdoc">
+;
+who.cdoc = ( `
+iwm             | Initial Window Member List
+con             | Alias for console
+doc             | Alias for document
+ssg             | Alias for sessionStorage
+stg             | Alias for localStorage
+idb             | Alias for indexedDB
+jsn             | Alias for JSON
+str             | Create a Trimmed String
+arr             | Create an Array
+unq             | Create a Set
+mem             | Obtain List of Members (no default)
+dir             | Obtain List of Members (default localStorage)
+tmp             | Obtain List of Members (default sessionStorage)
+zak             | Obtain List of Members (default window)
+zek             | Obtain List of Members (default document)
+zik             | Obtain List of Members (default navigator)
+zok             | Obtain List of Members (default location)
+zuk             | Obtain List of Members (default indexedDB)
+zjs             | Obtain List of Members (default JSON)
+cls             | Clear Debug Console
+who             | Known Member List
+who.cdoc        | Known Member Core Document
+how             | Show List of Known Members
+why             | Show List of Members (default localStorage)
+sed             | Set Edit Mode
+svw             | Set View Mode
+tog             | Toggle Edit/View Modes
+agn             | Reload Web Page
+cpy             | Copy SOP to Clipboard
+elx             | Create HTML Element
+gid             | Get Element By ID
+one             | Get First Matching Element
+all             | Get All Matching Elements
+sop             | Standard Output Gadget ID
+sop.isk         | List of Initial Store Keys
+sop.write       | Write Value to SOP Gadget
+snk             | Visit Hysteresis
+snk.home        | Hysteresis URL Address
+perform         | Evaluate Input Command
+perform.out     | Show Input History
+perform.history | Input History Log
+macro           | Interpret Macro Command
+exec            | Evaluate JavaScript
+show            | Evaluate JavaScript and Show Result
+out             | Write Value to SOP Gadget
+acquire         | Acquire Script Module
+request         | Request Remote Content
+modified        | Output Modified Gadget Names
+out             | Output Value to SOP
+dot             | Launch Dot Rocket
+dot.visit       | Visit URL Address
+dot.click       | Emulate Anchor Click
+dot.agent       | Verify User Agent Substring
+epilog          | Epilog Accessor
+` )
 ;
 </script>
 
@@ -325,12 +410,14 @@ footer { margin : 0; padding : 5px; }
 
 <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
-<script>
+<script modified="perform">
 function perform( event ) {
+    const ops = perform;
     try {
         const ge = event.target;
         const ip = ge.value.trim();
         if (! ip ) { return; }
+        ops.history.add( ip );
         if ( macro( ip ) ) { return; }
         const op = exec( ip );
         console.log( op );
@@ -339,18 +426,73 @@ function perform( event ) {
         window  . alert ( e );
     }
 }
+;
+; perform.history = ( new Set() )
+;
+perform.out = function() {
+    const ops = perform;
+    const m = ( arr( ops.history ).sort() );
+    if ( m.length ) {
+        out( ( m ).join( "\n" ) );
+    } else {
+        out( "Input History is Empty" );
+    }
+}
+;
 </script>
 
-<script>
-function exec( cmd ) {
-    return window.eval( cmd );
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script modified="exec">
+function exec( js ) {
+    return window.eval( js );
 }
 </script>
 
 
 <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
-<script>
+<script modified="show">
+function show( js ) {
+    try {
+        sop.innerText = exec( js );
+        console.log( sop.innerText );
+    } catch ( e ) {
+        sop.innerText = exec( e.message );
+        console.error( e );
+    }
+}
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script modified="modified">
+function modified() {
+    const MOD = ( "modified" );
+    const mod =( ce )=> ( ce.getAttribute( MOD ) );
+    const q = ( `[modified]` );
+    const m = all( q );
+    const v = ( ( m ) . map( mod ) .sort() );
+    const t = v.join( "\n" );
+    out( t || "🧝 Modified List is EMPTY" );
+}
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script modified="out">
+;
+; out =( s )=> ( sop.innerText = ( s ) )
+;
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script modified="macro">
 function macro( cmd ) {
     try {
         cmd = str( cmd );
@@ -364,10 +506,14 @@ function macro( cmd ) {
             dot.visit( cmd );
             return true;
         }
+        if ( "|" === pfx ) {
+            show( cmd );
+            return true;
+        }
     } catch ( e ) {
         console . error ( e );
     } finally {
-        console.debug( `TODO ~ Finish Macro Interpreter` );
+        console.debug( `🔥 TODO ~ Finish Macro Interpreter` );
     }
     return ( false );
 }
@@ -481,14 +627,19 @@ function request( url, text_receiver, html_receiver ) {
 <script>
 ;
 ; agn =(   )=> ( location.reload() )
-; elx =( t )=> ( doc.createElement( t ) )
+;
+; elx =( t )=> ( doc.createElement ( t ) )
+; gid =( i )=> ( doc.getElementById( i ) )
+;
+; all =( q )=> arr( doc.querySelectorAll( q ) )
+; one =( q )=>    ( doc.querySelector   ( q ) )
 ;
 </script>
 
 
 <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
-<script id="snake.js">
+<script id="snake.js" modified="snake.js">
 function snk() {
     const key = prompt( "Store Key to Edit?" );
     if (! key ) return;
@@ -498,18 +649,20 @@ function snk() {
     const url = snk.home + q;
     return ( window.open( url, url ) );
 }
-snk.home = ( `http://dave-legacy/app/hysteresis/pen.html` );
+;
+; snk.home = ( `http://dave-legacy/app/hysteresis/pen.html` );
+;
 </script>
 
 
 <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
-<script>
-cpy = function() {
+<script modified="cpy">
+cpy = function( s ) {
    const ed = elx( "TEXTAREA" );
    doc.body.appendChild( ed );
    ed.style.opacity = "0";
-   ed.value = sop.innerText;
+   ed.value = ( ( s ) || ( sop.innerText ) );
    ed.select();
    ed.focus();
    doc.execCommand( "copy" );
@@ -542,32 +695,45 @@ tog = function() {
 
 <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
-<script>
+<script id="fsm.js">
 fsm = function() { sop.requestFullscreen(); }
 </script>
 
 
 <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
-<script>
-how = function() {
-    sop . innerText = (
-        ( who )
-        . join( "\n" )
-    );
+<script id="how.js" modified="how.js">
+function how() {
+    out( who . cdoc );
 };
 </script>
 
 
 <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
-<script>
-function why() {
-    header.textContent = ( epilog.title );
-    const m = sop.isk = dir();
-    const v = m.map( k => ( `🔑 ${k}` ) );
-    sop . innerText = v.join( "\n" );
+<script id="why.js" modified="why.js">
+function why( source ) {
+    const o = ( source || localStorage );
+    if ( null === o ) {
+        if ( null === localStorage ) {
+            out( "🧝 Store is Unavailable" );
+        } else {
+            out( "🧝 Source is NULL" );
+        }
+        return;
+    }
+    const m = mem( o );
+    if ( m.length < 1 ) {
+        out( "🧝 Source is EMPTY" );
+        return;
+    }
+    const v = m.map( k => why.keyify( k ) );
+    why.recent = out( v.join( "\n" ) );
 };
+;
+; why.recent = ( "" )
+; why.keyify =( s )=> ( "🔑  " + str( s ) )
+;
 </script>
 
 
@@ -601,11 +767,11 @@ function why() {
   <img class="icon32" src="https://nyteowldave.github.io/icons/32/morpheus.png" alt="Morph">
 </a>
 
-<a f13="" class="fixed" href="./key-magic.html" title="Key Magic">
+<a f13="" class="fixed" href="./key-magic.html" title="Key Magic" id="home_anchor">
   <img class="icon32" src="https://nyteowldave.github.io/icons/32/home-dark.png" alt="KMagic">
 </a>
 
-<style>
+<style id="fixed-buttons.css">
 .icon32 { width : 32px; }
 .fixed { position : fixed; z-index : 99999; border : 2px solid black !important; }
 a[f1]  { bottom :  50px; right :  10px; }
@@ -621,20 +787,46 @@ a[f13] { bottom : 200px; right : 100px; }
 
 <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
-<script>
+<script id="main.js" modified="main.js">
+function main( event ) {
+    try {
+        header.textContent = ( epilog.title );
+        let o = location.origin;
+        if ( o.startsWith( "https://nyteowldave." ) ) {
+            home_anchor.href = epilog.www;
+        } else {
+            home_anchor.href = epilog.lan;
+        }
+        sop . write =( s )=> out( s );
+        sop . isk = dir();
+        why();
+    } catch ( e ) {
+        console . error ( e );
+        window  . alert ( e );
+    }
+}
+</script>
+
+
+<!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+<script id="epilog.js" modified="epilog.js">
 ;
 ; epilog = {}
 ;
 ; epilog . title = ( `Key 🔑 Magic ❤️‍🔥 2.2` )
 ; epilog . version  = ( `2.2 ` )
-; epilog . revision = ( `0.2 ` )
+; epilog . revision = ( `0.3 ` )
 ; epilog . updated  = ( `2026-JUN-07 ` )
 ; epilog . tidate   = ( `2026-JUN-02 ` )
 ; epilog . tikey    = ( `def4b54c-39b9-494c-8d74-e7dd27915962` )
 ;
+; epilog . lan = ( `http://dave-legacy/dot/km/key-magic.html` )
+; epilog . www = ( `https://nyteowldave.github.io/std/art/bgi/key-magic.html` )
+;
 ; doc . title = ( epilog.title )
 ;
-; addEventListener( "load" , why );
+; addEventListener( "load" , main );
 ;
 </script>
 
