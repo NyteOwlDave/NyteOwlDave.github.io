@@ -207,6 +207,7 @@ function init_editor( ed ) {
     ed.wrap = "off";
     ed.spellcheck = false;
     ed.classList.add( "siox" );
+    ed.style.borderTopLeftRadius = "5px";
     return ( ed );
 }
 
