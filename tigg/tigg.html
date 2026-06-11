@@ -40,7 +40,7 @@ input#title_input ,
 input#tikey {
     width : 80%;
 }
-input#keyCount {
+input#key_count {
     border : 2px solid transparent;
     text-align : center;
     width : 8ch;
@@ -321,8 +321,8 @@ function on_discard( event ) {
             throw new KeyCountError( s );
         }
         try {
-            keyCount.classList.remove( "error" )
-            let n = parseInt( keyCount.value );
+            key_count.classList.remove( "error" )
+            let n = parseInt( key_count.value );
             if (! isFinite( n ) ) {
                 error( "Please enter an integer" );
             }
@@ -349,7 +349,7 @@ function on_discard( event ) {
             return this.hintGadget.innerText;
         }
         get inputGadget() {
-            return document.getElementById( 'keyCount' );
+            return document.getElementById( 'key_count' );
         }
         get proposedCount() {
             return this.inputGadget.value;
