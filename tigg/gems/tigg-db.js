@@ -311,24 +311,24 @@ ops.open_file = function() {
 */
 };
 
-ops.tikey_exists      = ( `Verify TiKey Exists`          );
-ops.persist.details   = ( `Write Records to Store`       );
-ops.recover.details   = ( `Read Records from Store`      );
-ops.read.details      = ( `Read Single Record`           );
-ops.write.details     = ( `Write Single Record`          );
-ops.dir.details       = ( `Obtain Filtered TiKey List`   );
-ops.select.details    = ( `Obtain Filtered Record Map`   );
-ops.record.details    = ( `Construct Record Object`      );
-ops.register.details  = ( `Register New Record`          );
-ops.tikey.details     = ( `Compose New TiGG Key (GUID)`  );
-ops.tidate.details    = ( `Compose New TiGG Date`        );
-ops.pcl.details       = ( `Parse Core List`              );
-ops.filter.details    = ( `Filter String List`           );
-ops.hints.details     = ( `Obtain Member Details Table`  );
-ops.inspect.details   = ( `Inspect Member Details Table` );
-ops.edit.details      = ( `Edit Records as JSON`         );
-ops.save_file.details = ( `Save Registry File`           );
-ops.open_file.details = ( `Open Registry File`           );
+ops.tikey_exists.detals = ( `Verify TiKey Exists`          );
+ops.persist.details     = ( `Write Records to Store`       );
+ops.recover.details     = ( `Read Records from Store`      );
+ops.read.details        = ( `Read Single Record`           );
+ops.write.details       = ( `Write Single Record`          );
+ops.dir.details         = ( `Obtain Filtered TiKey List`   );
+ops.select.details      = ( `Obtain Filtered Record Map`   );
+ops.record.details      = ( `Construct Record Object`      );
+ops.register.details    = ( `Register New Record`          );
+ops.tikey.details       = ( `Compose New TiGG Key (GUID)`  );
+ops.tidate.details      = ( `Compose New TiGG Date`        );
+ops.pcl.details         = ( `Parse Core List`              );
+ops.filter.details      = ( `Filter String List`           );
+ops.hints.details       = ( `Obtain Member Details Table`  );
+ops.inspect.details     = ( `Inspect Member Details Table` );
+ops.edit.details        = ( `Edit Records as JSON`         );
+ops.save_file.details   = ( `Save Registry File`           );
+ops.open_file.details   = ( `Open Registry File`           );
 
 //[ safe_tikey ]
 //⋄ TiKey/GUID String Validation
