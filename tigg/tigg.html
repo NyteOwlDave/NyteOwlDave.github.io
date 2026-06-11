@@ -206,13 +206,13 @@ function show_record_count() {
     }
 </script>
 
-<script details="Filter Keys" group="🦇">
+<script details="Filter Titles" group="🦇">
     function on_filter_titles( event ) {
         try {
             const ops = TiggDB;
             const rex = title_input.value.trim();
             const m = ops.dir();
-            const t = ops.map( k => ops.records[ k ].title );
+            const t = m.map( k => ( ops.records[ k ] .title ) );
             const w = ops.filter( t, rex );
             if (! w.length ) {
                 w.push( `No matching titles` );
