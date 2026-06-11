@@ -92,7 +92,7 @@ ops.recover = function() {
 //⋄ Read Single Record
 ops.read = function( k ) {
     k = safe_tikey( k );
-    return ( ops.record[ k ] );
+    return ( ops.records[ k ] );
 };
 
 //[ ^.write ]
@@ -100,7 +100,7 @@ ops.read = function( k ) {
 ops.write = function( k, v ) {
     k = safe_tikey ( k );
     v = safe_record( v );
-    ops.record[ k ] = ( v );
+    ops.records[ k ] = ( v );
     return ( ops );
 };
 
