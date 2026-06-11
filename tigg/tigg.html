@@ -327,8 +327,8 @@ function show_record_count() {
     }
 </script>
 
-<script details="Init Buttons" group="🦇">
-function init_buttons( event ) {
+<script details="Init Gadgets" group="🦇">
+function init_gadgets( event ) {
     btn_filter_keys . title = "🗝️ Filter Keys";
     btn_single_key . title = "🪄 Generate Single Key";
     btn_multi_key . title = "🪄 Generate Multiple Keys";
@@ -337,8 +337,10 @@ function init_buttons( event ) {
     btn_register . title = "📑 Register New Entry";
     btn_review . title = "📝 Review Entry";
     btn_update . title = "✅ Update Entry";
+    sip . value = "";
+    sip . title = "";
 }
-addEventListener( "load", init_buttons );
+addEventListener( "load", init_gadgets );
 </script>
 
 <!--
