@@ -297,18 +297,22 @@ ops.pcl = function( s ) {
 //[ ^.save_file ]
 //⋄ Save Registry File
 ops.save_file = function() {
-    throw new Error( `TODO ~ Save Registry File` );
+    const k = ops.store_key;
+    const v = jst( ops.records );
+    return riccola( k, v );
 };
 
 //[ ^.open_file ]
 //⋄ Open Registry File
 ops.open_file = function() {
-    throw new Error( `TODO ~ Open Registry File` );
-/* 
-    if ( "function" === typeof show_record_count ) {
-        show_record_count();
+    function accept( s ) {
+        jit( `Loading TiKey Records` );
+        ops.records = jso( s );        
+        if ( "function" === typeof show_record_count ) {
+            show_record_count();
+        }
     }
-*/
+    return riccardo( accept );
 };
 
 ops.tikey_exists.detals = ( `Verify TiKey Exists`          );

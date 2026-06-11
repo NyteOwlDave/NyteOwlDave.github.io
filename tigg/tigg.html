@@ -265,7 +265,8 @@ function show_record_count() {
 <script details="Save Registry File" group="🦇">
     function on_save_file( event ) {
         try {
-            throw new Error( "TODO ~ Save Registry File" );
+            const ops = TiggDB;
+            ops.save_file();
         } catch ( e ) {
             crashed ( e );
         }
@@ -275,7 +276,8 @@ function show_record_count() {
 <script details="Open Registry File" group="🦇">
     function on_open_file( event ) {
         try {
-            throw new Error( "TODO ~ Open Registry File" );
+            const ops = TiggDB;
+            ops.open_file();
         } catch ( e ) {
             crashed ( e );
         }

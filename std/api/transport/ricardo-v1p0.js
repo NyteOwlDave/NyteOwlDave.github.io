@@ -13,7 +13,7 @@ function ricardo( accept ) {
     }
     function open_first_file( event ) {
         if ( ge.files.length < 1 ) {
-            ricardo.message( "Cancelled" );
+            ricardo.message( "🚫 Canceled" );
             return;
         }
         read_file( ge.files[ 0 ] );
