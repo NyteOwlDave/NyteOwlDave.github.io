@@ -344,8 +344,9 @@ function safe_record( o ) {
             bad_record( o );
         }
         if (! o.date ) {
-            o.date = "";
+            o.date = ops.tidate();
         }
+        return ( o );
     }
     bad_record( o );
 }
