@@ -56,61 +56,63 @@ footer {
 <script src="./tigg.js"></script>
 <script src="./gems/tigg-db.js"></script>
 </head>
+
 <body>
-<header>    
-    <figure>
-        <img src="./favicon.ico" alt="Logo" title="TiGG">
+<header id="header">    
+    <figure id="logo_figure">
+        <img id="logo_image" src="./favicon.ico" alt="Logo" title="TiGG Logo">
     </figure>
     <h1>🦇 TiGG</h1>
     <h4>Your Tiny GUID Generator</h4>
 </header>
 
-<h2>🔑 Single Key</h2>
-<div>
+<h2>🗝️ Single Key</h2>
+<div id="tikey_container">
     <input id="tikey" placeholder="(tikey)">
 </div>
 <div>
 <menu>
-    <button onclick="on_single_key(event)">🪄 Generate</button>
-    <button onclick="on_filter_keys(event)">🗝️ Filter Keys</button>
+    <button id="btn_single_key" onclick="on_single_key(event)">🪄 Generate</button>
+    <button id="btn_filter_keys" onclick="on_filter_keys(event)">🗝️ Filter Keys</button>
 </menu>
 </div>
 
 <h2>🏷️ Record Title</h2>
-<div>
+<div id="title_container">
     <input id="title_input" placeholder="(title)">
 </div>
 <div>
 <menu>
-    <button onclick="on_register(event)">📑 Register</button>
-    <button onclick="on_review(event)">📝 Review</button>
+    <button id="btn_register" onclick="on_register(event)">📑 Register</button>
+    <button id="btn_review" onclick="on_review(event)">📝 Review</button>
+    <button id="btn_update" onclick="on_update(event)">✅ Update</button>
 </menu>
-</div>
+</div> 
 
 <h2>📦 Multiple Keys</h2>
-<div>
+<div id="editors">
     <textarea id="sip" wrap="off" rows="11">
     </textarea>
 </div>
 <div>
-<menu>
+<menu> 
  &nbsp;
-    <button title="Save" onclick="on_save_file(event)">💾</button>
-    <button title="Open" onclick="on_open_file(event)">📂</button>
+    <button id="btn_save" onclick="on_save_file(event)">💾</button>
+    <button id="btn_open" onclick="on_open_file(event)">📂</button>
     <!-- [ TODO : 📥 📤  ] -->
     <input type="filename" id="filename">
  &nbsp;
-    <button onclick="on_multi_key(event)">🪄 Generate</button>
+    <button id="btn_multi_key" onclick="on_multi_key(event)">🪄 Generate</button>
  &nbsp;
     <input type="number" id="key_count" value="10" placeholder="How Many Keys?">
 </menu> 
 </div>
 
-<div>
+<div id="hint_container">
     <span id="hint"></span>
 </div>
 
-<footer>
+<footer id="footer">
     <div id="messages"></div>
 </footer>
 
@@ -124,13 +126,27 @@ footer {
 </script>
 
 <script details="Show Message" group="🦇">
-function message( s ) {
+function message( s, decal ) {
+    const str =( s )=> ( String( s || "" ).trim() );
     console.log( s );
-    s = String( s || "" ).trim();
+    s = str( s );
     if ( s ) {
-        messages.textContent = ( s );
+        const d = str( decal );
+        const t = str( `${d} ${s}` );
+        messages.textContent = ( t );
     }
     return ( s );
+}
+</script>
+
+<script details="Show Error Message" group="🦇">
+function crashed( e ) {
+    console.error( e );
+    s = e.message;
+    if ( s ) {
+        messages.textContent = ( `👮 ${s}` );
+    }
+    return ( e );
 }
 </script>
 
@@ -147,8 +163,7 @@ function show_record_count() {
         try {
             tikey.value = TiGG();
         } catch ( e ) {
-            alert( e );
-            throw e;
+            crashed ( e );
         }
     }
 </script>
@@ -164,8 +179,7 @@ function show_record_count() {
             }
             sip.value = m.join( "\n" );
         } catch ( e ) {
-            alert( e );
-            throw e;
+            crashed ( e );
         }
     }
 </script>
@@ -180,8 +194,29 @@ function show_record_count() {
             ops.register( r );
             show_record_count();
         } catch ( e ) {
-            alert( e );
-            throw e;
+            crashed ( e );
+        }
+    }
+</script>
+
+<script details="Update Record" group="🦇">
+    function on_update( event ) {
+        try {
+            const ops = TiggDB;
+            const t = sip.title;
+            if (! t ) {
+                throw new Error( `Missing TiKey` );
+            }
+            const r = JSON.parse( sip.value );
+            const k = r.tikey;
+            if ( k !== t ) {
+                throw new Error( `Mismatched TiKey : ${k}` );
+            }
+            ops.write( k, r );
+            sip.title = "";
+            sip.value = "";
+        } catch ( e ) {
+            crashed ( e );
         }
     }
 </script>
@@ -194,12 +229,12 @@ function show_record_count() {
             const r = ops.read( k );
             if ( r ) {
                 sip.value = JSON.stringify( r, null, 2 );
+                sip.title = ( k );
             } else {
                 throw new Error( `Unknown TiKey : ${k}` );
             }
         } catch ( e ) {
-            alert( e );
-            throw e;
+            crashed ( e );
         }
     }
 </script>
@@ -209,8 +244,7 @@ function show_record_count() {
         try {
             throw new Error( "TODO ~ Save Registry File" );
         } catch ( e ) {
-            alert( e );
-            throw e;
+            crashed ( e );
         }
     }
 </script>
@@ -220,8 +254,7 @@ function show_record_count() {
         try {
             throw new Error( "TODO ~ Open Registry File" );
         } catch ( e ) {
-            alert( e );
-            throw e;
+            crashed ( e );
         }
     }
 </script>
@@ -293,8 +326,31 @@ function show_record_count() {
         }
     }
 </script>
+
+<script details="Init Buttons" group="🦇">
+function init_buttons( event ) {
+    btn_filter_keys . title = "🗝️ Filter Keys";
+    btn_single_key . title = "🪄 Generate Single Key";
+    btn_multi_key . title = "🪄 Generate Multiple Keys";
+    btn_open . title = "💾 📂 Open Registry File";
+    btn_save . title = "💾 Save Registry File";
+    btn_register . title = "📑 Register New Entry";
+    btn_review . title = "📝 Review Entry";
+    btn_update . title = "✅ Update Entry";
+}
+addEventListener( "load", init_buttons );
+</script>
+
 <!--
     Updated ~ 2026-JUN-11 ~ Legacy
 -->
+
+<!--
+    💾 📂 📥 📤
+    📦 🏷️ 🦇 🔴
+    📑 📝 ✅
+    🪄 🗝️
+-->
+
 </body>
 </html>
