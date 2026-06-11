@@ -41,6 +41,17 @@ srse =( k )=> ( jyt( `🔓 Read "${k}" from Store`    ) );
 swse =( k )=> ( jyt( `🔏 Wrote "${k}" to Store`     ) );
 skse =( k )=> ( jyt( `⛔ Removed "${k}" from Store` ) );
 
+gad =( o )=> ( o instanceof HTMLElement );
+gid =( i )=> ( doc.getElementById( i ) );
+god =( o )=> (
+    gad( o )
+    ? ( o )
+    : ( ( o )
+      ? ( gid( o ) )
+      : ( null)
+    )
+);
+
 //[ ^.tirex ]
 //⋄ TiKey/GUID RegEx
 ops.tirex = tirex;
@@ -72,6 +83,9 @@ ops.recover = function() {
     }
     ops.records = jso( v );
     srse( k );
+    if ( "function" === typeof show_record_count ) {
+        show_record_count();
+    }
 };
 
 //[ ^.read ]
@@ -93,13 +107,14 @@ ops.write = function( k, v ) {
 //[ ^.dir ]
 //⋄ Obtain Filtered TiKey List
 ops.dir = function( rex ) {
-    throw new Error( `TODO` );
+    return ops.filter( ops.records, rex );
 };
 
 //[ ^.select ]
 //⋄ Obtain Filtered Record Map
 ops.select = function( rex ) {
-    throw new Error( `TODO` );
+    const m = ops.dir( rex );
+    return m.map( k => ops.records[ k ] );
 };
 
 //[ ^.record ]
@@ -186,12 +201,19 @@ ops.hints = function( o ) {
 //[ ^.inspect ]
 //⋄ ( pending )
 ops.inspect = function( o, rex, caption ) {
-    const m = (
-        Object
-        . keys( o || ops.records )
-        . sort()
-    );
-    const v = ops.filter( m, rex );
+    let v;
+    if ( o ) {
+        const m = (
+            Object
+            . keys( o )
+            . sort()
+        );
+        v = ops.filter( m, rex );
+        caption = ( str( caption ) || "Object Members" );
+    } else {
+        v = ops.hints();
+        caption = "TiggDB Member Details";
+    }
     const c = console;
     c.group( str( caption ) || "Object Members" );
     c.table( v );
@@ -201,7 +223,14 @@ ops.inspect = function( o, rex, caption ) {
 //[ ^.edit ]
 //⋄ ( pending )
 ops.edit = function( o, rex, editor ) {
-    throw new Error( `TODO` );
+    o = ( o || ops.records );
+    const m = Object.keys( o );
+    const v = ops.filter( m, rex );
+    const r = v.map( k => o[ k ] );
+    const ed = god( editor );
+    ed . value = jst( r );
+    ed . title = "Filtered Records";
+    return ( ed );
 };
 
 //[ ^.filter ]
@@ -245,21 +274,40 @@ ops.pcl = function( s ) {
     );
 };
 
-ops.persist.details  = ( `Write Records to Store`       );
-ops.recover.details  = ( `Read Records from Store`      );
-ops.read.details     = ( `Read Single Record`           );
-ops.write.details    = ( `Write Single Record`          );
-ops.dir.details      = ( `Obtain Filtered TiKey List`   );
-ops.select.details   = ( `Obtain Filtered Record Map`   );
-ops.record.details   = ( `Construct Record Object`      );
-ops.register.details = ( `Register New Record`          );
-ops.tikey.details    = ( `Compose New TiGG Key (GUID)`  );
-ops.tidate.details   = ( `Compose New TiGG Date`        );
-ops.pcl.details      = ( `Parse Core List`              );
-ops.filter.details   = ( `Filter String List`           );
-ops.hints.details    = ( `Obtain Member Details Table`  );
-ops.inspect.details  = ( `Inspect Member Details Table` );
-ops.edit.details     = ( `Edit Records as JSON`         );
+//[ ^.save_file ]
+//⋄ Save Registry File
+ops.save_file = function() {
+    throw new Error( `TODO ~ Save Registry File` );
+};
+
+//[ ^.open_file ]
+//⋄ Open Registry File
+ops.open_file = function() {
+    throw new Error( `TODO ~ Open Registry File` );
+/* 
+    if ( "function" === typeof show_record_count ) {
+        show_record_count();
+    }
+*/
+};
+
+ops.persist.details   = ( `Write Records to Store`       );
+ops.recover.details   = ( `Read Records from Store`      );
+ops.read.details      = ( `Read Single Record`           );
+ops.write.details     = ( `Write Single Record`          );
+ops.dir.details       = ( `Obtain Filtered TiKey List`   );
+ops.select.details    = ( `Obtain Filtered Record Map`   );
+ops.record.details    = ( `Construct Record Object`      );
+ops.register.details  = ( `Register New Record`          );
+ops.tikey.details     = ( `Compose New TiGG Key (GUID)`  );
+ops.tidate.details    = ( `Compose New TiGG Date`        );
+ops.pcl.details       = ( `Parse Core List`              );
+ops.filter.details    = ( `Filter String List`           );
+ops.hints.details     = ( `Obtain Member Details Table`  );
+ops.inspect.details   = ( `Inspect Member Details Table` );
+ops.edit.details      = ( `Edit Records as JSON`         );
+ops.save_file.details = ( `Save Registry File`           );
+ops.open_file.details = ( `Open Registry File`           );
 
 //[ safe_tikey ]
 //⋄ TiKey/GUID String Validation

@@ -280,6 +280,7 @@ manifest    | Object   | Module Manifest
 } ) 
 ( TiGG.manifest );
 
+
 ;
 ; console.info( `🦇 Loaded TiGG API Module` )
 ;

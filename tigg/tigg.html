@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TIGG</title>
+<link rel="icon" href="./favicon.ico">
+<style>
+/* @import url(""); */
+head, body {
+    margin  : 0;
+    padding : 0;
+    text-align : center;
+    color : #040442;
+    background : rgb(212, 242, 222);
+}
+body {
+    margin-bottom : 42vh;
+    border  : 4px solid transparent;
+    font-family : sans-serif;
+}
+textarea#sip ,
+input#tikey {
+    width : 80%;
+}
+input#keyCount {
+    border : 2px solid transparent;
+    text-align : center;
+    width : 8ch;
+}
+.error {
+    border : 2px solid red !important;
+}
+menu {
+    margin-left : 0;
+    padding : 4px;
+}
+img[alt="Logo"] {
+    width : 100px;
+}
+footer {
+    box-sizing: border-box;
+    position : fixed;
+    width : 100%;
+    bottom : 0;
+    left   : 0;
+    margin : 0;
+    border : none;
+    background :#040442A0;
+    color : mintcream;
+    padding : 4px;
+    padding-left  : 1ch;
+    padding-right : 1ch;
+}
+</style>
+<script src="./tigg.js"></script>
+<script src="./gems/tigg-db.js"></script>
+</head>
+<body>
+<header>    
+    <figure>
+        <img src="./favicon.ico" alt="Logo" title="TiGG">
+    </figure>
+    <h1>🦇 TiGG</h1>
+    <h4>Your Tiny GUID Generator</h4>
+</header>
+
+<h2>🔑 Single Key</h2>
+<div>
+    <input id="tikey" placeholder="(tikey)">
+</div>
+<div>
+<menu>
+    <button onclick="on_single_key(event)">🪄 Generate</button>
+    <button onclick="on_filter_keys(event)">🗝️ Filter Keys</button>
+</menu>
+</div>
+
+<h2>🏷️ Record Title</h2>
+<div>
+    <input id="title_input" placeholder="(title)">
+</div>
+<div>
+<menu>
+    <button onclick="on_register(event)">📑 Register</button>
+    <button onclick="on_review(event)">📝 Review</button>
+</menu>
+</div>
+
+<h2>📦 Multiple Keys</h2>
+<div>
+    <textarea id="sip" wrap="off" rows="11">
+    </textarea>
+</div>
+<div>
+<menu>
+ &nbsp;
+    <button title="Save" onclick="on_save_file(event)">💾</button>
+    <button title="Open" onclick="on_open_file(event)">📂</button>
+    <!-- [ TODO : 📥 📤  ] -->
+    <input type="filename" id="filename">
+ &nbsp;
+    <button onclick="on_multi_key(event)">🪄 Generate</button>
+ &nbsp;
+    <input type="number" id="key_count" value="10" placeholder="How Many Keys?">
+</menu> 
+</div>
+
+<div>
+    <span id="hint"></span>
+</div>
+
+<footer>
+    <div id="messages"></div>
+</footer>
+
+<script details="Gadget References" group="🦇">
+  const sip   = document.getElementById( 'sip' );
+  const hint  = document.getElementById( 'hint' );
+  const tikey = document.getElementById( 'tikey' );
+  const filename = document.getElementById( 'filename' );
+  const key_count = document.getElementById( 'key_count' );
+  const messages = document.getElementById( 'messages' );
+</script>
+
+<script details="Show Message" group="🦇">
+function message( s ) {
+    console.log( s );
+    s = String( s || "" ).trim();
+    if ( s ) {
+        messages.textContent = ( s );
+    }
+    return ( s );
+}
+</script>
+
+<script details="Generate Single Key" group="🦇">
+function show_record_count() {
+    const ops = TiggDB;
+    const n = ops.dir().length;
+    return message( `Total Records : ${n}` );
+}
+</script>
+
+<script details="Generate Single Key" group="🦇">
+    function on_single_key( event ) {
+        try {
+            tikey.value = TiGG();
+        } catch ( e ) {
+            alert( e );
+            throw e;
+        }
+    }
+</script>
+
+<script details="Filter Keys" group="🦇">
+    function on_filter_keys( event ) {
+        try {
+            const ops = TiggDB;
+            const rex = tikey.value.trim();
+            const m = ops.dir( rex );
+            if (! m.length ) {
+                m.push( `No matching keys` );
+            }
+            sip.value = m.join( "\n" );
+        } catch ( e ) {
+            alert( e );
+            throw e;
+        }
+    }
+</script>
+
+<script details="Register Record" group="🦇">
+    function on_register( event ) {
+        try {
+            const ops = TiggDB;
+            const k = title_input.value.trim();
+            const v = tikey.value.trim();
+            const r = ops.record( k, v );
+            ops.register( r );
+            show_record_count();
+        } catch ( e ) {
+            alert( e );
+            throw e;
+        }
+    }
+</script>
+
+<script details="Review Record" group="🦇">
+    function on_review( event ) {
+        try {
+            const ops = TiggDB;
+            const k = tikey.value.trim();
+            const r = ops.read( k );
+            if ( r ) {
+                sip.value = JSON.stringify( r, null, 2 );
+            } else {
+                throw new Error( `Unknown TiKey : ${k}` );
+            }
+        } catch ( e ) {
+            alert( e );
+            throw e;
+        }
+    }
+</script>
+
+<script details="Save Registry File" group="🦇">
+    function on_save_file( event ) {
+        try {
+            throw new Error( "TODO ~ Save Registry File" );
+        } catch ( e ) {
+            alert( e );
+            throw e;
+        }
+    }
+</script>
+
+<script details="Open Registry File" group="🦇">
+    function on_open_file( event ) {
+        try {
+            throw new Error( "TODO ~ Open Registry File" );
+        } catch ( e ) {
+            alert( e );
+            throw e;
+        }
+    }
+</script>
+
+<script details="Generate Multiple Keys" group="🦇">
+    function on_multi_key( event ) {
+        try {
+            TiGG.raw( getCount(), sip );
+        } catch ( e ) {
+            if ( e instanceof KeyCountError ) {
+                e.report();
+                return;
+            }
+            alert( e );
+            throw e;
+        }
+    }
+    function getCount() {
+        function error( s ) {
+            throw new KeyCountError( s );
+        }
+        try {
+            keyCount.classList.remove( "error" )
+            let n = parseInt( keyCount.value );
+            if (! isFinite( n ) ) {
+                error( "Please enter an integer" );
+            }
+            if ( n < 1  ) error( "Range is 1 to 42 keys " );
+            if ( n > 42 ) error( "Range is 1 to 42 keys " );
+            return n;
+        } catch ( e ) {
+            throw e; 
+        }
+    }
+</script>
+
+<script details="Key Count Error Class" group="🔴">
+    class KeyCountError extends Error {
+        constructor( message ) {
+            super( message );
+            this.hintGadget.innerText = message;
+            this.inputGadget.classList.add( "error" );
+        }
+        get hintGadget() {
+            return document.getElementById( 'hint' );
+        }
+        get hint() {
+            return this.hintGadget.innerText;
+        }
+        get inputGadget() {
+            return document.getElementById( 'keyCount' );
+        }
+        get proposedCount() {
+            return this.inputGadget.value;
+        }
+        report() {
+            const hint = this.hint;
+            const hintGadget = this.hintGadget;
+            const inputGadget = this.inputGadget;
+            const proposedCount = this.proposedCount;
+            console.table(
+                [
+        [ "Hint"           , hint          ] ,
+        [ "Hint Gadget"    , hintGadget    ] ,
+        [ "Proposed Count" , proposedCount ] ,
+        [ "Input Gadget"   , inputGadget   ]
+                ]
+            );
+        }
+    }
+</script>
+<!--
+    Updated ~ 2026-JUN-11 ~ Legacy
+-->
+</body>
+</html>
