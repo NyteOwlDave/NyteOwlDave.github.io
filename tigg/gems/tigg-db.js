@@ -147,6 +147,17 @@ ops.record = function(
     edition  = ( str( edition  ) || "(pending)" );
     primary  = ( str( primary  ) || "(pending)" );
     icon     = ( str( icon     ) || "(pending)" );
+    return {
+      title
+    , tikey
+    , tidate
+    , version
+    , revision
+    , edition
+    , primary
+    , decal
+    , icon
+    };
 };
 
 //[ ^.tikey ]
