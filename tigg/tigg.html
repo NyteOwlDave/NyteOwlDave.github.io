@@ -107,6 +107,7 @@ footer {
     <button id="btn_review" onclick="on_review(event)">📝 Review</button>
     <button id="btn_update" onclick="on_update(event)">✅ Update</button>
     <button id="btn_discard" onclick="on_discard(event)">❎ Discard</button>
+    <button id="btn_filter_titles" onclick="on_filter_titles(event)">🏷️ Filter Titles</button>
 </menu> 
 </div> 
 
@@ -199,6 +200,24 @@ function show_record_count() {
                 m.push( `No matching keys` );
             }
             sip.value = m.join( "\n" );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
+</script>
+
+<script details="Filter Keys" group="🦇">
+    function on_filter_titles( event ) {
+        try {
+            const ops = TiggDB;
+            const rex = title_input.value.trim();
+            const m = ops.dir();
+            const t = ops.map( k => ops.records[ k ].title );
+            const w = ops.filter( t, rex );
+            if (! w.length ) {
+                w.push( `No matching titles` );
+            }
+            sip.value = w.join( "\n" );
         } catch ( e ) {
             crashed ( e );
         }
@@ -374,6 +393,7 @@ function on_discard( event ) {
 
 <script details="Init Gadgets" group="🦇">
 function init_gadgets( event ) {
+    btn_filter_titles . title = "🏷️ Filter Titles";
     btn_filter_keys . title = "🗝️ Filter Keys";
     btn_single_key . title = "🪄 Generate Single Key";
     btn_multi_key . title = "🪄 Generate Multiple Keys";
