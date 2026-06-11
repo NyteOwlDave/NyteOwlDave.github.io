@@ -127,7 +127,7 @@ ops.record = function(
     }
     tidate   = ( str( tidate   ) || ( ops.tidate() ) );
     version  = ( str( version  ) || "1.0"       );
-    revision = ( str( revision ) || "0.0"       );
+    revision = ( str( revision ) || "0.1"       );
     decal    = ( str( decal    ) || "🎭"        );
     edition  = ( str( edition  ) || "(pending)" );
     primary  = ( str( primary  ) || "(pending)" );
@@ -162,7 +162,7 @@ ops.tidate = function() {
 ops.register = function( record ) {
     const k = safe_tikey( tikey );
     ops.records[ k ] = record;
-    console.info( `Registered Key : ${k}` );
+    jit( `🧝 Registered Key : ${k}` );
     return ( ops );
 };
 
@@ -209,7 +209,7 @@ ops.edit = function( o, rex, editor ) {
 ops.filter = function( list, rex ) {
     if ( "string" === typeof list ) {
         list = ops.pcl( list );
-    } else if ( o instanceof Object ) {
+    } else if ( list instanceof Object ) {
         if (! Array.isArray( list ) ) {
             list = Object.keys( list ).sort();
         } else {
