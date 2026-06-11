@@ -186,10 +186,13 @@ ops.tidate = function() {
 //[ ^.register ]
 //⋄ Register New Record
 ops.register = function( record ) {
-    const k = safe_tikey( tikey );
-    ops.records[ k ] = record;
-    jit( `🧝 Registered Key : ${k}` );
-    return ( ops );
+    if ( record instanceof Object ) {
+        const k = safe_tikey( record.tikey );
+        ops.records[ k ] = record;
+        jit( `🧝 Registered Key : ${k}` );
+        return ( ops );
+    }
+    bad_record( record );
 };
 
 //[ ^.hints ]
