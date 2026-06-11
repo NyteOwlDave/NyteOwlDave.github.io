@@ -276,6 +276,13 @@ function show_record_count() {
 <script details="Open Registry File" group="🦇">
     function on_open_file( event ) {
         try {
+            const msg = ( 
+    `Any unsaved changes will be lost.\n\nContinue anyway?`
+            );
+            if (! window.confirm( m ) ) {
+                message( "🚫 Canceled" );
+                return;
+            }
             const ops = TiggDB;
             ops.open_file();
         } catch ( e ) {

@@ -312,7 +312,7 @@ ops.open_file = function() {
             show_record_count();
         }
     }
-    return riccardo( accept );
+    return ricardo( accept );
 };
 
 ops.tikey_exists.detals = ( `Verify TiKey Exists`          );
