@@ -160,6 +160,12 @@ ops.record = function(
     };
 };
 
+//[ ^.tikey_exists ]
+//⋄ Verify TiKey is Registered
+ops.tikey_exists = function( k ) {
+    return (!! ops.records[ k ] );
+};
+
 //[ ^.tikey ]
 //⋄ Compose New TiGG Key (GUID)
 ops.tikey = function() {
@@ -265,7 +271,7 @@ ops.filter = function( list, rex ) {
     } else if ( "undefined" !== typeof list ) {
         list = [ String( list ) ];
     } else {
-        throw new Error( `👮 List is Undefined` );
+        throw new Error( `List is Undefined` );
     }
     if ( rex ) {
         rex = new RegExp( rex );
@@ -305,6 +311,7 @@ ops.open_file = function() {
 */
 };
 
+ops.tikey_exists      = ( `Verify TiKey Exists`          );
 ops.persist.details   = ( `Write Records to Store`       );
 ops.recover.details   = ( `Read Records from Store`      );
 ops.read.details      = ( `Read Single Record`           );
@@ -355,14 +362,14 @@ function safe_record( o ) {
 //⋄ Throw a Bad GUID Error
 function bad_tikey( k ) {
     jyt( "🧝 Target", k );
-    throw new TypeError( "👮 Expected a Valid GUID" )
+    throw new TypeError( "Expected a Valid GUID" )
 }
 
 //[ bad_record ]
 //⋄ Throw a Bad Record Error
 function bad_record( o ) {
     jyt( "🧝 Target", o );
-    throw new TypeError( "👮 Expected a Valid Record Object" )
+    throw new TypeError( "Expected a Valid Record Object" )
 }
 
 //[ ^.decals ]

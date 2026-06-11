@@ -190,6 +190,9 @@ function show_record_count() {
             const ops = TiggDB;
             const k = title_input.value.trim();
             const v = tikey.value.trim();
+            if ( ops.tikey_exists( v ) ) {
+                throw new Error( `TiKey Already Exists : ${v}` );
+            }
             const r = ops.record( k, v );
             ops.register( r );
             show_record_count();
