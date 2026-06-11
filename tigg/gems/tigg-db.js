@@ -143,13 +143,27 @@ ops.tikey = function() {
 //[ ^.tidate ]
 //⋄ Compose New TiGG Date
 ops.tidate = function() {
-    throw new Error( `TODO` );
+    function fix( s, n ) {
+        while ( s.length < n ) {
+            s = ( `0${s}` );
+        }
+        return ( s );
+    }
+    const dt = new Date().toString();
+    const p = dt.split( " " );
+    const yr = fix( p[ 3 ], 4 );
+    const dy = fix( p[ 2 ], 2 );
+    const mo = ( p[ 1 ].toUpperCase() );
+    return [ yr, mo, dy ].join( "-" );
 };
 
 //[ ^.register ]
 //⋄ Register New Record
 ops.register = function( record ) {
-    throw new Error( `TODO` );
+    const k = safe_tikey( tikey );
+    ops.records[ k ] = record;
+    console.info( `Registered Key : ${k}` );
+    return ( ops );
 };
 
 //[ ^.hints ]
@@ -172,7 +186,16 @@ ops.hints = function( o ) {
 //[ ^.inspect ]
 //⋄ ( pending )
 ops.inspect = function( o, rex, caption ) {
-    throw new Error( `TODO` );
+    const m = (
+        Object
+        . keys( o || ops.records )
+        . sort()
+    );
+    const v = ops.filter( m, rex );
+    const c = console;
+    c.group( str( caption ) || "Object Members" );
+    c.table( v );
+    c.groupEnd();
 };
 
 //[ ^.edit ]

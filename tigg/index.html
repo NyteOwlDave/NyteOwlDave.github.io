@@ -56,7 +56,8 @@ img[alt="Logo"] {
 </div>
 <div>
 <menu>
-    <button onclick="singleKey()">🪄 Generate</button>
+    <button onclick="on_single_key(event)">🪄 Generate</button>
+    <button onclick="on_filter_keys(event)">🗝️ Filter Keys</button>
 </menu>
 </div>
 
@@ -68,11 +69,12 @@ img[alt="Logo"] {
 <div>
 <menu>
  &nbsp;
-    <button title="Open" onclick="importFile()">📤 </button>
-    <button title="Save" onclick="exportFile()">📥 </button>
+    <button title="Save" onclick="on_save_file(event)">💾</button>
+    <button title="Open" onclick="on_open_file(event)">📂</button>
+    <!-- [ TODO : 📥 📤  ] -->
     <input type="filename" id="filename">
  &nbsp;
-    <button onclick="multiKey()">🪄 Generate</button>
+    <button onclick="on_multi_key(event)">🪄 Generate</button>
  &nbsp;
     <input type="number" id="keyCount" value="10" placeholder="How Many Keys?">
 </menu> 
@@ -86,10 +88,11 @@ img[alt="Logo"] {
   const hint  = document.getElementById( 'hint' );
   const tikey = document.getElementById( 'tikey' );
   const keyCount = document.getElementById( 'keyCount' );
+  const filename = document.getElementById( 'filename' );
 </script>
 
 <script details="Generate Single Key" group="🦇">
-    function singleKey() {
+    function on_single_key( event ) {
         try {
             tikey.value = TiGG();
         } catch ( e ) {
@@ -99,8 +102,41 @@ img[alt="Logo"] {
     }
 </script>
 
+<script details="Filter Keys" group="🦇">
+    function on_filter_keys( event ) {
+        try {
+            throw new Error( "TODO ~ Filter Keys" );
+        } catch ( e ) {
+            alert( e );
+            throw e;
+        }
+    }
+</script>
+
+<script details="Save Registry File" group="🦇">
+    function on_save_file( event ) {
+        try {
+            throw new Error( "TODO ~ Save Registry File" );
+        } catch ( e ) {
+            alert( e );
+            throw e;
+        }
+    }
+</script>
+
+<script details="Open Registry File" group="🦇">
+    function on_open_file( event ) {
+        try {
+            throw new Error( "TODO ~ Open Registry File" );
+        } catch ( e ) {
+            alert( e );
+            throw e;
+        }
+    }
+</script>
+
 <script details="Generate Multiple Keys" group="🦇">
-    function multiKey() {
+    function on_multi_key( event ) {
         try {
             TiGG.raw( getCount(), sip );
         } catch ( e ) {
@@ -167,7 +203,7 @@ img[alt="Logo"] {
     }
 </script>
 <!--
-    🅻🅰🆂🆃 🆄🅿🅳🅰🆃🅴🅳 ~ 2025-AUG-22 ~ Omega
+    Updated ~ 2026-JUN-11 ~ Legacy
 -->
 </body>
 </html>
