@@ -106,7 +106,8 @@ footer {
     <button id="btn_register" onclick="on_register(event)">📑 Register</button>
     <button id="btn_review" onclick="on_review(event)">📝 Review</button>
     <button id="btn_update" onclick="on_update(event)">✅ Update</button>
-</menu>
+    <button id="btn_discard" onclick="on_discard(event)">❎ Discard</button>
+</menu> 
 </div> 
 
 <h2>📦 Multiple Keys</h2>
@@ -244,6 +245,17 @@ function show_record_count() {
     }
 </script>
 
+<script details="Discard Changes" group="🦇">
+function on_discard( event ) {
+    try {
+        sip.title = "";
+        sip.value = "";
+    } catch ( e ) {
+        crashed ( e );
+    }
+}
+</script>
+
 <script details="Review Record" group="🦇">
     function on_review( event ) {
         try {
@@ -369,6 +381,7 @@ function init_gadgets( event ) {
     btn_register . title = "📑 Register New Entry";
     btn_review . title = "📝 Review Entry";
     btn_update . title = "✅ Update Entry";
+    btn_discard . title = "❎ Discard Changes";
     sip . value = "";
     sip . title = "";
 }
@@ -382,7 +395,7 @@ addEventListener( "load", init_gadgets );
 <!--
     💾 📂 📥 📤
     📦 🏷️ 🦇 🔴
-    📑 📝 ✅
+    📑 📝 ✅ ❎
     🪄 🗝️
 -->
 
