@@ -117,6 +117,18 @@ ops.select = function( rex ) {
     return m.map( k => ops.records[ k ] );
 };
 
+//[ ^.tikey_from_title ]
+//⋄ Obtain TiKey from Title
+ops.tikey_from_title = function( title ) {
+    const m = ops.dir();
+    const v = m.filter(
+        k => {
+            ops.record[ k ].title === title
+        }
+    );
+    return ( v[ 0 ] );
+};
+
 //[ ^.record ]
 //⋄ Construct Record Object
 ops.record = function( 
@@ -330,7 +342,7 @@ ops.save_file = function() {
 ops.open_file = function() {
     function accept( s ) {
         jit( `Loading TiKey Records` );
-        ops.records = jso( s );        
+        ops.records = jso( s );
         if ( "function" === typeof show_record_count ) {
             show_record_count();
         }
@@ -338,6 +350,7 @@ ops.open_file = function() {
     return ricardo( accept );
 };
 
+ops.tikey_from_title.details = ( `Obtain TiKey from Title` );
 ops.tikey_exists.detals = ( `Verify TiKey Exists`          );
 ops.persist.details     = ( `Write Records to Store`       );
 ops.recover.details     = ( `Read Records from Store`      );

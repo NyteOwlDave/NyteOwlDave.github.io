@@ -95,6 +95,7 @@ footer {
 <menu>
     <button id="btn_single_key" onclick="on_single_key(event)">🪄 Generate</button>
     <button id="btn_filter_keys" onclick="on_filter_keys(event)">🗝️ Filter Keys</button>
+    <button id="btn_lookup_key" onclick="on_lookup_key(event)">🗝️ Lookup Key</button>
 </menu>
 </div>
 
@@ -107,6 +108,7 @@ footer {
     <button id="btn_register" onclick="on_register(event)">📑 Register</button>
     <button id="btn_review" onclick="on_review(event)">📝 Review</button>
     <button id="btn_filter_titles" onclick="on_filter_titles(event)">🏷️ Filter Titles</button>
+    <button id="btn_lookup_title" onclick="on_lookup_title(event)">🏷️ Lookup Title</button>
     <button id="btn_each" onclick="on_each(event)">🔅 Each</button>
 </menu>
 <div>
@@ -215,7 +217,23 @@ function show_record_count() {
             if (! m.length ) {
                 m.push( `No matching keys` );
             }
+            discard_changes();
             sip.value = m.join( "\n" );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
+    function on_lookup_key( event ) {
+        try {
+            const ops = TiggDB;
+            discard_changes();
+            const rt = title_input.value.trim();
+            const rk = ops.tikey_from_title( rt );
+            if ( rk ) {
+                tikey.value = ( rk );
+            } else {
+                throw new Error( `No such title : "${rt}"` );
+            }
         } catch ( e ) {
             crashed ( e );
         }
@@ -233,7 +251,19 @@ function show_record_count() {
             if (! w.length ) {
                 w.push( `No matching titles` );
             }
+            discard_changes();
             sip.value = w.join( "\n" );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
+    function on_lookup_title( event ) {
+        try {
+            const ops = TiggDB;
+            discard_changes();
+            const rk = tikey.value.trim();
+            const rt = ops.read( rk ).title;
+            title_input.value = ( rk );
         } catch ( e ) {
             crashed ( e );
         }
@@ -503,6 +533,8 @@ function discard_changes() {
 
 <script details="Init Gadgets" group="🦇">
 function init_gadgets( event ) {
+    btn_lookup_key . title = ( `🗝️Lookup TiKey for 🏷️ Title` );
+    btn_lookup_title . title = ( `🏷️ Lookup Title for 🗝️ TiKey` );
     btn_filter_titles . title = "🏷️ Filter Titles";
     btn_filter_keys . title = "🗝️ Filter Keys";
     btn_single_key . title = "🪄 Generate Single Key";
