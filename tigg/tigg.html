@@ -300,11 +300,12 @@ function show_record_count() {
     function on_lookup_key( event ) {
         try {
             const ops = TiggDB;
-            discard_changes();
             const rt = title_input.value.trim();
             const rk = ops.tikey_from_title( rt );
             if ( rk ) {
+                discard_changes();
                 tikey.value = ( rk );
+                title_input.value = ( rt );
             } else {
                 throw new Error( `No such Title : "${rt}"` );
             }
@@ -334,10 +335,11 @@ function show_record_count() {
     function on_lookup_title( event ) {
         try {
             const ops = TiggDB;
-            discard_changes();
             const rk = tikey.value.trim();
             const re = ops.read( rk );
             if ( re ) {
+                discard_changes();
+                tikey.value = ( rk );
                 title_input.value = ( re.title );
             } else {
                 throw new Error( `No such TiKey : ${rk}` );
