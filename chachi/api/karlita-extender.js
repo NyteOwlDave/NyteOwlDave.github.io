@@ -10,6 +10,7 @@ function karlita_extender( event ) {
         return;
     }
     const ops = karlita_extender;
+    ops.editor = ge;
     if ( "function" === typeof ops.client ) {
         ops.client( event );
         if ( event.defaultPrevented ) {
@@ -68,6 +69,14 @@ function karlita_extender( event ) {
             return edit_object( karlita.links, id );
         }
     }
+    function solo() {
+        const ops = karlita_extender;
+        const ed = ops.editor;
+        if ( ed.classList.contains( "solo" ) ) {
+            return ed;
+        }
+        return ( null );
+    }
     function edit_ok( o, id ) {
         if ( "function" !== typeof zed ) {
             const c = console;
@@ -85,24 +94,34 @@ function karlita_extender( event ) {
         }
     }
     function edit_object( obj, id ) {
+        let ed;
         if ( edit_ok( obj, id ) ) {
-            const ed = zed( jst( obj ), 0, id );
+            ed = zed( jst( obj ), 0, id );
             ed . title = ed . id;
+            ed . focus();
+        } else if ( ed = solo() ) {
+            ed . value = jst( obj );
+            ed . title = ( id );
             ed . focus();
         }
         return mine( event );
     }
     function edit_list( list, id ) {
+        let ed;
         if ( edit_ok( list, id ) ) {
             const ed = zed( list, 0, id );
             ed . title = ed . id;
             ed . focus();
+        } else if ( ed = solo() ) {
+            ed . value = list.join( "\n" );
+            ed . title = ( id );
         }
         return mine( event );
     }
 };
 
 karlita_extender.client = null;
+karlita_extender.editor = null;
 
 karlita_extender.hotkeys = {
   "TAB" : "Insert TAB Character"
