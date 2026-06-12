@@ -255,6 +255,7 @@ function show_record_count() {
             if ( k !== t ) {
                 throw new Error( `Mismatched TiKey : ${k}` );
             }
+            r.updated = ops.tidate();
             ops.write( k, r );
             message( `Updated Record : ${k}` );
             sip.title = "";

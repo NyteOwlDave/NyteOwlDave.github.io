@@ -125,6 +125,7 @@ ops.record = function(
     , tidate    // Optional
     , version   // Optional
     , revision  // Optional
+    , author    // Optional
     , edition   // Optional
     , primary   // Optional
     , decal     // Optional
@@ -141,9 +142,11 @@ ops.record = function(
         bad_record( {} );
     }
     tidate   = ( str( tidate   ) || ( ops.tidate() ) );
+    updated  = ( tidate );
     version  = ( str( version  ) || "1.0"       );
     revision = ( str( revision ) || "0.1"       );
     decal    = ( str( decal    ) || "🎭"        );
+    author   = ( str( author   ) || "(pending)" );
     edition  = ( str( edition  ) || "(pending)" );
     primary  = ( str( primary  ) || "(pending)" );
     icon     = ( str( icon     ) || "(pending)" );
@@ -151,6 +154,8 @@ ops.record = function(
       title
     , tikey
     , tidate
+    , updated
+    , author
     , version
     , revision
     , edition
