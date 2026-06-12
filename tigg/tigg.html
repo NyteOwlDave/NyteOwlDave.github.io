@@ -302,11 +302,14 @@ function show_record_count() {
 <script details="Discard Changes" group="🦇">
 function on_discard( event ) {
     try {
-        sip.title = "";
-        sip.value = "";
+        discard_changes();
     } catch ( e ) {
         crashed ( e );
     }
+}
+function discard_changes() {
+    sip.title = ( title_input.value = "" );
+    sip.value = "";
 }
 </script>
 
@@ -319,6 +322,7 @@ function on_discard( event ) {
             if ( r ) {
                 sip.value = JSON.stringify( r, null, 2 );
                 sip.title = ( k );
+                title_input.value = ( r.title );
             } else {
                 throw new Error( `Unknown TiKey : ${k}` );
             }
@@ -328,31 +332,73 @@ function on_discard( event ) {
     }
     function on_first( event ) {
         try {
-            message( `TODO ~ Review First Entry` );
+            tikey.value = get_first_tikey();
+            on_review( event )
         } catch ( e ) {
             crashed ( e );
         }
     }
     function on_prev( event ) {
         try {
-            message( `TODO ~ Review Previous Entry` );
+            const tk = get_review_tikey();
+            tikey.value = get_prev_tikey( tk );
+            on_review( event )
         } catch ( e ) {
             crashed ( e );
         }
     }
     function on_next( event ) {
         try {
-            message( `TODO ~ Review Next Entry` );
+            const tk = get_review_tikey();
+            tikey.value = get_next_tikey( tk );
+            on_review( event )
         } catch ( e ) {
             crashed ( e );
         }
     }
     function on_last( event ) {
         try {
-            message( `TODO ~ Review Last Entry` );
+            tikey.value = get_last_tikey();
+            on_review( event )
         } catch ( e ) {
             crashed ( e );
         }
+    }
+    function get_review_tikey() {
+        return (
+               ( sip.title )
+            || ( tikey.value.trim() )
+        );
+    }
+    function get_first_tikey() {
+        const ops = TiggDB;
+        const m = ops.dir();
+        return ( m.shift() );
+    }
+    function get_last_tikey() {
+        const ops = TiggDB;
+        const m = ops.dir();
+        return ( m.pop() );
+    }
+    function get_next_tikey( tk ) {
+        const ops = TiggDB;
+        const m = ops.dir();
+        let i = m.indexOf( tk );
+        i = pmod( i + 1, m.length );
+        return m[ i ];
+    }
+    function get_prev_tikey( tk ) {
+        const ops = TiggDB;
+        const m = ops.dir();
+        let i = m.indexOf( tk );
+        i = pmod( i - 1, m.length );
+        return m[ i ];
+    }
+    function pmod( n, m ) {
+        n = ( n % m );
+        return (
+            ( n >= 0 ) ? ( n ) : ( n + m )
+        );
     }
 </script>
 
