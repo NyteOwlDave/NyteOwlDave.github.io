@@ -76,6 +76,8 @@ footer {
 <script src="./../std/api/gems/prolog-beta.js"></script>
 <script src="./../std/api/transport/riccola-v1p0.js"></script>
 <script src="./../std/api/transport/ricardo-v1p0.js"></script>
+<script src="./../chachi/api/karlita-editor.js"></script>
+<script src="./../chachi/api/karlita-extender.js"></script>
 </head>
 
 <body>
@@ -654,6 +656,9 @@ function init_gadgets( event ) {
 
     sip . value = "";
     sip . title = "";
+    if ( "function" === typeof init_editor ) {
+        init_editor( sip );
+    }
 
     tikey . value = "";
     title_input . value = "";
