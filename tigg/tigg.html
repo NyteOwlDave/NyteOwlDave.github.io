@@ -666,9 +666,36 @@ addEventListener( "load", init_gadgets );
 </script>
 
 <script id="morpheus.js">
+
 function morpheus( event ) {
-    window.location = "./../index.html";
+    if ( event.altKey ) {
+        let u;
+        const o = ( `left=10,top=10` );
+        if ( event.ctrlKey ) {
+            u = ( morpheus.build );
+        } else if ( event.shiftKey ) {
+            u = ( morpheus.home );
+        } else {
+            u = ( morpheus.repo );
+        }
+        window.open( u, u, o );
+    } else {
+        window.location = "./../index.html";
+    }
 }
+
+;
+; morpheus.build = (
+ `https://github.com/NyteOwlDave/NyteOwlDave.github.io/actions`
+)
+; morpheus.repo = (
+ `https://github.com/NyteOwlDave/NyteOwlDave.github.io`
+)
+; morpheus.home = (
+ `https://nyteowldave.github.io`
+)
+;
+
 </script>
 
 <!--
@@ -682,6 +709,13 @@ function morpheus( event ) {
     📑 📝 ✅ ❎
     🪄 🗝️ 🔅
     ⏪ ⏩ ⏫ ⏬
+-->
+
+<!--
+
++ GitHub Build Actions
+@ https://github.com/NyteOwlDave/NyteOwlDave.github.io/actions
+
 -->
 
 </body>
