@@ -156,6 +156,7 @@ footer {
 <script details="Gadget References" group="🦇">
   const sip   = document.getElementById( 'sip' );
   const tikey = document.getElementById( 'tikey' );
+  const title_input = document.getElementById( 'title_input' );
   const filename = document.getElementById( 'filename' );
   const key_count = document.getElementById( 'key_count' );
   const messages = document.getElementById( 'messages' );
@@ -273,8 +274,7 @@ function show_record_count() {
             r.updated = ops.tidate();
             ops.write( k, r );
             message( `Updated Record : ${k}` );
-            sip.title = "";
-            sip.value = "";
+            discard_changes();
         } catch ( e ) {
             crashed ( e );
         }
@@ -407,6 +407,7 @@ function discard_changes() {
         try {
             const ops = TiggDB;
             ops.save_file();
+            discard_changes();
         } catch ( e ) {
             crashed ( e );
         }
@@ -425,6 +426,7 @@ function discard_changes() {
             }
             const ops = TiggDB;
             ops.open_file();
+            discard_changes();
         } catch ( e ) {
             crashed ( e );
         }
@@ -434,8 +436,8 @@ function discard_changes() {
 <script details="Generate Multiple Keys" group="🦇">
     function on_multi_key( event ) {
         try {
+            discard_changes();
             TiGG.raw( getCount(), sip );
-            sip . title = "";
         } catch ( e ) {
             if ( e instanceof KeyCountError ) {
                 e.report();
