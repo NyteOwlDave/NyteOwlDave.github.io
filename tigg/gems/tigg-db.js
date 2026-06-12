@@ -15,9 +15,15 @@ doc = document;
 jsn = JSON;
 stg = localStorage;
 
+ops.aliases = {
+  con, doc, jsn, stg
+};
+
 str =( s )=> ( String( s || "" ).trim() );
 arr =( o )=> ( Array.from( o || [] ) );
 unq =( o )=> (    new Set( o || [] ) );
+
+const TypeCastOps = { str, arr, unq };
 
 cls =()=> ( con.clear() );
 jat =( t )=> ( con.table( t ) );
@@ -27,10 +33,18 @@ jot =( s )=> ( con.log  ( s ) );
 jut =( s )=> ( con.warn ( s ) );
 jyt =( s )=> ( con.debug( s ) );
 
+const ConsoleOps = {
+   cls, jat, jet, jit, jot, jut, jyt
+};
+
 jsx =( o )=> ( jsn.stringify( o ) );
 jst =( o )=> ( jsn.stringify( o, null, 2 ) );
 jso =( t )=> ( jsn.parse ( t ) );
 jsp =( t )=> ( jst( jso( t ) ) );
+
+const JsonOps = {
+   jsx, jst, jso, jsp
+};
 
 rsk =( i    )=> ( stg.key( i ) );
 kse =( k    )=> ( stg.removeItem( k ) );
@@ -40,6 +54,11 @@ wse =( k, v )=> ( stg.setItem( k, v ) );
 srse =( k )=> ( jyt( `🔓 Read "${k}" from Store`    ) );
 swse =( k )=> ( jyt( `🔏 Wrote "${k}" to Store`     ) );
 skse =( k )=> ( jyt( `⛔ Removed "${k}" from Store` ) );
+
+const StoreOps = {
+    rsk, kse, rse, wse,
+    srse, swse, skse
+};
 
 gad =( o )=> ( o instanceof HTMLElement );
 gid =( i )=> ( doc.getElementById( i ) );
@@ -51,6 +70,18 @@ god =( o )=> (
       : ( null)
     )
 );
+
+const GadgetOps = {
+    gad, gid, god
+};
+
+ops.prologs = {
+  console : ConsoleOps
+, gadget  : GadgetOps
+, json    : JsonOps
+, store   : StoreOps
+, type    : TypeCastOps
+};
 
 //[ ^.tirex ]
 //⋄ TiKey/GUID RegEx
@@ -120,10 +151,15 @@ ops.select = function( rex ) {
 //[ ^.tikey_from_title ]
 //⋄ Obtain TiKey from Title
 ops.tikey_from_title = function( title ) {
+    title = str( title );
+    if (! title ) {
+        throw new TypeError( `Expected a Title` );
+    }
+    const r = ops.records;
     const m = ops.dir();
     const v = m.filter(
         k => {
-            ops.record[ k ].title === title
+            r[ k ].title === title
         }
     );
     return ( v[ 0 ] );
@@ -297,7 +333,7 @@ ops.filter = function( list, rex ) {
         if (! Array.isArray( list ) ) {
             list = Object.keys( list ).sort();
         } else {
-            list = ( 
+            list = (
                 ( list )
                 . map( str )
                 . filter( s => s )

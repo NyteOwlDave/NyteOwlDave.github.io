@@ -137,12 +137,18 @@ footer {
 </menu>
 </div>
 
-<h3>🗂️ File System</h3>
+<h3>🗂️ File Transport</h3>
 <div>
 <menu>
     <button id="btn_save" onclick="on_save_file(event)">💾</button>
     <button id="btn_open" onclick="on_open_file(event)">📂</button>
-    <!-- [ TODO : 📥 📤  ] -->
+    <button id="btn_download" onclick="on_download(event)">📥</button>
+    <button id="btn_upload" onclick="on_upload(event)">📤</button>
+    <button id="btn_persist" onclick="on_persist(event)">🔏</button>
+    <button id="btn_recover" onclick="on_recover(event)">🔓</button>
+    <button id="btn_store_keys" onclick="on_store_keys(event)">🔐</button>
+
+    <!-- [ TODO : 📥 📤 🔐 🔓 🔏 ] -->
     <!-- input type="filename" id="filename" -->
 </menu>
 </div>
@@ -179,7 +185,7 @@ function message( s, decal ) {
 }
 </script>
 
-<script details="Show Error Message" group="🦇">
+<script id="crashed.js" group="🦇">
 function crashed( e ) {
     console.error( e );
     s = e.message;
@@ -190,12 +196,69 @@ function crashed( e ) {
 }
 </script>
 
+<script id="todo.js" group="🦇">
+function todo( s ) {
+    if ( s instanceof Event ) {
+        s = ( s.target );
+    }
+    if ( s instanceof HTMLElement ) {
+        s = ( s.title || s.textContent );
+    }
+    if ( s ) {
+        return ( message( `TODO ~ ${s}`, `🚧` ) );
+    } else {
+        return ( message( `TODO`, `🚧` ) );
+    }
+}
+</script>
+
 <script details="Generate Single Key" group="🦇">
 function show_record_count() {
     const ops = TiggDB;
     const n = ops.dir().length;
     return message( `Total Records : ${n}` );
 }
+</script>
+
+<script id="server-ops.js">
+    function on_download( event ) {
+        try {
+            todo( event );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
+    function on_upload( event ) {
+        try {
+            todo( event );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
+</script>
+
+<script id="store-ops.js">
+    function on_persist( event ) {
+        try {
+            todo( event );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
+    function on_recover( event ) {
+        try {
+            todo( event );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
+    function on_store_keys( event ) {
+        try {
+            todo( event );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
 </script>
 
 <script details="Generate Single Key" group="🦇">
@@ -533,29 +596,39 @@ function discard_changes() {
 
 <script details="Init Gadgets" group="🦇">
 function init_gadgets( event ) {
-    btn_lookup_key . title = ( `🗝️Lookup TiKey for 🏷️ Title` );
-    btn_lookup_title . title = ( `🏷️ Lookup Title for 🗝️ TiKey` );
+
+    btn_lookup_key    . title = ( `🗝️Lookup TiKey for 🏷️ Title` );
+    btn_lookup_title  . title = ( `🏷️ Lookup Title for 🗝️ TiKey` );
     btn_filter_titles . title = "🏷️ Filter Titles";
     btn_filter_keys . title = "🗝️ Filter Keys";
-    btn_single_key . title = "🪄 Generate Single Key";
-    btn_multi_key . title = "🪄 Generate Multiple Keys";
+    btn_single_key  . title = "🪄 Generate Single Key";
+    btn_multi_key   . title = "🪄 Generate Multiple Keys";
     btn_open . title = "💾 📂 Open Registry File";
     btn_save . title = "💾 Save Registry File";
     btn_register . title = "📑 Register New Entry";
-    btn_review . title = "📝 Review Entry";
-    btn_update . title = "✅ Update Entry";
-    btn_discard . title = "❎ Discard Changes";
+    btn_review   . title = "📝 Review Entry";
+    btn_update   . title = "✅ Update Entry";
+    btn_discard  . title = "❎ Discard Changes";
     btn_each  . title = "🔅 Modify Each Entry";
     btn_first . title = "⏫ Review First Entry";
     btn_prev  . title = "⏪ Review Previous Entry";
     btn_next  . title = "⏩ Review Next Entry";
     btn_last  . title = "⏬ Review Last Entry";
+    btn_download   . title = "📥 Download Registry File"
+    btn_upload     . title = "📥 Upload Registry File"
+    btn_persist    . title = "🔏 Write Registry File to Store"
+    btn_recover    . title = "🔓 Read Registry File from Store"
+    btn_store_keys . title = "🔐 Review Store Keys"
+
     sip . value = "";
     sip . title = "";
+
     tikey . value = "";
     title_input . value = "";
-    logo_image  . onclick = morpheus;
-    logo_image  . title = "Morpheus Home Page";
+
+    logo_image . onclick = morpheus;
+    logo_image . title = "Morpheus Home Page";
+
 }
 addEventListener( "load", init_gadgets );
 </script>
@@ -571,6 +644,7 @@ function morpheus( event ) {
 -->
 
 <!--
+    🔐 🔓 🔏
     💾 📂 📥 📤 🗂️
     📦 🏷️ 🦇 🔴
     📑 📝 ✅ ❎
