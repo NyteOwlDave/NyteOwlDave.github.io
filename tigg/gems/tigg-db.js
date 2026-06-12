@@ -258,6 +258,24 @@ ops.edit = function( o, rex, editor ) {
     return ( ed );
 };
 
+//[ ^.each ]
+//⋄ Modify Each Record
+ops.each = function( changes ) {
+    if (! ( changes instanceof Object ) ) {
+        throw new TypeError( `Expected an Object` );
+    }
+    const m = Object.keys( changes );
+    const record =( k )=> {
+        const r = ops.records[ k ];
+        m . forEach(
+            j => ( r[ j ] = changes[ j ] )
+        );
+    }
+    const keys = ops.dir();
+    keys.forEach( record );
+    return ( ops );
+};
+
 //[ ^.filter ]
 //⋄ Filter String List
 ops.filter = function( list, rex ) {
@@ -338,6 +356,7 @@ ops.inspect.details     = ( `Inspect Member Details Table` );
 ops.edit.details        = ( `Edit Records as JSON`         );
 ops.save_file.details   = ( `Save Registry File`           );
 ops.open_file.details   = ( `Open Registry File`           );
+ops.each                = ( `Modify Each Record`           );
 
 //[ safe_tikey ]
 //⋄ TiKey/GUID String Validation
@@ -359,8 +378,8 @@ function safe_record( o ) {
             jyt( "🧝 Missing Record Title", o );
             bad_record( o );
         }
-        if (! o.date ) {
-            o.date = ops.tidate();
+        if (! o.updated ) {
+            o.updated = ops.tidate();
         }
         return ( o );
     }
