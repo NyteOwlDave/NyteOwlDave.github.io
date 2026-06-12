@@ -54,6 +54,7 @@ menu {
 }
 img[alt="Logo"] {
     width : 100px;
+    cursor : pointer;
 }
 footer {
     box-sizing: border-box;
@@ -78,7 +79,7 @@ footer {
 </head>
 
 <body>
-<header id="header">    
+<header id="header">
     <figure id="logo_figure">
         <img id="logo_image" src="./favicon.ico" alt="Logo" title="TiGG Logo">
     </figure>
@@ -105,34 +106,47 @@ footer {
 <menu>
     <button id="btn_register" onclick="on_register(event)">📑 Register</button>
     <button id="btn_review" onclick="on_review(event)">📝 Review</button>
-    <button id="btn_update" onclick="on_update(event)">✅ Update</button>
-    <button id="btn_discard" onclick="on_discard(event)">❎ Discard</button>
     <button id="btn_filter_titles" onclick="on_filter_titles(event)">🏷️ Filter Titles</button>
     <button id="btn_each" onclick="on_each(event)">🔅 Each</button>
-</menu> 
-</div> 
+</menu>
+<div>
+<menu>
+    <button id="btn_first" onclick="on_first(event)">⏫</button>
+    <button id="btn_prev" onclick="on_prev(event)">⏪</button>
+    <button id="btn_next" onclick="on_next(event)">⏩</button>
+    <button id="btn_last" onclick="on_last(event)">⏬</button>
+    <button id="btn_update" onclick="on_update(event)">✅</button>
+    <button id="btn_discard" onclick="on_discard(event)">❎</button>
+</menu>
+</div>
 
-<h2>📦 Multiple Keys</h2>
+<h2>📝 Editors</h2>
 <div id="editors">
     <textarea id="sip" wrap="off" rows="11">
     </textarea>
 </div>
+
+<h3>📦 Multiple Keys</h3>
 <div>
-<menu> 
- &nbsp;
-    <button id="btn_save" onclick="on_save_file(event)">💾</button>
-    <button id="btn_open" onclick="on_open_file(event)">📂</button>
-    <!-- [ TODO : 📥 📤  ] -->
-    <input type="filename" id="filename">
- &nbsp;
+<menu>
     <button id="btn_multi_key" onclick="on_multi_key(event)">🪄 Generate</button>
  &nbsp;
     <input type="number" id="key_count" value="10" placeholder="How Many Keys?">
-</menu> 
+</menu>
+</div>
+
+<h3>🗂️ File System</h3>
+<div>
+<menu>
+    <button id="btn_save" onclick="on_save_file(event)">💾</button>
+    <button id="btn_open" onclick="on_open_file(event)">📂</button>
+    <!-- [ TODO : 📥 📤  ] -->
+    <!-- input type="filename" id="filename" -->
+</menu>
 </div>
 
 <div id="hint_container">
-    <span id="hint"></span>
+    <span id="hints"></span>
 </div>
 
 <footer id="footer">
@@ -141,11 +155,11 @@ footer {
 
 <script details="Gadget References" group="🦇">
   const sip   = document.getElementById( 'sip' );
-  const hint  = document.getElementById( 'hint' );
   const tikey = document.getElementById( 'tikey' );
   const filename = document.getElementById( 'filename' );
   const key_count = document.getElementById( 'key_count' );
   const messages = document.getElementById( 'messages' );
+  const hints = document.getElementById( 'hints' );
 </script>
 
 <script details="Show Message" group="🦇">
@@ -272,7 +286,7 @@ function show_record_count() {
         try {
             const ops = TiggDB;
             if ( sip.title ) {
-                throw new Error( 
+                throw new Error(
                     `Can't replicate an existing entry`
                 );
             }
@@ -312,6 +326,34 @@ function on_discard( event ) {
             crashed ( e );
         }
     }
+    function on_first( event ) {
+        try {
+            message( `TODO ~ Review First Entry` );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
+    function on_prev( event ) {
+        try {
+            message( `TODO ~ Review Previous Entry` );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
+    function on_next( event ) {
+        try {
+            message( `TODO ~ Review Next Entry` );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
+    function on_last( event ) {
+        try {
+            message( `TODO ~ Review Last Entry` );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
 </script>
 
 <script details="Save Registry File" group="🦇">
@@ -328,7 +370,7 @@ function on_discard( event ) {
 <script details="Open Registry File" group="🦇">
     function on_open_file( event ) {
         try {
-            const msg = ( 
+            const msg = (
     `Any unsaved changes will be lost.\n\nContinue anyway?`
             );
             if (! window.confirm( msg ) ) {
@@ -347,13 +389,13 @@ function on_discard( event ) {
     function on_multi_key( event ) {
         try {
             TiGG.raw( getCount(), sip );
+            sip . title = "";
         } catch ( e ) {
             if ( e instanceof KeyCountError ) {
                 e.report();
                 return;
             }
-            alert( e );
-            throw e;
+            crashed( e );
         }
     }
     function getCount() {
@@ -370,7 +412,7 @@ function on_discard( event ) {
             if ( n > 42 ) error( "Range is 1 to 42 keys " );
             return n;
         } catch ( e ) {
-            throw e; 
+            throw e;
         }
     }
 </script>
@@ -383,7 +425,7 @@ function on_discard( event ) {
             this.inputGadget.classList.add( "error" );
         }
         get hintGadget() {
-            return document.getElementById( 'hint' );
+            return document.getElementById( 'hints' );
         }
         get hint() {
             return this.hintGadget.innerText;
@@ -423,22 +465,37 @@ function init_gadgets( event ) {
     btn_review . title = "📝 Review Entry";
     btn_update . title = "✅ Update Entry";
     btn_discard . title = "❎ Discard Changes";
-    btn_each . title = "🔅 Modify Each Entry";
+    btn_each  . title = "🔅 Modify Each Entry";
+    btn_first . title = "⏫ Review First Entry";
+    btn_prev  . title = "⏪ Review Previous Entry";
+    btn_next  . title = "⏩ Review Next Entry";
+    btn_last  . title = "⏬ Review Last Entry";
     sip . value = "";
     sip . title = "";
+    tikey . value = "";
+    title_input . value = "";
+    logo_image  . onclick = morpheus;
+    logo_image  . title = "Morpheus Home Page";
 }
 addEventListener( "load", init_gadgets );
 </script>
 
+<script id="morpheus.js">
+function morpheus( event ) {
+    window.location = "./../index.html";
+}
+</script>
+
 <!--
-    Updated ~ 2026-JUN-11 ~ Legacy
+    Updated ~ 2026-JUN-12 ~ Legacy
 -->
 
 <!--
-    💾 📂 📥 📤
+    💾 📂 📥 📤 🗂️
     📦 🏷️ 🦇 🔴
     📑 📝 ✅ ❎
     🪄 🗝️ 🔅
+    ⏪ ⏩ ⏫ ⏬
 -->
 
 </body>
