@@ -356,7 +356,7 @@ ops.inspect.details     = ( `Inspect Member Details Table` );
 ops.edit.details        = ( `Edit Records as JSON`         );
 ops.save_file.details   = ( `Save Registry File`           );
 ops.open_file.details   = ( `Open Registry File`           );
-ops.each                = ( `Modify Each Record`           );
+ops.each.details        = ( `Modify Each Record`           );
 
 //[ safe_tikey ]
 //⋄ TiKey/GUID String Validation
