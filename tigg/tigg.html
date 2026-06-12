@@ -240,21 +240,32 @@ function show_record_count() {
 <script id="store-ops.js">
     function on_persist( event ) {
         try {
-            todo( event );
+            const ops = TiggDB;
+            ops.persist();
+            message( `Wrote Registry File to Store`, `🔏` );
         } catch ( e ) {
             crashed ( e );
         }
     }
     function on_recover( event ) {
         try {
-            todo( event );
+            const ops = TiggDB;
+            discard_changes();
+            ops.recover();
+            show_record_count();
         } catch ( e ) {
             crashed ( e );
         }
     }
     function on_store_keys( event ) {
         try {
-            todo( event );
+            let store = localStorage;
+            if ( null === store ) {
+                store = { "(unavailable)" : null };
+            }
+            const m = Object.keys( store ).sort();
+            discard_changes();
+            sip.value = m.join( "\n" );
         } catch ( e ) {
             crashed ( e );
         }
@@ -295,7 +306,7 @@ function show_record_count() {
             if ( rk ) {
                 tikey.value = ( rk );
             } else {
-                throw new Error( `No such title : "${rt}"` );
+                throw new Error( `No such Title : "${rt}"` );
             }
         } catch ( e ) {
             crashed ( e );
@@ -325,8 +336,12 @@ function show_record_count() {
             const ops = TiggDB;
             discard_changes();
             const rk = tikey.value.trim();
-            const rt = ops.read( rk ).title;
-            title_input.value = ( rk );
+            const re = ops.read( rk );
+            if ( re ) {
+                title_input.value = ( re.title );
+            } else {
+                throw new Error( `No such TiKey : ${rk}` );
+            }
         } catch ( e ) {
             crashed ( e );
         }
