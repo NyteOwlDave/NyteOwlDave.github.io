@@ -158,9 +158,9 @@ ops.tikey_from_title = function( title ) {
     const r = ops.records;
     const m = ops.dir();
     const v = m.filter(
-        k => {
+        k => (
             r[ k ].title === title
-        }
+        )
     );
     return ( v[ 0 ] );
 };

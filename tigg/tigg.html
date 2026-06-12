@@ -142,8 +142,8 @@ footer {
 <menu>
     <button id="btn_save" onclick="on_save_file(event)">💾</button>
     <button id="btn_open" onclick="on_open_file(event)">📂</button>
-    <button id="btn_download" onclick="on_download(event)">📥</button>
     <button id="btn_upload" onclick="on_upload(event)">📤</button>
+    <button id="btn_download" onclick="on_download(event)">📥</button>
     <button id="btn_persist" onclick="on_persist(event)">🔏</button>
     <button id="btn_recover" onclick="on_recover(event)">🔓</button>
     <button id="btn_store_keys" onclick="on_store_keys(event)">🔐</button>
@@ -162,67 +162,83 @@ footer {
 </footer>
 
 <script details="Gadget References" group="🦇">
-  const sip   = document.getElementById( 'sip' );
-  const tikey = document.getElementById( 'tikey' );
-  const title_input = document.getElementById( 'title_input' );
-  const filename = document.getElementById( 'filename' );
-  const key_count = document.getElementById( 'key_count' );
-  const messages = document.getElementById( 'messages' );
-  const hints = document.getElementById( 'hints' );
+    const sip   = document.getElementById( 'sip' );
+    const tikey = document.getElementById( 'tikey' );
+    const title_input = document.getElementById( 'title_input' );
+    const filename = document.getElementById( 'filename' );
+    const key_count = document.getElementById( 'key_count' );
+    const messages = document.getElementById( 'messages' );
+    const hints = document.getElementById( 'hints' );
 </script>
 
 <script details="Show Message" group="🦇">
-function message( s, decal ) {
-    const str =( s )=> ( String( s || "" ).trim() );
-    console.log( s );
-    s = str( s );
-    if ( s ) {
-        const d = str( decal );
-        const t = str( `${d} ${s}` );
-        messages.textContent = ( t );
+    function message( s, decal ) {
+        const str =( s )=> ( String( s || "" ).trim() );
+        console.log( s );
+        s = str( s );
+        if ( s ) {
+            const d = str( decal );
+            const t = str( `${d} ${s}` );
+            messages.textContent = ( t );
+        }
+        return ( s );
     }
-    return ( s );
-}
 </script>
 
 <script id="crashed.js" group="🦇">
-function crashed( e ) {
-    console.error( e );
-    s = e.message;
-    if ( s ) {
-        messages.textContent = ( `👮 ${s}` );
+    function crashed( e ) {
+        console.error( e );
+        s = e.message;
+        if ( s ) {
+            messages.textContent = ( `👮 ${s}` );
+        }
+        return ( e );
     }
-    return ( e );
-}
 </script>
 
 <script id="todo.js" group="🦇">
-function todo( s ) {
-    if ( s instanceof Event ) {
-        s = ( s.target );
+    function todo( s ) {
+        if ( s instanceof Event ) {
+            s = ( s.target );
+        }
+        if ( s instanceof HTMLElement ) {
+            s = ( s.title || s.textContent );
+        }
+        if ( s ) {
+            return ( message( `TODO ~ ${s}`, `🚧` ) );
+        } else {
+            return ( message( `TODO`, `🚧` ) );
+        }
     }
-    if ( s instanceof HTMLElement ) {
-        s = ( s.title || s.textContent );
-    }
-    if ( s ) {
-        return ( message( `TODO ~ ${s}`, `🚧` ) );
-    } else {
-        return ( message( `TODO`, `🚧` ) );
-    }
-}
 </script>
 
 <script details="Generate Single Key" group="🦇">
-function show_record_count() {
-    const ops = TiggDB;
-    const n = ops.dir().length;
-    return message( `Total Records : ${n}` );
-}
+    function show_record_count() {
+        const ops = TiggDB;
+        const n = ops.dir().length;
+        return message( `Total Records : ${n}` );
+    }
+</script>
+
+<script id="confirm_reload.js">
+    function confirm_reload() {
+        const msg = (
+    `🚨 Any unsaved changes will be lost.\n\nContinue anyway?`
+        );
+        if (! window.confirm( msg ) ) {
+            message( "🚫 Canceled" );
+            return ( false );
+        }
+        return ( true );
+    }
 </script>
 
 <script id="server-ops.js">
     function on_download( event ) {
         try {
+            if (! confirm_reload() ) {
+                return;
+            }
             todo( event );
         } catch ( e ) {
             crashed ( e );
@@ -249,6 +265,9 @@ function show_record_count() {
     }
     function on_recover( event ) {
         try {
+            if (! confirm_reload() ) {
+                return;
+            }
             const ops = TiggDB;
             discard_changes();
             ops.recover();
@@ -397,7 +416,7 @@ function show_record_count() {
             const ops = TiggDB;
             if ( sip.title ) {
                 throw new Error(
-                    `Can't replicate an existing entry`
+                    `Can't replicate an existing record`
                 );
             }
             const changes = jso( sip.value );
@@ -527,11 +546,7 @@ function discard_changes() {
 <script details="Open Registry File" group="🦇">
     function on_open_file( event ) {
         try {
-            const msg = (
-    `Any unsaved changes will be lost.\n\nContinue anyway?`
-            );
-            if (! window.confirm( msg ) ) {
-                message( "🚫 Canceled" );
+            if (! confirm_reload() ) {
                 return;
             }
             const ops = TiggDB;
@@ -622,15 +637,15 @@ function init_gadgets( event ) {
     btn_multi_key   . title = "🪄 Generate Multiple Keys";
     btn_open . title = "💾 📂 Open Registry File";
     btn_save . title = "💾 Save Registry File";
-    btn_register . title = "📑 Register New Entry";
-    btn_review   . title = "📝 Review Entry";
-    btn_update   . title = "✅ Update Entry";
+    btn_register . title = "📑 Register New Record";
+    btn_review   . title = "📝 Review Record";
+    btn_update   . title = "✅ Update Record";
     btn_discard  . title = "❎ Discard Changes";
-    btn_each  . title = "🔅 Modify Each Entry";
-    btn_first . title = "⏫ Review First Entry";
-    btn_prev  . title = "⏪ Review Previous Entry";
-    btn_next  . title = "⏩ Review Next Entry";
-    btn_last  . title = "⏬ Review Last Entry";
+    btn_each  . title = "🔅 Modify Each Record";
+    btn_first . title = "⏫ Review First Record";
+    btn_prev  . title = "⏪ Review Previous Record";
+    btn_next  . title = "⏩ Review Next Record";
+    btn_last  . title = "⏬ Review Last Record";
     btn_download   . title = "📥 Download Registry File"
     btn_upload     . title = "📥 Upload Registry File"
     btn_persist    . title = "🔏 Write Registry File to Store"
