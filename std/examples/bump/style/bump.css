@@ -1,0 +1,75 @@
+body {
+    background: url( './../art/favbgnd.png' );
+    color: rgba( 250, 198, 12, 0.88 );
+    margin-bottom : 42vh;
+}
+
+.hidden {
+    display: none;
+}
+
+fieldset {
+    background-color: rgba( 0, 18, 52, 0.6 );
+}
+
+fieldset, section {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+legend {
+    background-color: #765432;
+}
+
+fieldset, legend {
+    border: 1px solid rgba(255,215,0,0.4);
+    border-radius: 7px;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+}
+
+q {
+    font: 13pt verdana, tahoma, sans-serif;
+}
+
+a {
+    color : lemonchiffon;
+    text-shadow: 2px solid rgba(0,0,0,0.75);
+}
+
+textarea {
+    width: 90%;
+}
+
+footer {
+    color :rgb(11,22,77);
+    text-shadow: 2px solid rgba(0,0,0,0.95);
+}
+
+blockquote summary {
+    font-size: larger;
+    font-weight: 800;
+}
+
+.button {
+    cursor : pointer;
+}
+
+meter {
+    width : 184px;
+    height : 34px;
+    margin-bottom: 5px;
+}
+
+.app-bar {
+    border: 0;
+    font-size: small;
+}
+
+.app-title {
+    border: 0;
+    font-size: x-large;
+}
+

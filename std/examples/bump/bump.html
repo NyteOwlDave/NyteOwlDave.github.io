@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="utf-8"/>
+<title>Bump Map Demo</title>
+<link rel="icon" href="favicon.ico" />
+<style>
+@import url("./style/bump.css");
+</style>
+</head>
+
+<body onload="App.run()">
+
+<header name="Application Menu">
+  <fieldset name="App Bar">
+      <table class="app-bar">
+          <tr>
+              <td class="app-bar" id="idAppBarLogo">
+                 <img src="./art/ncs-blue.png" alt="NCS"/>
+              </td>
+              <td class="app-title">
+                Bump Mapping Demo
+              </td>
+          </tr>
+      </table>
+  </fieldset>
+</header>
+
+<main>
+
+<fieldset name="Bump Mapped Image">
+  <legend>Bump Mapped Image</legend>
+  <div><canvas id="idCanvas"></canvas></div>
+  <div style="align-content: top;">
+    <img id="idLeft" class="button" onclick="App.media.left()" src="./art/left.png" alt="&lt;&lt;" />
+    <img id="idPlay" class="button" onclick="App.media.pause()" src="./art/stop.png" alt="||" />
+    <img id="idRight" class="button" onclick="App.media.right()" src="./art/right.png" alt="&gt;&gt;" />
+    <meter id="idSpeed" min="0.1" max="3.0" value="1"></meter>
+  </div>
+</fieldset>
+
+<fieldset name="Original Image">
+  <legend>Original Image</legend>
+  <div onclick="App.choose_file()" style="cursor: pointer">
+   <img src="./art/owlrock.png" id="idImage"/></div>
+   <blockquote>
+      <summary>💡 HINT</summary>
+      Use drag-n-drop to replace the original image. Drop a new image file on top
+      of it and see what happens...<br>
+      You can also click (or tap) the image.
+   </blockquote>
+   <blockquote>
+      <summary>💡 HINT</summary>
+       The ideal image size is 320x200 pixels. But the image will scale to fit.
+       For best results, keep the width to height ratio at 8:5. Larger images take
+       longer to load but don't improve results.
+   </blockquote>
+</fieldset>
+
+<fieldset name="Description">
+  <legend>Description</legend>
+  <h3>Excerpt from <a href="https://en.wikipedia.org/wiki/Bump_mapping">Wikipedia</a>:</h3>
+  <div><q>
+    Bump mapping is a technique in computer graphics for simulating bumps
+    and wrinkles on the surface of an object. This is achieved by perturbing
+    the surface normals of the object and using the perturbed normal during
+    lighting calculations. The result is an apparently bumpy surface rather
+    than a smooth surface although the surface of the underlying object is
+    not changed. Bump mapping was introduced by James Blinn in 1978.
+  </q></div>
+  <br><br>
+</fieldset>
+
+<fieldset name="Source Code">
+  <legend>Source Code</legend>
+  <div id="idSourceCode">
+  <button onclick="replaceMe()">Download</button>
+  </div>
+  <script>
+    function replaceMe() {
+      fetch( "./api/bump-terrain.js" )
+      . then( resp => resp.text())
+      . then( text => {
+        const html = `<textarea rows=10>${text}</textarea>`
+        idSourceCode.innerHTML = html
+      })
+      .catch(err=>{
+        idSourceCode.innerText = String(err)
+      })
+    }
+  </script>
+</fieldset>
+
+</main>
+
+<div spacer></div>
+
+<footer></footer>
+
+<section class="hidden application">
+  <script src="./api/footer.js"></script>
+  <script src="./api/bump-terrain.js"></script>
+  <script src="./app/bump-app.js"></script>
+</section>
+
+</body>
+
+</html>
+
