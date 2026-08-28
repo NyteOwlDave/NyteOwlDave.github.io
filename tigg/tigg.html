@@ -798,7 +798,11 @@ function veer( hostname ) {
 
 <script id="minuet.js">
 function minuet( nickname ) {
-    const k = ( String( s || "?" ).trim() );
+    const k = (
+        String( nickname || "?" )
+        . trim()
+        . toLowerCase()
+    );
     const server = minuet.servers[ k ];
     if ( server ) {
         location = ( server );
