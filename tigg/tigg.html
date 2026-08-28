@@ -534,6 +534,7 @@ function discard_changes() {
    function on_swap_memo(event) {
         const old = sip.value;
         sip.value = sip.memo;
+        sip.memo = old;
         sip.swapped = (! sip.swapped );
    }
 </script>
