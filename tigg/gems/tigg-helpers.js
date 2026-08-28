@@ -20,7 +20,7 @@ function keep() {
    const k = ( PEACH_KEY );
    const v = ( sip.memo  );
    s.setItem( k, v );
-   console.log( `Write "${k}" to Store` );
+   console.log( `Wrote "${k}" to Store` );
    
 };
 
@@ -45,6 +45,10 @@ function remind( override ) {
        console.info( "Try again with override argument" );
     }
 }
+
+;
+; ( 1 ) && ( sip.stashed = false );
+;
 
 ;
 ; ( op = 1 )

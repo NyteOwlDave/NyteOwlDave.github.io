@@ -1,0 +1,1131 @@
+<pre>.
+├── 42
+│   ├── a
+│   │   ├── favicon.ico
+│   │   ├── make-dots
+│   │   ├── readme.html
+│   │   ├── readme.md
+│   │   ├── template.html
+│   │   ├── todo.html
+│   │   └── todo.md
+│   ├── art
+│   │   ├── adams
+│   │   │   ├── 42-rockets.png
+│   │   │   ├── adams.png
+│   │   │   ├── api.png
+│   │   │   ├── app.png
+│   │   │   ├── assets.png
+│   │   │   ├── circ-ref.png
+│   │   │   ├── daves-faves.png
+│   │   │   ├── style.png
+│   │   │   └── trillian.png
+│   │   ├── art.png
+│   │   ├── ncsws
+│   │   │   └── (new).png
+│   │   ├── ozville
+│   │   │   ├── ahab.png
+│   │   │   ├── dorothy.png
+│   │   │   ├── ozville.png
+│   │   │   └── qbert.png
+│   │   ├── snags
+│   │   │   ├── snags.png
+│   │   │   └── snapshot.png
+│   │   ├── snippets
+│   │   │   ├── chippy-snippets.png
+│   │   │   ├── code-snippets.png
+│   │   │   ├── ms-notes-snippets.png
+│   │   │   ├── snippet.png
+│   │   │   ├── snoopy-snippets.png
+│   │   │   └── ws-snippets.png
+│   │   └── tempi
+│   │       ├── (archives).png
+│   │       ├── (related).png
+│   │       ├── (removed).png
+│   │       ├── template.png
+│   │       ├── tempy.png
+│   │       ├── tricia.png
+│   │       ├── workspace-templates.png
+│   │       └── ws-templates.png
+│   ├── b
+│   │   ├── dot.amigas.html
+│   │   ├── dot.amigas.html.md
+│   │   ├── dot.anthem.html
+│   │   ├── dot.apes.html
+│   │   ├── dot.ape-speak.html
+│   │   ├── dot.boards.html.md
+│   │   ├── dot.b-o-m.html
+│   │   ├── dot.b-o-m.html.md
+│   │   ├── dot.cache-sage.html
+│   │   ├── dot.cache-sage.html.md
+│   │   ├── dot.chippy-snippets.html
+│   │   ├── dot.cloud9.html
+│   │   ├── dot.cloud9.html.md
+│   │   ├── dot.decal-picks.html
+│   │   ├── dot.decal-wizard.html
+│   │   ├── dot.decal-wizard.html.md
+│   │   ├── dot.details-form.html
+│   │   ├── dot.details-form.html.md
+│   │   ├── dot.editors.html
+│   │   ├── dot.emoji-keyboard.html
+│   │   ├── dot.ffmpeg-images.html
+│   │   ├── dot.flaticons.html
+│   │   ├── dot.flaticons.html.md
+│   │   ├── dot.floob.wbrd.html
+│   │   ├── dot.floob.wbrd.html.md
+│   │   ├── dot.grok.html
+│   │   ├── dot.grok.html.md
+│   │   ├── dot.hosts.html
+│   │   ├── dot.hosts.html.md
+│   │   ├── dot.kashawna.html
+│   │   ├── dot.kashawna.html.md
+│   │   ├── dot.kruzer.html
+│   │   ├── dot.kruzer.html.md
+│   │   ├── dot.kruzer.md
+│   │   ├── dot.math-plus.html
+│   │   ├── dot.math-plus.html.md
+│   │   ├── dot.neumorphism.html
+│   │   ├── dot.neumorphism.html.md
+│   │   ├── dot.notes.html
+│   │   ├── dot.notes.html.md
+│   │   ├── dot.r2-d5.tower.html
+│   │   ├── dot.reginald.html
+│   │   ├── dot.reginald.html.md
+│   │   ├── dot.reginald.md
+│   │   ├── dot.rocky.html
+│   │   ├── dot.rocky.html.md
+│   │   ├── dot.saturn.html
+│   │   ├── dot.saturn.html.md
+│   │   ├── dot.shorty.html
+│   │   ├── dot.simple-icons.html
+│   │   ├── dot.sio.cloud.store.html
+│   │   ├── dot.sio-sheet.html
+│   │   ├── dot.sio-sheet.html.md
+│   │   ├── dot.slicie.html
+│   │   ├── dot.snagger-dev-notes.html
+│   │   ├── dot.snagger-dev-notes.html.md
+│   │   ├── dot.snagger.html
+│   │   ├── dot.snagger.html.md
+│   │   ├── dot.snoopy.html
+│   │   ├── dot.snoopy.html.md
+│   │   ├── dot.stempad.html
+│   │   ├── dot.stempad.html.md
+│   │   ├── dot.surl.html
+│   │   ├── dot.surl.html.md
+│   │   ├── dot.swill.html
+│   │   ├── dot.swill.html.md
+│   │   ├── dot.system-42.html
+│   │   ├── dot.system-42.html.md
+│   │   ├── dot.tarzan-org.html
+│   │   ├── dot.top5.html
+│   │   ├── dot.top5.html.md
+│   │   ├── dot.vertex.wbrd.html
+│   │   ├── dot.vertex.wbrd.html.md
+│   │   ├── dot.whiteboard-launcher.html
+│   │   ├── dot.whiteboards.html
+│   │   ├── dot.whiteboards.html.md
+│   │   ├── favicon.ico
+│   │   ├── menu.md
+│   │   ├── ruminations.hq.desktop
+│   │   ├── true-stories.html
+│   │   ├── wbrd.html
+│   │   └── wbrd.md
+│   ├── decals
+│   │   ├── dorothy.png
+│   │   ├── favicon.ico
+│   │   ├── help.html
+│   │   ├── help.md
+│   │   ├── toolbox.html
+│   │   └── toolbox.md
+│   ├── favicon.ico
+│   ├── menu
+│   │   ├── art
+│   │   │   ├── dot-menu.png
+│   │   │   ├── dot-menu-todo.png
+│   │   │   └── gimp
+│   │   │       └── dot-menu.xcf
+│   │   ├── auto-menu.json
+│   │   ├── backup
+│   │   │   ├── dot-menu-14.json
+│   │   │   ├── dot-menu-15.json
+│   │   │   ├── dot-menu-16.json
+│   │   │   ├── dot-menu-17.json
+│   │   │   ├── dot-menu-18.json
+│   │   │   ├── dot-menu-19.json
+│   │   │   ├── dot-menu.png
+│   │   │   ├── dot-menu-reader.html
+│   │   │   ├── favicon.ico
+│   │   │   ├── make-table.js
+│   │   │   ├── prettify
+│   │   │   └── prettify.js
+│   │   ├── cute-cute-dot-menu-20.json
+│   │   ├── cute-cute-dot-menu-21.json
+│   │   ├── cute-cute-dot-menu-22.json
+│   │   ├── cute-dot-menu-10.json
+│   │   ├── cute-dot-menu-11.json
+│   │   ├── cute-dot-menu-12.json
+│   │   ├── cute-dot-menu-13.json
+│   │   ├── cute-dot-menu-14.json
+│   │   ├── cute-dot-menu-15.json
+│   │   ├── cute-dot-menu-16.json
+│   │   ├── cute-dot-menu-17.json
+│   │   ├── cute-dot-menu-18.json
+│   │   ├── cute-dot-menu-19.json
+│   │   ├── cute-dot-menu-1.json
+│   │   ├── cute-dot-menu-20.json
+│   │   ├── cute-dot-menu-21.json
+│   │   ├── cute-dot-menu-22.json
+│   │   ├── cute-dot-menu-2.json
+│   │   ├── cute-dot-menu-3.json
+│   │   ├── cute-dot-menu-4.json
+│   │   ├── cute-dot-menu-5.json
+│   │   ├── cute-dot-menu-6.json
+│   │   ├── cute-dot-menu-7.json
+│   │   ├── cute-dot-menu-8.json
+│   │   ├── cute-dot-menu-9.json
+│   │   ├── doc-loader.html
+│   │   ├── doc-loader.md
+│   │   ├── docs
+│   │   │   ├── dot-menu.png
+│   │   │   ├── favicon.ico
+│   │   │   ├── schema.html
+│   │   │   └── schema.md
+│   │   ├── dorothy.png
+│   │   ├── dot-menu.png
+│   │   ├── favicon.ico
+│   │   ├── groups
+│   │   │   ├── 2025
+│   │   │   │   ├── 2025.png
+│   │   │   │   ├── AUG
+│   │   │   │   │   ├── 08
+│   │   │   │   │   │   ├── 08.png
+│   │   │   │   │   │   ├── A
+│   │   │   │   │   │   │   ├── cute-dot-menu-10.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-11.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-12.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-13.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-1.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-2.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-3.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-4.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-5.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-6.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-7.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-8.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-9.json
+│   │   │   │   │   │   │   └── favicon.ico
+│   │   │   │   │   │   ├── B
+│   │   │   │   │   │   │   ├── cute-dot-menu-10.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-11.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-12.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-13.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-14.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-15.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-16.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-17.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-18.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-19.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-1.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-2.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-3.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-4.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-5.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-6.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-7.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-8.json
+│   │   │   │   │   │   │   ├── cute-dot-menu-9.json
+│   │   │   │   │   │   │   └── favicon.ico
+│   │   │   │   │   │   └── dot-menu.png
+│   │   │   │   │   ├── August.png
+│   │   │   │   │   └── dot-menu.png
+│   │   │   │   └── dot-menu.png
+│   │   │   ├── clipnames
+│   │   │   ├── dot-menu.png
+│   │   │   └── favicon.ico
+│   │   ├── menu.md
+│   │   ├── reader
+│   │   │   ├── auto-menu.json
+│   │   │   ├── dot-menu.png
+│   │   │   ├── dot-menu-reader.html
+│   │   │   ├── favicon.ico
+│   │   │   ├── make-table.js
+│   │   │   └── sandbox
+│   │   │       ├── dot-menu-reader.html
+│   │   │       ├── make-table.js
+│   │   │       ├── pretty-1.json
+│   │   │       └── tmp.json
+│   │   └── todo
+│   │       ├── chachi-menu.json
+│   │       ├── dot-menu-20.json
+│   │       ├── dot-menu-21.json
+│   │       ├── dot-menu-22.json
+│   │       ├── dot-menu-todo.png
+│   │       ├── favicon.ico
+│   │       ├── gander-dots.json
+│   │       ├── json-editor.json
+│   │       ├── menu-stats.json
+│   │       ├── omega-cache-2025-OCT-10.json
+│   │       ├── prettify
+│   │       ├── prettify.js
+│   │       ├── rapid-tables.json
+│   │       └── snaggy-ip4-cache.json
+│   └── todo
+│       ├── dot.chachi.html
+│       ├── dot.chippy-snippets.html
+│       ├── dot.decal-wizard.html
+│       ├── dot.emoji-picks.html
+│       ├── dot.greystoke.html
+│       ├── dot.mail.html
+│       ├── dot.notebooks.html
+│       ├── dot.notes.html
+│       ├── dots-todo.md
+│       ├── dot.voice.html
+│       ├── dot.whiteboards.html
+│       ├── favicon.ico
+│       ├── menu.md
+│       └── starter
+│           ├── art
+│           │   ├── dorothy.png
+│           │   ├── dot-starter.png
+│           │   ├── favicon.ico
+│           │   ├── menu.md
+│           │   ├── template.png
+│           │   └── template.xcf
+│           ├── dorothy.png
+│           ├── dot.001.html.md
+│           ├── dot.001.md
+│           ├── dot-002.html.md
+│           ├── dot-starter.png
+│           ├── favicon.ico
+│           └── menu.md
+├── bgi.html
+├── favicon.ico
+├── key-magic.html
+├── menu-md.md
+├── menu-mm.mm
+├── morpheus.png
+├── qr
+│   ├── adobe-express-qr-code.png
+│   ├── bitly.links.png
+│   ├── google.lens.png
+│   ├── nts-notebook.png
+│   ├── qr.png
+│   ├── rockets.png
+│   ├── short-url-sheet.png
+│   ├── whatsapp-demo.png
+│   └── ws-rockets.png
+├── rockets
+│   ├── a
+│   │   ├── favicon.ico
+│   │   ├── pending-decal.html
+│   │   └── vulcano.rocket.html
+│   ├── art
+│   │   ├── 3P.png
+│   │   ├── ai.png
+│   │   ├── art.png
+│   │   ├── favicon.ico
+│   │   ├── rocket-launch.png
+│   │   ├── rocket-launch.xcf
+│   │   ├── rockets.png
+│   │   ├── rocky-mascot.png
+│   │   ├── rocky.png
+│   │   ├── rocky-real.png
+│   │   └── ws-3p.png
+│   ├── b
+│   │   ├── 42.html
+│   │   ├── carport.workspace.html
+│   │   ├── decals.html
+│   │   ├── earline.html
+│   │   ├── emoji-keyboard.html
+│   │   ├── fave.ico
+│   │   ├── favicon.ico
+│   │   ├── fluffy.rocket.html
+│   │   ├── google.photos.html
+│   │   ├── grok.html
+│   │   ├── icon.snagger.html
+│   │   ├── install-konqueror.html
+│   │   ├── keisha.notebook.html
+│   │   ├── keycodes.html
+│   │   ├── live.html
+│   │   ├── localhost.html
+│   │   ├── markdown.html
+│   │   ├── mathcha.html
+│   │   ├── mathologer.html
+│   │   ├── mathpix.3d.html
+│   │   ├── mathpix.snips.html
+│   │   ├── moment.html
+│   │   ├── ms-designer.html
+│   │   ├── ncs-artwork.html
+│   │   ├── nexus-live.html
+│   │   ├── nexus-menu.html
+│   │   ├── notebooks.html
+│   │   ├── notebooks.rocket.html
+│   │   ├── notes-depot.html
+│   │   ├── notion.html
+│   │   ├── pixabay.html
+│   │   ├── plenum.html
+│   │   ├── pwa.html
+│   │   ├── quadratics.html
+│   │   ├── repl-it.html
+│   │   ├── rocket-form.html
+│   │   ├── rocky.grok.html
+│   │   ├── rrb.html
+│   │   ├── sandbox.html
+│   │   ├── sappyra.html
+│   │   ├── saturn.html
+│   │   ├── servers.html
+│   │   ├── shopping.html
+│   │   ├── short.url.sheet.html
+│   │   ├── shorty.html
+│   │   ├── social-media.html
+│   │   ├── sulu.html
+│   │   ├── swill.html
+│   │   ├── webdev.help.html
+│   │   ├── wellsted.lan.html
+│   │   ├── whiteboards.rocket.html
+│   │   └── ws-rockets.png
+│   ├── c
+│   │   ├── 3p
+│   │   │   ├── 3P.png
+│   │   │   ├── awk.html
+│   │   │   ├── code2flow.html
+│   │   │   ├── codepen.html
+│   │   │   ├── cody-diagram.html
+│   │   │   ├── editor.html
+│   │   │   ├── emoji.keyboard.html
+│   │   │   ├── equation-editor.html
+│   │   │   ├── google-apps.html
+│   │   │   ├── grep.html
+│   │   │   ├── json.crack.html
+│   │   │   ├── json.editor.html
+│   │   │   ├── light.html
+│   │   │   ├── markdown.heroku.html
+│   │   │   ├── markdown.html
+│   │   │   ├── markdown.org.html
+│   │   │   ├── mathcha.html
+│   │   │   ├── mathologer.html
+│   │   │   ├── mathpix.3d.html
+│   │   │   ├── mathpix.snips.html
+│   │   │   ├── moment.html
+│   │   │   ├── ms-onenote.html
+│   │   │   ├── ms-whiteboard.html
+│   │   │   ├── ncs.diagrams.html
+│   │   │   ├── notes-depot.html
+│   │   │   ├── notion.html
+│   │   │   ├── pastebin.html
+│   │   │   ├── regex101.html
+│   │   │   ├── regexr.html
+│   │   │   ├── repl-it.html
+│   │   │   ├── rockets.png
+│   │   │   ├── sandy-online.html
+│   │   │   ├── sed.html
+│   │   │   ├── shopping.html
+│   │   │   ├── simple-icons.html
+│   │   │   ├── sulu.html
+│   │   │   ├── sysops.html
+│   │   │   ├── unicodis.html
+│   │   │   ├── wellsted.lan.html
+│   │   │   └── werk.html
+│   │   ├── ai
+│   │   │   ├── ai.png
+│   │   │   ├── assign-icon-script.html
+│   │   │   ├── detect-user-agent.html
+│   │   │   ├── fetch.options.html
+│   │   │   └── rockets.png
+│   │   ├── api
+│   │   │   ├── api.notebook.html
+│   │   │   ├── bod-squad-complete.html
+│   │   │   ├── bod-squad-smather.html
+│   │   │   ├── chrome-extensions-docs.html
+│   │   │   ├── linkdef.html
+│   │   │   ├── rockets.png
+│   │   │   ├── stella-assist.html
+│   │   │   └── ws-api.png
+│   │   ├── applet
+│   │   │   ├── albert
+│   │   │   │   ├── albert.png
+│   │   │   │   └── fiddles.html
+│   │   │   ├── applet.png
+│   │   │   ├── asset-id.html
+│   │   │   ├── block-o-matic.html
+│   │   │   ├── decal.animator.html
+│   │   │   ├── earl.html
+│   │   │   ├── fluffy.html
+│   │   │   ├── fractals.html
+│   │   │   ├── hercules
+│   │   │   │   ├── client.html
+│   │   │   │   ├── hercules.png
+│   │   │   │   └── server.html
+│   │   │   ├── light.html
+│   │   │   ├── linker.html
+│   │   │   ├── mako.html
+│   │   │   ├── ncs.matrix.html
+│   │   │   ├── newguid.html
+│   │   │   ├── nymdog.html
+│   │   │   ├── perseus
+│   │   │   │   ├── perseus.html
+│   │   │   │   └── perseus.png
+│   │   │   ├── quadratics.html
+│   │   │   ├── rockets.png
+│   │   │   ├── sappyra.html
+│   │   │   ├── shorty.html
+│   │   │   ├── stellar
+│   │   │   │   ├── client.html
+│   │   │   │   ├── server.html
+│   │   │   │   └── stellar.png
+│   │   │   ├── teddi.html
+│   │   │   └── unicornopic.html
+│   │   ├── ascii-art.html
+│   │   ├── assets
+│   │   │   ├── assets.png
+│   │   │   ├── host.list
+│   │   │   ├── rocket.list
+│   │   │   └── rockets.png
+│   │   ├── atom-url.html
+│   │   ├── bash.commands.html
+│   │   ├── birthdays.html
+│   │   ├── bitbucket.html
+│   │   ├── bitly.html
+│   │   ├── block-o-matic.html
+│   │   ├── bmac.html
+│   │   ├── books.html
+│   │   ├── boosters
+│   │   │   ├── assets
+│   │   │   │   ├── assets.png
+│   │   │   │   └── math.nav
+│   │   │   ├── bitly.html
+│   │   │   ├── books.html
+│   │   │   ├── boosters.png
+│   │   │   ├── cloud-storage.html
+│   │   │   ├── desiree.help.html
+│   │   │   ├── devops.html
+│   │   │   ├── dev-tools.html
+│   │   │   ├── emojis-tower.html
+│   │   │   ├── folders.html
+│   │   │   ├── folders-tower.html
+│   │   │   ├── google.lens.html
+│   │   │   ├── google.sites.html
+│   │   │   ├── graphics.html
+│   │   │   ├── jabberwocky.html
+│   │   │   ├── kruzer.html
+│   │   │   ├── lan.html
+│   │   │   ├── linker.html
+│   │   │   ├── localhost.html
+│   │   │   ├── ms-onenote.html
+│   │   │   ├── nav.png
+│   │   │   ├── ncs.diagrams.html
+│   │   │   ├── nexus-live.html
+│   │   │   ├── nexus-menu.html
+│   │   │   ├── plenum.html
+│   │   │   ├── rockets.png
+│   │   │   ├── servers.html
+│   │   │   ├── short.url.sheet.html
+│   │   │   ├── shorty.html
+│   │   │   ├── social-media.html
+│   │   │   ├── std-folder.html
+│   │   │   ├── std-folders.html
+│   │   │   ├── sulu.html
+│   │   │   ├── teddi.html
+│   │   │   ├── wellsted.lan.html
+│   │   │   └── wkspc.html
+│   │   ├── (broken)
+│   │   │   ├── dev-tools.html
+│   │   │   ├── look-here.png
+│   │   │   └── rockets.png
+│   │   ├── cloud-storage.html
+│   │   ├── cnc.html
+│   │   ├── code2flow.html
+│   │   ├── codepen.html
+│   │   ├── cody-diagram.html
+│   │   ├── commands.html
+│   │   ├── connie.html
+│   │   ├── desiree.help.html
+│   │   ├── desmos.html
+│   │   ├── devops.html
+│   │   ├── dsca.chess.html
+│   │   ├── editor
+│   │   │   ├── 3p
+│   │   │   │   ├── awk.html
+│   │   │   │   ├── code2flow.html
+│   │   │   │   ├── codepen.html
+│   │   │   │   ├── cody-diagram.html
+│   │   │   │   ├── editor.html
+│   │   │   │   ├── emoji.keyboard.html
+│   │   │   │   ├── equation-editor.html
+│   │   │   │   ├── grep.html
+│   │   │   │   ├── json.crack.html
+│   │   │   │   ├── json.editor.html
+│   │   │   │   ├── light.html
+│   │   │   │   ├── markdown.heroku.html
+│   │   │   │   ├── markdown.html
+│   │   │   │   ├── markdown.org.html
+│   │   │   │   ├── mathcha.html
+│   │   │   │   ├── mathologer.html
+│   │   │   │   ├── mathpix.3d.html
+│   │   │   │   ├── mathpix.snips.html
+│   │   │   │   ├── ms-onenote.html
+│   │   │   │   ├── ms-whiteboard.html
+│   │   │   │   ├── ncs.diagrams.html
+│   │   │   │   ├── notes-depot.html
+│   │   │   │   ├── notion.html
+│   │   │   │   ├── pastebin.html
+│   │   │   │   ├── regex101.html
+│   │   │   │   ├── regexr.html
+│   │   │   │   ├── repl-it.html
+│   │   │   │   ├── sandy-online.html
+│   │   │   │   ├── sed.html
+│   │   │   │   ├── shopping.html
+│   │   │   │   ├── sulu.html
+│   │   │   │   ├── sysops.html
+│   │   │   │   ├── unicodis.html
+│   │   │   │   ├── wellsted.lan.html
+│   │   │   │   ├── werk.html
+│   │   │   │   ├── ws-3p.png
+│   │   │   │   └── xml-editor.html
+│   │   │   ├── asap.html
+│   │   │   ├── block-o-matic.html
+│   │   │   ├── cnc.html
+│   │   │   ├── dsca.chess.html
+│   │   │   ├── editor.png
+│   │   │   ├── fluffy.html
+│   │   │   ├── karma.html
+│   │   │   ├── linker.html
+│   │   │   ├── ncs-cnc.html
+│   │   │   ├── ncs.matrix.html
+│   │   │   ├── n-script.html
+│   │   │   ├── popeye.html
+│   │   │   ├── rockets.png
+│   │   │   ├── sappyra.html
+│   │   │   ├── teddi.html
+│   │   │   ├── unicodis.html
+│   │   │   ├── unicornopic.html
+│   │   │   └── wkspc.html
+│   │   ├── electron.forge.html
+│   │   ├── emojis-tower.html
+│   │   ├── equation-editor.html
+│   │   ├── favicon.ico
+│   │   ├── fiddles
+│   │   │   ├── electron-app.png
+│   │   │   ├── rockets.png
+│   │   │   ├── roulette.booster.html
+│   │   │   ├── roulette.link.details.html
+│   │   │   ├── roulette.notebook.html
+│   │   │   └── roulette.repo.html
+│   │   ├── figma.html
+│   │   ├── folders-tower.html
+│   │   ├── fractals.html
+│   │   ├── gandalf.html
+│   │   ├── github.html
+│   │   ├── google.lens.html
+│   │   ├── google.sites.html
+│   │   ├── greystoke.html
+│   │   ├── host
+│   │   │   ├── gandalf.html
+│   │   │   ├── github.html
+│   │   │   ├── greystoke.html
+│   │   │   ├── remote-host.png
+│   │   │   └── rockets.png
+│   │   ├── idb
+│   │   │   ├── idb.png
+│   │   │   ├── pubs.html
+│   │   │   └── rockets.png
+│   │   ├── json.crack.html
+│   │   ├── js.popups.html
+│   │   ├── kruzer.html
+│   │   ├── lan.html
+│   │   ├── light.html
+│   │   ├── linker.html
+│   │   ├── link-in-bio.html
+│   │   ├── list-rockets
+│   │   ├── localhost.html
+│   │   ├── markdown.html
+│   │   ├── mathcha.html
+│   │   ├── mathologer.html
+│   │   ├── mathpix.3d.html
+│   │   ├── mathpix.snips.html
+│   │   ├── mdn
+│   │   │   ├── fetch.html
+│   │   │   ├── mdn-info.png
+│   │   │   └── rockets.png
+│   │   ├── media
+│   │   │   ├── ascii-art.html
+│   │   │   ├── color.tools.html
+│   │   │   ├── cooltext.html
+│   │   │   ├── emoji.keyboard.html
+│   │   │   ├── emoji-magic-client.html
+│   │   │   ├── emoji-magic-docs.html
+│   │   │   ├── emoji-magic.html
+│   │   │   ├── emoji-magic-server.html
+│   │   │   ├── emojis.html
+│   │   │   ├── emojis-tower.html
+│   │   │   ├── emoji.terra.html
+│   │   │   ├── fractals.html
+│   │   │   ├── html.color.names.html
+│   │   │   ├── media.png
+│   │   │   ├── ms-designer.html
+│   │   │   ├── ncs-artwork.html
+│   │   │   ├── pixabay.html
+│   │   │   ├── probook.emojis.html
+│   │   │   ├── rockets.png
+│   │   │   ├── ryzen-emojis.html
+│   │   │   ├── sappyra.html
+│   │   │   ├── simple.icons.html
+│   │   │   ├── tower.emojis.html
+│   │   │   ├── unicornopic.html
+│   │   │   ├── video.converter.html
+│   │   │   └── zombie-emojis.html
+│   │   ├── moment.html
+│   │   ├── ms-designer.html
+│   │   ├── ms-onenote.html
+│   │   ├── ncs-artwork.html
+│   │   ├── ncs-cnc.html
+│   │   ├── ncs.diagrams.html
+│   │   ├── ncs.matrix.html
+│   │   ├── nexus-live.html
+│   │   ├── nexus-menu.html
+│   │   ├── notes-depot.html
+│   │   ├── notion.html
+│   │   ├── ops
+│   │   │   ├── ansi-box-chars.html
+│   │   │   ├── ansi-esc-codes.html
+│   │   │   ├── code2flow.html
+│   │   │   ├── codepen.html
+│   │   │   ├── cody-diagram.html
+│   │   │   ├── connie.html
+│   │   │   ├── desiree.help.html
+│   │   │   ├── devops.html
+│   │   │   ├── dev-tools.html
+│   │   │   ├── electron.forge.html
+│   │   │   ├── figma.html
+│   │   │   ├── flexbox.html
+│   │   │   ├── in-progress.html
+│   │   │   ├── json.crack.html
+│   │   │   ├── js-plain-english.html
+│   │   │   ├── lan.html
+│   │   │   ├── localhost.html
+│   │   │   ├── markdown.html
+│   │   │   ├── moment.html
+│   │   │   ├── ms-designer.html
+│   │   │   ├── ms-onenote.html
+│   │   │   ├── mysql-tutor.html
+│   │   │   ├── ncs-cnc.html
+│   │   │   ├── notebooks.html
+│   │   │   ├── notes-depot.html
+│   │   │   ├── notion.html
+│   │   │   ├── ops.png
+│   │   │   ├── plenum.html
+│   │   │   ├── pms
+│   │   │   │   ├── asap-whiteboard.html
+│   │   │   │   ├── bod-squad.html
+│   │   │   │   ├── ncs.diagrams.html
+│   │   │   │   ├── pms.png
+│   │   │   │   ├── pwa.html
+│   │   │   │   ├── wellsted.lan.html
+│   │   │   │   └── werk.html
+│   │   │   ├── rockets.png
+│   │   │   ├── servers.html
+│   │   │   ├── short.url.sheet.html
+│   │   │   ├── slicie.html
+│   │   │   ├── social-media-buttons.html
+│   │   │   ├── std-folders.html
+│   │   │   ├── sulu.html
+│   │   │   ├── swill.html
+│   │   │   ├── sysops.html
+│   │   │   ├── teddi.html
+│   │   │   ├── vercel.html
+│   │   │   ├── webdev.help.html
+│   │   │   └── zenith.drawio.html
+│   │   ├── oz
+│   │   │   ├── ozville.png
+│   │   │   └── rockets.png
+│   │   ├── personal
+│   │   │   ├── birthdays.html
+│   │   │   ├── bmac.html
+│   │   │   ├── fun
+│   │   │   │   ├── dsca.chess.html
+│   │   │   │   └── fun.png
+│   │   │   ├── link-in-bio.html
+│   │   │   ├── personal.png
+│   │   │   ├── rockets.png
+│   │   │   └── shopping.html
+│   │   ├── pixabay.html
+│   │   ├── plenum.html
+│   │   ├── provider
+│   │   │   ├── cloud-storage.html
+│   │   │   ├── codepen.html
+│   │   │   ├── github.html
+│   │   │   ├── google.lens.html
+│   │   │   ├── google.sites.html
+│   │   │   ├── notion.html
+│   │   │   ├── pastebin.html
+│   │   │   ├── provider.png
+│   │   │   ├── repl-it.html
+│   │   │   ├── rockets.png
+│   │   │   ├── short.url.sheet.html
+│   │   │   └── slicie.html
+│   │   ├── publish
+│   │   ├── pwa.html
+│   │   ├── quadratics.html
+│   │   ├── quadratics-tutor.html
+│   │   ├── readme.html
+│   │   ├── repl-it.html
+│   │   ├── rockets.png
+│   │   ├── rocky.png
+│   │   ├── rocky-real.png
+│   │   ├── sappyra.html
+│   │   ├── servers.html
+│   │   ├── shared.png
+│   │   ├── shopping.html
+│   │   ├── short.url.sheet.html
+│   │   ├── shorty.html
+│   │   ├── site
+│   │   │   ├── cloud-storage.html
+│   │   │   ├── commands.html
+│   │   │   ├── google.sites.html
+│   │   │   ├── notebook
+│   │   │   │   ├── ms.notebook.png
+│   │   │   │   └── wellsted.lan.html
+│   │   │   ├── rockets.png
+│   │   │   ├── social-media.html
+│   │   │   ├── sulu.html
+│   │   │   ├── swill.html
+│   │   │   └── website.png
+│   │   ├── slicie.html
+│   │   ├── social
+│   │   │   ├── obsidian.forum.html
+│   │   │   ├── rockets.png
+│   │   │   ├── social-media.html
+│   │   │   ├── social.png
+│   │   │   └── vikash-math.html
+│   │   ├── social-media.html
+│   │   ├── std-folders.html
+│   │   ├── sulu.html
+│   │   ├── swill.html
+│   │   ├── sysops.html
+│   │   ├── teddi.html
+│   │   ├── toc.html
+│   │   ├── toc.md
+│   │   ├── unicornopic.html
+│   │   ├── vikash-math.html
+│   │   ├── webdev.help.html
+│   │   ├── wellsted.lan.html
+│   │   ├── werk
+│   │   │   ├── ncs-artwork.html
+│   │   │   ├── notes-depot.html
+│   │   │   ├── rockets.png
+│   │   │   ├── sysops.html
+│   │   │   ├── werk.html
+│   │   │   └── werk.png
+│   │   ├── werk.html
+│   │   ├── wkspc.html
+│   │   ├── ws-rockets.png
+│   │   ├── zenith.drawio.html
+│   │   ├── zenith.html
+│   │   └── zenith.php
+│   ├── d
+│   │   ├── 42.html
+│   │   ├── carport.workspace.html
+│   │   ├── decals.html
+│   │   ├── earline.html
+│   │   ├── emoji-keyboard.html
+│   │   ├── fave.ico
+│   │   ├── favicon.ico
+│   │   ├── fluffy.rocket.html
+│   │   ├── google.photos.html
+│   │   ├── grok.html
+│   │   ├── icon.snagger.html
+│   │   ├── install-konqueror.html
+│   │   ├── keisha.notebook.html
+│   │   ├── keycodes.html
+│   │   ├── live.html
+│   │   ├── localhost.html
+│   │   ├── markdown.html
+│   │   ├── mathcha.html
+│   │   ├── mathologer.html
+│   │   ├── mathpix.3d.html
+│   │   ├── mathpix.snips.html
+│   │   ├── moment.html
+│   │   ├── ms-designer.html
+│   │   ├── ncs-artwork.html
+│   │   ├── nexus-live.html
+│   │   ├── nexus-menu.html
+│   │   ├── notebooks.html
+│   │   ├── notebooks.rocket.html
+│   │   ├── notes-depot.html
+│   │   ├── notion.html
+│   │   ├── pixabay.html
+│   │   ├── plenum.html
+│   │   ├── pwa.html
+│   │   ├── quadratics.html
+│   │   ├── repl-it.html
+│   │   ├── rocket-form.html
+│   │   ├── rocky.grok.html
+│   │   ├── rrb.html
+│   │   ├── sandbox.html
+│   │   ├── sappyra.html
+│   │   ├── saturn.html
+│   │   ├── servers.html
+│   │   ├── shopping.html
+│   │   ├── short.url.sheet.html
+│   │   ├── shorty.html
+│   │   ├── social-media.html
+│   │   ├── sulu.html
+│   │   ├── swill.html
+│   │   ├── webdev.help.html
+│   │   ├── wellsted.lan.html
+│   │   ├── whiteboards.rocket.html
+│   │   └── ws-rockets.png
+│   ├── e
+│   │   ├── 42.png
+│   │   ├── carport.workspace.html
+│   │   ├── cloud-9.html
+│   │   ├── color.names.html
+│   │   ├── commands.html
+│   │   ├── decals.html
+│   │   ├── drop.buttons.html
+│   │   ├── earline.html
+│   │   ├── emoji.depot.html
+│   │   ├── emoji-keyboard.html
+│   │   ├── favicon.ico
+│   │   ├── fluffy.rocket.html
+│   │   ├── google-apps.html
+│   │   ├── google.photos.html
+│   │   ├── grok.html
+│   │   ├── html.colors.html
+│   │   ├── icon-snagger.html
+│   │   ├── icon.snagger.html
+│   │   ├── I-C-U.html
+│   │   ├── install-konqueror.html
+│   │   ├── keisha.notebook.html
+│   │   ├── keisha.numpad.html
+│   │   ├── keisha.rover.html
+│   │   ├── keycodes.html
+│   │   ├── kruzer.html
+│   │   ├── live.html
+│   │   ├── localhost.html
+│   │   ├── markdown.html
+│   │   ├── mathcha.html
+│   │   ├── mathologer.html
+│   │   ├── mathpix.3d.html
+│   │   ├── mathpix.snips.html
+│   │   ├── menu.md
+│   │   ├── moment.html
+│   │   ├── ms-designer.html
+│   │   ├── ms-notes.html
+│   │   ├── ncs-artwork.html
+│   │   ├── nexus-live.html
+│   │   ├── nexus-menu.html
+│   │   ├── notebooks.html
+│   │   ├── notebooks.rocket.html
+│   │   ├── notes-depot.html
+│   │   ├── notion.html
+│   │   ├── panel-42.html
+│   │   ├── pass.table.html
+│   │   ├── pixabay.html
+│   │   ├── plenum.html
+│   │   ├── pwa.html
+│   │   ├── quadratics.html
+│   │   ├── repl-it.html
+│   │   ├── rocket-form.html
+│   │   ├── rocky.grok.html
+│   │   ├── rrb.html
+│   │   ├── sandbox.html
+│   │   ├── sappyra.html
+│   │   ├── saturn.html
+│   │   ├── servers.html
+│   │   ├── shopping.html
+│   │   ├── short.url.sheet.html
+│   │   ├── shorty.html
+│   │   ├── social-media.html
+│   │   ├── sulu.html
+│   │   ├── swill.html
+│   │   ├── true-stories.html
+│   │   ├── webdev.help.html
+│   │   ├── wellsted.lan.html
+│   │   ├── whiteboards.rocket.html
+│   │   └── ws-rockets.png
+│   ├── favicon.ico
+│   ├── help
+│   │   ├── belinda-help-2.html
+│   │   ├── belinda-help-3.html
+│   │   ├── belinda-help.html
+│   │   ├── favicon.ico
+│   │   ├── help.png
+│   │   ├── js.popups.html
+│   │   ├── notes-depot.html
+│   │   ├── pwa.html
+│   │   ├── quadratics-tutor.html
+│   │   ├── rockets.png
+│   │   ├── rocky.png
+│   │   ├── rocky-real.png
+│   │   ├── webdev.help.html
+│   │   └── ws-help.png
+│   └── style
+│       ├── 3p
+│       │   └── bootstrap.css
+│       ├── 42
+│       │   ├── 42.css
+│       │   ├── 42.png
+│       │   ├── art
+│       │   │   ├── 42.png
+│       │   │   ├── art.png
+│       │   │   ├── casper.png
+│       │   │   ├── cool-table.png
+│       │   │   ├── gold-coin.png
+│       │   │   ├── list.png
+│       │   │   ├── menu.md
+│       │   │   ├── removed.png
+│       │   │   ├── tempy.png
+│       │   │   ├── tricia.png
+│       │   │   ├── ws-api.png
+│       │   │   ├── ws-docs.png
+│       │   │   ├── ws-snippets.png
+│       │   │   ├── ws-style.png
+│       │   │   └── ws-templates.png
+│       │   ├── chrome-dots.css
+│       │   ├── cool-date.css
+│       │   ├── cool-table.css
+│       │   ├── cool-table.css.html
+│       │   ├── cool-table.css.md
+│       │   ├── core
+│       │   │   ├── 42.png
+│       │   │   ├── dynaload.css
+│       │   │   ├── essentials.css
+│       │   │   ├── menu.md
+│       │   │   └── ws-style.png
+│       │   ├── data-rescue.css
+│       │   ├── docs
+│       │   │   ├── 42.png
+│       │   │   ├── menu.md
+│       │   │   └── ws-docs.png
+│       │   ├── dot.css
+│       │   ├── ez-logo.css
+│       │   ├── faq.css
+│       │   ├── fave.css
+│       │   ├── gems
+│       │   │   ├── 42.png
+│       │   │   ├── menu.md
+│       │   │   └── ws-style.png
+│       │   ├── header-dots-small.css
+│       │   ├── josh.css
+│       │   ├── karma-to-do.css
+│       │   ├── keisha.css
+│       │   ├── keisha-help.css
+│       │   ├── menu-4-all
+│       │   ├── menu.md
+│       │   ├── module.css
+│       │   ├── noto-sans-mono.css
+│       │   ├── ozville
+│       │   │   ├── balloon-override.css
+│       │   │   ├── button-42px.css
+│       │   │   ├── dot-42px.css
+│       │   │   ├── dot-header.css
+│       │   │   ├── live-page-dot.css
+│       │   │   ├── menu.md
+│       │   │   ├── ozville.png
+│       │   │   └── ws-style.png
+│       │   ├── personal.css
+│       │   ├── prism.css
+│       │   ├── qlink-2.css
+│       │   ├── qlink.css
+│       │   ├── sio.css
+│       │   ├── snippets
+│       │   │   ├── 42.png
+│       │   │   ├── menu.md
+│       │   │   └── ws-snippets.png
+│       │   ├── style-check.html
+│       │   ├── style-check.md
+│       │   ├── style.list
+│       │   ├── table
+│       │   │   └── menu.md
+│       │   ├── table.css
+│       │   ├── table-editor.css
+│       │   ├── templates
+│       │   │   ├── 42.png
+│       │   │   ├── menu.md
+│       │   │   └── ws-templates.png
+│       │   ├── update-style-list
+│       │   ├── vibe-coder.css
+│       │   ├── vicarion.css
+│       │   ├── vicarion.css.html
+│       │   ├── vicarion.css.md
+│       │   ├── virtual-canvas.css
+│       │   ├── working-set.css
+│       │   ├── ws-style.png
+│       │   ├── yogi
+│       │   │   ├── home-dot.css
+│       │   │   ├── menu.md
+│       │   │   └── yogi.png
+│       │   └── yogi-logo.css
+│       ├── adonis
+│       │   ├── adonis.css
+│       │   ├── adonis.png
+│       │   ├── checklist.css
+│       │   ├── install-style.css
+│       │   └── ws-style.png
+│       ├── applet
+│       │   ├── art
+│       │   │   └── wallpaper
+│       │   │       └── system-42.png
+│       │   ├── geist.css
+│       │   ├── nav-footer.css
+│       │   ├── slabs.css
+│       │   └── ws-style.png
+│       ├── favicon.ico
+│       ├── hero
+│       │   ├── lan-monitor.css
+│       │   ├── menu.md
+│       │   ├── series.png
+│       │   └── ws-style.png
+│       ├── nanite
+│       │   ├── nanite.css
+│       │   └── nanite.png
+│       ├── ozville
+│       │   ├── balloon-override.css
+│       │   ├── button-42px.css
+│       │   ├── dot-42px.css
+│       │   ├── dot-header.css
+│       │   ├── live-page-dot.css
+│       │   ├── menu.md
+│       │   ├── ozville.png
+│       │   └── ws-style.png
+│       ├── retext
+│       │   ├── breeze-dark.css
+│       │   ├── jazzy.css
+│       │   ├── menu.md
+│       │   ├── midnight.css
+│       │   ├── retext-blue.png
+│       │   ├── retext.png
+│       │   ├── std.css
+│       │   ├── std-css.css
+│       │   ├── thor-style.css
+│       │   ├── wks-2.css
+│       │   ├── wks.css
+│       │   └── ws-style.png
+│       ├── wbrd
+│       │   ├── chippy.css
+│       │   ├── chippy.css.html
+│       │   ├── chippy.css.md
+│       │   ├── decal.css
+│       │   ├── footer-input.css
+│       │   ├── fullscreen-editor.css
+│       │   ├── icon-table.css
+│       │   ├── lemon.css
+│       │   ├── menu.md
+│       │   ├── q-anim.css
+│       │   ├── q.css
+│       │   ├── repo-table.css
+│       │   ├── vortex.css
+│       │   ├── wbrd.css
+│       │   ├── wbrd.png
+│       │   └── ws-style.png
+│       └── yogi
+│           ├── home-dot.css
+│           ├── ws-style.png
+│           └── yogi.png
+├── stempad.html
+├── tred.html
+├── tree.php
+└── tree.txt
+
+88 directories, 1039 files
+</pre>

@@ -1,22 +1,41 @@
 
 /* my-notepad-v1p0.js */
 
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 MyNotepad = {};
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MyNotepad.storekey = ( `my-notepad-v1p0.json` );
 MyNotepad.notes    = { "Version" : "1.0" };
-MyNotepad.latest   = ( `Jefr` );
+MyNotepad.latest   = ( `Omega` );
+
 MyNotepad.cdn = {
   "Jefr"       : "http://dave-legacy/jefr/gems"
 , "Hysteresis" : "http://dave-legacy/app/hysteresis/api"
+, "Morpheus"   : "https://nyteowldave.github.io/std/api/gems"
+, "Omega"      : "http://dave-omega/app/morpheus/std/api/gems"
+, "Tower"      : "http://dave-tower/app/morpheus/std/api/gems"
+, "Legacy"     : "http://dave-legacy/app/morpheus/std/api/gems"
 };
 
+MyNotepad.bug_fixes = [ "write", "merge" ];
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// write | Write Notes Object to Store
+
 MyNotepad.write = function( key, value ) {
+    const ops = MyNotepad;
     if ( "number" === typeof key ) {
         key = ( ops.key( key ) );
     }
     MyNotepad.notes[ key ] = str( value );
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// merge | Merge Source Object with Notes Object
 
 MyNotepad.merge = function( other ) {
     const ops = MyNotepad;
@@ -27,7 +46,14 @@ MyNotepad.merge = function( other ) {
             our[ k ] = other[ k ]
         }
     );
+    return {
+        merged : ops ,
+        input  : other
+    };
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// read | Read Value for Note Entry
 
 MyNotepad.read = function( key ) {
     const ops = MyNotepad;
@@ -37,11 +63,17 @@ MyNotepad.read = function( key ) {
     return str( MyNotepad.notes[ key ] );
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// key | Obtain Key for Note Entry (indexed)
+
 MyNotepad.key = function( index ) {
     const ops = MyNotepad;
     const m = ops.dir();
     return ( m[ index ] );
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// value | Obtain Value for Note Entry (indexed)
 
 MyNotepad.value = function( index ) {
     const ops = MyNotepad;
@@ -50,6 +82,9 @@ MyNotepad.value = function( index ) {
     return ops.notes[ k ];
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// entry | Object Core Record for Note Entry (indexed)
+
 MyNotepad.entry = function( index ) {
     const ops = MyNotepad;
     const m = ops.dir();
@@ -57,6 +92,9 @@ MyNotepad.entry = function( index ) {
     const v = ops.notes[ k ];
     return ( [ k, v ] );
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// entries | Obtain Core Table of Note Entries
 
 MyNotepad.entries = function( rex ) {
     const ops = MyNotepad;
@@ -68,21 +106,33 @@ MyNotepad.entries = function( rex ) {
     )
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// indexOf | Obtain Index of Note Entry
+
 MyNotepad.indexOf = function( key ) {
     const ops = MyNotepad;
     const m = ops.dir();
     return ( m.indexOf( key ) );
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// remove | Remove Note Entry
+
 MyNotepad.remove = function( key ) {
     return ( delete MyNotepad.notes[ key ] );
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// rename | Rename Note Entry
 
 MyNotepad.rename = function( key_old, key_new ) {
     const ops = MyNotepad;
     ops.notes[ key_new ] = ops.notes[ key_old ];
     return ( delete ops.notes[ key_old ] );
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// inspect | Show Notes Table in Console
 
 MyNotepad.inspect = function( rex ) {
     const ops = MyNotepad;
@@ -92,15 +142,24 @@ MyNotepad.inspect = function( rex ) {
     c . groupEnd();
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// dir | Obtain Filtered List of Note Key Names
+
 MyNotepad.dir = function( rex ) {
     const ops = MyNotepad;
     const m = Object.keys( ops.notes ).sort();
     return ( ops.filter( m, rex ) );
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// persistable | Verify Browser Store is Available
+
 MyNotepad.persistable = function() {
     return ( null !== stg );
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// recoverable | Verify Store Entry Exists
 
 MyNotepad.recoverable = function() {
     const ops = MyNotepad;
@@ -112,6 +171,9 @@ MyNotepad.recoverable = function() {
     }
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// persist | Write Notes Object to Store
+
 MyNotepad.persist  = function() {
     const ops = MyNotepad;
     const k = ops.storekey;
@@ -119,6 +181,9 @@ MyNotepad.persist  = function() {
     stg.setItem( k, v );
     con.info( `🔏 Wrote "${k}" to Store` );
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// recover | Read Notes Object from Store
 
 MyNotepad.recover  = function() {
     const ops = MyNotepad;
@@ -136,11 +201,17 @@ MyNotepad.recover  = function() {
     }
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// members | Obtain Filtered List of Member Names
+
 MyNotepad.members = function( rex ) {
     const ops = MyNotepad;
     const m = Object.keys( ops ).sort();
     return ( ops.filter( m, rex ) );
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// assist | Show Members in Console
 
 MyNotepad.assist = function( rex ) {
     const ops = MyNotepad;
@@ -149,6 +220,9 @@ MyNotepad.assist = function( rex ) {
     c . table( ops.members( rex ) );
     c . groupEnd();
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// summarize | Obtain Member Summary Object
 
 MyNotepad.summarize = function( rex, other ) {
     const ops = MyNotepad;
@@ -174,6 +248,9 @@ MyNotepad.summarize = function( rex, other ) {
         )
     );
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// stats | Obtain Statistics
 
 MyNotepad.stats = function( o, comment ) {
     o = (
@@ -202,6 +279,9 @@ MyNotepad.stats = function( o, comment ) {
     };
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// filter | Filter String List Members
+
 MyNotepad.filter = function( list, rex ) {
     if ( rex ) {
         rex = new RegExp( rex );
@@ -212,6 +292,9 @@ MyNotepad.filter = function( list, rex ) {
         return ( list );
     }
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// clone | Clone Notes Object
 
 MyNotepad.clone = function() {
     const ops  = MyNotepad;
@@ -224,6 +307,8 @@ MyNotepad.clone = function() {
     );
     return ( cloned );
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 addEventListener(
   "load"
@@ -239,7 +324,11 @@ addEventListener(
   }
 );
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ;
 ; ( console.log( `🧙 Hey! MyNotepad.assist() is helpful ...` ) )
 ;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
