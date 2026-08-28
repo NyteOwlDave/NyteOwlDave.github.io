@@ -154,6 +154,7 @@ footer {
     <button id="btn_persist" onclick="on_persist(event)">🔏</button>
     <button id="btn_recover" onclick="on_recover(event)">🔓</button>
     <button id="btn_store_keys" onclick="on_store_keys(event)">🔐</button>
+    <button id="btn_store_jsom" onclick="on_store_jsom(event)">⦃⦄</button>
 
     <!-- [ TODO : 📥 📤 🔐 🔓 🔏 ] -->
     <!-- input type="filename" id="filename" -->
@@ -217,6 +218,48 @@ footer {
             return ( message( `TODO`, `🚧` ) );
         }
     }
+</script>
+
+<script id="request.js" group="🦇">
+function request( url, accept, reject ) {
+    const fn = ( o )=> ( "function" === typeof o );
+    const cool =( s )=> {
+        if ( fn( accept ) ) {
+            accept( s );
+        } else {
+            console.log( s );
+        }
+    };
+    const dang =( e )=> {
+        if ( fn( reject ) ) {
+            reject( e );
+        } else {
+
+        }
+    };
+    if ( "function" !== typeof fetch ) {
+        dang( `Fetch Method isn't Supported` );
+        return;
+    }
+    const req = fetch( url );
+    ( req )
+    . then  ( ( rsp ) =>  rsp.text() )
+    . then  ( cool )
+    . catch ( dang );
+    return ( req );
+}
+</script>
+
+<script id="request_gem.js" group="🦇">
+request.gem = function( gemname ) {
+    const p = location.origin;
+    const s = "tigg/gems";
+    const k = ( `${gemname}.js` );
+    function accept( s ) {
+        sip.value = String( s );
+    }
+    return request( [ p, s, k ].join("/"), accept, accept );
+};
 </script>
 
 <script details="Generate Single Key" group="🦇">
@@ -292,6 +335,18 @@ footer {
             const m = Object.keys( store ).sort();
             discard_changes();
             sip.value = m.join( "\n" );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
+    function on_store_jsom( event ) {
+        try {
+            let store = localStorage;
+            if ( null === store ) {
+                store = { "(unavailable)" : null };
+            }
+            discard_changes();
+            sip.value = jst( store );
         } catch ( e ) {
             crashed ( e );
         }
@@ -447,6 +502,16 @@ function discard_changes() {
     sip.title = ( title_input.value = "" );
     sip.value = "";
 }
+</script>
+
+<script details="Load Helper Gem" group="🦇">
+    function on_load_helpers( event ) {
+        try {
+            request.gem( "tigg-helpers" );
+        } catch ( e ) {
+            crashed ( e );
+        }
+    }
 </script>
 
 <script details="Review Record" group="🦇">
@@ -658,7 +723,10 @@ function init_gadgets( event ) {
     btn_persist    . title = "🔏 Write Registry File to Store"
     btn_recover    . title = "🔓 Read Registry File from Store"
     btn_store_keys . title = "🔐 Review Store Keys"
+    btn_store_jsom . title = "⦃⦄ Review Store JSON"
 
+    sip . style . tabSize = "4";
+    sip . memo = ( 'request.gem( "tigg-helpers" );' );
     sip . value = "";
     sip . title = "";
     if ( "function" === typeof init_editor ) {
