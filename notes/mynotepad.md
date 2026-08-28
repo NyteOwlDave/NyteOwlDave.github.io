@@ -168,21 +168,21 @@
 
 ----------------------------------------------------------------
 
-[liz]:     <https://sites.google.com/view/net-4-tilly/home>
-[snek]:    <https://sites.google.com/view/net-4-tilly/home>
-[venus]:   <https://sites.google.com/view/net-4-tilly/home>
-[sknm]:    <https://sites.google.com/view/net-4-tilly/home>
-[mjax]:    <https://sites.google.com/view/net-4-tilly/home>
-[demos]:   <https://sites.google.com/view/net-4-tilly/home>
-[jarvis]:  <https://sites.google.com/view/net-4-tilly/home>
-[jed]:     <https://sites.google.com/view/net-4-tilly/home>
-[jefr]:    <https://sites.google.com/view/net-4-tilly/home>
-[sinkro]:  <https://sites.google.com/view/net-4-tilly/home>
-[locutus]: <https://sites.google.com/view/net-4-tilly/home>
-[dorothy]: <https://sites.google.com/view/net-4-tilly/home>
-[desiree]: <https://sites.google.com/view/net-4-tilly/home>
-[shirley]: <https://sites.google.com/view/net-4-tilly/home>
-[caspar]:  <https://sites.google.com/view/net-4-tilly/home>
+[liz]:     <http://dave-omega/demo/web/lissajous/lissajous.html>
+[snek]:    <http://dave-legacy/app/hysteresis/pen.html>
+[venus]:   <http://dave-omega/app/jarvis/toolkit/ncs/venus/>
+[sknm]:    <http://dave-tower/jefr/sknm/sknm.html>
+[demos]:   <http://dave-tower/demo/demo-menu.html>
+[jarvis]:  <http://dave-tower/app/jarvis/jarvis-menu.html>
+[jed]:     <http://dave-omega/app/jarvis/toolkit/ncs/venus/json-tree-editor.html>
+[jefr]:    <http://dave-legacy/jefr/menu/mysql.html>
+[sinkro]:  <http://dave-omega/app/sinkro/>
+[locutus]: <http://dave-legacy/app/locutus/locutus.html>
+[dorothy]: <http://dave-omega/demo/web/dorothy-rockets.html>
+[desiree]: <http://dave-omega/app/jarvis/toolkit/ncs/desiree/des-ii.html>
+[shirley]: <http://dave-omega/app/sinkro/notes/rt/shirley.html>
+[caspar]:  <http://dave-omega/app/jarvis/toolkit/ncs/caspar/caspar.html>
+[mjax]:    <http://dave-legacy/math/latex/mathjax.html>
 
 > [Lissajous][liz]
 > [Snek][snek]
