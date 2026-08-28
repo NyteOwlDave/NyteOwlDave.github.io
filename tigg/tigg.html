@@ -39,6 +39,8 @@ textarea#sip ,
 input#title_input ,
 input#tikey {
     width : 80%;
+    padding : 5px 1ch;
+    font-family : monospace;
 }
 input#key_count {
     border : 2px solid transparent;
@@ -75,6 +77,14 @@ footer {
     padding-right : 1.4ch;
     padding-left  : 1.4ch;
 }
+button[dot] ,
+a[dot] {
+    display   : inline-block;
+    min-width : 3.2ch;
+}
+[href], [onclick] {
+    cursor : pointer;
+}
 </style>
 <script src="./tigg.js"></script>
 <script src="./gems/tigg-db.js"></script>
@@ -84,6 +94,8 @@ footer {
 <script src="./../chachi/api/karlita-editor.js"></script>
 <script src="./../chachi/api/karlita-extender.js"></script>
 </head>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <body>
 <header id="header">
@@ -120,12 +132,14 @@ footer {
 </menu>
 <div>
 <menu>
-    <button id="btn_first" onclick="on_first(event)">⏫</button>
-    <button id="btn_prev" onclick="on_prev(event)">⏪</button>
-    <button id="btn_next" onclick="on_next(event)">⏩</button>
-    <button id="btn_last" onclick="on_last(event)">⏬</button>
-    <button id="btn_update" onclick="on_update(event)">✅</button>
-    <button id="btn_discard" onclick="on_discard(event)">❎</button>
+    <button dot id="btn_first" onclick="on_first(event)">⏫</button>
+    <button dot id="btn_prev" onclick="on_prev(event)">⏪</button>
+    <button dot id="btn_next" onclick="on_next(event)">⏩</button>
+    <button dot id="btn_last" onclick="on_last(event)">⏬</button>
+    <button dot id="btn_update" onclick="on_update(event)">✅</button>
+    <button dot id="btn_discard" onclick="on_discard(event)">❎</button>
+    <button dot id="btn_swap_memo" onclick="on_swap_memo(event)">🔄</button>
+    <button dot id="btn_show_help" onclick="on_show_help(event)">❔</button>
 </menu>
 </div>
 
@@ -147,14 +161,14 @@ footer {
 <h3>🗂️ File Transport</h3>
 <div>
 <menu>
-    <button id="btn_save" onclick="on_save_file(event)">💾</button>
-    <button id="btn_open" onclick="on_open_file(event)">📂</button>
-    <button id="btn_upload" onclick="on_upload(event)">📤</button>
-    <button id="btn_download" onclick="on_download(event)">📥</button>
-    <button id="btn_persist" onclick="on_persist(event)">🔏</button>
-    <button id="btn_recover" onclick="on_recover(event)">🔓</button>
-    <button id="btn_store_keys" onclick="on_store_keys(event)">🔐</button>
-    <button id="btn_store_jsom" onclick="on_store_jsom(event)">⦃⦄</button>
+    <button dot id="btn_save" onclick="on_save_file(event)">💾</button>
+    <button dot id="btn_open" onclick="on_open_file(event)">📂</button>
+    <button dot id="btn_upload" onclick="on_upload(event)">📤</button>
+    <button dot id="btn_download" onclick="on_download(event)">📥</button>
+    <button dot id="btn_persist" onclick="on_persist(event)">🔏</button>
+    <button dot id="btn_recover" onclick="on_recover(event)">🔓</button>
+    <button dot id="btn_store_keys" onclick="on_store_keys(event)">🔐</button>
+    <button dot id="btn_store_jsom" onclick="on_store_jsom(event)">⦃⦄</button>
 
     <!-- [ TODO : 📥 📤 🔐 🔓 🔏 ] -->
     <!-- input type="filename" id="filename" -->
@@ -168,6 +182,8 @@ footer {
 <footer id="footer">
     <div id="messages"></div>
 </footer>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script details="Gadget References" group="🦇">
     const sip   = document.getElementById( 'sip' );
@@ -514,6 +530,20 @@ function discard_changes() {
     }
 </script>
 
+<script details="Swap SIP Memo" group="🦇">
+   function on_swap_memo(event) {
+        const old = sip.value;
+        sip.value = sip.memo;
+        sip.swapped = (! sip.swapped );
+   }
+</script>
+
+<script details="Visit Help Manual" group="🦇">
+   function on_show_help(event) {
+        visit( "./../notes/mynotepad.html" );
+   }
+</script>
+
 <script details="Review Record" group="🦇">
     function on_review( event ) {
         try {
@@ -724,6 +754,8 @@ function init_gadgets( event ) {
     btn_recover    . title = "🔓 Read Registry File from Store"
     btn_store_keys . title = "🔐 Review Store Keys"
     btn_store_jsom . title = "⦃⦄ Review Store JSON"
+    btn_swap_memo  . title = "🔄"; 
+    btn_show_help  . title = "❔";
 
     sip . style . tabSize = "4";
     sip . memo = ( 'request.gem( "tigg-helpers" );' );
@@ -746,6 +778,50 @@ function init_gadgets( event ) {
 
 }
 addEventListener( "load", init_gadgets );
+</script>
+
+<script id="visit.js">
+function visit( url ) {
+    const d = document;
+    const a = d.createElement( "A" );
+    a . href = ( url );
+    a. click();
+}
+</script>
+
+<script id="veer.js">
+function veer( hostname ) {
+    location.hostname = ( hostname );
+}
+</script>
+
+<script id="minuet.js">
+function minuet( nickname ) {
+    const k = ( String( s || "?" ).trim() );
+    const server = minuet.servers[ k ];
+    if ( server ) {
+        location = ( server );
+    } else {
+        alert( `Unknown Server Nickname:\n\n"${k}"` );
+    }
+}
+</script>
+
+<script id="minuet-servers.js">
+minuet.servers = {
+  "?"        : "https://nyteowldave.github.io/tigg/"
+, "morpheus" : "https://nyteowldave.github.io/tigg/"
+, "omega"    : "http://dave-omega/app/morpheus/tigg/"
+, "tower"    : "http://dave-tower/app/morpheus/tigg/"
+, "legacy"   : "http://dave-legacy/app/morpheus/tigg/"
+, "lenovo"   : "http://dave-lenovo/app/morpheus/tigg/"
+, "probook"  : "http://dave-probook/app/morpheus/tigg/"
+, "pi"       : "http://dave-pi/app/morpheus/tigg/"
+, "jefr"     : "http://dave-jefr/app/morpheus/tigg/"
+, "ryzen"    : "http://dave-ryzen/app/morpheus/tigg/"
+, "zombie"   : "http://dave-zombie/app/morpheus/tigg/"
+, "neo"      : "http://192.168.1.3/shares/"
+};
 </script>
 
 <script id="morpheus.js">
@@ -792,6 +868,7 @@ function morpheus( event ) {
     📑 📝 ✅ ❎
     🪄 🗝️ 🔅
     ⏪ ⏩ ⏫ ⏬
+    🔄 ❔
 -->
 
 <!--
