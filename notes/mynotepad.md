@@ -6,6 +6,8 @@
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+[daves-notes]: <http://tiny.cc/daves-notes>
+
 [tilly]:
 <https://sites.google.com/view/net-4-tilly/home>
 
@@ -62,7 +64,7 @@
 
 ----------------------------------------------------------------
 
-# [My Notepad Notes][dave-notes]
+# [My Notepad Notes][daves-notes]
 
 ----------------------------------------------------------------
 
@@ -109,6 +111,7 @@
 | indexOf     | Obtain Index of Note Entry                     |
 | inspect     | Show Notes Table in Console                    |
 | key         | Obtain Key for Note Entry (indexed)            |
+| manual      | Visit the Official User's Manual               |
 | members     | Obtain Filtered List of Member Names           |
 | merge       | Merge Source Object with Notes Object          |
 | persist     | Write Notes Object to Store                    |
@@ -140,7 +143,7 @@
 
 # [References][raindrop]
 
-> [Dave's Notes](http://tiny.cc/daves-notes)
+> [Dave's Notes][daves-notes]
 > [Sites](https://sites.google.com)
 > [Cloud](https://dropbox.com)
 > [Short URLs](https://tiny.cc)

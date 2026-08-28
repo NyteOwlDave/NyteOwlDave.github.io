@@ -309,6 +309,20 @@ MyNotepad.clone = function() {
 };
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// manual | Visit the Official User's Manual
+
+MyNotepad.manual = function() {
+    const p = ( `https://nyteowldave.github.io` );
+    const s = ( `notes` );
+    const k = ( `mynotepad.html` );
+    const u = ( [].join( "/" ) );
+    const d = document;
+    const a = d.createElement( "A" );
+    a . href = ( u );
+    a . click();
+};
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 addEventListener(
   "load"
