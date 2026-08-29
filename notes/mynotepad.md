@@ -4,39 +4,49 @@
 @import url("./../std/style/every-page.css");
 </style>
 
+<style>
+#imported_module_droplist ,
+#embedded_module_droplist {
+    display : inline-block;
+    width   : calc( 100% - 20ch );
+}
+.button-right {
+    box-sizing  : border-box;
+    display     : inline-block;
+    min-width   : 3.2ch;
+    margin-left : 1.2ch;
+    height      : 4ch;
+    line-height : 4ch;
+    border      : none;
+    border-radius : 12px;
+    font : 13pt monospace;
+    padding : 11px;
+    text-align : center;
+}
+.button-right:hover {
+    background : #000A;
+    color : mintcream;
+    box-shadow : 0px 0px 9px gold;
+}
+[href], [onclick] {
+    cursor : pointer;
+    user-select : none;
+}
+</style>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 [daves-notes]: <http://tiny.cc/daves-notes>
-
-[tilly]:
-<https://sites.google.com/view/net-4-tilly/home>
-
-[tigg]:
-<https://nyteowldave.github.io/tigg/>
-
-[raindrop]:
-<https://app.raindrop.io/>
-
-[basic]:
-<https://www.facebook.com/groups/2057165187928233>
-
-[youtube]:
-<https://www.youtube.com/@TEK-Vectors>
-
-[mdn]:
-<https://developer.mozilla.org/en-US/docs/Web/API>
-
-[jsinfo]:
-<https://javascript.info/>
-
-[json-editor]:
-<https://jsoneditoronline.org/>
-
-[excalidraw]:
-<https://excalidraw.com/>
-
-[kindle]:
-<https://read.amazon.com/kindle-library>
+[tilly]: <https://sites.google.com/view/net-4-tilly/home>
+[tigg]: <https://nyteowldave.github.io/tigg/>
+[raindrop]: <https://app.raindrop.io/>
+[basic]: <https://www.facebook.com/groups/2057165187928233>
+[youtube]: <https://www.youtube.com/@TEK-Vectors>
+[mdn]: <https://developer.mozilla.org/en-US/docs/Web/API>
+[jsinfo]: <https://javascript.info/>
+[json-editor]: <https://jsoneditoronline.org/>
+[excalidraw]: <https://excalidraw.com/>
+[kindle]: <https://read.amazon.com/kindle-library>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
@@ -64,7 +74,7 @@
 
 ----------------------------------------------------------------
 
-# [My Notepad Notes][daves-notes]
+# [`📝` My Notepad Notes][daves-notes]
 
 ----------------------------------------------------------------
 
@@ -72,21 +82,24 @@
 
 ----------------------------------------------------------------
 
-> [File System](./)
-> [Omega][me-omega]
-> [Tower][me-tower]
-> [Legacy][me-legacy]
-> [Morpheus][me-morpheus]
+> [`🌐` Morpheus][me-morpheus]
+
+### ( Private Access `📛` Only )
+
+> [`🖥️` Omega][me-omega]
+> [`🖥️` Tower][me-tower]
+> [`🖥️` Legacy][me-legacy]
+> [`🗃️` File System](./)
 
 ----------------------------------------------------------------
 
-# Member Summary
+# `👥` Member Summary
 
-> ( `MyNotepad` )
+> ( `MyNotepad Accessor` )
 
 ----------------------------------------------------------------
 
-## Properties
+## `👤` Properties
 
 | Member      | Description                                    |
 |-------------|------------------------------------------------|
@@ -98,7 +111,7 @@
 
 ----------------------------------------------------------------
 
-## Methods
+## `👤` Methods
 
 | Member      | Description                                    |
 |-------------|------------------------------------------------|
@@ -128,43 +141,64 @@
 
 ----------------------------------------------------------------
 
-# Source Files
+# `📄` Source Files
 
-- [my-notepad-v1p0.js](./../std/api/gems/my-notepad-v1p0.js)
-- [prolog-beta.js](./../std/api/gems/prolog-beta.js)
-
-----------------------------------------------------------------
-
-# Client Apps
-
-- [TiGG][tigg]
+- [`📄` my-notepad-v1p0.js](./../std/api/gems/my-notepad-v1p0.js)
+- [`📄` prolog-beta.js](./../std/api/gems/prolog-beta.js)
 
 ----------------------------------------------------------------
 
-# [References][raindrop]
+# `🛠️` Client Apps
 
-> [Dave's Notes][daves-notes]
-> [Sites](https://sites.google.com)
-> [Cloud](https://dropbox.com)
-> [Short URLs](https://tiny.cc)
-> [Idea Flip](https://ideaflip.com/)
-> [Tick Tock](https://ticktick.com/webapp/)
-> [Markdown Editor](https://markdowneditor.org/)
-> [Clipboard](https://live-clipboard.netlify.app/)
-> [P5 Editor](https://editor.p5js.org/nyteowldave64/sketches)
-> [BASIC Programming][basic]
-> [JSON Editor][json-editor]
-> [JS Info][jsinfo]
-> [MDN][mdn]
-> [Kindle][kindle]
-> [Excalidraw][excalidraw]
-> [YouTube][youtube]
+- [`🦇` TiGG][tigg]
 
 ----------------------------------------------------------------
 
-# [Home Network][tilly]
+# `📜` Modules
 
-### ( Private Access Only )
+<section id="modules-section">
+<div center>
+  <h3>📜 Embedded </h3>
+  <select id="embedded_module_droplist"></select>
+  <span class="button-right" onclick="visit.droplist(event)">🔍</span>
+</div>
+<div center>
+  <h3>📜 Imported </h3>
+  <select id="imported_module_droplist"></select>
+  <span class="button-right" onclick="visit.droplist(event)">🔍</span>
+</div>
+</section>
+
+----------------------------------------------------------------
+
+# [`💧` References][raindrop]
+
+> [`💧` Decore](./mynotepad-decore.html)
+> [`💧` Dave's Notes][daves-notes]
+> [`💧` Sites](https://sites.google.com)
+> [`💧` Cloud](https://dropbox.com)
+> [`💧` Short URLs](https://tiny.cc)
+
+> [`💧` Idea Flip](https://ideaflip.com/)
+> [`💧` Tick Tock](https://ticktick.com/webapp/)
+> [`💧` Markdown Editor](https://markdowneditor.org/)
+> [`💧` Clipboard](https://live-clipboard.netlify.app/)
+> [`💧` P5 Editor](https://editor.p5js.org/nyteowldave64/sketches)
+
+> [`💧` BASIC Programming][basic]
+> [`💧` JSON Editor][json-editor]
+> [`💧` JS Info][jsinfo]
+> [`💧` MDN][mdn]
+> [`💧` Kindle][kindle]
+
+> [`💧` Excalidraw][excalidraw]
+> [`💧` YouTube][youtube]
+
+----------------------------------------------------------------
+
+# [`📡` Home Network][tilly]
+
+### ( Private Access `📛` Only )
 
 ----------------------------------------------------------------
 
@@ -184,30 +218,45 @@
 [caspar]:  <http://dave-omega/app/jarvis/toolkit/ncs/caspar/caspar.html>
 [mjax]:    <http://dave-legacy/math/latex/mathjax.html>
 
-> [Lissajous][liz]
-> [Snek][snek]
-> [Venus][venus]
-> [Store Key Notes][sknm]
-> [Math Jax][mjax]
-> [Demos][demos]
-> [Jarvis][jarvis]
-> [Jeddak][jed]
-> [Jefr][jefr]
-> [SinKro][sinkro]
-> [Locutus][locutus]
-> [Dorothy][dorothy]
-> [Desiree][desiree]
-> [Shirley][shirley]
-> [Caspar][caspar]
+> [`♒` Lissajous][liz]
+> [`🛠️` Snek][snek]
+> [`🛠️` Venus][venus]
+> [`🛠️` Store Key Notes][sknm]
+> [`🛠️` Math Jax][mjax]
+> [`🛠️` Demos][demos]
+
+> [`🛠️` Jarvis][jarvis]
+> [`🛠️` Jeddak][jed]
+> [`🛠️` Jefr][jefr]
+> [`🛠️` SinKro][sinkro]
+> [`🛠️` Locutus][locutus]
+
+> [`🛠️` Dorothy][dorothy]
+> [`🛠️` Desiree][desiree]
+> [`🛠️` Shirley][shirley]
+> [`🛠️` Caspar][caspar]
 
 ----------------------------------------------------------------
 
-# Usage Notes
+# `🧝` Usage Notes
 
 - ( `pending` )
 
 ----------------------------------------------------------------
 
+# `🧑‍💻` Improve `My Notepad`
+
+- Add `HUD Editor`
+- Import `HUD Editor` to `Morpheus`
+- Finish `Usage Notes` Section
+- Create an `Examples` page
+- Locate More `Client Apps` (there are several others)
+- Persistent Autoload Tables (JSON, CSV, HTML)
+- Toggle Edit Mode for Tables (click header)
+
+----------------------------------------------------------------
+
+<!-- [[ NEEDS : header-footer.js ]] -->
 <header id="header"></header>
 <footer id="footer"></footer>
 
@@ -215,15 +264,15 @@
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<script>
+<script id="iwm.js" status="done">
 ; iwm = Object.keys( window ).sort()
 </script>
 
-<script>
+<script id="doc.js" status="done">
 ; doc = document
 </script>
 
-<script>
+<script id="debug.js" status="done">
 ; cls =()=> console.clear()
 ; agn =()=> location.reload()
 </script>
@@ -231,16 +280,25 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script src="./../std/api/gems/prolog-beta.js"></script>
+<script src="./../std/api/gems/seeker.js"></script>
+<script src="./../std/api/gems/show.js"></script>
+
+<script src="./../std/api/popeye.js"></script>
+<script src="./../std/api/canedit.js"></script>
+<script src="./../std/api/module-status.js"></script>
+
 <script src="./../std/gadgets/header-footer.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<script>
+<script id="main.js" status="done">
 function main( event ) {
     try {
         doc . title = ( `My Notepad Notes` );
         init_header();
         init_footer();
+        footer_input.value = "alert( typeof iwm )";
+        populate_droplists();
         message( "Ready!" );
     } catch ( e ) {
         throw ( e );
@@ -249,32 +307,64 @@ function main( event ) {
 }
 </script>
 
-<script>
+<script id="page-load.js" status="done">
 addEventListener( "load", main );
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script>
-function seeker( o, rex ) {
-    const m = (
-        mem( o || window )
-        . filter(
-            ( k ) => (! iwm.includes( k ) )
-        )
-    );
-    if ( rex ) {
-        rex = new RegExp( rex );
-        return m.filter( ( k ) => ( rex.test( k ) ) );
+function populate_droplists() {
+    function populate( o, m ) {
+        ( o ).innerHTML = "";
+        ( m )
+        . forEach(
+            ( s ) => {
+                const ce = elx( "OPTION" );
+                ce . textContent = (
+                    ce . value = ( s )
+                );
+                ( o ).appendChild( ce );
+            }
+        );
     }
-    return ( m );
+    let m = module_list().map( ( se ) => ( se.id ) );
+    let o = gid( "embedded_module_droplist" );
+    populate( o, m );
+    m = module_sources();
+    o = gid( "imported_module_droplist" );
+    populate( o, m );
 }
-console.log( "🧙 Hey! Seeker is available ..." );
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<script id="code-snippets.js">
+<script id="visit.js" status="done">
+function visit( url ) {
+    const a = doc.createElement( "A" );
+    a . href = ( url );
+    a . setAttribute( "target", url );
+    a . click();
+}
+</script>
+
+<script id="visit-droplist.js" status="done">
+visit.droplist = function( event ) {
+    const sender = event.target;
+    const parent = sender.parentElement;
+    const droplist = parent.querySelector( "SELECT" );
+    const k = droplist.value;
+    if ( k.includes( "://" ) ) {
+        visit( k );
+    } else {
+        alert( k );
+    }
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script id="code-snippets.js" status="done">
 // try {} catch ( e ) {}
 // throw ( e );
 // alert ( e );

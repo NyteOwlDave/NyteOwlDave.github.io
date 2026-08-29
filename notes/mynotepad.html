@@ -18,6 +18,36 @@ img { max-width: 100%; }
 @import url("./../std/style/every-page.css");
 </style>
 
+<style>
+#imported_module_droplist ,
+#embedded_module_droplist {
+    display : inline-block;
+    width   : calc( 100% - 20ch );
+}
+.button-right {
+    box-sizing  : border-box;
+    display     : inline-block;
+    min-width   : 3.2ch;
+    margin-left : 1.2ch;
+    height      : 4ch;
+    line-height : 4ch;
+    border      : none;
+    border-radius : 12px;
+    font : 13pt monospace;
+    padding : 11px;
+    text-align : center;
+}
+.button-right:hover {
+    background : #000A;
+    color : mintcream;
+    box-shadow : 0px 0px 9px gold;
+}
+[href], [onclick] {
+    cursor : pointer;
+    user-select : none;
+}
+</style>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -28,26 +58,29 @@ img { max-width: 100%; }
 </div>
 
 <hr>
-<h1><a href="http://tiny.cc/daves-notes">My Notepad Notes</a></h1>
+<h1><a href="http://tiny.cc/daves-notes"><code>📝</code> My Notepad Notes</a></h1>
 <hr>
 <blockquote>
 <p>( Morpheus Edition )</p>
 </blockquote>
 <hr>
 <blockquote>
-<p><a href="./">File System</a>
-<a href="http://dave-omega/app/morpheus/notes/mynotepad.html" title="Omega Edition">Omega</a>
-<a href="http://dave-tower/app/morpheus/notes/mynotepad.html" title="Tower Edition">Tower</a>
-<a href="http://dave-legacy/app/morpheus/notes/mynotepad.html" title="Legacy Edition">Legacy</a>
-<a href="https://nyteowldave.github.io/notes/mynotepad.html" title="Morpheus Edition">Morpheus</a></p>
+<p><a href="https://nyteowldave.github.io/notes/mynotepad.html" title="Morpheus Edition"><code>🌐</code> Morpheus</a></p>
 </blockquote>
-<hr>
-<h1>Member Summary</h1>
+<h3>( Private Access <code>📛</code> Only )</h3>
 <blockquote>
-<p>( <code>MyNotepad</code> )</p>
+<p><a href="http://dave-omega/app/morpheus/notes/mynotepad.html" title="Omega Edition"><code>🖥️</code> Omega</a>
+<a href="http://dave-tower/app/morpheus/notes/mynotepad.html" title="Tower Edition"><code>🖥️</code> Tower</a>
+<a href="http://dave-legacy/app/morpheus/notes/mynotepad.html" title="Legacy Edition"><code>🖥️</code> Legacy</a>
+<a href="./"><code>🗃️</code> File System</a></p>
 </blockquote>
 <hr>
-<h2>Properties</h2>
+<h1><code>👥</code> Member Summary</h1>
+<blockquote>
+<p>( <code>MyNotepad Accessor</code> )</p>
+</blockquote>
+<hr>
+<h2><code>👤</code> Properties</h2>
 <table>
 <thead>
 <tr>
@@ -79,7 +112,7 @@ img { max-width: 100%; }
 </tbody>
 </table>
 <hr>
-<h2>Methods</h2>
+<h2><code>👤</code> Methods</h2>
 <table>
 <thead>
 <tr>
@@ -183,78 +216,106 @@ img { max-width: 100%; }
 </tbody>
 </table>
 <hr>
-<h1>Source Files</h1>
+<h1><code>📄</code> Source Files</h1>
 <ul>
-<li><a href="./../std/api/gems/my-notepad-v1p0.js">my-notepad-v1p0.js</a></li>
-<li><a href="./../std/api/gems/prolog-beta.js">prolog-beta.js</a></li>
+<li><a href="./../std/api/gems/my-notepad-v1p0.js"><code>📄</code> my-notepad-v1p0.js</a></li>
+<li><a href="./../std/api/gems/prolog-beta.js"><code>📄</code> prolog-beta.js</a></li>
 </ul>
 <hr>
-<h1>Client Apps</h1>
+<h1><code>🛠️</code> Client Apps</h1>
 <ul>
-<li><a href="https://nyteowldave.github.io/tigg/">TiGG</a></li>
+<li><a href="https://nyteowldave.github.io/tigg/"><code>🦇</code> TiGG</a></li>
 </ul>
 <hr>
-<h1><a href="https://app.raindrop.io/">References</a></h1>
+<h1><code>📜</code> Modules</h1>
+<section id="modules-section">
+<div center>
+  <h3>📜 Embedded </h3>
+  <select id="embedded_module_droplist"></select>
+  <span class="button-right" onclick="visit.droplist(event)">🔍</span>
+</div>
+<div center>
+  <h3>📜 Imported </h3>
+  <select id="imported_module_droplist"></select>
+  <span class="button-right" onclick="visit.droplist(event)">🔍</span>
+</div>
+</section>
+
+<hr>
+<h1><a href="https://app.raindrop.io/"><code>💧</code> References</a></h1>
 <blockquote>
-<p><a href="http://tiny.cc/daves-notes">Dave's Notes</a>
-<a href="https://sites.google.com">Sites</a>
-<a href="https://dropbox.com">Cloud</a>
-<a href="https://tiny.cc">Short URLs</a>
-<a href="https://ideaflip.com/">Idea Flip</a>
-<a href="https://ticktick.com/webapp/">Tick Tock</a>
-<a href="https://markdowneditor.org/">Markdown Editor</a>
-<a href="https://live-clipboard.netlify.app/">Clipboard</a>
-<a href="https://editor.p5js.org/nyteowldave64/sketches">P5 Editor</a>
-<a href="https://www.facebook.com/groups/2057165187928233">BASIC Programming</a>
-<a href="https://jsoneditoronline.org/">JSON Editor</a>
-<a href="https://javascript.info/">JS Info</a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/API">MDN</a>
-<a href="https://read.amazon.com/kindle-library">Kindle</a>
-<a href="https://excalidraw.com/">Excalidraw</a>
-<a href="https://www.youtube.com/@TEK-Vectors">YouTube</a></p>
+<p><a href="./mynotepad-decore.html"><code>💧</code> Decore</a>
+<a href="http://tiny.cc/daves-notes"><code>💧</code> Dave's Notes</a>
+<a href="https://sites.google.com"><code>💧</code> Sites</a>
+<a href="https://dropbox.com"><code>💧</code> Cloud</a>
+<a href="https://tiny.cc"><code>💧</code> Short URLs</a></p>
+<p><a href="https://ideaflip.com/"><code>💧</code> Idea Flip</a>
+<a href="https://ticktick.com/webapp/"><code>💧</code> Tick Tock</a>
+<a href="https://markdowneditor.org/"><code>💧</code> Markdown Editor</a>
+<a href="https://live-clipboard.netlify.app/"><code>💧</code> Clipboard</a>
+<a href="https://editor.p5js.org/nyteowldave64/sketches"><code>💧</code> P5 Editor</a></p>
+<p><a href="https://www.facebook.com/groups/2057165187928233"><code>💧</code> BASIC Programming</a>
+<a href="https://jsoneditoronline.org/"><code>💧</code> JSON Editor</a>
+<a href="https://javascript.info/"><code>💧</code> JS Info</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API"><code>💧</code> MDN</a>
+<a href="https://read.amazon.com/kindle-library"><code>💧</code> Kindle</a></p>
+<p><a href="https://excalidraw.com/"><code>💧</code> Excalidraw</a>
+<a href="https://www.youtube.com/@TEK-Vectors"><code>💧</code> YouTube</a></p>
 </blockquote>
 <hr>
-<h1><a href="https://sites.google.com/view/net-4-tilly/home">Home Network</a></h1>
-<h3>( Private Access Only )</h3>
+<h1><a href="https://sites.google.com/view/net-4-tilly/home"><code>📡</code> Home Network</a></h1>
+<h3>( Private Access <code>📛</code> Only )</h3>
 <hr>
 <blockquote>
-<p><a href="http://dave-omega/demo/web/lissajous/lissajous.html">Lissajous</a>
-<a href="http://dave-legacy/app/hysteresis/pen.html">Snek</a>
-<a href="http://dave-omega/app/jarvis/toolkit/ncs/venus/">Venus</a>
-<a href="http://dave-tower/jefr/sknm/sknm.html">Store Key Notes</a>
-<a href="http://dave-legacy/math/latex/mathjax.html">Math Jax</a>
-<a href="http://dave-tower/demo/demo-menu.html">Demos</a>
-<a href="http://dave-tower/app/jarvis/jarvis-menu.html">Jarvis</a>
-<a href="http://dave-omega/app/jarvis/toolkit/ncs/venus/json-tree-editor.html">Jeddak</a>
-<a href="http://dave-legacy/jefr/menu/mysql.html">Jefr</a>
-<a href="http://dave-omega/app/sinkro/">SinKro</a>
-<a href="http://dave-legacy/app/locutus/locutus.html">Locutus</a>
-<a href="http://dave-omega/demo/web/dorothy-rockets.html">Dorothy</a>
-<a href="http://dave-omega/app/jarvis/toolkit/ncs/desiree/des-ii.html">Desiree</a>
-<a href="http://dave-omega/app/sinkro/notes/rt/shirley.html">Shirley</a>
-<a href="http://dave-omega/app/jarvis/toolkit/ncs/caspar/caspar.html">Caspar</a></p>
+<p><a href="http://dave-omega/demo/web/lissajous/lissajous.html"><code>♒</code> Lissajous</a>
+<a href="http://dave-legacy/app/hysteresis/pen.html"><code>🛠️</code> Snek</a>
+<a href="http://dave-omega/app/jarvis/toolkit/ncs/venus/"><code>🛠️</code> Venus</a>
+<a href="http://dave-tower/jefr/sknm/sknm.html"><code>🛠️</code> Store Key Notes</a>
+<a href="http://dave-legacy/math/latex/mathjax.html"><code>🛠️</code> Math Jax</a>
+<a href="http://dave-tower/demo/demo-menu.html"><code>🛠️</code> Demos</a></p>
+<p><a href="http://dave-tower/app/jarvis/jarvis-menu.html"><code>🛠️</code> Jarvis</a>
+<a href="http://dave-omega/app/jarvis/toolkit/ncs/venus/json-tree-editor.html"><code>🛠️</code> Jeddak</a>
+<a href="http://dave-legacy/jefr/menu/mysql.html"><code>🛠️</code> Jefr</a>
+<a href="http://dave-omega/app/sinkro/"><code>🛠️</code> SinKro</a>
+<a href="http://dave-legacy/app/locutus/locutus.html"><code>🛠️</code> Locutus</a></p>
+<p><a href="http://dave-omega/demo/web/dorothy-rockets.html"><code>🛠️</code> Dorothy</a>
+<a href="http://dave-omega/app/jarvis/toolkit/ncs/desiree/des-ii.html"><code>🛠️</code> Desiree</a>
+<a href="http://dave-omega/app/sinkro/notes/rt/shirley.html"><code>🛠️</code> Shirley</a>
+<a href="http://dave-omega/app/jarvis/toolkit/ncs/caspar/caspar.html"><code>🛠️</code> Caspar</a></p>
 </blockquote>
 <hr>
-<h1>Usage Notes</h1>
+<h1><code>🧝</code> Usage Notes</h1>
 <ul>
 <li>( <code>pending</code> )</li>
 </ul>
 <hr>
+<h1><code>🧑‍💻</code> Improve <code>My Notepad</code></h1>
+<ul>
+<li>Add <code>HUD Editor</code></li>
+<li>Import <code>HUD Editor</code> to <code>Morpheus</code></li>
+<li>Finish <code>Usage Notes</code> Section</li>
+<li>Create an <code>Examples</code> page</li>
+<li>Locate More <code>Client Apps</code> (there are several others)</li>
+<li>Persistent Autoload Tables (JSON, CSV, HTML)</li>
+<li>Toggle Edit Mode for Tables (click header)</li>
+</ul>
+<hr>
+<!-- [[ NEEDS : header-footer.js ]] -->
 <header id="header"></header>
 <footer id="footer"></footer>
 
 <hr>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<script>
+<script id="iwm.js" status="done">
 ; iwm = Object.keys( window ).sort()
 </script>
 
-<script>
+<script id="doc.js" status="done">
 ; doc = document
 </script>
 
-<script>
+<script id="debug.js" status="done">
 ; cls =()=> console.clear()
 ; agn =()=> location.reload()
 </script>
@@ -262,16 +323,25 @@ img { max-width: 100%; }
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script src="./../std/api/gems/prolog-beta.js"></script>
+<script src="./../std/api/gems/seeker.js"></script>
+<script src="./../std/api/gems/show.js"></script>
+
+<script src="./../std/api/popeye.js"></script>
+<script src="./../std/api/canedit.js"></script>
+<script src="./../std/api/module-status.js"></script>
+
 <script src="./../std/gadgets/header-footer.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<script>
+<script id="main.js" status="done">
 function main( event ) {
     try {
         doc . title = ( `My Notepad Notes` );
         init_header();
         init_footer();
+        footer_input.value = "alert( typeof iwm )";
+        populate_droplists();
         message( "Ready!" );
     } catch ( e ) {
         throw ( e );
@@ -280,32 +350,64 @@ function main( event ) {
 }
 </script>
 
-<script>
+<script id="page-load.js" status="done">
 addEventListener( "load", main );
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script>
-function seeker( o, rex ) {
-    const m = (
-        mem( o || window )
-        . filter(
-            ( k ) => (! iwm.includes( k ) )
-        )
-    );
-    if ( rex ) {
-        rex = new RegExp( rex );
-        return m.filter( ( k ) => ( rex.test( k ) ) );
+function populate_droplists() {
+    function populate( o, m ) {
+        ( o ).innerHTML = "";
+        ( m )
+        . forEach(
+            ( s ) => {
+                const ce = elx( "OPTION" );
+                ce . textContent = (
+                    ce . value = ( s )
+                );
+                ( o ).appendChild( ce );
+            }
+        );
     }
-    return ( m );
+    let m = module_list().map( ( se ) => ( se.id ) );
+    let o = gid( "embedded_module_droplist" );
+    populate( o, m );
+    m = module_sources();
+    o = gid( "imported_module_droplist" );
+    populate( o, m );
 }
-console.log( "🧙 Hey! Seeker is available ..." );
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<script id="code-snippets.js">
+<script id="visit.js" status="done">
+function visit( url ) {
+    const a = doc.createElement( "A" );
+    a . href = ( url );
+    a . setAttribute( "target", url );
+    a . click();
+}
+</script>
+
+<script id="visit-droplist.js" status="done">
+visit.droplist = function( event ) {
+    const sender = event.target;
+    const parent = sender.parentElement;
+    const droplist = parent.querySelector( "SELECT" );
+    const k = droplist.value;
+    if ( k.includes( "://" ) ) {
+        visit( k );
+    } else {
+        alert( k );
+    }
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script id="code-snippets.js" status="done">
 // try {} catch ( e ) {}
 // throw ( e );
 // alert ( e );
