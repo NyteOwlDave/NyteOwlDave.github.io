@@ -3,6 +3,7 @@
 <style>
 @import url("./../std/style/every-page.css");
 </style>
+
 <style>
 html {
     background-image : url("./../art/png/galaxy-station-bgi.png");
@@ -12,6 +13,21 @@ body {
     background : transparent;
 }
 </style>
+
+<style>
+.hide { display : none !important; }
+.swapped {
+    box-shadow : 0px 0px 20px gold;
+}
+.flashing {
+    animation : linear 1.2s flashing forwards;
+}
+@keyframes flashing {
+    from { opacity : 0 }
+    to { opacity : 1; }
+}
+</style>
+
 <style>
 .dock-right {
     box-sizing : border-box;
@@ -119,6 +135,7 @@ function main( event ) {
     try {
         doc . title = "Session Editor";
         init_ui();
+        init_editor( sce );
         session . read();
     } catch ( e ) {
         alert ( e );
@@ -140,6 +157,7 @@ session = {};
 <script id="session-props.js">
 session.store = sessionStorage;
 session.key = "Session Editor Content";
+session.manuscript_key = "Session Editor Manuscript";
 </script>
 
 <script id="session-read.js">
@@ -178,7 +196,7 @@ session.persist = function() {
     if (! prompt( w ) ) { return; }
     const stg = localStorage;
     const ssg = sessionStorage;
-    const key = session.key;
+    const key = session.manuscript_key;
     const value = JSON.stringify( ssg, null, 2 );
     stg.setItem( key, value );
     console.log( `Wrote "${key}" to Store` );
@@ -192,7 +210,7 @@ session.recover = function() {
     if (! prompt( w ) ) { return; }
     const stg = localStorage;
     const ssg = sessionStorage;
-    const key = session.key;
+    const key = session.manuscript_key;
     const value = stg.getItem( key );
     if ( null === value ) {
         alert( `Missing Store Key:\n"${key}"` );
@@ -201,7 +219,7 @@ session.recover = function() {
     const man = JSON.parse( value );
     if ( Array.isArray( man ) ) {
         const k = "Imported Array Object";
-        ssg.setItem( k , man );
+        ssg.setItem( k, value );
         console.log( `Imported an Array from Store` );
         console.log( `Session Key : "${k}"` );
         return;
@@ -273,7 +291,7 @@ function home( event ) {
         } else {
             s = ( `app/morpheus/notes` );
         }
-        const k = ( `session-editor.html` );
+        const k = ( `mynotepad.html` );
         const u = [ p, s, k ].join( "/" );
         visit( u );
     } catch ( e ) {
@@ -357,7 +375,7 @@ function exec( js ) {
     const ops = exec;
     const str =( s )=> String( s || "" ).trim();
     try {
-        js = str( s );
+        js = str( js );
         if (! js ) { return; };
         ops.prior = String( ops.input || "" );
         ops.gems.add( js );
@@ -424,6 +442,58 @@ function invoke( event ) {
 <script id="init-ui.js">
 function init_ui() {
   btn_invoke.title = "❇️ Execute Task";
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script id="init-editor.js">
+function init_editor( ed ) {
+    ed.clear  =()=> ( ed.value = "" );
+    ed.zoom   =()=> zoom( ed );
+    ed.run    =()=> exec( ed.value );
+    ed.show   =()=> ( ed.classList.remove( "hide" ) );
+    ed.hide   =()=> ( ed.classList.add( "hide" ) );
+    ed.visible =()=> (! ed.classList.contains( "hide" ) );
+    ed.toggle =()=> {
+        if ( ed.visible() ) {
+            ed.hide()
+        } else {
+            ed.show()
+        }
+    };
+    ed.swap =()=> {
+        const tmp = ed.value;
+        ed.value = String( ed.memo || "" );
+        ed.memo  = tmp;
+        const cname = "swapped";
+        const cl = ed.classList;
+        if ( cl.contains( cname ) ) {
+            cl.remove( cname );
+        } else {
+            cl.add( cname );
+        }
+    };
+    ed.flash =()=> {
+        const cname = "flashing";
+        const cl = ed.classList;
+        if ( cl.contains( cname ) ) {
+            cl.remove( cname );
+        }
+        cl.add( cname );
+        setTimeout( ()=>{
+            cl.remove( cname );
+        }, 4200 );
+    };
+    ed.hints =()=> {
+        const m = Object.keys( ed ).sort();
+        const id = ( ed.id || "Editor" );
+        m.unshift( `[ ${id} ]\n` );
+        alert( m.join( "\n" ) );
+    };
+    const st = ed.style;
+    st.tabSize = "4";
+    ed.spellcheck = "none";
 }
 </script>
 

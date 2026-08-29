@@ -83,6 +83,7 @@
 ----------------------------------------------------------------
 
 > [`🌐` Morpheus][me-morpheus]
+> [`📝` Session Editor](./session-editor.html)
 
 ### ( Private Access `📛` Only )
 
@@ -174,18 +175,21 @@
 # [`💧` References][raindrop]
 
 > [`💧` Decore](./mynotepad-decore.html)
+> [`💧` Session Editor](./session-editor.html)
+> [`💧` Session Editor Tasks](./session-editor-tasks.html)
+
 > [`💧` Dave's Notes][daves-notes]
 > [`💧` Sites](https://sites.google.com)
 > [`💧` Cloud](https://dropbox.com)
 > [`💧` Short URLs](https://tiny.cc)
-
 > [`💧` Idea Flip](https://ideaflip.com/)
+
 > [`💧` Tick Tock](https://ticktick.com/webapp/)
 > [`💧` Markdown Editor](https://markdowneditor.org/)
 > [`💧` Clipboard](https://live-clipboard.netlify.app/)
 > [`💧` P5 Editor](https://editor.p5js.org/nyteowldave64/sketches)
-
 > [`💧` BASIC Programming][basic]
+
 > [`💧` JSON Editor][json-editor]
 > [`💧` JS Info][jsinfo]
 > [`💧` MDN][mdn]
@@ -357,7 +361,31 @@ visit.droplist = function( event ) {
     if ( k.includes( "://" ) ) {
         visit( k );
     } else {
-        alert( k );
+        edit_module( k );
+    }
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script id="edit-session.js" status="untested">
+function edit_session( source ) {
+    const ssg = sessionStorage;
+    const key = "Session Editor Content";
+    ssg.setItem( key, source );
+    location = ( "./session-editor.html" );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script id="edit-module.js" status="untested">
+function edit_module( id ) {
+    const se = gid( id );
+    if ( se ) {
+        edit_session( se.innerText );
+    } else {
+        alert( `No Such Gadget : "${id}"` );
     }
 };
 </script>

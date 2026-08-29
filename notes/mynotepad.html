@@ -65,7 +65,8 @@ img { max-width: 100%; }
 </blockquote>
 <hr>
 <blockquote>
-<p><a href="https://nyteowldave.github.io/notes/mynotepad.html" title="Morpheus Edition"><code>🌐</code> Morpheus</a></p>
+<p><a href="https://nyteowldave.github.io/notes/mynotepad.html" title="Morpheus Edition"><code>🌐</code> Morpheus</a>
+<a href="./session-editor.html"><code>📝</code> Session Editor</a></p>
 </blockquote>
 <h3>( Private Access <code>📛</code> Only )</h3>
 <blockquote>
@@ -245,17 +246,19 @@ img { max-width: 100%; }
 <h1><a href="https://app.raindrop.io/"><code>💧</code> References</a></h1>
 <blockquote>
 <p><a href="./mynotepad-decore.html"><code>💧</code> Decore</a>
-<a href="http://tiny.cc/daves-notes"><code>💧</code> Dave's Notes</a>
+<a href="./session-editor.html"><code>💧</code> Session Editor</a>
+<a href="./session-editor-tasks.html"><code>💧</code> Session Editor Tasks</a></p>
+<p><a href="http://tiny.cc/daves-notes"><code>💧</code> Dave's Notes</a>
 <a href="https://sites.google.com"><code>💧</code> Sites</a>
 <a href="https://dropbox.com"><code>💧</code> Cloud</a>
-<a href="https://tiny.cc"><code>💧</code> Short URLs</a></p>
-<p><a href="https://ideaflip.com/"><code>💧</code> Idea Flip</a>
-<a href="https://ticktick.com/webapp/"><code>💧</code> Tick Tock</a>
+<a href="https://tiny.cc"><code>💧</code> Short URLs</a>
+<a href="https://ideaflip.com/"><code>💧</code> Idea Flip</a></p>
+<p><a href="https://ticktick.com/webapp/"><code>💧</code> Tick Tock</a>
 <a href="https://markdowneditor.org/"><code>💧</code> Markdown Editor</a>
 <a href="https://live-clipboard.netlify.app/"><code>💧</code> Clipboard</a>
-<a href="https://editor.p5js.org/nyteowldave64/sketches"><code>💧</code> P5 Editor</a></p>
-<p><a href="https://www.facebook.com/groups/2057165187928233"><code>💧</code> BASIC Programming</a>
-<a href="https://jsoneditoronline.org/"><code>💧</code> JSON Editor</a>
+<a href="https://editor.p5js.org/nyteowldave64/sketches"><code>💧</code> P5 Editor</a>
+<a href="https://www.facebook.com/groups/2057165187928233"><code>💧</code> BASIC Programming</a></p>
+<p><a href="https://jsoneditoronline.org/"><code>💧</code> JSON Editor</a>
 <a href="https://javascript.info/"><code>💧</code> JS Info</a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/API"><code>💧</code> MDN</a>
 <a href="https://read.amazon.com/kindle-library"><code>💧</code> Kindle</a></p>
@@ -400,7 +403,31 @@ visit.droplist = function( event ) {
     if ( k.includes( "://" ) ) {
         visit( k );
     } else {
-        alert( k );
+        edit_module( k );
+    }
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script id="edit-session.js" status="untested">
+function edit_session( source ) {
+    const ssg = sessionStorage;
+    const key = "Session Editor Content";
+    ssg.setItem( key, source );
+    location = ( "./session-editor.html" );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script id="edit-module.js" status="untested">
+function edit_module( id ) {
+    const se = gid( id );
+    if ( se ) {
+        edit_session( se.innerText );
+    } else {
+        alert( `No Such Gadget : "${id}"` );
     }
 };
 </script>

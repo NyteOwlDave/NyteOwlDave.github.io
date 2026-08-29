@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>session-editor-tasks</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<p><head> <link rel="icon" href="./icons/mynotepad.png" /> </head></p>
+<style>
+@import url("./../std/style/every-page.css");
+</style>
+
+<style>
+p { text-align : center; }
+h2 {
+    margin-top : 64px;
+}
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<hr>
+<h1>Session Editor Tasks</h1>
+<hr>
+<blockquote>
+<p><a href="./mynotepad.html">Home</a>
+<a href="./session-editor.html" title="Session Editor">Session Editor</a>
+<a href="./sce-notes.html" title="Simple Code Editor Notes">SCE Notes</a>
+<a href="./">File Sytem</a></p>
+</blockquote>
+<hr>
+<h2><a href="./sce-notes.html" title="Simple Code Editor Notes"><code>✅</code> Accept Changes</a></h2>
+<p>This task <strong>Writes</strong> the contents of the SCE Editor to
+the <strong>Session Storage</strong>.</p>
+<p>The <strong>Session Key</strong> is "Session Editor Content".</p>
+<p>This is a single <strong>Plain Text</strong> entry.</p>
+<hr>
+<h2><a href="./sce-notes.html" title="Simple Code Editor Notes"><code>❎</code> Reject Changes</a></h2>
+<p>This task <strong>Reverses All Changes</strong> made to SCE Editor Content
+since the last <strong>Refresh</strong>.</p>
+<hr>
+<h2><a href="./sce-notes.html" title="Simple Code Editor Notes"><code>🔄</code> Refresh Editor</a></h2>
+<p>This task <strong>Reads</strong> the contents of the SCE Editor from 
+the <strong>Session Storage</strong>.</p>
+<p>It also stores a copy in the <code>recent</code> property for the
+SCE Editor.</p>
+<p>This backup is used by the <strong>Reject</strong> task.</p>
+<p>The <strong>Session Key</strong> is "Session Editor Content".</p>
+<p>This is a single <strong>Plain Text</strong> entry.</p>
+<hr>
+<h2><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage" title="Session Storage ~ MDN Article"><code>🔐</code> Show Session Keys</a></h2>
+<p>This task displays <strong>Session Keys</strong> in a popup dialog.</p>
+<p>Since the <strong>Session Store</strong> is usually sparsely populated, there
+should be no issue with overly long lists.</p>
+<hr>
+<h2><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullscreen" title="Request Full Screen ~ MDN Article"><code>💠</code> Zoom Editor</a></h2>
+<p>This task Requests <strong>Full Screen</strong> mode for the SCE Editor only.</p>
+<hr>
+<h2><a href="./mynotepad.html"><code>🏠</code> Home</a></h2>
+<p>This task returns the browser to the <strong>Home Page</strong>.</p>
+<p>For the present, this is 
+the <a href="./mynotepad.html">My Notepad</a> page.</p>
+<hr>
+<h2><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" title="Local Storage ~ MDN Article"><code>🔏</code> Persist Session</a></h2>
+<p>This task composes the <strong>Entire Session Storage</strong> content as a
+single <code>JSON</code> string.</p>
+<p>It then writes this string to a <strong>Local Storage Entry</strong>.</p>
+<p>The user is required to confirm this task.</p>
+<p>The <strong>Store Key</strong> is "Session Editor Manuscript".</p>
+<h3>Important</h3>
+<p>It's important to distinguish between a <strong>Single Entry</strong> in the
+<strong>Session Storage</strong> from the <strong>Compound Document</strong> stored in
+<strong>Local Storage</strong>.</p>
+<p>The former is treated as <strong>Plain Text</strong>. The latter is treated as
+a <strong>JSON Object</strong>.</p>
+<hr>
+<h2><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" title="Local Storage ~ MDN Article"><code>🔓</code> Recover Session</a></h2>
+<p>This tasks <strong>Reads</strong> a previously persisted entry from the
+<strong>Local Storage</strong>.</p>
+<p>As mentioned above, this entry as a <strong>Compound Document</strong> in
+<code>JSON</code> format.</p>
+<p>The <strong>Store Key</strong> is "Session Editor Manuscript".</p>
+<p>The <code>JSON</code> is parsed. What happens next depends on the
+<strong>Type</strong> of the parser result.</p>
+<p>Ordinarily, the result is a <strong>Vanilla Object</strong>. This object
+represents zero or more <strong>Session Storage</strong> entries. Each key
+is treated as a <strong>Session Key</strong>. Values for each entry are
+written to the <strong>Session Storage</strong>. This is a <strong>MERGE</strong>. Any
+existing entries which aren't overwritten remain as they were.</p>
+<p><strong>Arrays</strong> and <strong>Primitives</strong> are detected and processed
+different.</p>
+<p><strong>Arrays</strong> are written to <strong>Session Store</strong> as <code>JSON</code>, using
+special <strong>Session Key</strong> : <code>Imported Array Object</code>.</p>
+<p><strong>Primitives</strong> are <i>coerced</i> to type <code>String</code>. They're
+then written to <strong>Session Store</strong> using a 
+special <strong>Session Key</strong> : <code>Imported Primitive</code>.</p>
+<hr>
+<h2><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" title="Local Storage ~ MDN Article"><code>🗑️</code> Remove Session</a></h2>
+<p>This task <strong>Removes</strong> the <strong>Compound Document</strong> from
+the <strong>Local Storage</strong>.</p>
+<p>This should be a rare occurance. Generally speaking, it's
+better to preserve work (just in case), unless there's a
+valid reason to destroy something.</p>
+<p>We'd recommend first doing a <strong>Backup</strong> of the entire
+<strong>Local Storage</strong> content before removing data.</p>
+<hr>
+<script>
+; doc = document
+; doc . title = ( `Session Editor Tasks` );
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+</body>
+</html>
