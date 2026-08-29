@@ -177,6 +177,7 @@
 > [`💧` Decore](./mynotepad-decore.html)
 > [`💧` Session Editor](./session-editor.html)
 > [`💧` Session Editor Tasks](./session-editor-tasks.html)
+> [`💧` Veer Peach Notes](./veer-peach-notes.html)
 
 > [`💧` Dave's Notes][daves-notes]
 > [`💧` Sites](https://sites.google.com)

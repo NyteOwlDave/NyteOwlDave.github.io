@@ -163,17 +163,26 @@ a[dot] {
 <menu>
     <button dot id="btn_save" onclick="on_save_file(event)">💾</button>
     <button dot id="btn_open" onclick="on_open_file(event)">📂</button>
-    <button dot id="btn_upload" onclick="on_upload(event)">📤</button>
-    <button dot id="btn_download" onclick="on_download(event)">📥</button>
-    <button dot id="btn_persist" onclick="on_persist(event)">🔏</button>
-    <button dot id="btn_recover" onclick="on_recover(event)">🔓</button>
-    <button dot id="btn_store_keys" onclick="on_store_keys(event)">🔐</button>
+    <button dot todo id="btn_upload" onclick="on_upload(event)">📤</button>
+    <button dot todo id="btn_download" onclick="on_download(event)">📥</button>
+    <button dot todo id="btn_persist" onclick="on_persist(event)">🔏</button>
+    <button dot todo id="btn_recover" onclick="on_recover(event)">🔓</button>
+    <button dot todo id="btn_store_keys" onclick="on_store_keys(event)">🔐</button>
     <button dot id="btn_store_jsom" onclick="on_store_jsom(event)">⦃⦄</button>
+    <button dot todo id="btn_db_json" onclick="on_db_json(event)">⛃</button>
+    <button dot todo id="btn_send_mail" onclick="on_send_mail_(event)">📧</button>
+    <button dot todo id="btn_cloud_store" onclick="on_cloud_store(event)">🗄️</button>
 
-    <!-- [ TODO : 📥 📤 🔐 🔓 🔏 ] -->
+    <!-- [ TODO : 📥 📤 🔐 🔓 🔏 ⛃ 📧 🗄️ ] -->
     <!-- input type="filename" id="filename" -->
 </menu>
 </div>
+
+<style>
+    button[todo] {
+        opacity : 0.5;
+    }
+</style>
 
 <div id="hint_container">
     <span id="hints"></span>
