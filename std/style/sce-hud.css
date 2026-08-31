@@ -1,0 +1,27 @@
+
+/* sce-hud.css */
+
+#sce {
+    z-index    : 99999;
+    box-sizing : border-box;
+    outline    : none;
+    border     : none;
+    margin     : 0;
+    padding    : 0.5ch 1.2ch;
+    position   : fixed;
+    left       : 1px;
+    top        : 45px;
+    width      : calc( 100vw - 19px  );
+    height     : calc( 50vh );
+    max-height : calc( 100vh - 102px );
+    font       : 13pt monospace;
+    resize     : vertical;
+    overflow   : scroll;
+}
+
+#sce ,
+#sce:hover ,
+#sce:focus {
+    background : mintcream;
+    color : midnightblue;
+}

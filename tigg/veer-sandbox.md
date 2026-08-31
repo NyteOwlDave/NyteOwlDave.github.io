@@ -27,18 +27,23 @@ td {
 <http://dave-omega/app/morpheus/tigg/veer-sandbox.html>
 "Omega Edition"
 
+[notes]: <./../notes/veer-peach-notes.md>
+"Sandbox Notes"
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 ----------------------------------------------------------------
 
-# Veer Sandbox
+# `🏜️` Veer Sandbox
 
 ----------------------------------------------------------------
 
-> [Home][home]
-> [TiGG][tigg]
+> [`🏠` Home][home]
+> [`🦇` TiGG][tigg]
 
-> [Omega][me-omega]
+> [`🗒️` Peach Usage Notes][notes]
+
+> [`🖥️` Omega][me-omega]
 
 ----------------------------------------------------------------
 
@@ -72,13 +77,40 @@ td {
 
 ----------------------------------------------------------------
 
-<!-- [[ NEEDS: header-footer.js ]] -->
-<header id="header"></header>
-<footer id="footer"></footer>
+# `🧝` Description
+
+This page is intended to permit experimenting with the
+`Veer` Helper Peach.
+
+It's currently incomplete. It needs some additional support
+files and code logic written.
+
+There's an embedded version of the Peach Helper Module in this
+HTML Page. There's also an external copy of this code.
+
+Run `veer.show()` for a popup dialog listing `Veer Members`.
+
+Other helpful `Veer` methods include:
+
+- `veer.tabulate.members()`
+- `veer.menu()`
+- `veer.assist()`
+- `veer.inspect()`
+- `veer.notes()`
 
 ----------------------------------------------------------------
 
-<!-- [[ RESERVED FOR HUD EDITOR ]] -->
+# `📝` HUD Editor
+
+There's now a hidden `HUD Editor` for this page.
+
+Just run the `hud()` function to reveal this Gadget.
+
+----------------------------------------------------------------
+
+<!-- [[ NEEDS: header-footer.js ]] -->
+<header id="header"></header>
+<footer id="footer"></footer>
 
 ----------------------------------------------------------------
 
@@ -106,6 +138,7 @@ td {
 <script src="./../std/api/popeye.js"></script>
 <script src="./../std/api/canedit.js"></script>
 <script src="./../std/api/module-status.js"></script>
+<script src="./../std/api/core-api.js"></script>
 
 <script src="./../std/gadgets/header-footer.js"></script>
 
@@ -319,13 +352,13 @@ veer.tabulate = function( records, schema, table ) {
 
 veer.tabulate.members = function( o, rex, table ) {
     o = ( o || veer );
-    const m = Objects.keys( o );
+    const m = Object.keys( o );
     let v = veer.filter( m, rex ).sort();
     v = v.map(
         ( k ) => {
-            const u = v[ k ];
-            const t = ( typeof v );
-            return [ k, t , String( v ) ];
+            const u = o[ k ];
+            const t = ( typeof u );
+            return [ k, t , String( u ) ];
         }
     );
     const schema = [ "Member", "Type", "Value" ];
@@ -398,7 +431,7 @@ veer.assist = function( rex, title, o ) {
     const t = ( title || "[ Veer Members ]" );
     const c = console;
     c.clear();
-    c.title( t );
+    c.group( t );
     c.table( m );
     c.groupEnd();
 };
@@ -486,6 +519,14 @@ veer.droplist = function( hosts, rex, owner ) {
 ;
 
 </script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<style>
+@import url("./../std/style/sce-hud.css");
+</style>
+<textarea id="sce" class="hide"></textarea>
+<script src="./../std/api/hud.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
