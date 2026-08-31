@@ -19,33 +19,40 @@ img { max-width: 100%; }
 </style>
 
 <hr>
-<h1>Veer Peach Notes</h1>
+<h1><code>🍑</code> Veer Peach Notes</h1>
+<hr>
+<div center>
+  <img src="./../std/art/ws-peaches.png" onclick="peaches()"/>
+</div>
+
 <hr>
 <blockquote>
-<p><a href="https://nyteowldave.github.io/notes/veer-peach-notes.html" title="Morpheus Edition">Home</a>
-<a href="https://nyteowldave.github.io/" title="Morpheus Home Page">Morpheus</a>
-<a href="./../tigg/" title="My Notepad">TiGG</a>
-<a href="./mynotepad.html" title="My Notepad">My Notepad</a>
-<a href="./../tigg/veer-sandbox.html" title="My Notepad">Veer Sandbox</a></p>
-<p><a href="http://dave-omega/app/morpheus/notes/veer-peach-notes.html" title="Omega Edition">Omega</a>
-<a href="./">File System</a></p>
+<p><a href="https://nyteowldave.github.io/notes/veer-peach-notes.html" title="Morpheus Edition"><code>🏠</code> Home</a></p>
+<p><a href="https://nyteowldave.github.io/" title="Morpheus Home Page"><code>☰</code> Morpheus</a>
+<a href="./../tigg/" title="TiGG"><code>🦇</code> TiGG</a>
+<a href="./mynotepad.html" title="My Notepad"><code>📝</code> My Notepad</a>
+<a href="./../tigg/veer-sandbox.html" title="Veer Sandbox"><code>🏜️</code> Veer Sandbox</a></p>
+<p><a href="http://dave-omega/app/morpheus/notes/veer-peach-notes.html" title="Omega Edition"><code>🖥️</code> Omega</a></p>
+<p><a href="./"><code>🗃️</code> File System</a></p>
 </blockquote>
 <hr>
-<h1>Peach Details</h1>
+<h1><code>🍑</code> Peach Details</h1>
+<h3><a href="./../tigg/gems/tigg-veer-helper.js"><code>🍑</code> Source File</a></h3>
 <hr>
+<h1><code>📄</code> Peach Details</h1>
 <ul>
 <li><code>PEACH_KEY = ( "..." )</code></li>
 <li><code>PEACH_VER = ( ... )</code></li>
 <li><code>PEACH_REV = ( ... )</code></li>
 </ul>
 <hr>
-<h1>Accessor Method</h1>
+<h1><code>👥</code> Accessor Method</h1>
 <hr>
 <ul>
 <li><code>function veer( host, popup )</code></li>
 </ul>
 <hr>
-<h1>Property Members</h1>
+<h1><code>👤</code> Property Members</h1>
 <hr>
 <ul>
 <li><code>veer.options = ( "..." )</code></li>
@@ -54,7 +61,7 @@ img { max-width: 100%; }
 <li><code>veer.debug = ( true )</code></li>
 </ul>
 <hr>
-<h1>Method Members</h1>
+<h1><code>👤</code> Method Members</h1>
 <hr>
 <ul>
 <li><code>veer.message = function( s )</code></li>
@@ -77,8 +84,28 @@ img { max-width: 100%; }
 </ul>
 <hr>
 <script>
+; iwm = Object.keys( window ).sort()
+</script>
+
+<script>
+; prolog = {}
+</script>
+
+<script>
 ; doc = document
 ; doc . title = ( `Veer Peach Notes` )
+</script>
+
+<script>
+function peaches() {
+    const d = document;
+    const a = d.createElement( "A" );
+    a . href = ( peaches.home );
+    a . click();
+}
+peaches.home = (
+  `https://sites.google.com/view/code-peaches/home` 
+);
 </script>
 
 </body>

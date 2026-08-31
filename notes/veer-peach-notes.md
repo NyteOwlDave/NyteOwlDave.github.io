@@ -14,11 +14,11 @@
 
 [sandbox]:
 <./../tigg/veer-sandbox.html>
-"My Notepad"
+"Veer Sandbox"
 
 [tigg]:
 <./../tigg/>
-"My Notepad"
+"TiGG"
 
 [morpheus]:
 <https://nyteowldave.github.io/>
@@ -28,26 +28,41 @@
 <http://dave-omega/app/morpheus/notes/veer-peach-notes.html>
 "Omega Edition"
 
-----------------------------------------------------------------
-
-# Veer Peach Notes
-
-----------------------------------------------------------------
-
-> [Home][home]
-> [Morpheus][morpheus]
-> [TiGG][tigg]
-> [My Notepad][notepad]
-> [Veer Sandbox][sandbox]
-
-> [Omega][me-omega]
-> [File System](./)
+[veer-peach]:
+<./../tigg/gems/tigg-veer-helper.js>
 
 ----------------------------------------------------------------
 
-# Peach Details
+# `🍑` Veer Peach Notes
 
 ----------------------------------------------------------------
+
+<div center>
+  <img src="./../std/art/ws-peaches.png" onclick="peaches()"/>
+</div>
+
+----------------------------------------------------------------
+
+> [`🏠` Home][home]
+
+> [`☰` Morpheus][morpheus]
+> [`🦇` TiGG][tigg]
+> [`📝` My Notepad][notepad]
+> [`🏜️` Veer Sandbox][sandbox]
+
+> [`🖥️` Omega][me-omega]
+
+> [`🗃️` File System](./)
+
+----------------------------------------------------------------
+
+# `🍑` Peach Details
+
+### [`🍑` Source File][veer-peach]
+
+----------------------------------------------------------------
+
+# `📄` Peach Details
 
 - `PEACH_KEY = ( "..." )`
 - `PEACH_VER = ( ... )`
@@ -55,7 +70,7 @@
 
 ----------------------------------------------------------------
 
-# Accessor Method
+# `👥` Accessor Method
 
 ----------------------------------------------------------------
 
@@ -63,7 +78,7 @@
 
 ----------------------------------------------------------------
 
-# Property Members
+# `👤` Property Members
 
 ----------------------------------------------------------------
 
@@ -74,7 +89,7 @@
 
 ----------------------------------------------------------------
 
-# Method Members
+# `👤` Method Members
 
 ----------------------------------------------------------------
 
@@ -99,7 +114,27 @@
 ----------------------------------------------------------------
 
 <script>
+; iwm = Object.keys( window ).sort()
+</script>
+
+<script>
+; prolog = {}
+</script>
+
+<script>
 ; doc = document
 ; doc . title = ( `Veer Peach Notes` )
+</script>
+
+<script>
+function peaches() {
+    const d = document;
+    const a = d.createElement( "A" );
+    a . href = ( peaches.home );
+    a . click();
+}
+peaches.home = (
+  `https://sites.google.com/view/code-peaches/home` 
+);
 </script>
 
