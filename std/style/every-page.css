@@ -297,6 +297,11 @@ code, var {
     font-size   : inherit !important;
 }
 
+pre {
+    max-width : calc( 100vw - 20ch );
+    margin : 1.2ch 8ch;
+}
+
 blockquote p {
     text-align : center;
     font-size  : inherit !important;
