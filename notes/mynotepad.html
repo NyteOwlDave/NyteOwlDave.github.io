@@ -24,6 +24,9 @@ img { max-width: 100%; }
     display : inline-block;
     width   : calc( 100% - 20ch );
 }
+</style>
+
+<style>
 .button-right {
     box-sizing  : border-box;
     display     : inline-block;
@@ -42,9 +45,19 @@ img { max-width: 100%; }
     color : mintcream;
     box-shadow : 0px 0px 9px gold;
 }
+</style>
+
+<style>
 [href], [onclick] {
     cursor : pointer;
     user-select : none;
+}
+</style>
+
+<style>
+pre {
+    max-width : calc( 100vw - 20ch );
+    margin    : 2ch 8ch;
 }
 </style>
 
@@ -109,6 +122,10 @@ img { max-width: 100%; }
 <tr>
 <td>storekey</td>
 <td>Notes Store Key / Filename</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>Date of Recent Changes</td>
 </tr>
 </tbody>
 </table>
@@ -216,6 +233,39 @@ img { max-width: 100%; }
 </tr>
 </tbody>
 </table>
+<hr>
+<h1><code>🧙</code> Examples</h1>
+<hr>
+<h2>Store Methods</h2>
+<pre><code class="language-javascript">
+ops = MyNotepad;
+
+// Recover Notes from Store
+if ( ops.recoverable ) {
+    ops.recover();
+}
+
+// Persist Notes to Store
+if ( ops.persistable ) {
+    ops.persist();
+}
+
+</code></pre>
+<hr>
+<h2>Info Methods</h2>
+<pre><code class="language-javascript">
+// Show Members in Console
+ops.assist();
+
+// Show Summary in Console
+ops.summary();
+
+</code></pre>
+<hr>
+<h2>Other Methods</h2>
+<ul>
+<li>( <code>pending</code> )</li>
+</ul>
 <hr>
 <h1><code>📄</code> Source Files</h1>
 <ul>

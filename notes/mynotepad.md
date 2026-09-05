@@ -10,6 +10,9 @@
     display : inline-block;
     width   : calc( 100% - 20ch );
 }
+</style>
+
+<style>
 .button-right {
     box-sizing  : border-box;
     display     : inline-block;
@@ -28,9 +31,19 @@
     color : mintcream;
     box-shadow : 0px 0px 9px gold;
 }
+</style>
+
+<style>
 [href], [onclick] {
     cursor : pointer;
     user-select : none;
+}
+</style>
+
+<style>
+pre {
+    max-width : calc( 100vw - 20ch );
+    margin    : 2ch 8ch;
 }
 </style>
 
@@ -109,6 +122,7 @@
 | latest      | Host for Latest Changes                        |
 | notes       | Notes Dictionary Object                        |
 | storekey    | Notes Store Key / Filename                     |
+| updated     | Date of Recent Changes                         |
 
 ----------------------------------------------------------------
 
@@ -139,6 +153,50 @@
 | summarize   | Obtain Member Summary Object                   |
 | value       | Obtain Value for Note Entry (indexed)          |
 | write       | Write Notes Object to Store                    |
+
+----------------------------------------------------------------
+
+# `🧙` Examples
+
+----------------------------------------------------------------
+
+## Store Methods
+
+```javascript
+
+ops = MyNotepad;
+
+// Recover Notes from Store
+if ( ops.recoverable ) {
+    ops.recover();
+}
+
+// Persist Notes to Store
+if ( ops.persistable ) {
+    ops.persist();
+}
+
+```
+
+----------------------------------------------------------------
+
+## Info Methods
+
+```javascript
+
+// Show Members in Console
+ops.assist();
+
+// Show Summary in Console
+ops.summary();
+
+```
+
+----------------------------------------------------------------
+
+## Other Methods
+
+- ( `pending` )
 
 ----------------------------------------------------------------
 

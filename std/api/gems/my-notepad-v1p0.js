@@ -11,6 +11,7 @@ MyNotepad = {};
 MyNotepad.storekey = ( `my-notepad-v1p0.json` );
 MyNotepad.notes    = { "Version" : "1.0" };
 MyNotepad.latest   = ( `Omega` );
+MyNotepad.updated  = ( `2026-SEP-05` );
 
 MyNotepad.cdn = {
   "Jefr"       : "http://dave-legacy/jefr/gems"
@@ -21,7 +22,7 @@ MyNotepad.cdn = {
 , "Legacy"     : "http://dave-legacy/app/morpheus/std/api/gems"
 };
 
-MyNotepad.bug_fixes = [ "write", "merge" ];
+MyNotepad.bug_fixes = [ "write", "merge", "manual" ];
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // write | Write Notes Object to Store
@@ -315,7 +316,7 @@ MyNotepad.manual = function() {
     const p = ( `https://nyteowldave.github.io` );
     const s = ( `notes` );
     const k = ( `mynotepad.html` );
-    const u = ( [].join( "/" ) );
+    const u = ( [ p, s, k ].join( "/" ) );
     const d = document;
     const a = d.createElement( "A" );
     a . href = ( u );
