@@ -122,10 +122,6 @@
 
 <script src="./../api/hud.js"></script>
 
-<script>
-console.warn( "TODO ~ Import support Modules to Morpheus" );
-</script>
-
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script>
@@ -143,13 +139,14 @@ function do_pending( event ) {
 
 <script>
 function do_download( event ) {
+    const a = elx( "A" );
+    document.body.appendChild( a );
     try {
         const k = read_download_filename();
         const m = [
             "Download File?", k
         ] . join( "\n\n" );
         if (! confirm( m ) ) { return; }
-        const a = elx( "A" );
         a . href = read_download_url();
         a . download = ( k );
         a . click();
@@ -157,6 +154,8 @@ function do_download( event ) {
     } catch( e ) {
         console.error( e );
         alert( e );
+    } finally {
+        a.remove();
     }
 }
 </script>
