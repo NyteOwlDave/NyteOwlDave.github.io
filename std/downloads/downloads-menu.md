@@ -87,6 +87,14 @@
 
 ----------------------------------------------------------------
 
+# `📥` Pending Download
+
+<div center>
+  <a id="pending_download" href="file.list" download="file.list">file.list</a>
+</div>
+
+----------------------------------------------------------------
+
 <header id="messages"></header>
 
 <footer id="footer">
@@ -139,23 +147,15 @@ function do_pending( event ) {
 
 <script>
 function do_download( event ) {
-    const a = elx( "A" );
-    document.body.appendChild( a );
+    const a = ( pending_download );
     try {
-        const k = read_download_filename();
-        const m = [
-            "Download File?", k
-        ] . join( "\n\n" );
-        if (! confirm( m ) ) { return; }
+        const k  = read_download_filename();
+        a . download = ( a . textContent = ( k ) );
         a . href = read_download_url();
-        a . download = ( k );
-        a . click();
-        // alert( a . href );
+        alert( "Click the Pending Download to Confirm" );
     } catch( e ) {
         console.error( e );
         alert( e );
-    } finally {
-        a.remove();
     }
 }
 </script>
