@@ -1,14 +1,10 @@
 <style>
-@import url("https://nyteowldave.neocities.org/style.css");
+@import url("./../style/every-page.css");
 </style>
 
 <style>
-@import url("http://dave-omega/demo/style/sce-hud.css");
+@import url("./../style/sce-hud.css");
 </style>
-
-<script>
-console.warning( "TODO ~ Import sce-hud.css to Morpheus" );
-</script>
 
 <style>
 #footer_input {
@@ -119,15 +115,15 @@ console.warning( "TODO ~ Import sce-hud.css to Morpheus" );
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<script src="https://nyteowldave.github.io/std/api/gems/prolog-beta.js"></script>
+<script src="./../api/gems/prolog-beta.js"></script>
+<script src="./../api/gems/interpreter-lite.js"></script>
+<script src="./../api/gems/houdini.js"></script>
+<script src="./../api/gems/replace-anchor-decals.js"></script>
 
-<script src="http://dave-omega/demo/web/api/hud.js"></script>
-<script src="http://dave-omega/demo/web/gems/interpreter-lite.js"></script>
-<script src="http://dave-omega/demo/web/gems/houdini.js"></script>
-<script src="http://dave-omega/demo/web/gems/replace-anchor-decals.js"></script>
+<script src="./../api/hud.js"></script>
 
 <script>
-console.warning( "TODO ~ Import support Modules to Morpheus" );
+console.warn( "TODO ~ Import support Modules to Morpheus" );
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -329,6 +325,9 @@ addEventListener( "load", main );
 verified_buttons = [
   "Tick-Tick"
 , "Cloud Notepad"
+, "Primary"
+, "Express Lane"
+, "Omega"
 ];
 </script>
 
