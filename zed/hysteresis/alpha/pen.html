@@ -1,0 +1,531 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="Author"  value="NyteOwlDave" />
+  <meta content="Version" value="1.3" />
+  <meta content="Updated" value="2026-MAY-14" />
+  <meta content="Primary" value="dave-legacy" />
+  <meta content="Remote"  value="https://codepen.io/NyteOwlDave/full/WbxjMQX" />
+  <meta content="email"   value="nyteowldave@proton.me" />
+  <title>Hysteresis 1.3 ~ Legacy Edition</title>
+  <link rel="icon" href="./favicon.ico" />
+  <style>
+@import url("./style/pen.css");
+  </style>
+  <script>
+; iwm = Object.keys( window ).sort();
+  </script>
+  <script src="./api/pen.js">  </script>
+</head>
+
+<body>
+
+
+<!-- [[ 🖼️ GRAPHICS ]] -->
+
+<fieldset index="0" class="hide">
+  <legend>🖼️ Graphics</legend>
+  <canvas></canvas>
+  <fieldset index="1">
+    <legend class="menu">[☰]</legend>
+    <button  id="_gx_play">▶️</button>
+    <button id="_gx_pause">⏸️</button>
+    <button  id="_gx_stop">⏹️</button>
+    <button  id="_gx_zoom">💠</button>
+  </fieldset>
+</fieldset>
+
+
+<!-- [[ 📝 DOCUMENT ]] -->
+
+<fieldset index="2">
+  <legend>📝 Document</legend>
+  <!-- [[ DOCUMENT MENUS ]] -->
+  <div id="editors"></div>
+  <!-- [[ EDITORS MENU ]] -->
+  <fieldset index="3"> 
+    <legend class="menu">[☰]</legend>
+    <button id="_ed_add">➕</button>
+    <button id="_ed_remove">➖</button>
+    <button id="_ed_refocus">👁️</button>
+    <button id="_ed_title">🎩</button>
+    <button id="_ed_id">🆔</button>
+    <button id="_ed_left">⬅️</button>
+    <button id="_ed_right">➡️</button>
+    <button id="_ed_home">↖️</button>
+    <button id="_ed_end">↘️</button>
+    <button id="_ed_analyze">🔬</button>
+    <button id="_ed_run">▶️</button>
+    <button id="_ed_zoom">💠</button>
+  </fieldset>
+  <!-- [[ MEMO MENU ]] -->
+  <fieldset index="4">
+    <legend class="menu">[☰]</legend>
+    <button id="_ed_ms">⏬</button>
+    <button id="_ed_mr">⏫</button>
+    <button id="_ed_mx">🔀</button>
+    <button id="_ed_ce">🧽</button>
+    <label for="_fg_color" w>⬜</label>
+    <input id="_fg_color" type="color">
+    <img id="_ed_colors_swap" src="https://nyteowldave.github.io/art/png/color-swap.png">
+    <label for="_bg_color" w>⬛</label>
+    <input id="_bg_color" type="color">
+    <button id="_ed_colors_apply">🔺</button>
+    <button id="_ed_colors_acquire">🔻</button>
+  </fieldset>
+  <!-- [[ DOCUMENT MENU ]] -->
+  <fieldset index="5">
+    <legend class="menu">[☰]</legend>
+    <button id="_doc_filename_read">🔖</button>
+    <button id="_doc_save">💾</button>
+    <button id="_doc_export">✈️</button>
+    <button id="_doc_open">📂</button>
+    <button id="_doc_download">📥</button>
+    <button id="_doc_clear">🗑️</button>
+    <button id="_doc_zoom">💠</button>
+  </fieldset>
+  <!-- [[ STORE MENU ]] -->
+  <fieldset index="6">
+    <legend class="menu">[☰]</legend>
+    <!-- [[ STORE DOCUMENT MENU ]] -->
+    <button id="_store_doc_save">💾</button>
+    <button id="_store_doc_entries">📦</button>
+    <button id="_store_doc_exchange">🔃</button>
+    <button id="_store_doc_write">🔏</button>
+    <button id="_store_doc_read">🔓</button>
+    <!-- [[ STORE KEYS GADGET ]] -->
+    <select id="store-keys"></select>
+    <!-- [[ STORE KEYS MENU ]] -->
+    <button id="_keys_edit">🔐</button>
+    <button id="_keys_refresh">♻️</button>
+    <button id="_keys_add">➕</button>
+    <button id="_keys_remove">➖</button>
+    <button id="_keys_title_read">🎩</button>
+  </fieldset>
+</fieldset>
+
+
+<!-- [[ 📝 DIALOG ]] -->
+
+<fieldset index="7" popover="auto">
+  <legend id="dlg-title"></legend>
+  <div>
+    <input id="dlg-value">
+  <div>
+  <fieldset index="8">
+    <legend class="menu">[☰]</legend>
+    <button id="_dlg_accept">✔️ Accept</button>
+    <button id="_dlg_cancel">❌ Cancel</button>
+  </fieldset>
+</fieldset>
+
+
+<!-- [[ 🎛️ HEADER ]] -->
+
+<header id="header">
+  <input id="document-title">
+  <div id="indicators">
+    <div id="editor-count">⏱️</div>
+    <div id="editor-value-length">⏱️</div>
+    <div id="editor-memo-length">⏱️</div>
+    <div id="editor-modified">⏱️</div>
+    <div id="current-time">⏱️</div>
+  </div>
+</header>
+
+
+<!-- [[ 🎛️ FOOTER ]] -->
+
+<footer id="footer">
+  <div id="button_tray">
+    <button id="_sys_graphics">🖼️</button>
+    <button id="_sys_document">📝</button>
+    <button id="_sys_menus">[☰]</button>
+    <button id="_sys_help">ℹ️</button>
+    <button id="_sys_navtool">🚩</button>
+<!--
+    <button id="_sys_wbrd">🔲</button>
+    <button id="_sys_sketch">✏️</button>
+    <button id="_sys_chachi">⚛️</button>
+-->
+  </div>
+  <div id="message">⌛ Initializing ...</div>
+</footer>
+
+
+<!-- [[ IMPORTED SCRIPTS ]] -->
+
+<script src="https://nyteowldave.github.io/chachi/api/legends.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/thor.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/joni.js">
+</script>
+
+<script src="https://nyteowldave.github.io/chachi/api/math.js">
+</script>
+
+
+<!-- [[ REMARKS ]] 
+
+These weird-looking data lists are parsed and
+repoluation at run time. This is more terse and
+more easily managed during devops.
+
+-->
+
+<datalist grammar="markdown" id="prolog-aliases">
+- con
+- doc
+- stg
+- wnd
+- loc
+- scn
+- nav
+</datalist>
+
+<datalist grammar="markdown" id="prolog-globals">
+- iwm
+- org
+- our
+- seeker
+- kahlan
+</datalist>
+
+<datalist grammar="markdown" id="prolog-type-casts">
+- flt
+- str
+- arr
+- unq
+- psk
+</datalist>
+
+<datalist grammar="markdown" id="prolog-json">
+- jst
+- jso
+- jsot
+</datalist>
+
+<datalist grammar="markdown" id="prolog-gadgets">
+- gad
+- ebi
+- elx
+- one
+- all
+</datalist>
+
+<datalist grammar="markdown" id="prolog-resolve">
+- resolve
+</datalist>
+
+<datalist grammar="markdown" id="request-content">
+- request
+</datalist>
+
+<datalist grammar="markdown" id="script-execution">
+- srun
+- erun
+- vrun
+- krun
+- irun
+- arun
+</datalist>
+
+<datalist grammar="markdown" id="message-reporting">
+- blurt
+- todo
+- ack
+- announce
+- greet
+- removed
+- inform
+- dangit
+- bummer
+- noActiveEditor
+- question
+</datalist>
+
+<datalist grammar="markdown" id="project-management">
+- actionTested
+</datalist>
+
+<datalist grammar="markdown" id="midge-nano-graphics">
+- surface
+- graphics
+- palette
+- pen
+- drawAxes
+</datalist>
+
+<datalist grammar="markdown" id="application-state">
+- APP_VERSION
+- HELP_ADDRESS
+- ADDRESS_HINT_KEY
+- COLOR_PAIR_KEY
+- OPEN_OPTIONS
+- HIDE_MENUS
+- UNPLUG
+- RUNNING
+- UNTITLED
+- AppState
+- active_editor
+- frame_count
+- epoch_time
+</datalist>
+
+<datalist grammar="markdown" id="intialization">
+- initZeddicus
+- initGadgetTitles
+- initSystem
+- initGraphics
+- initManuscript
+- initDialog
+- startApp
+</datalist>
+
+<datalist grammar="markdown" id="editor-ops">
+- resolveEditor
+- getActiveEditor
+- setActiveEditor
+- activateEditor
+- on_focus_ed
+- isEditorModified
+- editorModified
+- getAllEditors
+- getAllEditorValues
+- getAllEditorMemos
+- getAllEditorValuesAndMemos
+- getEditorCount
+- getEditorIndex
+- getEditorByIndex
+- moveEditorToStart
+- moveEditorToEnd
+- moveEditorLeft
+- moveEditorRight
+- removeEditor
+- removeAllEditors
+- runEditor
+- analyzeEditor
+- composeEditor
+- parseEditor
+- initEditor
+- nid
+- xed
+- zed
+- zuul
+</datalist>
+
+<datalist grammar="markdown" id="document-ops">
+- isDocumentEmpty
+- readTitleFromStoreKeyGadget
+- setDocumentTitle
+- getDocumentTitle
+- composeRecord
+- composeRecordDate
+- composeRawDocument
+- composeDocument
+- parseDocument
+- tryParseDocument
+- clearDocument
+- exportRawDocument
+- saveDocument
+- openDocument
+- downloadDocument
+- exchangeDocument
+- storeDocument
+- recoverDocument
+</datalist>
+
+<datalist grammar="markdown" id="store-ops">
+- keyify
+- getStoreKeyGadget
+- getStoreKeyGadgetValue
+- getStoreKeyGadgetIndex
+- addStoreKey
+- editStoreEntries
+- loadStoreKeys
+- refreshStoreKeys
+- removeStoreKey
+- composeStoreEntry
+- composeStoreDocument
+- saveStoreDocument
+- syncStoreKeyWithTitle
+</datalist>
+
+<datalist grammar="markdown" id="memo-ops">
+- writeMemo
+- readMemo
+- swapMemo
+- scrubMemo
+</datalist>
+
+<datalist grammar="markdown" id="navigation-ops">
+- AppLinks
+- getOpenOptions
+- openURL
+- openLink
+- openPSK
+</datalist>
+
+<datalist grammar="markdown" id="fieldset-ops">
+- fieldsets
+- getFieldset
+- hideFieldset
+- showFieldset
+- toggleFieldset
+- toggleMenus
+- showGraphics
+- showDocument
+</datalist>
+
+<datalist grammar="markdown" id="indicator-ops">
+- showCurrentTime
+- showDocumentStats
+- updateIndicators
+- initIndicatorTitles
+</datalist>
+
+<datalist grammar="markdown" id="user-settings">
+- acquireColors
+- applyColors
+- swapColorPair
+- readColors
+- writeColors
+- writeColorsDiscrete
+- persistColors
+- recoverColors
+</datalist>
+
+<datalist grammar="markdown" id="web-canvas-classes">
+- Surface
+- Graphics
+- PixelMap
+- Pixel
+- Pen
+- Brush
+- Color
+- ColorCodec
+- ColorPairAdapter
+- ColorPair
+- Palette
+</datalist>
+
+<datalist grammar="markdown" id="datalist-ops">
+- getDataListGrammar
+- getDataLists
+- getDataListIDs
+- translateDataLists
+- refreshStoreKeyHints
+- recoverAddressHints
+- persistAddressHints
+</datalist>
+
+<datalist grammar="markdown" id="metadata-ops">
+- readAllMetaData
+- readMetaData
+- editMetaData
+</datalist>
+
+<datalist grammar="html" id="store-key-hints" >
+</datalist>
+
+<datalist grammar="html" id="address-hints" >
+</datalist>
+
+<datalist grammar="cdoc" id="decal-dictionary" >
+
+✏️ | sketch
+⚛️ | chachi
+🔲 | whiteboard
+ℹ️ | help
+
+📑 | index
+🔑 | store-key
+🚩 | nav-tool
+
+Ⓜ️ | module
+🎨 | style
+🎛️ | gadget
+⚡  | event
+⌛ | delay
+⏱️ | indicator
+🖼️ | graphics
+📝 | editors
+[☰] | menus
+
+➕ | add
+➖ | remove
+
+💾 | save
+📂 | open
+📥 | download
+✈️ | export
+  
+🔏 | store
+🔓 | recover
+🔐 | keys
+📦 | entries
+🔃 | exchange
+
+🗑️ | clear
+🔬 | analyze
+▶️ | run
+
+⬅️ | left
+➡️ | right
+↖️ | start
+↘️ | end
+
+⏬ | store
+⏫ | recall
+🧽 | scrub
+🚫 | delete
+
+▶️ | play
+⏸️ | pause
+⏹️ | stop
+
+👁️ | refocus
+💠 | zoom
+☒  | hide
+☐  | show 
+☶  | get
+☰  | menu
+
+❓ | question
+🧝 | announce
+🆔 | greet
+🗑️ | removed
+🦅 | ready
+
+🟢 | inform
+🟡 | dangit
+🔴 | bummer
+
+⬜ | foreground
+⬛ | background
+
+🔖 | filename
+🏷️ | label
+🎩 | title
+🆔 | id
+
+🔩 | compose
+⚔️ | parse
+
+🔺 | apply
+🔻 | acquire
+
+🌐 | browse
+♻️ | refresh
+
+</datalist>
+
+</body>
+</html>
+

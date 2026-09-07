@@ -1,0 +1,146 @@
+
+/*
+    pen.css
+    Code Pen Edition
+    2026-FEB-16
+*/
+
+[w] {
+   margin-left : 1ch;  
+}
+
+.tested {
+    box-shadow : 0 0 0.84ch gold;  
+    opacity : 1.0 !important;
+}
+
+.hide {
+   display : none !important;
+}
+
+html , body {
+  color      : mintcream;
+  background : midnightblue;
+}
+
+body {
+   margin-top : 84px;
+   margin-bottom : 42vh;  
+}
+
+fieldset,
+canvas {
+  border : 1px dashed rgba( 224, 224, 82, 0.53 );
+}
+
+fieldset {
+  border : 1px dashed rgba( 224, 224, 82, 0.13 );
+}
+
+button {
+    cursor : pointer;
+    border : none;
+    border-radius : 7px;
+    padding : 0.42ch;
+    background : rgba( 220, 220, 0, 0.333 );
+    opacity : 0.5;
+}
+
+button:hover {
+    animation : 0.2s linear bloom forwards;
+}
+
+@keyframes bloom {
+  from {
+    transform : scale( 1.0 );
+    box-shadow : none;
+  }
+  to {
+    transform : scale( 1.25 );    
+    box-shadow : 0 0 0.84ch green;  
+  }
+}
+
+header, footer {
+    position : fixed;
+    display  : inline-block;
+    left   : 0;
+    width  : 100%;
+    margin : 0;
+    padding : 1ch;
+    background : rgba( 4, 4, 24, 0.777 );
+}
+
+header {
+   top : 0;
+   border-bottom : 3px solid rgba( 4, 4, 14, 0.42 );
+}
+
+footer {
+    bottom : 0;
+}
+
+header > div ,
+footer > div ,
+header div ,
+footer div {
+    margin-left  : 2ch;
+    margin-right : 2ch;
+    display  : inline-block;
+    color : skyblue;
+    font-family : monospace;
+    text-shadow : 1px 1px 3px black;
+}
+
+textarea.zeddicus {
+    min-height  : 10em;
+    font-family : monospace;
+    padding     : 1ch;
+}
+
+#document-title {
+    display     : inline-block;
+    font-size   : inherit;
+    font-family : monospace;
+    min-width   : 20ch;
+    width       : 60ch;
+    padding     : 8px;
+    border      : none;
+}
+
+#indicators {
+    position    : fixed;
+    display     : inline-block;
+    top         : 2ch;
+    right       : 1ch;
+    font-size   : inherit;
+    font-family : monospace;
+    width       : auto;
+    text-align  : right;
+    border      : 1px dashed rgba( 255, 215, 0, 0.7 );
+    cursor      : default;
+    background  : #0008;
+    box-sizing  : border-box;
+    padding     : 7px;
+}
+
+#indicators div {
+    display    : inline-block;    
+    text-align : center;
+}
+
+#indicators div:hover {
+    transform  : scale( 2 );
+    background : black;
+    box-shadow : 0 0 7px gold;
+    padding-left  : 0.42ch;
+    padding-right : 0.42ch;
+    border-radius : 12px;
+}
+
+#_ed_colors_swap {
+    display : inline-block;
+    margin-left : 1ch;
+    cursor : pointer;
+}
+

@@ -109,6 +109,7 @@
         </nav>
         <h3>New Arrivals</h3>
         <nav>
+<button onclick="onClickDownloads()">📥 Downloads</button>
 <button onclick="onClickBGI()">🎴 Background Image</button>
 <button onclick="onClickKMagic()">🔑 Key Magic</button>
 <button onclick="onClickTred()">🪴 Tree Editor</button>
@@ -156,7 +157,8 @@
             }
             // 🗒️ Hysteresis
             function onClickHysteresis() {
-                location="./zed/hysteresis/";
+                // location="./zed/hysteresis/";
+                location = "./snek.html";
             }
         </script>
         <script group="Links" subgroup="Dev Ops Support">
@@ -191,6 +193,10 @@
             }
         </script>
         <script group="Links" subgroup="New Arrivals">
+            // 📥 Downloads
+            function onClickDownloads(evt) {
+                location="./std/downloads/downloads-menu.html";
+            }
             // 🎴 Background Images
             function onClickBGI(evt) {
                 location="./dot/bgi.html";
