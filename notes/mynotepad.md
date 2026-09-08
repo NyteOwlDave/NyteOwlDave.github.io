@@ -91,7 +91,7 @@ pre {
 
 [snek-morpheus]:
 <./../zed/hysteresis/alpha/pen.html>
-Morpheus Edition"
+"Morpheus Edition"
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
