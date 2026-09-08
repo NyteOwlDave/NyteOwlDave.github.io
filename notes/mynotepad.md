@@ -97,6 +97,7 @@ pre {
 
 > [`🌐` Morpheus][me-morpheus]
 > [`📝` Session Editor](./session-editor.html)
+> [`📝` Coordinator](./mynotepad-coordinator.html)
 
 ### ( Private Access `📛` Only )
 

@@ -5,3 +5,5 @@ desktop.ini
 /thalia/removed
 /thalia/*.html.md
 /thalia/thalia.html.md
+*.odt
+.odt

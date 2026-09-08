@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>mynotepad-coordinator</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<p><head> <link rel="icon" href="./icons/mynotepad.png" /> </head></p>
+<style>
+@import url("./../std/style/every-page.css");
+</style>
+
+<hr>
+<h1>My Notepad Coordinator</h1>
+<hr>
+<h2>Introduction</h2>
+<p>Since Web-Based front-end only apps tend to scatter data all
+over the place, coordination and synchronization are crucial
+to maintaining coherent, consistent, and up to date information.</p>
+<p>This applet serves that role for the <code>MyNotepad</code> API Module.
+The <code>Session Editor</code> can get multiple versions into Session
+Storage. This app then faciliates merging diverse collections
+or related data.</p>
+<hr>
+<h2>Usage</h2>
+<p>I can think of a few possible strategies for merging raw <code>JSON</code>
+objects. Not the internal logic -- that's trivial. I mean the
+steps required by the User while working with the Interface.</p>
+<p>The first might be to provide a list of Store Keys for some
+previoulsy saved Entries.</p>
+<p>Another approach might have all Entries previously saved as
+a JSON-encoded array in a single Store Entry.</p>
+<p>Then there's the choice I've settled on. Make it easy to create
+<code>TEXTAREA</code> elements. Permit the user to create one such gadget
+per JSON object. Then it's a matter of pasting, loading, or
+even writing entries as needed.</p>
+<p>With a final <strong>Merge</strong> button to combine the parts.</p>
+<hr>
+
+</body>
+</html>
