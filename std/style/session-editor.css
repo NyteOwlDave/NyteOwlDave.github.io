@@ -1,0 +1,91 @@
+
+/* session-editor.css */
+
+@import url("./every-page.css");
+
+html {
+    background-image : url("./../../art/png/galaxy-station-bgi.png");
+    background-size  : cover;
+}
+
+body {
+    background : transparent;
+}
+
+.hide { display : none !important; }
+
+.swapped {
+    box-shadow : 0px 0px 20px gold;
+}
+
+.flashing {
+    animation : linear 1.2s flashing forwards;
+}
+
+@keyframes flashing {
+    from { opacity : 0 }
+    to { opacity : 1; }
+}
+
+
+.dock-right {
+    box-sizing : border-box;
+    position   : fixed;
+    top        : 0;
+    left       : 0;
+    min-width  : calc( 10ch );
+    max-width  : calc( 100vw - 18px );
+    min-height : calc( 3em );
+    max-height : calc( 100vh - 80px );
+    border     : none;
+    outline    : none;
+    font       : 14pt monospace;
+    padding    : 0.25ch 1.25ch;
+    resize     : both;
+    overflow   : scroll;
+    z-index    : 999942;
+}
+
+#sce:focus ,
+#sce {
+    color : #080842;
+    background : mintcream;
+}
+
+
+footer {
+    text-align : left;
+}
+
+footer span {
+    user-select : none;
+    cursor : pointer;
+}
+
+footer input {
+    display : inline-block;
+    min-width   : calc( 10ch );
+    max-width   : calc( 50vw );
+    width       : calc( 50vw );
+}
+
+
+.button-right {
+    box-sizing  : border-box;
+    display     : inline-block;
+    min-width   : 3.2ch;
+    margin-left : 0.1ch;
+    height      : 4ch;
+    line-height : 4ch;
+    border      : none;
+    border-radius : 12px;
+    font : 13pt monospace;
+    padding : 11px;
+    text-align : center;
+}
+
+.button-right:hover {
+    background : #000A;
+    color : mintcream;
+    box-shadow : 0px 0px 9px gold;
+}

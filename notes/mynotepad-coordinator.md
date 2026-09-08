@@ -1,7 +1,15 @@
 <head> <link rel="icon" href="./icons/mynotepad.png" /> </head>
 
 <style>
-@import url("./../std/style/every-page.css");
+@import url("./../std/style/session-editor.css");
+</style>
+
+<style>
+body {
+    background : #080822CC;
+    margin : 0px 40px 64vh 40px;
+    border-radius : 22px;
+}
 </style>
 
 ----------------------------------------------------------------
@@ -44,3 +52,69 @@ With a final __Merge__ button to combine the parts.
 
 ----------------------------------------------------------------
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<footer>
+ <input id="footer_input" onchange="perfecto(event)" />
+ <select id="task_droplist">
+<!--
+   <option  value="accept()">✅ Accept Changes</option>
+   <option  value="reject()">❎ Reject Changes</option>
+   <option value="refresh()">🔄 Refresh Editor</option>
+   <option value="catalog()">🔐 Show Session Keys</option>
+   <option    value="zoom()">💠 Zoom Editor</option>
+   <option    value="home()">🏠 Home</option>
+   <option value="persist()">🔏 Persist Session</option>
+   <option value="recover()">🔓 Recover Session</option>
+   <option  value="remove()">🗑️ Remove Session</option>
+-->
+ </select>
+ <span class="button-right" id="btn_invoke" onclick="invoke(event)">🆗</span>
+</footer>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script id="iwm.js">
+; iwm = Object.keys( window ).sort()
+</script>
+
+<script id="doc.js">
+; doc = document
+</script>
+
+<script id="debug.js">
+; cls =()=> console.clear()
+; agn =()=> location.reload()
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script src="./../std/api/gems/prolog-beta.js"></script>
+<script src="./../std/api/interpreter-lite.js"></script>
+<script src="./../std/api/coordinator.js"></script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script id="global-props.js">
+// const sce = doc.getElementById( "sce" );
+</script>
+
+<script id="main.js">
+function main( event ) {
+    try {
+        doc . title = "My Notepad Coordinator";
+        // init_ui();
+        // init_editor( sce );
+        // session . read();
+    } catch ( e ) {
+        alert ( e );
+        throw ( e );
+    }
+}
+</script>
+
+<script id="page-load.js">
+addEventListener( "load", main );
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

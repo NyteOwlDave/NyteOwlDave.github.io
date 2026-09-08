@@ -15,88 +15,7 @@ img { max-width: 100%; }
 <body>
 <p><head> <link rel="icon" href="./icons/mynotepad.png" /> </head></p>
 <style>
-@import url("./../std/style/every-page.css");
-</style>
-
-<style>
-html {
-    background-image : url("./../art/png/galaxy-station-bgi.png");
-    background-size  : cover;
-}
-body {
-    background : transparent;
-}
-</style>
-
-<style>
-.hide { display : none !important; }
-.swapped {
-    box-shadow : 0px 0px 20px gold;
-}
-.flashing {
-    animation : linear 1.2s flashing forwards;
-}
-@keyframes flashing {
-    from { opacity : 0 }
-    to { opacity : 1; }
-}
-</style>
-
-<style>
-.dock-right {
-    box-sizing : border-box;
-    position   : fixed;
-    top        : 0;
-    left       : 0;
-    width      : 50vw;
-    max-width  : calc( 100vw - 18px );
-    height     : calc( 100vh - 80px );
-    border     : none;
-    outline    : none;
-    font       : 14pt monospace;
-    padding    : 0.25ch 1.25ch;
-    resize     : horizontal;
-    overflow   : scroll;
-    z-index    : 999942;
-}
-#sce:focus ,
-#sce {
-    color : #080842;
-    background : mintcream;
-}
-</style>
-<style>
-footer {
-    text-align : left;
-}
-footer span {
-    user-select : none;
-    cursor : pointer;
-}
-footer input {
-    display : inline-block;
-    width   : calc( 100vw - 340px );
-}
-</style>
-<style>
-.button-right {
-    box-sizing  : border-box;
-    display     : inline-block;
-    min-width   : 3.2ch;
-    margin-left : 0.1ch;
-    height      : 4ch;
-    line-height : 4ch;
-    border      : none;
-    border-radius : 12px;
-    font : 13pt monospace;
-    padding : 11px;
-    text-align : center;
-}
-.button-right:hover {
-    background : #000A;
-    color : mintcream;
-    box-shadow : 0px 0px 9px gold;
-}
+@import url("./../std/style/session-editor.css");
 </style>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -137,6 +56,11 @@ footer input {
 ; cls =()=> console.clear()
 ; agn =()=> location.reload()
 </script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script src="./../std/api/gems/prolog-beta.js"></script>
+<script src="./../std/api/coordinator.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
