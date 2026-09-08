@@ -70,11 +70,11 @@
             <details>
                 <summary>Pending Additions</summary>
                 <menu>
-                    <a href="./jefr/">JEFR ~ Jango's Embedded Frames</a><br>
-                    <a href="./moreau/">Dr. Moreau ~ Web Document Analyzer</a><br>
+                    <a href="./venus/">🌌 Venus</a><br>
+                    <a href="./jefr/">🅙 JEFR ~ Jango's Embedded Frames</a><br>
+                    <a href="./moreau/">😼 Dr. Moreau ~ Web Document Analyzer</a><br>
                     <a href="./reggie/">Reggie ~ Registry Database</a><br>
-                    <a href="./zed/">Zeddicus IDE</a><br>
-                    <a href="./zed/hysteresis/">Hysteresis Sticky Notes</a><br>
+                    <a href="./zed/">🦌 Zeddicus IDE</a><br>
                 </menu>
             </details>
         </header>
@@ -93,22 +93,27 @@
 <button onclick="onClickTiGG()">🦇 TiGG</button>
 <button onclick="onClickThalia()">🔐 Thalia</button>
 <button onclick="onClickSulu()">🧭 Sulu</button>
-<button onclick="onClickZed()">🧙 Zed</button>
+<!-- button onclick="onClickZed()">🦌 Zed</button -->
 <button onclick="onClickZeek()">🌌 Zeek</button>
-<button onclick="onClickHysteresis()">🗒️ Hysteresis</button>
+<button onclick="onClickHysteresis()">🐍 Hysteresis</button>
         </nav>
         <h3>Dev Ops Support</h3>
         <nav>
 <button onclick="onClick3P()">🎲 Third Party Content</button>
-<button onclick="onClickDevIcons()">🎰 Design / DevOps Icons</button>
-<button onclick="onClickSiimpleIcons()">🎰 Josemi's Siimple Icons</button>
+<button onclick="onClickDevIcons()">🃏 Design / DevOps Icons</button>
+<button onclick="onClickSiimpleIcons()">🃏 Josemi's Siimple Icons</button>
 <button onclick="onClickSnips()">🦜 Chippy's Snippets</button>
 <button onclick="onClickLegends()">🚔 Squad Legends Roll Call</button>
 <button onclick="onClickRepo()">📦 Repository</button>
 <button onclick="onClickExamples()">🧑‍🎓 Examples</button>
+<button onclick="onClickTickTick()">🗒️ Tick Tick</button>
+<button onclick="onClickKeepNotes()">🗒️ Keep Notes</button>
+<button onclick="onClickVoiceNotes()">🗒️ Voice Notes</button>
+<button onclick="onClickExpressLane()">🛣️ Express Lane</button>
         </nav>
         <h3>New Arrivals</h3>
         <nav>
+<button onclick="onClickMyNotepad()">📝 My Notepad</button>
 <button onclick="onClickDownloads()">📥 Downloads</button>
 <button onclick="onClickBGI()">🎴 Background Image</button>
 <button onclick="onClickKMagic()">🔑 Key Magic</button>
@@ -121,7 +126,6 @@
         </nav>
         <h3>Dave's Domains</h3>
         <nav> 
-<button onclick="onClickAlora()">🖥️ AloraLyn.org</button>
 <button onclick="onClickMe()">🖥️ NyteOwlDave.me</button>
 <button onclick="onClickWork()">🖥️ NyteOwlDave.work</button>
 <button onclick="onClickLAN()">📡 Wellsted Home Network (Private)</button>
@@ -131,6 +135,22 @@
         <script src="./chachi/api/energize.js"></script>
         <!-- [[ EMBEDDED SCRIPTS ]] -->
         <script group="Links" subgroup="Applications">
+            // 🗒️ Tick Tick 
+            function onClickTickTick() {
+                location = "https://ticktick.com";
+            }
+            // 🗒️ Keep Notes
+            function onClickKeepNotes() {
+                location = "https://keep.google.com";
+            }
+            // 🗒️ Voice Notes
+            function onClickVoiceNotes() {
+                location = "https://voice.google.com";
+            }
+            // 🛣️ Express Lane</button
+            function onClickExpressLane() {
+                location = "http://tiny.cc/express-lane";
+            }
             // 📟 Chachi
             function onClickChachi(evt) {
                 location="./chachi/";
@@ -142,6 +162,14 @@
             // 🔐 Thalia
             function onClickThalia(){
                 energize( "thalia" );
+            } 
+            // 🌌 Venus <================== [ NEW! ]
+            function onClickVenus(){
+                location="./venus/";
+            } 
+            // 📝 My Notepad <================== [ NEW! ]
+            function onClickMyNotepad(){
+                location="./notes/mynotepad.html";
             } 
             // 🧭 Sulu
             function onClickSulu() {
