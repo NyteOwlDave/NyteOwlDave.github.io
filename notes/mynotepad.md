@@ -63,6 +63,38 @@ pre {
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+[caspar-lives]:
+<https://tiny.cc/caspar-lives>
+"Caspar Lives! ~ Pick Code"
+
+[athena-neocity]:
+<https://nyteowldave.neocities.org>
+"Athena ~ Neo City"
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+[keep-notes]:
+<https://keep.google.com>
+"Keep Notes"
+
+[keep-note-omega]:
+<https://keep.google.com/#NOTE/1otcCBBR9dzeiW_OLm84qEqfgLhCtur3MLlB0Keb_iitbAKD7dYI8F9ffnqKJPw>
+"My Notepad Keep Note ~ Omega Edition"
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+[venus]: <./../venus.html/> "Omega Edition"
+
+[chachi]:
+<./../chachi/>
+"Morpheus Edition"
+
+[snek-morpheus]:
+<./../zed/hysteresis/alpha/pen.html>
+Morpheus Edition"
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 [me-omega]:
 <http://dave-omega/app/morpheus/notes/mynotepad.html>
 "Omega Edition"
@@ -99,12 +131,24 @@ pre {
 > [`📝` Session Editor](./session-editor.html)
 > [`📝` Coordinator](./mynotepad-coordinator.html)
 
+> [`👻` Caspar Lives!][caspar-lives]
+> [`🏟️` Athena][athena-neocity]
+> [`🐍` Hysteresis][snek-morpheus]
+> [`📟` Chachi][chachi]
+
 ### ( Private Access `📛` Only )
 
+> [`🌌` Venus][venus]
 > [`🖥️` Omega][me-omega]
 > [`🖥️` Tower][me-tower]
 > [`🖥️` Legacy][me-legacy]
 > [`🗃️` File System](./)
+
+## [`📝` Keep Notes][keep-notes]
+
+> [`📝` Omega Notepad][keep-note-omega]
+
+<!-- [[ 🔴 🟢 🟡 ]] -->
 
 ----------------------------------------------------------------
 
