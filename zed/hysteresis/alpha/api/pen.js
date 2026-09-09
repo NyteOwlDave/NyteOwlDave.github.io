@@ -3313,7 +3313,7 @@ article.request = function( url, gadget ) {
 };
 
 article.morpheus = {
-  provider : "https://nyteowldave.githib.io"
+  provider : "https://nyteowldave.github.io"
 , splitter : "zed/hysteresis/notes"
 };
 
