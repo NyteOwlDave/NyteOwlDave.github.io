@@ -1226,7 +1226,11 @@ zap.save = function( table ) {
             "snek-global-table.html", "File Name?"
         );
         if (! k ) { return; }
-        const v = table.outerHTML;
+        let v = ( table.outerHTML );
+        const tag = ( ' contenteditable=""' );
+        while ( v.includes( tag ) ) {
+            v = v.replace( tag, '' );
+        }
         rico( k, v );
     } catch ( e ) {
         alert ( e );
