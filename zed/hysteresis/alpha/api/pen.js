@@ -3271,6 +3271,69 @@ function editMetaData( version ) {
     );
 }
 
+/* ---------------------------- */
+/* --- [[ ARTICLE LOADER ]] --- */
+
+function article( url, id, title, owner ) {
+    const ops = article;
+    const fe = ops.fieldset( title, owner );
+    const ae = elx( "ARTICLE" );
+    ae.id = ( str( id ) || nid() );
+    ae.title = ( str( title ) || ae.id );
+    fe.appendChild( ae );
+    ops.request( url, ae );
+    return ( ae );
+}
+
+article.fieldset = function( title, owner ) {
+    const fe = elx( "FIELDSET" );
+    const le = elx( "LEGEND");
+    fe.appendChild( le );
+    le.textContent = ( str( title ) || "New Article" );
+    owner = ( owner || document.body );
+    return ( owner.appendChild( fe ) );
+};
+
+article.request = function( url, gadget ) {
+    function accept( s ) {
+        gadget.innerHTML = ( s );
+        console.log( "Article Received" );
+    }
+    function reject( reason ) {
+        console.warn( "Request Rejected" );
+        console.warn( { reason } );
+    }
+    console.log( "Request Article : " , url );
+    const req = fetch( url );
+    ( req )
+    . then ( rsp => rsp.text() )
+    . then ( accept )
+    . catch( reject );
+    return ( req );
+};
+
+article.morpheus = {
+  provider : "https://nyteowldave.githib.io"
+, splitter : "zed/hysteresis/notes"
+};
+
+article.lan = {
+  provider : location.origin
+, splitter : "app/morpheus/zed/hysteresis/notes"
+};
+
+article.address = function( filename ) {
+    let pass;
+    if ( location.origin.includes( "dave-") ) {
+        pass = article.lan;
+    } else {
+        pass = article.morpheus;
+    }
+    const p = pass.provider;
+    const s = pass.splitter;
+    const k = filename;
+    return ( [ p, s, k ].join("/") );
+};
 
 /* ------------------------------- */
 /* --- [[ KEY EVENT HANDLER ]] --- */
