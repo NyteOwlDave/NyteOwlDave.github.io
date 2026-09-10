@@ -68,8 +68,8 @@ run.lite = function( js ) {
             window.eval( js )
         );
     } catch ( e ) {
-        alert ( e );
         console.error ( e );
+        alert ( e );
     }
 };
 
@@ -90,8 +90,8 @@ macro.lite = function( cmd ) {
 	        incomplete( `macro()` );
 	   	}
     } catch ( e ) {
+        console.error ( e );
         alert ( e );
-        throw ( e );
     }
     return ( false );
 };
