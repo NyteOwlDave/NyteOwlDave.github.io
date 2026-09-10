@@ -69,7 +69,7 @@ run.lite = function( js ) {
         );
     } catch ( e ) {
         alert ( e );
-        throw ( e );
+        console.error ( e );
     }
 };
 
