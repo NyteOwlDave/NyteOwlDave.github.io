@@ -24,8 +24,21 @@ function install( package ) {
 };
 
 install.packages = {
-  "?"   : "http://dave-omega/demo/web/gems/hud-installer.js"
-, "hud" : "http://dave-omega/demo/web/gems/hud-installer.js"
+  "?"   : "https://nyteowldave.github.io/std/api/installer/hud-installer.js"
+, "hud" : "https://nyteowldave.github.io/std/api/installer/hud-installer.js"
+, "hud-demo" : "http://dave-omega/demo/web/gems/hud-installer.js"
+};
+
+install.inspect = function() {
+    const p = install.packages;
+    const t = p.map( ( pe ) => ( pe[ 0 ] ) );
+    const g = "[ Installable Packages ]";
+    const c = console;
+    c.clear();
+    c.group( g );
+    c.table( t );
+    c.groupEnd();
+    alert( "See Debug Console" );
 };
 
 ;
