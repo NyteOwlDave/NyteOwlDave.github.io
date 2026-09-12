@@ -30,8 +30,8 @@ install.packages = {
 };
 
 install.inspect = function() {
-    const p = install.packages;
-    const t = p.map( ( pe ) => ( pe[ 0 ] ) );
+    const t = Object.keys( install.packages ).sort();
+    delete t[ "?" ];
     const g = "[ Installable Packages ]";
     const c = console;
     c.clear();
