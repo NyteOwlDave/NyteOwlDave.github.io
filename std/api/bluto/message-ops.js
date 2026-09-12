@@ -83,12 +83,20 @@ function suggest( s ) {
     );
 }
 
+suggest.count = function() {
+    let n = 0;
+    if ( "object" === typeof suggestions ) {
+        n = suggestions.length;
+    }
+    message( `🧮 Suggestion Count : ${n}` );
+};
+
 function last() {
     const s = str( suggest.recent );
     if ( s ) {
         suggest( s );
     } else {
-        message( "No recent command was found" );
+        dangit( "No recent command was found" );
     }
 }
 
