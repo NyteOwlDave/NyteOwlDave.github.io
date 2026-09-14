@@ -25,7 +25,8 @@
 ; jsx =( o )=> jsn.stringify( o )
 ; jst =( o )=> jsn.stringify( o, null, 2 )
 ; jso =( t )=> jsn.parse( t )
-; jsp =( o )=> jst( jso( t ) )
+; jsp =( t )=> jst( jso( t ) )
+; psj =( o )=> jso( jst( o ) )
 ;
 ; elx =( t )=> doc.createElement( t )
 ;
@@ -52,6 +53,10 @@
 ; dir =( o )=> ( mem( o || stg ) )
 ; tmp =( o )=> ( mem( o || ssg ) )
 ;
+; hut =( t )=> console.table( t )
+; hum =(   )=> hut( dir() )
+; hun =(   )=> hut( tmp() )
+;
 ; zak =( o )=> ( mem( o || wnd ) )
 ; zek =( o )=> ( mem( o || doc ) )
 ; zik =( o )=> ( mem( o || nav ) )
@@ -61,9 +66,14 @@
 ; zjk =( o )=> ( mem( o || jsn ) )
 ;
 
+function qoh() {
+    hut( QuarkOpsHints );
+}
+
 QuarkOps = {
     str , arr , unq ,
-    psk , ksp , jsp ,
+    psk , ksp ,
+    jsp , psj ,
     jsx , jst , jso ,
     all , one , elx ,
     gad , gid , god ,
@@ -71,7 +81,8 @@ QuarkOps = {
     mem , dir , tmp ,
     zak , zek , zik ,
     zok , zuk , zck ,
-    zjk
+    zjk , qoh ,
+    hut , hum , hun
 };
 
 QuarkOpsHints = [
@@ -80,6 +91,7 @@ QuarkOpsHints = [
 , [ "unq" , "Create Set from Iterable"          ]
 , [ "psk" , "Compose PASS/PSK Address"          ]
 , [ "ksp" , "Compose PASS/KSP Address"          ]
+, [ "psj" , "Sanitize JSON"                     ]
 , [ "jsp" , "Prettify JSON"                     ]
 , [ "jsx" , "Compose Object as Terse JSON"      ]
 , [ "jst" , "Compose Object as Pretty JSON"     ]
@@ -98,6 +110,10 @@ QuarkOpsHints = [
 , [ "mem" , "Sorted List of Object Members"     ]
 , [ "dir" , "Sorted List of Store Keys"         ]
 , [ "tmp" , "Sorted List of Session Keys"       ]
+, [ "hut" , "Show Table in Console"             ]
+, [ "hum" , "Show Store Keys in Console"        ]
+, [ "hun" , "Show Session Keys in Console"      ]
+, [ "qoh" , "Show QuarkOps Hints in Console"    ]
 , [ "zak" , "Sorted List of Window Members"     ]
 , [ "zek" , "Sorted List of Document Members"   ]
 , [ "zik" , "Sorted List of Navigator Members"  ]
