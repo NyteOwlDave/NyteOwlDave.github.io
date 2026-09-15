@@ -1,5 +1,5 @@
 
-/* describe.js */
+/* describe.js */ 
 
 type  =( o )=> ( alert( typeof o   ) );
 ntype =( o )=> ( alert( o.nodeName ) );
@@ -30,4 +30,5 @@ describe = {
 
 ;
 ; console.log( `Loaded "describe.js" Gem Module` )
+; console.info( `HEY! Consider upgrading to "docify.js" ...` );
 ;

@@ -16,8 +16,8 @@ suggestions = [
 , "hints(describe)"
 , "hints(seeker('z'))"
 , "hints(suggestions,'Suggestions')"
+, "console.table(docify(describe))"
 ];
-
 
 ;
 ; console.log( `Loaded "suggestions.js" Gem Module` )
