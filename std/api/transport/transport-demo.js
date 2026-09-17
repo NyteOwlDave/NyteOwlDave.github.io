@@ -301,7 +301,7 @@ zach.save = function( ed ) {
 };
 
 zach.open = function() {
-    dangit( "TODO ~ zach.open()" );
+    ricardo.edit( sip );
 };
 
 function read_value( o ) {
