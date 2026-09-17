@@ -10,6 +10,8 @@
 ]
 ;
 
+PrologOps = {};
+
 function prolog() {
 ;
 ; con = console
@@ -42,6 +44,18 @@ function prolog() {
 ; one =( q )=>    ( doc.querySelector   ( q ) )
 ; all =( q )=> arr( doc.querySelectorAll( q ) )
 ;
+; mem =( o )=> Object.keys( o || window ).sort()
+; dir =( o )=> mem( o || localStorage || {} )
+; tmp =( o )=> mem( o || sessionStorage || {} )
+;
+PrologOps = {
+  str, arr, unq
+, elx
+, gad, gid, god
+, jso, jsx, jst
+, one, all
+, mem, dir, tmp
+};
 }
 
 prolog();
