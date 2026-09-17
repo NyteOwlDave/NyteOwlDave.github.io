@@ -2,11 +2,31 @@
 @import url("https://nyteowldave.neocities.org/style.css");
 </style>
 
+<style>
+[wide] {
+    width : calc( 100% - 100px ) !important;
+}
+.zach {
+    display    : inline-block;
+    max-width  : calc( 100vw - 100px );
+    max-height : calc( 100vh - 200px );
+    font       : 12pt monospace;
+}
+.zach:focus {
+    color : midnightblue   !important;
+    background : mintcream !important;
+}
+</style>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 [demo]:
 <https://nyteowldave.github.io/std/api/transport/transport-demo.html>
-"Open in Browser"
+"Morpheus Edition"
+
+[demo-omega]:
+<http://dave-omega/app/morpheus/std/api/transport/transport-demo.html>
+"Omega Edition (Private)"
 
 [u-01]: <./ricolla-v1p0.js> "Riccola API"
 [u-02]: <./ricardo-v1p0.js> "Ricardo API"
@@ -19,6 +39,7 @@
 # Transport Demo
 
 > [Morpheus][demo]
+> [Omega][demo-omega]
 
 ----------------------------------------------------------------
 
@@ -48,7 +69,16 @@
 
 - Use `PeachOps` for __Store Access__
 - Use `zach` for __Editor Control__
-- Both Require __Console__
+- Use `zach.hints()` for __Member Lists__
+- Use `sip.run()` to Execute SIP Value
+
+----------------------------------------------------------------
+
+<header id="messages"></header>
+
+<footer id="footer">
+  <input id="footer_input" wide onchange="perform(event)" />
+</footer>
 
 ----------------------------------------------------------------
 
@@ -57,4 +87,50 @@
 <script src="./transport-demo.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+// 🔴 🟡 🟢
+function blurt( s, silent, decal ) {
+    s = str( s );
+    if (! s ) { return; }
+    if (! silent ) {
+        console.log( s );
+    }
+    const d = ( str( decal ) || `🟢` );
+    messages.textContent = ( `${d} ${s}` );
+    return ( s );
+}
+function dangit( s ) {
+    console.warn( s );
+    return blurt( s, true, `🟡` );
+}
+function bummer( e ) {
+    let s;
+    if ( e instanceof Error ) {
+        s = ( e.message );
+    } else {
+        s = str( e );
+        e = new Error( s );
+    }
+    console.error( e );
+    blurt( s, true, `🔴` );
+    return ( e );
+}
+</script>
+
+<script>
+function perform( event ) {
+    const ops = perform;
+    ops . error = "";
+    try {
+        ops.event = event;
+        claim( event );
+        const sender = event.target;
+        window.eval( sender.value.trim() );
+    } catch ( e ) {
+        ops . error = ( e.message );
+        bummer( e );
+    }
+}
+</script>
 

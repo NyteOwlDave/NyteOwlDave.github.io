@@ -171,7 +171,17 @@ ops.edit = {
 
 function init_demo( event ) {
     try {
-        zach( PeachOps.members() );
+        const ed = zach( dir( PeachOps ) );
+        ed . title = "Peach Ops";
+        ed . id = "sip";
+        ed . setAttribute( "locked", "true" );
+        ed . run = function() {
+            try {
+                window.eval( sip.value );
+            } catch ( e ) {
+                bummer( e );
+            }
+        };
     } catch ( e ) {
         crashed ( e );
     }
@@ -205,7 +215,7 @@ function message( s ) {
 message.log = [];
 
 function crashed( e ) {
-    message.log.append( e.message );
+    message.log.push( e.message );
     console . error ( e );
     window  . alert ( e );
 }
@@ -220,6 +230,8 @@ function zach( value, props ) {
     const ed = elx( "TEXTAREA" );
     ed . value = zach.prep( value );
     ed . classList . add( "zach" );
+    ed . id = nid();
+    ed . title = ( ed . id );
     if ( props ) { o = god( props.owner ); }
     o = (
         ( o )
@@ -235,9 +247,6 @@ function zach( value, props ) {
 
 zach.prep = function( o ) {
     if ( o instanceof Object ) {
-        if ( o instanceof Function ) {
-            return ( o ).toString();
-        }
         if ( gad( o ) ) {
             return read_value( o );
         }
@@ -249,10 +258,53 @@ zach.prep = function( o ) {
         }
         return jst( o );
     }
+    if ( o instanceof Function ) {
+        return ( o ).toString();
+    }
     return String( o );
 };
 
-read_value = function( o ) {
+zach.hints = function( o, title ) {
+    let t, ed;
+    if ( o instanceof Object ) {
+        if ( Array.isArray( o ) ) {
+            ed = zach( o );
+            t = ( str( title ) || "List Items" );
+        } else {
+            ed = zach( mem( o ) );
+            t = ( str( title ) || "Members" );
+        }
+    } else if ( "undefined" !== ( typeof o ) ) {
+        ed = zach( o );
+        t = ( str( title ) || "Primitive" );
+    } else {
+        ed = zach( mem( zach ) );
+        t = ( "Zach Members" );
+    }
+    ed . title = ( t );
+    return ( ed );
+};
+
+zach.save = function( ed ) {
+    try {
+        ed = ( god( ed ) || gid( "sip" ) );
+        if ( ed ) {
+            const k = ( ed.title || "download.txt" );
+            const v = ed.value;
+            riccola( k, v );
+        } else {
+            dangit( "Editor Not Found" );
+        }
+    } catch ( e ) {
+        bummer ( e );
+    }
+};
+
+zach.open = function() {
+    dangit( "TODO ~ zach.open()" );
+};
+
+function read_value( o ) {
     o = god( o );
     if ( o ) {
         switch ( o.nodeName ) {
@@ -283,6 +335,31 @@ function get_section( id, type, title ) {
     se.setAttribute( "elx", tup );
     return ( se );
 }
+
+function rnd( k ) {
+    k = ( parseFloat( k ) || 1.0 );
+    return ( k * Math.random() );
+}
+
+function irnd( k ) {
+    return Math.floor( rnd( k ) );
+}
+
+function now() {
+    return ( Date.now() );
+}
+
+function nid( sep="-" ) {
+    const a = now().toString( 32 );
+    const b = irnd( 0xFFFF ).toString( 32 );
+    const c = irnd( 0xFFFF ).toString( 32 );
+    sep = str( sep );
+    while ( sep.includes( " " ) ) {
+        sep = sep.replace( " ", "" );
+    }
+    return ( [ "id", a, b, c ].join( sep ) );
+}
+
 
 ;
 ; doc . title = ( `Transport Demo` )
