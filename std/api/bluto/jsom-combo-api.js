@@ -81,14 +81,14 @@ function recommend( s ) {
 
 function blurt( s ) {
     return message(
-        [ `🟡`, str( s ) ]
+        [ `🟢`, str( s ) ]
         . join( " " )
     );
 }
 
 function dangit( s ) {
     return message(
-        [ `🟢`, str( s ) ]
+        [ `🟡`, str( s ) ]
         . join( " " )
     );
 }
