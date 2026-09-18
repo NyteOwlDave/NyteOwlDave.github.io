@@ -35,6 +35,8 @@ img { max-width: 100%; }
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 <hr>
 <h1>Transport Demo</h1>
 <blockquote>
@@ -49,14 +51,9 @@ img { max-width: 100%; }
 <li><a href="./transport-demo.js" title="Transport Demo App">Transport Demo App</a> ~ App Logic</li>
 </ul>
 <hr>
-<h2>Toolkit</h2>
-<ul>
-<li><a href="./dot/dot-status.html" title="Dot Rocket Status">Dot Rocket Status</a></li>
-</ul>
-<hr>
 <h2>References</h2>
 <ul>
-<li><a href="./dot/transport-notes.html" title="Project Notes">Project Notes</a></li>
+<li><a href="./notes/transport-notes.html" title="Transport API Notes">Transport Notes</a></li>
 </ul>
 <hr>
 <h1>Comments</h1>
@@ -75,41 +72,17 @@ img { max-width: 100%; }
 </footer>
 
 <hr>
+<script>
+; iwm = Object.keys( window ).sort()
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 <script src="./riccola-v1p0.js"></script>
 <script src="./ricardo-v1p0.js"></script>
 <script src="./transport-demo.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-<script>
-// 🔴 🟡 🟢
-function blurt( s, silent, decal ) {
-    s = str( s );
-    if (! s ) { return; }
-    if (! silent ) {
-        console.log( s );
-    }
-    const d = ( str( decal ) || `🟢` );
-    messages.textContent = ( `${d} ${s}` );
-    return ( s );
-}
-function dangit( s ) {
-    console.warn( s );
-    return blurt( s, true, `🟡` );
-}
-function bummer( e ) {
-    let s;
-    if ( e instanceof Error ) {
-        s = ( e.message );
-    } else {
-        s = str( e );
-        e = new Error( s );
-    }
-    console.error( e );
-    blurt( s, true, `🔴` );
-    return ( e );
-}
-</script>
 
 <script>
 function perform( event ) {

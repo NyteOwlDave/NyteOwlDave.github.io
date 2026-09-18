@@ -28,11 +28,12 @@
 <http://dave-omega/app/morpheus/std/api/transport/transport-demo.html>
 "Omega Edition (Private)"
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 [u-01]: <./ricolla-v1p0.js> "Riccola API"
 [u-02]: <./ricardo-v1p0.js> "Ricardo API"
 [u-03]: <./transport-demo.js> "Transport Demo App"
-[u-04]: <./dot/transport-notes.html> "Project Notes"
-[u-05]: <./dot/dot-status.html> "Dot Rocket Status"
+[u-04]: <./notes/transport-notes.html> "Transport API Notes"
 
 ----------------------------------------------------------------
 
@@ -51,15 +52,9 @@
 
 ----------------------------------------------------------------
 
-## Toolkit
-
-- [Dot Rocket Status][u-05]
-
-----------------------------------------------------------------
-
 ## References
 
-- [Project Notes][u-04]
+- [Transport Notes][u-04]
 
 ----------------------------------------------------------------
 
@@ -82,41 +77,17 @@
 
 ----------------------------------------------------------------
 
+<script>
+; iwm = Object.keys( window ).sort()
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 <script src="./riccola-v1p0.js"></script>
 <script src="./ricardo-v1p0.js"></script>
 <script src="./transport-demo.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-<script>
-// 🔴 🟡 🟢
-function blurt( s, silent, decal ) {
-    s = str( s );
-    if (! s ) { return; }
-    if (! silent ) {
-        console.log( s );
-    }
-    const d = ( str( decal ) || `🟢` );
-    messages.textContent = ( `${d} ${s}` );
-    return ( s );
-}
-function dangit( s ) {
-    console.warn( s );
-    return blurt( s, true, `🟡` );
-}
-function bummer( e ) {
-    let s;
-    if ( e instanceof Error ) {
-        s = ( e.message );
-    } else {
-        s = str( e );
-        e = new Error( s );
-    }
-    console.error( e );
-    blurt( s, true, `🔴` );
-    return ( e );
-}
-</script>
 
 <script>
 function perform( event ) {

@@ -18,6 +18,7 @@ function prolog() {
 ; doc = document
 ; jsn = JSON
 ; stg = localStorage
+; ssg = sessionStorage
 ;
 ; str =( o )=> ( String( o || "" ).trim() )
 ; arr =( o )=> ( Array.from( o || [] ) )
@@ -37,6 +38,13 @@ function prolog() {
     : ( null         )
 )
 ;
+; jat =( o )=> ( con.table ( o ) )
+; jet =( o )=> ( con.error ( o ) )
+; jit =( o )=> ( con.info  ( o ) )
+; jot =( o )=> ( con.log   ( o ) )
+; jut =( o )=> ( con.warn  ( o ) )
+; jyt =( o )=> ( con.debug ( o ) )
+;
 ; jso =( t )=> ( jsn.parse( t ) )
 ; jsx =( o )=> ( jsn.stringify( o ) )
 ; jst =( o )=> ( jsn.stringify( o, null, 2 ) )
@@ -49,16 +57,48 @@ function prolog() {
 ; tmp =( o )=> mem( o || sessionStorage || {} )
 ;
 PrologOps = {
-  str, arr, unq
+  str , arr , unq
 , elx
-, gad, gid, god
-, jso, jsx, jst
-, one, all
-, mem, dir, tmp
+, gad , gid , god
+, jso , jsx , jst
+, one , all
+, mem , dir, tmp
+, jat , jet , jit
+, jot , jut , jyt
 };
 }
 
 prolog();
+
+// 🔴 🟡 🟢
+function blurt( s, silent, decal ) {
+    s = str( s );
+    if (! s ) { return; }
+    if (! silent ) {
+        console.log( s );
+    }
+    const d = ( str( decal ) || `🟢` );
+    messages.textContent = ( `${d} ${s}` );
+    return ( s );
+}
+
+function dangit( s ) {
+    console.warn( s );
+    return blurt( s, true, `🟡` );
+}
+
+function bummer( e ) {
+    let s;
+    if ( e instanceof Error ) {
+        s = ( e.message );
+    } else {
+        s = str( e );
+        e = new Error( s );
+    }
+    console.error( e );
+    blurt( s, true, `🔴` );
+    return ( e );
+}
 
 function write_props( ed, props ) {
     ed = god( ed );
@@ -87,72 +127,60 @@ PeachOps = {};
 ;
 ( ops => {
 
+const stg = localStorage;
 const ssg = sessionStorage;
 
-let store = {};
-
-function key( i ) {
-    if ( null === ssg ) {
-        const m = members();
-        return m[ i ];
-    } else {
-        return ( ssg.key( i ) );
-    }
+function key( i, store ) {
+    store = ( store || stg || ssg );
+    return ( store.key( i ) );
 }
 
-function read( k ) {
-    if ( null === ssg ) {
-        return ( store[ k ] );
-    } else {
-        return ( ssg.getItem( k ) );
+function resolve( k, store ) {
+    if ( "number" === typeof k ) {
+        return key( i, store );
     }
+    return str( k );
 }
 
-function write( k, v ) {
+function read( k, store ) {
+    store = ( store || stg || ssg );
+    k = resolve( k, store );
+    return ( store.getItem );
+}
+
+function write( k, v, store ) {
+    store = ( store || stg || ssg );
+    k = resolve( k, store );
     v = String( v || "" );
-    if ( null === ssg ) {
-        store[ k ] = ( v );
-    } else {
-        ssg.setItem( k, v );
-    }
+    store.setItem( k, v );
 }
 
-function remove( k ) {
-    if ( null === ssg ) {
-        delete store[ k ];
-    } else {
-        return ( ssg.removeItem( k ) );
-    }
+function remove( k, store ) {
+    store = ( store || stg || ssg );
+    k = resolve( k, store );
+    return ( store.removeItem( k ) );
 }
 
-function members() {
-    if ( null === ssg ) {
-        return Object.keys( store );
-    } else {
-        return Object.keys( ssg );
-    }
+function members( store ) {
+    store = ( store || stg || ssg );
+    return Object.keys( store ).sort();
 }
 
-function edit_members( ed, props ) {
+function edit_members( ed, props, store ) {
     ed = god( ed );
-    ed . value = members().join( "\n" );
+    ed . value = members( store ).join( "\n" );
     return write_props( ed, props );
 }
 
-function edit_raw( ed, props ) {
+function edit_raw( ed, props, store ) {
     ed = god( ed );
-    ed . value = store_json();
+    ed . value = store_json( store );
     return write_props( ed, props );
 }
 
-function store_json() {
-    let o;
-    if ( null === ssg ) {
-        o = store;
-    } else {
-        o = ssg;
-    }
-    return JSON.stringify( o, null, 2 );
+function store_json( store ) {
+    store = ( store || stg || ssg );
+    return JSON.stringify( store, null, 2 );
 }
 
 ops.key     = key;
@@ -160,6 +188,7 @@ ops.read    = read;
 ops.write   = write;
 ops.remove  = remove;
 ops.members = members;
+ops.resolve = resolve;
 
 ops.edit = {
   raw     : edit_raw
@@ -304,6 +333,43 @@ zach.open = function() {
     ricardo.edit( sip );
 };
 
+zach.editor = function( index ) {
+    const m = all( "TEXTAREA" );
+    return ( m[ index ] );
+};
+
+zach.remove = function( index ) {
+    const ed = zach.editor( index );
+    if ( ed ) {
+        ed.remove();
+    } else {
+        dangit( `Editor Index is Out of Range` );
+    }
+};
+
+zach.zoom = function( index ) {
+    const ed = zach.editor( index );
+    if ( ed ) {
+        ed . requestFullscreen();
+        ed . focus();
+        return ( ed );
+    } else {
+        dangit( `Editor Index is Out of Range` );
+    }
+};
+
+zach.request = function( url ) {
+    if ( "function" !== typeof fetch ) {
+        dangit( "Agent doesn't support fetch method" );
+        return;
+    }
+    url = ( str( url ) || "explore.list" );
+    return fetch( url )
+    . then  ( r => r.text() )
+    . then  ( zach   )
+    . catch ( bummer );
+};
+
 function read_value( o ) {
     o = god( o );
     if ( o ) {
@@ -316,7 +382,39 @@ function read_value( o ) {
     } else {
         return "";
     }
-};
+}
+
+function droplist( items, owner ) {
+   const o = ( owner || doc.body );
+   const se = elx( "SELECT" );
+   o . appendChild( se );
+   const add =( s )=> {
+      if ( s = str( s ) ) {
+         const ce = elx( "OPTION" );
+         se . appendChild( ce );
+         ce . textContent = ( s );
+      }
+   };
+   items.forEach ( add );
+   return ( se );
+}
+
+function seeker( o, rex ) {
+    const m = (
+        mem( o )
+        . filter(
+            ( k ) => (! iwm.includes( k ) )
+        )
+    );
+    if ( rex = str( rex ) ) {
+        rex = new RegExp( rex );
+        const match =( k )=> ( rex.test( k ) );
+        return ( m.filter( match ) );
+    } else {
+        return ( m );
+    }
+}
+
 
 function get_section( id, type, title ) {
     let se = god( id );

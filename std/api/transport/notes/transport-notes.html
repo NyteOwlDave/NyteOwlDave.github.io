@@ -1,0 +1,652 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>transport-notes</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<style>
+@import url("https://nyteowldave.neocities.org/style.css");
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<hr>
+<h1>Transport Notes</h1>
+<blockquote>
+<p><a href="https://nyteowldave.github.io/std/api/transport/notes/transport-notes.html" title="Morpheus Edition">Morpheus</a>
+<a href="http://dave-omega/app/morpheus/std/api/transport/notes/transport-notes.html" title="Omega Edition (Private)">Omega</a></p>
+<p><a href="./../transport-demo.html">Transport Demo</a></p>
+</blockquote>
+<hr>
+<h2>Purpose</h2>
+<p>The <strong>Transport API Collection</strong> is dedicated to
+<strong>Data Transfer</strong> operations.</p>
+<p>This includes a number of common <strong>Media</strong> and <strong>Operations</strong>
+for moving <strong>Content</strong> from one location to another.</p>
+<p><strong>Content</strong> may be <strong>Applications</strong> or <strong>Data</strong>.</p>
+<hr>
+<h2>Categories</h2>
+<ul>
+<li>File System I/O</li>
+<li>Hypertext I/O</li>
+<li>E-Mail</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>NOTE</strong> : Operation names may not match Method Names</p>
+</blockquote>
+<hr>
+<h3>File System I/O</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Save</td>
+<td>Write Data to File System</td>
+</tr>
+<tr>
+<td>Load</td>
+<td>Read Data from File System</td>
+</tr>
+<tr>
+<td>Open</td>
+<td>Choose File to Load</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>Hypertext I/O</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acquire</td>
+<td>Load Script or Style from Remote Server</td>
+</tr>
+<tr>
+<td>Request</td>
+<td>Load Data from Remote Server</td>
+</tr>
+<tr>
+<td>Download</td>
+<td>Load Remote Data and Save to File System</td>
+</tr>
+<tr>
+<td>Upload</td>
+<td>Post Data to Remote Server</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>E-Mail</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Send</td>
+<td>Send Mail to Recipient</td>
+</tr>
+<tr>
+<td>Compose</td>
+<td>Compose Mail to Send</td>
+</tr>
+<tr>
+<td>Review</td>
+<td>Open Mail Account In-Box</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1>Transport API Modules</h1>
+<hr>
+<h2>Implemented</h2>
+<table>
+<thead>
+<tr>
+<th>Filename</th>
+<th>Purpose</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>riccola-v1p0.js</td>
+<td>Save</td>
+<td>File System I/O</td>
+</tr>
+<tr>
+<td>ricardo-v1p0.js</td>
+<td>Open</td>
+<td>File System I/O</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Pending</h2>
+<table>
+<thead>
+<tr>
+<th>Filename</th>
+<th>Purpose</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>acquire.js</td>
+<td>Acquire</td>
+<td>Hypertext I/O</td>
+</tr>
+<tr>
+<td>request.js</td>
+<td>Request</td>
+<td>Hypertext I/O</td>
+</tr>
+<tr>
+<td>email.js</td>
+<td>All</td>
+<td>E-Mail</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1>Transport API Demo</h1>
+<hr>
+<h2>Purpose</h2>
+<p>The <strong>Transport Demo</strong> was designed as a test area for the
+<strong>API Modules</strong>.</p>
+<p>It also serves as a central access point for <strong>Notes</strong> and
+<strong>Downloads</strong>.</p>
+<hr>
+<h2>Features</h2>
+<p>There are three primary <strong>Accessor</strong> objects:</p>
+<table>
+<thead>
+<tr>
+<th>Accessor</th>
+<th>Purpose</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PrologOps</td>
+<td>Global Prolog Methods</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>PeachOps</td>
+<td>Browser Store Methods</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>zach</td>
+<td>Text Editor Methods</td>
+<td>Function</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<blockquote>
+<p>All three are located within the <code>transport-demo.js</code> module.</p>
+<p>General <strong>Tranport Operations</strong> are located within the various
+individual <strong>API Modules</strong>.</p>
+</blockquote>
+<hr>
+<h2>Usage</h2>
+<p>When the application first loads, a single <strong>Editor</strong> is
+created. The <strong>ID</strong> for this editor is <code>sip</code>.</p>
+<p>There's also a standard <code>HEADER</code> for messages and <code>FOOTER</code>
+for single line command input.</p>
+<p>New <strong>Editors</strong> can be created in a variety of ways. The most
+common is to call the <code>zach()</code> method. This method also doubles
+as an <strong>Accessor</strong>. Many of the member methods also create new
+<strong>Editors</strong> as needed.</p>
+<p>New <strong>Editors</strong> are assigned random <strong>ID</strong> values using the
+<code>nid()</code>  global method.</p>
+<p>One of the more useful methods is <code>zach.hints()</code>. This method
+creates a new <strong>Editor</strong> and populates it with either a list
+of strings from an <strong>Array</strong> or with a list of
+<strong>Object Members</strong>.</p>
+<p>If the argument is neither an <strong>Object</strong> or <strong>Array</strong>, it's
+coerced to a <strong>String Primitive</strong> for editing.</p>
+<hr>
+<h2>Zach Accessor Method</h2>
+<hr>
+<pre><code>function zach( source, props ) { ... }
+</code></pre>
+<hr>
+<h3>Notes</h3>
+<ul>
+<li>Source May Be an HTML Element, Array, Object, or Primitive</li>
+<li>Props is an Object (Property Map)</li>
+</ul>
+<hr>
+<h2>Zach Methods</h2>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>editor</td>
+<td>Obtain Editor Ref by Index</td>
+</tr>
+<tr>
+<td>hints</td>
+<td>Show Hints in New Editor</td>
+</tr>
+<tr>
+<td>open</td>
+<td>Open File in New Editing</td>
+</tr>
+<tr>
+<td>prep</td>
+<td>Prepare Source for Editing</td>
+</tr>
+<tr>
+<td>remove</td>
+<td>Remove Editor by Index</td>
+</tr>
+<tr>
+<td>request</td>
+<td>Request Remote Content for Editing</td>
+</tr>
+<tr>
+<td>save</td>
+<td>Save Editor Content by Editor Ref</td>
+</tr>
+<tr>
+<td>zoom</td>
+<td>Zoom Editor by Index</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>PeachOps Methods</h2>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>edit.raw</td>
+<td>Edit Store as JSON</td>
+</tr>
+<tr>
+<td>edit.members</td>
+<td>Edit Store Entry Key List</td>
+</tr>
+<tr>
+<td>key</td>
+<td>Read Key by Index</td>
+</tr>
+<tr>
+<td>resolve</td>
+<td>Resolve Key Index or String</td>
+</tr>
+<tr>
+<td>members</td>
+<td>Obtain Entry Key List</td>
+</tr>
+<tr>
+<td>read</td>
+<td>Read Entry by Key or Index</td>
+</tr>
+<tr>
+<td>remove</td>
+<td>Remove Entry by Key or Index</td>
+</tr>
+<tr>
+<td>write</td>
+<td>Write Entry by Key or Index</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>Important</h3>
+<p>The default store is <code>localStorage</code> if available. Otherwise,
+the default is <code>sessionStorage</code>. </p>
+<p>This default may be overridden with method arguments.</p>
+<hr>
+<h2>Prolog Methods</h2>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Action</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>str</td>
+<td>Coerce Arg to String</td>
+<td>4, 5</td>
+</tr>
+<tr>
+<td>arr</td>
+<td>Coerce Arg to Array</td>
+<td>5</td>
+</tr>
+<tr>
+<td>unq</td>
+<td>Coerce Arg to Set</td>
+<td>5</td>
+</tr>
+<tr>
+<td>elx</td>
+<td>Create HTML Element</td>
+<td></td>
+</tr>
+<tr>
+<td>gad</td>
+<td>Verify Arg is HTML Element</td>
+<td></td>
+</tr>
+<tr>
+<td>gid</td>
+<td>Get HTML Element by ID</td>
+<td></td>
+</tr>
+<tr>
+<td>god</td>
+<td>Resolve HTML Element Reference</td>
+<td>6</td>
+</tr>
+<tr>
+<td>jst</td>
+<td>Compose Object as JSON Text</td>
+<td>7</td>
+</tr>
+<tr>
+<td>jsx</td>
+<td>Compose Object as JSON Text</td>
+<td>8</td>
+</tr>
+<tr>
+<td>jso</td>
+<td>Parse JSON Text to Object</td>
+<td></td>
+</tr>
+<tr>
+<td>one</td>
+<td>Select Single HTML Element</td>
+<td></td>
+</tr>
+<tr>
+<td>all</td>
+<td>Select All Matching HTML ELements</td>
+<td></td>
+</tr>
+<tr>
+<td>jat</td>
+<td>Show Table in Console</td>
+<td></td>
+</tr>
+<tr>
+<td>jet</td>
+<td>Show Error in Console</td>
+<td></td>
+</tr>
+<tr>
+<td>jit</td>
+<td>Show Info Message in Console</td>
+<td></td>
+</tr>
+<tr>
+<td>jot</td>
+<td>Show Log Message in Console</td>
+<td></td>
+</tr>
+<tr>
+<td>jut</td>
+<td>Show Warning Message in Console</td>
+<td></td>
+</tr>
+<tr>
+<td>jyt</td>
+<td>Show Debug Message in Console</td>
+<td></td>
+</tr>
+<tr>
+<td>mem</td>
+<td>Obtain List of Member Names</td>
+<td>1</td>
+</tr>
+<tr>
+<td>dir</td>
+<td>Obtain List of Member Names</td>
+<td>2</td>
+</tr>
+<tr>
+<td>tmp</td>
+<td>Obtain List of Member Names</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>Notes</h3>
+<ul>
+<li>(1) Default arg is <code>window</code></li>
+<li>(2) Default arg is <code>localStorage</code></li>
+<li>(3) Default arg is <code>sessionStorage</code></li>
+<li>(4) Outer Whitespace is Trimmed</li>
+<li>(5) Default is EMPTY</li>
+<li>(6) Expects Element Ref or Element ID</li>
+<li>(7) Verbose Format (Prettified)</li>
+<li>(8) Terse Format</li>
+</ul>
+<hr>
+<h2>Global Methods</h2>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Action</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>perform</td>
+<td>Execute <code>INPUT</code> Value as JS</td>
+<td>1</td>
+</tr>
+<tr>
+<td>seeker</td>
+<td>Obtain Filtered List of Members</td>
+<td>2</td>
+</tr>
+<tr>
+<td>droplist</td>
+<td>Create <code>SELECT</code> Element</td>
+<td>2</td>
+</tr>
+<tr>
+<td>blurt</td>
+<td>Show Info Message</td>
+<td>2</td>
+</tr>
+<tr>
+<td>dangit</td>
+<td>Show Warning Message</td>
+<td>2</td>
+</tr>
+<tr>
+<td>bummer</td>
+<td>Show Error Message</td>
+<td>2</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Append Message Log Entry</td>
+<td>2</td>
+</tr>
+<tr>
+<td>crashed</td>
+<td>Show Error in Popup Dialog</td>
+<td>2</td>
+</tr>
+<tr>
+<td>claim</td>
+<td>Signal Event as Handled</td>
+<td>2</td>
+</tr>
+<tr>
+<td>nid</td>
+<td>Generate Random ID</td>
+<td>2</td>
+</tr>
+<tr>
+<td>now</td>
+<td>Read Epoch Clock</td>
+<td>2</td>
+</tr>
+<tr>
+<td>rnd</td>
+<td>Generate Random Real Number</td>
+<td>2</td>
+</tr>
+<tr>
+<td>irnd</td>
+<td>Generate Random Integer</td>
+<td>2</td>
+</tr>
+<tr>
+<td>write_props</td>
+<td>Write Editor Properties</td>
+<td>2</td>
+</tr>
+<tr>
+<td>read_value</td>
+<td>Read HTML Element Content</td>
+<td>2</td>
+</tr>
+<tr>
+<td>get_section</td>
+<td>Obtain <code>SECTION</code> Reference</td>
+<td>2</td>
+</tr>
+<tr>
+<td>init_demo</td>
+<td>Intialize Demo App</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>Locations</h3>
+<ul>
+<li>(1) transport-demo.html</li>
+<li>(2) transport-demo.js</li>
+</ul>
+<hr>
+<h3>Notes</h3>
+<ul>
+<li>The <code>get_section()</code> method may create missing element(s)</li>
+<li>The <code>droplist()</code> method populates element from string list</li>
+<li>The <code>message()</code> method has a <code>log</code> property</li>
+<li>The <code>blurt</code>, <code>dangit</code>, and <code>bummer</code> methods use <code>HEADER</code></li>
+<li>The <code>read_value()</code> method determines property from node name</li>
+<li>Both <code>rnd()</code> and <code>irnd()</code> accept a <code>scale</code> argument</li>
+</ul>
+<hr>
+<h2>Global Properties</h2>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iwm</td>
+<td>Names of Initial <code>window</code> Members</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Global Aliases</h2>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Original Object</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>con</td>
+<td>console</td>
+</tr>
+<tr>
+<td>doc</td>
+<td>document</td>
+</tr>
+<tr>
+<td>jsn</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>ssg</td>
+<td>sessionStorage</td>
+</tr>
+<tr>
+<td>stg</td>
+<td>localStorage</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<script>
+; iwm = Object.keys( window ).sort()
+</script>
+
+<script>
+; doc = document
+; doc . title = ( `Transport Notes` )
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+</body>
+</html>
