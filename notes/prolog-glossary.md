@@ -13,7 +13,7 @@
 
 <style>
 .dot {
-	display : inlin-block;
+	display : inline-block;
 	box-sizing : border-box;
 	font : 11pt monospace;
 	line-height : 2.2ch;
