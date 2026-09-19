@@ -51,9 +51,11 @@ img { max-width: 100%; }
 <hr>
 <h1>Prolog Glossary</h1>
 <blockquote>
-<p><a href="https://nyteowldave.github.io/notes/prolog-glossary.html" title="Morpheus Edition">Morpheus</a>
-<a href="http://dave-tower/app/morpheus/notes/prolog-glossary.html" title="Tower Edition (private)">Tower</a></p>
-<p><a href="./">File System</a></p>
+<p><a href="https://nyteowldave.github.io/notes/prolog-glossary.html" title="🤩 Morpheus Edition"><code>🤩</code> Morpheus</a></p>
+<p><a href="http://dave-tower/app/morpheus/notes/prolog-glossary.html" title="Tower Edition (📛 private)"><code>📛</code> Tower</a>
+<a href="http://dave-omega/app/morpheus/notes/prolog-glossary.html" title="Omega Edition (📛 private)"><code>📛</code> Omega</a>
+<a href="http://dave-legacy/app/morpheus/notes/prolog-glossary.html" title="Legacy Edition (📛 private)"><code>📛</code> Legacy</a></p>
+<p><a href="./"><code>🗃️</code> File System</a></p>
 </blockquote>
 <hr>
 <div class="table-owner" id="table_owner"></div>
@@ -62,7 +64,7 @@ img { max-width: 100%; }
 <thead>
 <tr>
 <th>Member</th>
-<th></th>
+<th>Description</th>
 <th>Ops Group</th>
 </tr>
 </thead>
@@ -325,6 +327,9 @@ function main( event ) {
     try {
         const t = ( main . table = one( "TABLE" ) );
         table_owner . appendChild( t );
+        if ( store.has_entry( store.key ) ) {
+            _recover();
+        }
         const m = arr( t . querySelectorAll( "TD" ) );
         m . forEach( ( ge ) => canedit( ge ) );
     } catch ( e ) {
@@ -377,6 +382,11 @@ function store() {
 ;
 ; store.key = "prolog-glossary.html"
 ;
+store.has_entry = function( key ) {
+    const s = store();
+    key = ( str( key ) || store.key );
+    return ( null !== s.getItem( key ) );
+};
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -464,6 +474,14 @@ function get_table_owner( a, b, c ) {
     o . appendChild( d );
     d . appendChild( t );
     return ( d );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script id="express.js">
+function express() {
+    window.open( "http://tiny.cc/express-lane", "_blank" );
 }
 </script>
 

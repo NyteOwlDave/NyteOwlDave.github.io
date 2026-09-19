@@ -4,6 +4,18 @@
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+[prolog-glossary]:
+<https://nyteowldave.github.io/notes/prolog-glossary.html>
+"Morpheus Edition"
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+[u-01]: <./../ricolla-v1p0.js>   "Riccola API"
+[u-02]: <./../ricardo-v1p0.js>   "Ricardo API"
+[u-03]: <./../transport-demo.js> "Transport Demo App"
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 [me-morpheus]:
 <https://nyteowldave.github.io/std/api/transport/notes/transport-notes.html>
 "Morpheus Edition"
@@ -263,6 +275,10 @@ This default may be overridden with method arguments.
 
 ----------------------------------------------------------------
 
+> SEE ALSO ~ [Prolog Glossary][prolog-glossary]
+
+----------------------------------------------------------------
+
 ## Global Methods
 
 ----------------------------------------------------------------
@@ -328,6 +344,14 @@ This default may be overridden with method arguments.
 | jsn   |  JSON           |
 | ssg   |  sessionStorage |
 | stg   |  localStorage   |
+
+----------------------------------------------------------------
+
+## Source Files
+
+- [Riccola API][u-01] ~ Save File
+- [Ricardo API][u-02] ~ Open File
+- [Transport Demo App][u-03] ~ App Logic
 
 ----------------------------------------------------------------
 

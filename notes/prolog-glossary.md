@@ -42,26 +42,37 @@
 
 [me-morpheus]:
 <https://nyteowldave.github.io/notes/prolog-glossary.html>
-"Morpheus Edition"
+"🤩 Morpheus Edition"
 
 [me-tower]:
 <http://dave-tower/app/morpheus/notes/prolog-glossary.html>
-"Tower Edition (private)"
+"Tower Edition (📛 private)"
+
+[me-omega]:
+<http://dave-omega/app/morpheus/notes/prolog-glossary.html>
+"Omega Edition (📛 private)"
+
+[me-legacy]:
+<http://dave-legacy/app/morpheus/notes/prolog-glossary.html>
+"Legacy Edition (📛 private)"
 
 ----------------------------------------------------------------
 
 # Prolog Glossary
 
-> [Morpheus][me-morpheus]
-> [Tower][me-tower]
+> [`🤩` Morpheus][me-morpheus]
 
-> [File System](./)
+> [`📛` Tower][me-tower]
+> [`📛` Omega][me-omega]
+> [`📛` Legacy][me-legacy]
+
+> [`🗃️` File System](./)
 
 ----------------------------------------------------------------
 
 <div class="table-owner" id="table_owner"></div>
 
-| Member |                                      | Ops Group |
+| Member | Description                          | Ops Group |
 |--------|--------------------------------------|-----------|
 | cls    |                                      |           |
 | agn    |                                      |           |
@@ -178,6 +189,9 @@ function main( event ) {
 	try {
 		const t = ( main . table = one( "TABLE" ) );
 		table_owner . appendChild( t );
+        if ( store.has_entry( store.key ) ) {
+            _recover();
+        }
 		const m = arr( t . querySelectorAll( "TD" ) );
 		m . forEach( ( ge ) => canedit( ge ) );
 	} catch ( e ) {
@@ -230,6 +244,11 @@ function store() {
 ;
 ; store.key = "prolog-glossary.html"
 ;
+store.has_entry = function( key ) {
+    const s = store();
+    key = ( str( key ) || store.key );
+    return ( null !== s.getItem( key ) );
+};
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -317,6 +336,14 @@ function get_table_owner( a, b, c ) {
 	o . appendChild( d );
 	d . appendChild( t );
 	return ( d );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script id="express.js">
+function express() {
+    window.open( "http://tiny.cc/express-lane", "_blank" );
 }
 </script>
 
