@@ -26,7 +26,9 @@ function install( package ) {
 install.packages = {
   "?"   : "https://nyteowldave.github.io/std/api/installer/hud-installer.js"
 , "hud" : "https://nyteowldave.github.io/std/api/installer/hud-installer.js"
-, "hud-demo" : "http://dave-omega/demo/web/gems/hud-installer.js"
+, "hud-demo"   : "http://dave-omega/demo/web/gems/hud-installer.js"
+, "hud-button" : "https://nyteowldave.github.io/std/api/installer/hud-button-installer.js"
+, "hud-button-demo" : "http://dave-omega/demo/web/gems/hud-button-installer.js"
 };
 
 install.inspect = function() {
