@@ -1,5 +1,16 @@
 
-/* hud.js */
+/*
+
+    hud.js
+
+    - [x] Morpheus APIs
+    - [x] Web Demo APIs
+    - [x] Jarvis APIs
+    - [x] Omega Store Downloads
+    - [x] Express Lane
+
+*/
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -169,6 +180,13 @@ hud.run = function() {
         ed.output = "";
     }
     return ( ed );
+};
+
+hud.zoom = function( ge ) {
+    ge = ( ge || hud.editor() );
+    ge . requestFullscreen();
+    ge . focus();
+    return ( ge );
 };
 
 hud.clear = function() {
@@ -419,15 +437,33 @@ function keifer( event ) {
         hud();
         return;
     }
-    if ( sender !== ops.editor() ) {
+    const ed = ops.editor();
+    if ( sender !== ed ) {
         return;
     }
     if ( mods & ops.modkeys.ALT ) {
+        const ch = String.fromCharCode( code );
         if ( code == 13 ) {
             ops.mine( event );
             ops.run();
             return;
         }
+        if ( ch === "Z" ) {
+            ops.mine( event );
+            ops.zoom();
+            return;
+        }
+        if ( ch === "X" ) {
+            ops.mine( event );
+            ops.memo.swap();
+            return;
+        }
+        if ( ch === "K" ) {
+            ops.mine( event );
+            ops.dir();
+            return;
+        }
+        return;
     }
     if ( code === 9 ) {
         if ( mods ) { return; }

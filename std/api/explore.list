@@ -1,5 +1,3 @@
-.
-..
 bluto
 chronos
 core
@@ -26,6 +24,7 @@ modules.php
 module-status.js
 morpheus.ico
 popeye.js
+table-decal-stats.js
 tree.html
 tree.php
 ws-api.png

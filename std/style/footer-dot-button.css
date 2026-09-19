@@ -1,0 +1,27 @@
+
+/*
+
+	footer-dot-button.css 
+	
+	- [x] Morpheus Styles
+	- [x] Web Demo Styles
+	- [x] Jarvis Styles
+	- [x] Omega Store Downloads
+	
+*/
+
+.dot {
+    display : inline-block;
+    box-sizing : border-box;
+    font : 11pt monospace;
+    line-height : 2.2ch;
+    width  : 2.2ch;
+    height : 2.2ch;
+    cursor      : pointer;
+    text-align  : center;
+    user-select : none;
+    outline     : none;
+    border      : none;
+    margin      : 0px 16px 0px 5px;
+}
+
