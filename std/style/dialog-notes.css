@@ -1,0 +1,61 @@
+
+/*
+	dialog-notes.css
+
+	- [x] Tower Store Downloads
+	- [x] Morpheus Styles
+	- [x] Jarvis Styles
+	- [.] Demo Styles
+	- [.] Express Lane
+	- [.] Stella's Styles
+
+*/
+
+[wide] {
+	width : calc( 100% - 100px ) !important;
+}
+
+[center] ,
+.center {
+	text-align : center;
+}
+
+.dialog {
+	z-index       : 100;
+	display       : inline-block;
+	text-align    : center;
+	border-radius : 1.4ch;
+	box-shadow    : 2px 2px 12px black;
+	padding       : 0;
+	margin        : 0;
+}
+
+.dialog-title {
+	display    : inline-block;
+	width      : 100%;
+	color : lemonchiffon;
+	background : #104410;
+	border-top-left-radius  : inherit;
+	border-top-right-radius : inherit;
+	line-height : 1.4em;
+	padding     : 0px 2ch;
+}
+
+.dialog-content {
+	font : 13pt "Geist Sans", sans-serif;
+	padding : 7px 3ch;
+	color : midnightblue;
+	background : mintcream;
+}
+
+.dialog > * ,
+.dialog * ,
+.dialog {
+	box-sizing : border-box;
+}
+
+.front {
+	z-index : 500 !important;
+	border  : 2px dashed gold;
+}
+
