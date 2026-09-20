@@ -66,6 +66,8 @@
 > [`📛` Omega][me-omega]
 > [`📛` Legacy][me-legacy]
 
+> [`🚑` Express Lane](http://tiny.cc/express-lane)
+> [`📃` App Scripts](https://script.google.com)
 > [`🗃️` File System](./)
 
 ----------------------------------------------------------------
