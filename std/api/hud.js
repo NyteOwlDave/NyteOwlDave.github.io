@@ -1,13 +1,16 @@
 
 /*
 
-    hud.js
+# hud.js
 
-    - [x] Morpheus APIs
-    - [x] Web Demo APIs
-    - [x] Jarvis APIs
-    - [x] Omega Store Downloads
-    - [x] Express Lane
+- [x] Morpheus APIs
+- [x] Web Demo APIs
+- [x] Jarvis APIs
+- [x] HUD Cloud Store
+- [x] Google App Scripts
+- [x] Omega Store Downloads
+
+### Updated ~ 2026-SEP-23 ~ Omega
 
 */
 
@@ -30,11 +33,11 @@ function hud( show ) {
 ;
 ; hud.title    = ( "Heads-Up Editor" )
 ; hud.tikey    = ( "8e314b66-9e0c-11f1-b5f8-e3977ca2d89c" )
-; hud.updated  = ( "2026-AUG-22" )
+; hud.updated  = ( "2026-SEP-23" )
 ; hud.storekey = ( "heads-up-editor.js" )
 ; hud.template = ( "http://dave-omega/demo/web/gadgets/hud-app.html" )
-; hud.cnames = [ "hide" ]
-; hud.types  = [ "TEXTAREA" ]
+; hud.cnames = [ "hide", "swapped", "siox" ]
+; hud.types  = [ "TEXTAREA", "PRE", "UL", "SELECT", "DATALIST" ]
 ;
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -91,8 +94,8 @@ hud.assist = function() {
     alert( m.join( "\n" ) );
 }
 
-hud.inspect = function() {
-    const m = hud.members();
+hud.inspect = function( o ) {
+    const m = hud.members( o );
     const c = console;
     c.groupCollapsed( "HUD Members" );
     c.table( m );
@@ -101,9 +104,105 @@ hud.inspect = function() {
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-hud.members = function() {
-    return Object.keys( hud ).sort();
+hud.members = function( o ) {
+    return Object.keys( o || hud ).sort();
 }
+
+hud.members.edit = function( o, ed ) {
+    const m = hud.members( o );
+    const v = ( m.join( "\n" ) );
+    if ( ed instanceof HTMLTextAreaElement ) {
+        ed . value = ( v );
+    } else {
+        ed = elx( "TEXTAREA" );
+        ed . value = ( v );
+        ed . classList . add( "siox" );
+        doc . body . appendChild( ed );
+    }
+    return ( ed );
+};
+
+hud.members.view = function( o, vw ) {
+    const m = hud.members( o );
+    const v = ( m.join( "\n" ) );
+    if ( vw instanceof HTMLPreElement ) {
+        vw . innerText = ( v );
+    } else {
+        vw = elx( "PRE" );
+        vw . innerText = ( v );
+        doc . body . appendChild( vw );
+    }
+    return ( vw );
+};
+
+hud.members.list = function( o, le ) {
+    const add =( k )=> {
+        const ce = elx( "LI" );
+        ce . value = (
+            ce . textContent = ( s )
+        );
+        le . appendChild( ce );
+    };
+    if (! ( le instanceof HTMLElement ) ) {
+        le = elx( "UL" );
+        doc . body . appendChild( le );
+    }
+    le . innerHTML = "";
+    const m = hud.members( o );
+    m . forEach( add );
+    return ( le );
+};
+
+hud.members.droplist = function( o, se ) {
+    const add =( k )=> {
+        const ce = elx( "OPTION" );
+        ce . value = (
+            ce . textContent = ( s )
+        );
+        le . appendChild( ce );
+    };
+    if (! ( le instanceof HTMLElement ) ) {
+        le = elx( "SELECT" );
+        doc . body . appendChild( le );
+    }
+    le . innerHTML = "";
+    const m = hud.members( o );
+    m . forEach( add );
+    return ( le );
+};
+
+hud.members.datalist = function( o, de ) {
+    const add =( k )=> {
+        const ce = elx( "OPTION" );
+        ce . value = ( s );
+        de . appendChild( ce );
+    };
+    if (! ( de instanceof HTMLElement ) ) {
+        de = elx( "DATALIST" );
+        doc . body . appendChild( le );
+    }
+    de . innerHTML = "";
+    const m = hud.members( o );
+    m . forEach( add );
+    return ( de );
+};
+
+hud.members.docify = function( o ) {
+    const records = [];
+    const add =( k )=> {
+        const v = ( o[ k ] );
+        const t = ( typeof v );
+        const c = "?";
+        const r = [ k, v, t, c ];
+        records.push( r );
+    };
+    o = ( o || hud );
+    const m = hud.members( o );
+    m . forEach( add );
+    return ( records );
+};
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 hud.peek = function( key, session ) {
     const store = (
@@ -228,6 +327,26 @@ hud.memo.swap = function() {
     return ( ed );
 };
 
+hud.memo.show = function() {
+    if ( hud.memo.swapped() ) {
+        return;
+    }
+    return hud.memo.swap();
+};
+
+hud.memo.hide = function() {
+    if (! hud.memo.swapped() ) {
+        return;
+    }
+    return hud.memo.swap();
+};
+
+hud.memo.swapped = function() {
+    const ed = hud.editor();
+    const cl = ed.classList;
+    return ( cl.contains( "swapped" ) );
+};
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 hud.stack = function() {
@@ -347,6 +466,16 @@ hud.blurt = function( s ) {
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+hud.jat = function( t ) {
+    console.table( t );
+    return ( t );
+};
+
+hud.jet = function( e ) {
+    console.error( e );
+    return ( e );
+};
+
 hud.jit = function( s ) {
     console.info( s );
     return ( s );
@@ -367,10 +496,6 @@ hud.jyt = function( s ) {
     return ( s );
 };
 
-hud.jet = function( e ) {
-    console.error( e );
-    return ( e );
-};
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -479,12 +604,42 @@ function init() {
     ed.spellcheck = false;
 };
 
+ops.editor.init = init;
+
 addEventListener( "load", init );
 
 addEventListener( "keydown", keifer );
 
 } ) ( hud );
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+hud.providers = {
+  "morpheus" : "https://nyteowldave.github.io/std/api"
+, "omega"    : "http://dave-omega/app/morpheus/std/api"
+, "tower"    : "http://dave-tower/app/morpheus/std/api"
+, "legacy"   : "http://dave-legacy/app/morpheus/std/api"
+};
+
+hud.wop =( u )=> ( window.open( u, u ) );
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+hud.members.added = [
+  "hud.editor.init"
+, "hud.jat"
+, "hud.members.docify"
+, "hud.members.edit"
+, "hud.members.view"
+, "hud.members.list"
+, "hud.members.droplist"
+, "hud.members.datalist"
+, "hud.memo.show"
+, "hud.memo.hide"
+, "hud.memo.swapped"
+, "hud.providers"
+, "hud.wop"
+];
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -493,3 +648,4 @@ addEventListener( "keydown", keifer );
 ;
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
