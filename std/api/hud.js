@@ -139,7 +139,7 @@ hud.members.list = function( o, le ) {
     const add =( k )=> {
         const ce = elx( "LI" );
         ce . value = (
-            ce . textContent = ( s )
+            ce . textContent = ( k )
         );
         le . appendChild( ce );
     };
@@ -157,7 +157,7 @@ hud.members.droplist = function( o, se ) {
     const add =( k )=> {
         const ce = elx( "OPTION" );
         ce . value = (
-            ce . textContent = ( s )
+            ce . textContent = ( k )
         );
         le . appendChild( ce );
     };
@@ -174,7 +174,7 @@ hud.members.droplist = function( o, se ) {
 hud.members.datalist = function( o, de ) {
     const add =( k )=> {
         const ce = elx( "OPTION" );
-        ce . value = ( s );
+        ce . value = ( k );
         de . appendChild( ce );
     };
     if (! ( de instanceof HTMLElement ) ) {
@@ -193,7 +193,7 @@ hud.members.docify = function( o ) {
         const v = ( o[ k ] );
         const t = ( typeof v );
         const c = "?";
-        const r = [ k, v, t, c ];
+        const r = [ k, str( v ), t, c ];
         records.push( r );
     };
     o = ( o || hud );
