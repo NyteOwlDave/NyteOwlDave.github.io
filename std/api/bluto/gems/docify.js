@@ -35,6 +35,9 @@ function docify( o ) {
         if ( "string" === typeof o ) {
             return ( o.trim() );
         }
+        if ( o instanceof Function ) {
+            return ( o ).toString();
+        };
         if ( o instanceof Object ) {
             return jst( o );
         };
