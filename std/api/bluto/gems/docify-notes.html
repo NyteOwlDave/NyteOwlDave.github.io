@@ -20,6 +20,31 @@ img { max-width: 100%; }
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+<style>
+.ghost {
+    position : fixed;
+    left     : -2000px;
+    width    : 2px;
+    height   : 2px;
+    opacity  : 0;
+}
+li.clickable {
+    padding : 4px;
+    margin  : 3px;
+    cursor  : pointer;
+    display : inline-block;
+    width   : 90%;
+    border  : 2px solid transparent;
+}
+li.clickable:hover {
+    background : #A0FF40;
+    color      : black;
+    border     : 2px dotted gold;
+}
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 <hr>
 <h1 id="_T_"> Docify Gem Notes </h1>
 
@@ -173,17 +198,165 @@ footer, footer * {
 </div>
 
 <hr>
+<h1>Using Docify</h1>
+<hr>
+<p>Most of the methods are basic and self-explanatory. They're
+there for <strong>Run-Time Diagnostics</strong> and <strong>Code Spelunking</strong>.</p>
+<p>I won't dwell on those. Try them yourself in the
+<strong>Footer Command Input</strong>. Click any <i>suggestion</i> below.</p>
+<p>The real <strong>Star</strong> here is the <code>docify</code> method itself.</p>
+<h3>Suggestions</h3>
+<ul>
+<li>type( doc )</li>
+<li>ntype( doc.body )</li>
+<li>asize( Array.from( doc.scripts ) )</li>
+<li>osize( new Set( [ 4, 2, 9 ] ) )</li>
+<li>clist( ghost_anchor )</li>
+<li>cname( ghost_editor )</li>
+<li>ctype( Example )</li>
+<li>ctype( new Example() )</li>
+<li>hints( location, 'Location Members' )</li>
+<li>hints( describe, 'Describe Members' )</li>
+</ul>
+<hr>
+<h1>Example Docify Table</h1>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Type</th>
+<th>Comments</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hints</td>
+<td>function</td>
+<td>?</td>
+<td>function hints( ... ) <code>{</code> ... <code>}</code></td>
+</tr>
+<tr>
+<td>tikey</td>
+<td>string</td>
+<td>?</td>
+<td>5194e0c6-b830-11f1-b2a8-97173db9e163</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>?</td>
+<td>My Cool API Module</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Equivalent Docify JSON</h2>
+<pre><code class="language-json">[
+  [
+     &quot;hints&quot;,
+     &quot;function hints( ... ) { ... }&quot;,
+     &quot;function&quot;,
+     &quot;?&quot;
+  ],
+  [
+     &quot;tikey&quot;,
+     &quot;5194e0c6-b830-11f1-b2a8-97173db9e163&quot;,
+     &quot;string&quot;,
+     &quot;?&quot;
+  ],
+  [
+     &quot;title&quot;,
+     &quot;My Cool API Module&quot;,
+     &quot;string&quot;,
+     &quot;?&quot;
+  ]
+]
+
+</code></pre>
+<hr>
+<h2>JavaScript Source Code</h2>
+<pre><code class="language-javascript">
+// Define Some API Code
+MyCoolAPI = {};
+MyCoolAPI.hints = function( ... ) { ... };
+MyCoolAPI.tikey = &quot;5194e0c6-b830-11f1-b2a8-97173db9e163&quot;;
+MyCoolAPI.title = &quot;My Cool API Module&quot;;
+
+// Create Docify Core Table
+// ( Here's our Star at Work!!! )
+doc_table = docify( MyCoolAPI );
+
+// Populate an HTML Table using Core Table
+// ( This is a theoretical Client-Defined function )
+create_html_table( doc_table );
+
+// Convert Core Table to JSON and Edit as Text
+// ( This is a theoretical Client-Defined function )
+edit_as_json( doc_table );
+
+</code></pre>
+<hr>
+<h1>More Spelunking</h1>
+<p>For a <strong>Hierarchical Tree</strong> of <strong>Object</strong> and <strong>Function</strong> names
+within some <strong>Accessor</strong>, check out the <code>otree.js</code> module.</p>
+<p>Many other <strong>Web Apps</strong> also contain a <code>jarvis</code> method
+or <code>JarvisOps</code> object for <strong>Code Spelunking</strong>. We leave
+locating those features as an exercise for the reader.</p>
+<hr>
+<h1>Gem Source Files</h1>
+<ul>
+<li><a href="./acquire.js">acquire.js</a> ~ Acquire JS or CSS Modules</li>
+<li><a href="./describe.js">describe.js</a> ~ Description Popups Only</li>
+<li><a href="./docify.js">docify.js</a> ~ Description Popups and Docify</li>
+<li><a href="./list-to-datalist.js">list-to-datalist.js</a> ~ Convert <code>UL</code> to <code>DATALIST</code></li>
+<li><a href="./list-to-droplist.js">list-to-droplist.js</a> ~ Convert <code>UL</code> to <code>SELECT</code></li>
+<li><a href="./otree.js">otree.js</a> ~ Hierarchical Member Name Tree</li>
+<li><a href="./suggestions.js">suggestions.js</a> ~ List of Helpful Commands</li>
+</ul>
+<hr>
+<p><a id="ghost_anchor" class="ghost gadget"></a></p>
+<textarea id="ghost_editor" class="ghost gadget"></textarea>
+
 <footer>
   <input id="footer_input" onchange="perform(event)" />
 </footer>
 
 <header id="messages"></header>
 
+<hr>
 <script>
 function say( s ) {
     messages.textContent = ( s );
 }
 ; blurt = message = announce = say;
+</script>
+
+<script>
+function suggest( s ) {
+    s = str( s );
+    if ( s ) {
+        footer_input.value = ( s );
+    }
+}
+</script>
+
+<script>
+function install() {
+    say( `Install Method isn't Supported` );
+}
+</script>
+
+<script>
+function acquire() {
+    say( `Acquire Method isn't Supported` );
+}
+</script>
+
+<script>
+function request() {
+    say( `Request Method isn't Supported` );
+}
 </script>
 
 <script>
@@ -197,14 +370,19 @@ function perform( event ) {
 }
 </script>
 
-<hr>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 <script>
 ; iwm = Object.keys( window ).sort()
 </script>
 
 <script>
+; txt =( e )=> String( e.textContent || "" ).trim()
+</script>
+
+<script>
 ; doc = document
-; doc . title = ( _T_ ).textContent
+; doc . title = txt( _T_ )
 </script>
 
 <script>
@@ -234,13 +412,23 @@ function perform( event ) {
 
 <script src="https://nyteowldave.github.io/std/api/gems/prolog-beta.js"></script>
 <script src="./docify.js"></script>
+<script src="./otree.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script>
-addEventListener(
- "load", (e)=>( say("Ready!") )
-);
+function main( event ) {
+    try {
+        make_clickable();
+        say( "Ready!" );
+    } catch ( e ) {
+        crashed ( e );
+    }
+}
+</script>
+
+<script>
+addEventListener( "load", main );
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -254,7 +442,6 @@ function pass( provider ) {
     const s = ops.splitters[ pk ];
     const k = ops.storekey;
     const u = [ p, s, k ].join( "/" );
-//  alert( u ); 
     if ( null === localStorage ) {
         visit( u );
     } else {
@@ -271,12 +458,21 @@ function pass( provider ) {
 
 <script>
 function visit( u ) {
-    const a = doc . createElement( "A" );
+    const a = ghost_anchor;
     a . setAttribute(
         ( "target"   )
       , ( a.href = u )
     );
     a . click();
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function crashed( e ) {
+    console.error ( e );
+    window .alert ( e );
 }
 </script>
 
@@ -313,6 +509,88 @@ function _do_3() {
         }
     } catch ( e ) {
         crashed ( e );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+class Example {}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function make_clickable() {
+    const c = "Suggestions";
+    const hdr = locate( "H3", c );
+    if ( hdr ) {
+        const ul = next_sibling( "UL", hdr );
+        if (! ul ) {
+            throw new Error(
+                `Can't Locate Sibling List : "${c}"`
+            );
+        }
+        const items = arr(
+            ( ul ).querySelectorAll( "LI" )
+        );
+        function clickable( ce ) {
+            ce.onclick = ( e ) => {
+                suggest( txt( ce ) );
+            };
+            ce.classList.add( "clickable" );
+        }
+        items.forEach( clickable );
+    } else {
+        throw new Error( `Can't Locate Header : "${c}"` );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function locate( type, content ) {
+    const m = all( type );
+    const v = ( m ).filter(
+        ( ge ) => {
+            const gt = txt( ge );
+            return ( gt === content );
+        }
+    );
+    return ( v[ 0 ] );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function next_sibling( type, gadget ) {
+    let t, ce = ( gadget . nextElementSibling );
+    let limit = 10000;
+    while ( ce ) {
+        t = ce.nodeName;
+        if ( t === type ) {
+            return ( ce );
+        }
+        if ( --limit < 1 ) {
+            throw new Error( "Exceeded Max Depth" );
+        }
+        ce = ce . nextElementSibling;
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function canedit( ge, en=1 ) {
+    const CE = "contenteditable";
+    if ( en ) {
+        ge.setAttribute( CE, "true" );
+    } else {
+        ge.removeAttribute( CE );
     }
 }
 </script>

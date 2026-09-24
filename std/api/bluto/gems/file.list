@@ -11,6 +11,7 @@ folder.list
 gems.png
 list-scripts.sh
 list-to-datalist.js
+list-to-droplist.js
 otree.js
 script.list
 suggestions.js
