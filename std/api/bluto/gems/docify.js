@@ -31,6 +31,15 @@ function hints( o, title ) {
 };
 
 function docify( o ) {
+    function __str( o ) {
+        if ( "string" === typeof o ) {
+            return ( o.trim() );
+        }
+        if ( o instanceof Object ) {
+            return jst( o );
+        };
+        return String( o );
+    }
     const m = Object.keys( o ).sort();
     const t = [];
     let w, x, y, z;
@@ -38,12 +47,20 @@ function docify( o ) {
         x = o[ k ];
         y = ( typeof k );
         z = "...";
-        w = [ k, x, y, z ];
+        w = [ k, __str( x ), y, z ];
         t . push( w );
     };
     m . forEach( add );
     return ( t );
 }
+
+docify.help = function() {
+    const p = "https://nyteowldave.github.io";
+    const s = "std/api/bluto/gems";
+    const k = "docify-notes.html";
+    const u = [ p, s, k ].join( "/" );
+    return ( window.open( u, u ) );
+};
 
 describe = {
   type, ntype
