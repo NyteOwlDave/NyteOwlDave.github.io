@@ -38,18 +38,18 @@ function docify( o ) {
         if ( o instanceof Object ) {
             return jst( o );
         };
-        return String( o );
+        return ( ( o ).toString() );
     }
-    const m = Object.keys( o ).sort();
     const t = [];
     let w, x, y, z;
     const add =( k )=> {
         x = o[ k ];
-        y = ( typeof k );
+        y = ( typeof x );
         z = "...";
-        w = [ k, __str( x ), y, z ];
-        t . push( w );
+        r = [ k, __str( x ), y, z ];
+        t . push( r );
     };
+    const m = Object.keys( o ).sort();
     m . forEach( add );
     return ( t );
 }
