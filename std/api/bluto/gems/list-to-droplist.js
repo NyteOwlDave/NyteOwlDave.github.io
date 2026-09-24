@@ -30,6 +30,6 @@ function list_to_droplist( list ) {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ;
-; console.log( `Loaded "${list-to-droplist.js}" Gem Module` )
+; console.log( `Loaded "list-to-droplist.js" Gem Module` )
 ;
 

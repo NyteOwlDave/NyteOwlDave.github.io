@@ -34,6 +34,6 @@ function list_to_datalist( list, input ) {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ;
-; console.log( `Loaded "" Gem Module` )
+; console.log( `Loaded "list-to-datalist.js" Gem Module` )
 ;
 

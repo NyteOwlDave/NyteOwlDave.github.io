@@ -8,6 +8,7 @@
 	CAS   : omega-firefox-omega
 */
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function otree( o, node ) {
 	node = ( node || {} );
@@ -31,11 +32,26 @@ function otree( o, node ) {
 	return ( node );
 }
 
-otree.test = function( o ) {
-	const w = otree( o || hud );
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+otree.examine = function( o, title ) {
+    const c = ( str( title ) || "Member Tree" );
+	const w = otree( o || otree );
+    const m = "[ ${c} ]\n";
+    const t = [ m, jst( w ) ];
+    window.alert( t.join( "\n" ) );
+};
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+otree.debug = function( o ) {
+	const w = otree( o || otree );
 	console . debug( w );
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+;
+; console.log( `Loaded "otree.js" Gem Module` )
+;
 
