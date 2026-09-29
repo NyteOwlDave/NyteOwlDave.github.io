@@ -32,7 +32,46 @@ _$_.polish   = function( o ) {};
 _$_.acquire  = function( o ) {};
 _$_.restyle  = function( o ) {};
 _$_.launch   = function( o ) {};
-_$_.mirror   = function( o ) {};
+
+_$_.mirror = function( o ) {
+    const iob =( o )=> ( o instanceof Object );
+    const iar =( o )=> Array.isArray( o );
+    const lst =( o )=> Object.keys( o );
+    // Assign Methods to Accessor
+    // entry.key   = Source Accessor's Key
+    // entry.value = Target Accessor's Reference
+    function assign( entry ) {
+        const k   = entry.key;
+        const src = ( _$_[ k ] );
+        if (! src ) {
+            console.warn( `Ignored Invalid Accessor Key : "${k}"` );
+            return;
+        } else {
+            console.log( `Mirroring Accessor : "${k}"` );
+        }
+        const dst = entry.value;
+        if (! iob( dst ) ) {
+            console.warn( `Ignored Invalid Accessor Reference : ${dst}` );
+            return;
+        }
+        const coopt =( w )=> {
+            dst[ w ] = src[ w ];
+        }
+        const m = lst( src );
+        m.forEach( coopt );
+    }
+    // Handle Array of Entries
+    if ( iar( o ) ) {
+        o.forEach( assign ); // Assign Methods to Each
+        return;
+    }
+    // Handle Single Entry
+    if ( iob( o ) ) {
+        assign( o ); // Assign Methods
+    } else {
+        console.warn( `Expected an Entry Object or Array of Entries` );
+    }
+};
 
 /*
 
