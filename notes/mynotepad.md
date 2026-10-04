@@ -277,7 +277,13 @@ ops.summary();
 
 # [`💧` References][raindrop]
 
+> [`💧` Prolog Glossary](./prolog-glossary.html)
+> [`💧` Activities](./activities.html)
+> [`💧` To-Do](./todo.html)
+> [`💧` SCE Notes](./sce-notes.html)
+
 > [`💧` Decore](./mynotepad-decore.html)
+> [`💧` Coordinator](./mynotepad-coordinator.html)
 > [`💧` Session Editor](./session-editor.html)
 > [`💧` Session Editor Tasks](./session-editor-tasks.html)
 > [`💧` Veer Peach Notes](./veer-peach-notes.html)
@@ -387,15 +393,15 @@ ops.summary();
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<script src="./../std/api/gems/prolog-beta.js"></script>
-<script src="./../std/api/gems/seeker.js"></script>
-<script src="./../std/api/gems/show.js"></script>
+<script src="https://nyteowldave.github.io/std/api/gems/prolog-beta.js"></script>
+<script src="https://nyteowldave.github.io/std/api/gems/seeker.js"></script>
+<script src="https://nyteowldave.github.io/std/api/gems/show.js"></script>
 
-<script src="./../std/api/popeye.js"></script>
-<script src="./../std/api/canedit.js"></script>
-<script src="./../std/api/module-status.js"></script>
+<script src="https://nyteowldave.github.io/std/api/popeye.js"></script>
+<script src="https://nyteowldave.github.io/std/api/canedit.js"></script>
+<script src="https://nyteowldave.github.io/std/api/module-status.js"></script>
 
-<script src="./../std/gadgets/header-footer.js"></script>
+<script src="https://nyteowldave.github.io/std/gadgets/header-footer.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 

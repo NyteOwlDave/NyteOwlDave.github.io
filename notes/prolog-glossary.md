@@ -28,6 +28,12 @@
 }
 </style>
 
+<style>
+.spacer {
+    margin-top : 60px;
+}
+</style>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 [prolog-home]: <./auto/>
@@ -126,7 +132,13 @@
 
 ----------------------------------------------------------------
 
-# Important
+<div class="spacer"></div>
+
+----------------------------------------------------------------
+
+# `--==>>>` IMPORTANT! `<<<==--`
+
+----------------------------------------------------------------
 
 This is a __General Purpose__ document. There are numerous
 __Prolog__ implementations in my code base.
@@ -134,6 +146,15 @@ __Prolog__ implementations in my code base.
 The implication is that there may be inconsistencies or name
 conflicts. Missing items also, which have yet to be recorded
 here.
+
+In regard to __Prolog Beta__, open the __Console__ and run the
+following __Command__:
+
+```javascript
+
+qoh()
+
+```
 
 ----------------------------------------------------------------
 

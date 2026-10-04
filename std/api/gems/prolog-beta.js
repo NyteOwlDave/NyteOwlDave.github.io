@@ -1,10 +1,13 @@
 
 /* prolog-beta.js */
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 // Client Apps should define this as Embedded JS
 // iwm = ( Object.keys( window ).sort() );
 
-;
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ; con = console
 ; doc = document
 ; idb = indexedDB
@@ -14,25 +17,38 @@
 ; ssg = sessionStorage
 ; stg = localStorage
 ; wnd = window
-;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 ; str =( o )=> String( o || "" ).trim()
 ; arr =( o )=> Array.from( o || [] )
 ; unq =( o )=> ( new Set( o || [] ) )
-;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ; psk =( p, s, k )=> ( [ p, s, k ].join( "/" ) )
 ; ksp =( k, s, p )=> psk( p, s, k )
-;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ; jsx =( o )=> jsn.stringify( o )
 ; jst =( o )=> jsn.stringify( o, null, 2 )
 ; jso =( t )=> jsn.parse( t )
 ; jsp =( t )=> jst( jso( t ) )
 ; psj =( o )=> jso( jst( o ) )
-;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ; elx =( t )=> doc.createElement( t )
-;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ; all =( q )=> arr( doc.querySelectorAll( q ) )
 ; one =( q )=>    ( doc.querySelector   ( q ) )
-;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ; gad =( o )=> ( o instanceof HTMLElement )
 ; gid =( i )=> doc.getElementById( i )
 ; god =( o )=> (
@@ -40,23 +56,33 @@
   ? ( gad( o ) ? ( o ) : gid( o ) )
   : ( null )
 )
-;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ; who =( o )=> ( ( o=god( o ) ) ? ( o.id ) : ( "?" ) )
 ; see =( o )=> alert( who( o ) )
-;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ; wse =( k, v )=> stg.setItem( k, v )
 ; rse =( k    )=> stg.getItem( k )
 ; rsk =( i    )=> stg.key( i )
-;
-; mem =( o )=> ( Object.keys( o || {} ).sort() )
-;
-; dir =( o )=> ( mem( o || stg ) )
-; tmp =( o )=> ( mem( o || ssg ) )
-;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+; mem =( o )=> ( Object.keys( o || window ).sort() )
+; dir =( o )=> ( mem( o || stg || {} ) )
+; tmp =( o )=> ( mem( o || ssg || {}) )
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ; hut =( t )=> console.table( t )
 ; hum =(   )=> hut( dir() )
 ; hun =(   )=> hut( tmp() )
-;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ; zak =( o )=> ( mem( o || wnd ) )
 ; zek =( o )=> ( mem( o || doc ) )
 ; zik =( o )=> ( mem( o || nav ) )
@@ -64,11 +90,14 @@
 ; zuk =( o )=> ( mem( o || idb ) )
 ; zck =( o )=> ( mem( o || con ) )
 ; zjk =( o )=> ( mem( o || jsn ) )
-;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function qoh() {
     hut( QuarkOpsHints );
 }
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 QuarkOps = {
     str , arr , unq ,
@@ -84,6 +113,8 @@ QuarkOps = {
     zjk , qoh ,
     hut , hum , hun
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 QuarkOpsHints = [
   [ "str" , "Create Trimmed String"             ]
@@ -132,6 +163,8 @@ QuarkOpsHints = [
 , [ "wnd" , "Alias window"                      ]
 ];
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 // Extended Aliases
 function _all_aliases() {
 ; agt = navigator.userAgent.toLowerCase()
@@ -152,6 +185,7 @@ function _all_aliases() {
     }
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /* acquire-mynotepad.js */
 ; ( ( url )=> {
@@ -161,8 +195,12 @@ function _all_aliases() {
     se.src = ( url );
 } ) ( `https://nyteowldave.github.io/std/api/gems/my-notepad-v1p0.js` );
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ;
 ; ( console.info( `Loaded "prolog-beta.js" gem` ) )
 ;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
