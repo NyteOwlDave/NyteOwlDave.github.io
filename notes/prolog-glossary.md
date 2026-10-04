@@ -67,6 +67,7 @@
 # Prolog Glossary
 
 > [`🤩` Morpheus][me-morpheus]
+> [`🗒️` My Notepad](./mynotepad.html)
 
 > [`📛` Tower][me-tower]
 > [`📛` Omega][me-omega]
