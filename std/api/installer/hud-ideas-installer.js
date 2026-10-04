@@ -2,6 +2,7 @@
 /*
     hud-installer.js
     Morpheus Edition
+    Version : 1.0.0.1
 */
 
 ( ()=> {
@@ -25,8 +26,6 @@ function install_script( url) {
 };
 
 install_script( hud_ideas_script );
-
-create_sce();
 
 } )( );
 
