@@ -82,11 +82,11 @@ install.suggest = function( package ) {
 
 install.message = function( s, loud ) {
     if ( "function" === typeof message ) {
-        message( msg );
+        message( s );
     } else {
-        console.info( msg );
+        console.info( s );
         if ( loud ) {
-            alert( msg );
+            alert( s );
         }
     }
 };
