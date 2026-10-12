@@ -33,7 +33,7 @@ function hud( show ) {
 ;
 ; hud.title    = ( "Heads-Up Editor" )
 ; hud.tikey    = ( "8e314b66-9e0c-11f1-b5f8-e3977ca2d89c" )
-; hud.updated  = ( "2026-SEP-23" )
+; hud.updated  = ( "2026-OCT-12" )
 ; hud.storekey = ( "heads-up-editor.js" )
 ; hud.template = ( "http://dave-omega/demo/web/gadgets/hud-app.html" )
 ; hud.cnames = [ "hide", "swapped", "siox" ]
@@ -273,14 +273,14 @@ hud.recover.hash = function() {
     if ( k.startsWith( "#" ) ) {
         k = k.slice( 1 );
         v = ( o . getItem( k ) );
-        if ( null !=== v ) {
+        if ( null !== v ) {
             ed . value = ( v );
             hud.jot( "Recovered Session Entry" );
             return;
         }
         o = localStorage;
         v = ( o . getItem( k ) );
-        if ( null !=== v ) {
+        if ( null !== v ) {
             ed . value = ( v );
             hud.jot( "Recovered Store Entry" );
             return;
