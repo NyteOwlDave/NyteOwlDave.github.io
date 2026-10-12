@@ -24,9 +24,9 @@ function install( package ) {
     if ( "hud" === package ) {
         ops . suggest( "hud-button" );
     } else if ( "hud-button" === package ) {
-        ops . suggest( "add_hud_button()" );
+        ops . suggest . action( "add_hud_button()" );
     } else {
-        ops . suggest( "hud.recover.hash()" );
+        ops . suggest . action( "hud.recover.hash()" );
     }
     return ( se );
 };
@@ -71,8 +71,13 @@ install.inspect = function() {
 install.suggest = function( package ) {
     const ops = install;
     const cmd = ( `install( '${package}' )` );
+    ops . suggest . action( cmd );
+};
+
+install.suggest.action = function( s ) {
+    const ops = install;
     if ( "function" === typeof suggest ) {
-        suggest( cmd );
+        suggest( s );
     } else {
         const id = ( "footer_input" );
         const ie = document.getElementById( id );
