@@ -10,7 +10,7 @@
 - [x] Google App Scripts
 - [x] Omega Store Downloads
 
-### Updated ~ 2026-SEP-23 ~ Omega
+### Updated ~ 2026-OCT-12 ~ Omega
 
 */
 
@@ -263,6 +263,33 @@ hud.recover = function( key, session ) {
         hud.message( `Read "${key}" from Store` );
     }
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+hud.recover.hash = function() {
+    const ed = hud.editor();
+    let v, k = location.hash;
+    let o = sessionStorage;
+    if ( k.startsWith( "#" ) ) {
+        k = k.slice( 1 );
+        v = ( o . getItem( k ) );
+        if ( null !=== v ) {
+            ed . value = ( v );
+            hud.jot( "Recovered Session Entry" );
+            return;
+        }
+        o = localStorage;
+        v = ( o . getItem( k ) );
+        if ( null !=== v ) {
+            ed . value = ( v );
+            hud.jot( "Recovered Store Entry" );
+            return;
+        }
+        hud.jot( "No Entry Detected" );
+    } else {
+        hud.jot( "No Hash Key Detected" );
+    }
+};
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
