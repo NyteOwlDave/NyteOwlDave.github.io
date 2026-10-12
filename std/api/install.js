@@ -2,6 +2,8 @@
 /*
     install.js
     Morpheus Gems
+
+    Updated ~ 2026-OCT-12 ~ Omega
 */
 
 
@@ -21,6 +23,10 @@ function install( package ) {
     ops . message( msg );
     if ( "hud" === package ) {
         ops . suggest( "hud-button" );
+    } else if ( "hud-button" === package ) {
+        ops . suggest( "add_hud_button()" );
+    } else {
+        ops . suggest( "hud.recover.hash()" );
     }
     return ( se );
 };

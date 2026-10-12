@@ -653,19 +653,7 @@ hud.wop =( u )=> ( window.open( u, u ) );
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 hud.members.added = [
-  "hud.editor.init"
-, "hud.jat"
-, "hud.members.docify"
-, "hud.members.edit"
-, "hud.members.view"
-, "hud.members.list"
-, "hud.members.droplist"
-, "hud.members.datalist"
-, "hud.memo.show"
-, "hud.memo.hide"
-, "hud.memo.swapped"
-, "hud.providers"
-, "hud.wop"
+  "hud.recover.hash"
 ];
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
