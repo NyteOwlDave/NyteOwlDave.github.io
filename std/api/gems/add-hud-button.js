@@ -1,7 +1,7 @@
 
 /*
 
-	add-hud-button.js 
+	add-hud-button.js
 
 	- [x] Omega Store Downloads
 	- [x] Jarvis Gems Source
@@ -20,11 +20,14 @@ function add_hud_button() {
     if (! be ) {
     	be = elx( "SPAN" );
 		be . id = ( id );
-	    footer.appendChild( be );
+	    footer . appendChild( be );
     };
     be . classList . add( "dot" );
     be . textContent = "◩";
     be . onclick = function( e ) { hud(); };
+    if ( "function" === typeof suggest ) {
+        suggest( "hud.recover.hash()" );
+    }
     return ( be );
 }
 
