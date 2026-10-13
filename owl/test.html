@@ -49,6 +49,12 @@ header {
 function main( event ) {
     doc . title = "Owl v1.0 System Test";
     say( doc . title );
+    sce.run  =()=> ( window.eval( sce.value ) );
+    sce.zoom =()=> {
+        sce.requestFullscreen();
+        sce.focus();
+    };
+    owl.button( "▶️", "sce.run()", "Run Editor Script" );
 }
 addEventListener( "load", main );
 </script>

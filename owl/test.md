@@ -39,7 +39,7 @@ function main( event ) {
         sce.requestFullscreen();
         sce.focus();
     };
-    owl.button( "X", "sce.run()", "Run Editor Script" );
+    owl.button( "▶️", "sce.run()", "Run Editor Script" );
 }
 addEventListener( "load", main );
 </script>
