@@ -50,7 +50,7 @@ function init_sce() {
         const tmp = String( sce.memo.value || "" );
         sce.memo.value = sce.value;
         sce.value = tmp;
-        sce.classList.toggle( "memo" );
+        sce.classList.toggle( "swapped" );
     };
     addEventListener( "beforeunload", ()=>( sce.persist() ) );
     sce.recover();
