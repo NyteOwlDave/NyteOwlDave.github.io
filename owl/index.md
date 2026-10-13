@@ -1,0 +1,4 @@
+<script>
+location="http://tiny.cc/daves-notes";
+</script>
+
