@@ -64,7 +64,7 @@ const w = window;
 const d = document;
 const b = d.body;
 
-let o, s;
+let o, s, i;
 
 o = elx( "HEADER" );
 b . appendChild( o );
@@ -75,7 +75,7 @@ b . appendChild( o );
 o . id = ( "footer" );
 
 o = elx( "INPUT" );
-b . appendChild( o );
+footer . appendChild( o );
 o . id = ( "footer_input" );
 s = o . style;
 s . width = "calc( 100vw - 160px )";
