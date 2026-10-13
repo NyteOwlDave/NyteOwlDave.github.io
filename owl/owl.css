@@ -20,6 +20,8 @@
     background  : black;
     color : white;
     opacity : 0.5;
+    padding : 0;
+    margin-left : 4px;
 }
 
 [dot]:hover ,

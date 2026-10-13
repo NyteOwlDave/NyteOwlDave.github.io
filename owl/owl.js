@@ -105,7 +105,7 @@ owl.button = function( decal, action, hint ) {
     }
     be.textContent = str( decal );
     be.onclick = function( event ) {
-        const btn = event.sender;
+        const btn = event.target;
         const action = btn.action;
         try {
             if ( "function" === typeof action ) {
