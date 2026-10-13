@@ -12,7 +12,7 @@
 ;
 ; doc = ( document )
 ;
-; elx =( t )=> ( doc . createElement( t )
+; elx =( t )=> ( doc . createElement( t ) )
 ; str =( o )=> String( o || "" ).trim()
 ;
 ; psk =( p, s, k )=> ( [ p, s, k ] . join( "/" ) )
