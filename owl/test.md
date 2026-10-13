@@ -1,4 +1,7 @@
+<head> <link rel="icon" href="favicon.ico" /> </head>
+
 <style> @import url("./owl.css"); </style>
+
 <style>
 .fill {
     position : absolute;
@@ -25,21 +28,36 @@ header {
     font   : 20pt monospace;
 }
 </style>
+
 <textarea id="sce" class="fill" wrap="off"></textarea>
+
 <script>
 ; iwm = Object.keys( window ).sort();
 </script>
+
 <script src="https://nyteowldave.github.io/owl/owl.js"></script>
+
 <script>
 function main( event ) {
-	doc . title = "Owl v1.0 System Test";
+	doc . title = "Owl v1.1 System Test";
     say( doc . title );
     sce.run  =()=> ( window.eval( sce.value ) );
     sce.zoom =()=> {
         sce.requestFullscreen();
         sce.focus();
     };
-    owl.button( "▶️", "sce.run()", "Run Editor Script" );
+    sce.toggle =()=> ( sce.classList.toggle( "hide" ) );
+    owl.button( "▶️", "sce.run()"    , "▶️ Run Editor Script" );
+    owl.button( "💠", "sce.zoom()"   , "💠 Zoom Editor" );
+    owl.button( "◩", "sce.toggle()"  , "◩ Toggle Editor" );
+    owl.button( "🧝", "assist()"     , "🧝 Help" );
 }
 addEventListener( "load", main );
 </script>
+
+<script>
+function assist() {
+    visit( "owl-help.html" );
+}
+</script>
+

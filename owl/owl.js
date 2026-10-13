@@ -18,6 +18,15 @@
 ; psk =( p, s, k )=> ( [ p, s, k ] . join( "/" ) )
 ; ksp =( k, s, p )=> psk( p, s, k )
 ;
+; cls =()=> ( console.clear() )
+;
+; nop =( o )=> ( o )
+; qlc =( o, sep="\n" )=> ( o.join( sep ) )
+; qlp =( o, sep="\n" )=> {
+    o = o.split( sep ) . map( str );
+    return ( o . filter( nop ) );
+}
+;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -124,6 +133,22 @@ owl.button = function( decal, action, hint ) {
 } )()
 ;
 
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+function visit( u ) {
+    if ( null === localStorage ) {
+        const a = elx( "A" );
+        a . href = ( u );
+        a .click();
+    } else {
+        wop( u );
+    }
+}
+
+function wop( u ) {
+    return window.open( u, u );
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

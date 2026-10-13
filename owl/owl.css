@@ -12,9 +12,9 @@
     cursor : pointer;
     display : inline-block;
     border-radius : 100%;
-    width  : 3.5ch;
-    height : 3.5ch;
-    line-height : 3.5ch;
+    width  : 4ch;
+    height : 4ch;
+    line-height : 4ch;
     font-family : monospace;
     text-align  : center;
     background  : black;
