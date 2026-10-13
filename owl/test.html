@@ -51,29 +51,20 @@ header {
 
 <script src="https://nyteowldave.github.io/owl/owl.js"></script>
 
-<script>
-function main( event ) {
-    doc . title = "Owl v1.1 System Test";
-    say( doc . title );
-    sce.run  =()=> ( window.eval( sce.value ) );
-    sce.zoom =()=> {
-        sce.requestFullscreen();
-        sce.focus();
-    };
-    footer_input.style.width = "calc( 100vw - 16em )";
-    sce.toggle =()=> ( sce.classList.toggle( "hide" ) );
-    owl.button( "▶️", "sce.run()"    , "▶️ Run Editor Script" );
-    owl.button( "💠", "sce.zoom()"   , "💠 Zoom Editor" );
-    owl.button( "◩", "sce.toggle()"  , "◩ Toggle Editor" );
-    owl.button( "🧝", "assist()"     , "🧝 Help" );
-}
-addEventListener( "load", main );
-</script>
+<script src="./owl-test.js"></script>
 
 <script>
-function assist() {
-    visit( "owl-help.html" );
+function main( event ) {
+    try {
+        doc . title = "Owl v1.11 System Test";
+        say( doc . title );
+        init_sce();
+        init_buttons();
+    } catch ( e ) {
+        bummer( e );
+    }
 }
+addEventListener( "load", main );
 </script>
 
 </body>
