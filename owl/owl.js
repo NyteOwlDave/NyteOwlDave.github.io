@@ -95,6 +95,32 @@ w.bummer =( e )=> {
 	say( e . message );
 };
 
+owl.button = function( decal, action, hint ) {
+    const be = elx( "BUTTON" );
+    be.classList.add( "dot" );
+    be.action = action;
+    hint = str( hint );
+    if ( hint ) {
+        be . title = ( hint );
+    }
+    be.textContent = str( decal );
+    be.onclick = function( event ) {
+        const btn = event.sender;
+        const action = btn.action;
+        try {
+            if ( "function" === typeof action ) {
+                action();
+            } else {
+                w.eval( action );
+            }
+        } catch ( e ) {
+            bummer( e );
+        }
+    };
+    footer.appendChild( be );
+    return ( be );
+};
+
 } )()
 ;
 

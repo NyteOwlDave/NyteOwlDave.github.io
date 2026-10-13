@@ -8,3 +8,24 @@
 
 * { box-sizing : border-box; }
 
+[dot], .dot {
+    cursor : pointer;
+    display : inline-block;
+    border-radius : 100%;
+    width  : 3.5ch;
+    height : 3.5ch;
+    line-height : 3.5ch;
+    font-family : monospace;
+    text-align  : center;
+    background  : black;
+    color : white;
+    opacity : 0.5;
+}
+
+[dot]:hover ,
+[dot]:focus ,
+.dot:hover  ,
+.dot:focus {
+    opacity : 1.0;
+}
+
