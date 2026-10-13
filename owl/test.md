@@ -46,6 +46,7 @@ function main( event ) {
         sce.requestFullscreen();
         sce.focus();
     };
+    footer_input.style.width = "calc( 100vw - 16em )";
     sce.toggle =()=> ( sce.classList.toggle( "hide" ) );
     owl.button( "▶️", "sce.run()"    , "▶️ Run Editor Script" );
     owl.button( "💠", "sce.zoom()"   , "💠 Zoom Editor" );

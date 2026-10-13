@@ -87,7 +87,7 @@ o = elx( "INPUT" );
 footer . appendChild( o );
 o . id = ( "footer_input" );
 s = o . style;
-s . width = "calc( 100vw - 160px )";
+s . width = "calc( 100vw - 20ch )";
 
 o . onchange = function( event ) {
 	try {
