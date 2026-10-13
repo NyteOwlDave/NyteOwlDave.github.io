@@ -3,10 +3,11 @@
 
 # hud.js
 
+- [x] HUD API Modules
+- [x] HUD Cloud Store
 - [x] Morpheus APIs
 - [x] Web Demo APIs
 - [x] Jarvis APIs
-- [x] HUD Cloud Store
 - [x] Google App Scripts
 - [x] Omega Store Downloads
 
