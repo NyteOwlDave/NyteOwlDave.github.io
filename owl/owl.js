@@ -1,12 +1,18 @@
 /*
 	owl.js
+
 	https://nyteowldave.github.io/owl/owl.js
 	https://nyteowldave.github.io/owl/owl-prolog.js
+	https://nyteowldave.github.io/owl/owl.css
+	https://nyteowldave.github.io/owl/test.html
 */
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ;
+; doc = ( document )
+;
+; elx =( t )=> ( doc . createElement( t )
 ; str =( o )=> String( o || "" ).trim()
 ;
 ; psk =( p, s, k )=> ( [ p, s, k ] . join( "/" ) )
