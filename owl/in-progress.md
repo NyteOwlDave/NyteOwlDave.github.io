@@ -10,167 +10,219 @@
 
 ----------------------------------------------------------------
 
-<h1 id="_T_"> In Progress </h1>
+<h1 id="_T_"> <code>⏱️</code> In Progress </h1>
 
-> [Owl Menu](./owl-menu.html)
-> [Owl Notes](./owl-notes.html)
-
-----------------------------------------------------------------
-
-# List Files
+> [`☰` Owl Menu](./owl-menu.html)
+> [`🗒️` Owl Notes](./owl-notes.html)
 
 ----------------------------------------------------------------
 
-> [Explore List](./explore.list)
-> [File List](./file.list)
-> [Folder List](./folder.list)
-> [Markdown List](./markdown.list)
-> [Module List](./module.list)
-> [Page List](./page.list)
-
-> [Tree](./tree.txt)
+# `📃` List Files
 
 ----------------------------------------------------------------
 
-# Markdown Pages
+> [`📃` Explore List](./explore.list)
+> [`📃` File List](./file.list)
+> [`📃` Folder List](./folder.list)
+> [`📃` Markdown List](./markdown.list)
+> [`📃` Module List](./module.list)
+> [`📃` Page List](./page.list)
+
+> [`🌴` Tree](./tree.txt)
 
 ----------------------------------------------------------------
 
-- [Owl System Test](./test.md)
-- [Owl Help](./owl-help.md)
-- [Owl Notes](./owl-notes.md)
+# `🖋️` Markdown Pages
 
 ----------------------------------------------------------------
 
-# API Modules
+- [`🖋️` Owl System Test](./test.md)
+- [`🖋️` Owl Help](./owl-help.md)
+- [`🖋️` Owl Notes](./owl-notes.md)
 
 ----------------------------------------------------------------
 
-- [owl.js](./owl.js)
-- [owl-test.js](./owl-test.js)
-- [list-manager.js](./list-manager.js)
+# `🅜` API Modules
 
 ----------------------------------------------------------------
 
-# Gem Modules
+- [`🅜` owl.js](./owl.js)
+- [`🅜` owl-test.js](./owl-test.js)
+- [`🅜` list-manager.js](./list-manager.js)
 
 ----------------------------------------------------------------
 
-- [list-dot-pages-01.js](./gems/list-dot-pages-01.js)
+# `💎` Gem Modules
 
 ----------------------------------------------------------------
 
-# Theme Modules
+- [`💎` list-dot-pages-01.js](./gems/list-dot-pages-01.js)
 
 ----------------------------------------------------------------
 
-- [owl.css](./owl.css)
+# `🎨` Theme Modules
 
 ----------------------------------------------------------------
 
-# Dot Rockets
+- [`🎨` owl.css](./owl.css)
 
 ----------------------------------------------------------------
 
-- [Dot Folder](./dot/)
+# `🚀` Dot Rockets
 
 ----------------------------------------------------------------
 
-# Concept Documents
+- [`🚀` Dot Folder](./dot/)
 
 ----------------------------------------------------------------
 
-- [Owl Concept](./notes/owl-concept.odt)
-- [Owl Usage](./notes/owl-usage.odt)
-- [Owl Ideas](./notes/owl-ideas.odt)
-- [Owl Examples](./notes/owl-examples.odt)
+# `📄` Concept Documents
 
 ----------------------------------------------------------------
 
-# Mind Maps
+- [`📄` Owl Concept](./notes/owl-concept.odt)
+- [`📄` Owl Usage](./notes/owl-usage.odt)
+- [`📄` Owl Ideas](./notes/owl-ideas.odt)
+- [`📄` Owl Examples](./notes/owl-examples.odt)
 
 ----------------------------------------------------------------
 
-- [Owl Mind Map](./notes/owl.mm)
+# `🧠` Mind Maps
 
 ----------------------------------------------------------------
 
-# Resources
+> [`🧠` Owl Mind Map](./notes/owl.mm)
 
 ----------------------------------------------------------------
 
-> [Dave's Notes](./dot/auto/)
-> [Today Document](./dot/auto/)
-
-> [Voice Notes](./dot/auto/)
-> [Keep Notes](./dot/auto/)
-> [Outlook Notes](./dot/auto/)
-
-> [Tick-Tick](./dot/auto/)
-> [Idea-Flip](./dot/auto/)
-> [Simple Mind Map](./dot/auto/)
-
-> [GitHub](./dot/auto/)
-> [Bit Bucket](./dot/auto/)
-
-> [Code Pen](./dot/auto/)
-> [JS Fiddle](./dot/auto/)
-> [Neo Cities](./dot/auto/)
-> [Pick Code](./dot/auto/)
-> [P5 Sketches](./dot/auto/)
-
-> [G-Sites](./dot/auto/)
-> [G-Scripts](./dot/auto/)
-> [G-Docs](./dot/auto/)
-> [G-Sheets](./dot/auto/)
-
-> [Express Lane](./dot/auto/)
-> [Short URLs](./dot/auto/)
-
-> [Emokeys](./dot/auto/)
+# `🌐` Resources
 
 ----------------------------------------------------------------
 
-# Research
+> [`🟢` Dave's Notes](http://tiny.cc/daves-notes)
+> [`🟢` Today Document](http://tiny.cc/today-document)
+
+> [`🟢` Voice Notes](https://voice.google.com/u/0/messages)
+> [`🟢` Keep Notes](https://keep.google.com)
+> [`🟢` Outlook Notes](https://outlook.live.com/mail/0/notes)
+
+> [`🟢` Tick-Tick](https://ticktick.com/webapp/#p/6a99f28e8f086b72edb5a98b/tasks)
+> [`🟢` Idea-Flip](https://ideaflip.com/)
+> [`🟢` Simple Mind Map](https://simplemindmap.com/)
+> [`🟢` Mark-Ed](http://tiny.cc/ncs-mark-ed)
+> [`🟢` Clipboard](http://tiny.cc/ncs-clip-db)
+
+> [`🟢` GitHub](https://github.com/nyteowldave/)
+> [`🟢` Bit Bucket](https://bitbucket.org/NyteOwlDave/workspace/projects/)
+
+> [`🟢` Repl-It](https://replit.com/@NyteOwl64/Aragorn)
+> [`🟢` Code Pen](https://codepen.io/your-work)
+> [`🟢` JS Fiddle](https://jsfiddle.net/user/fiddles/)
+> [`🟢` Neo Cities](https://neocities.org/dashboard)
+> [`🟢` Pick Code](https://app.pickcode.io/home)
+> [`🟢` P5 Sketches](https://editor.p5js.org/nyteowldave64/sketches)
+
+> [`🟢` G-Sites](https://sites.google.com)
+> [`🟢` G-Scripts](https://script.google.com)
+> [`🟢` G-Docs](https://docs.google.com/document/u/0/)
+> [`🟢` G-Sheets](http://tiny.cc/sheena-sheet)
+> [`🟢` G-Forms](https://docs.google.com/forms/u/0/)
+
+> [`🟢` Express Lane](http://tiny.cc/express-lane)
+> [`🟢` Short URLs](https://tiny.cc/)
+> [`🟢` Raindrop](https://app.raindrop.io/my/45357558)
+
+> [`🟢` Emokeys](https://emojigraph.org/copy-keyboard/)
 
 ----------------------------------------------------------------
 
-- [?](./)
+# `⚗️` Research
 
 ----------------------------------------------------------------
 
-# Toolkit
+> [`⛔` MDN](./dot/auto/)
+> [`⛔` JS Info](./dot/auto/)
+> [`⛔` Node JS](./dot/auto/)
+> [`⛔` My SQL](./dot/auto/)
+> [`⛔` SQL Lite](./dot/auto/)
+
+> [`⛔` PHP](./dot/auto/)
+> [`⛔` Python](./dot/auto/)
+> [`⛔` Kindle](./dot/auto/)
+> [`⛔` Books Warehouse](./dot/auto/)
+> [`⛔` W3 Schools](./dot/auto/)
+
+> [`⛔` Tutorials Point](./dot/auto/)
+> [`⛔` YouTube](./dot/auto/)
 
 ----------------------------------------------------------------
 
-- [?](./)
+# `🧰` Toolkit
 
 ----------------------------------------------------------------
 
-# Current Projects
+> [`⛔` Jarvis](./dot/auto/)
+> [`⛔` Demos](./dot/auto/)
+> [`⛔` Sinkro](./dot/auto/)
+> [`⛔` Snek](./dot/auto/)
+> [`⛔` Venus](./dot/auto/)
+
+> [`⛔` Thalia](./dot/auto/)
+> [`⛔` Shirley](./dot/auto/)
+> [`⛔` Calliope](./dot/auto/)
+> [`⛔` Caspar](./dot/auto/)
+> [`⛔` Athena](./dot/auto/)
+
+> [`⛔` Dorothy](./dot/auto/)
+> [`⛔` Desiree](./dot/auto/)
+> [`⛔` Sulu](./dot/auto/)
+> [`⛔` Odin](./dot/auto/)
+> [`⛔` Magnum Opus](./dot/auto/)
+
+> [`⛔` Hottie](./dot/auto/)
+> [`⛔` Jimbo](./dot/auto/)
+> [`⛔` Norma](./dot/auto/)
+> [`⛔` Nancy](./dot/auto/)
+> [`⛔` Jefr](./dot/auto/)
+
+> [`⛔` Indy](./dot/auto/)
+> [`⛔` HUD Editor](./dot/auto/)
+> [`⛔` Chad](./dot/auto/)
+> [`⛔` Chat Apps](./dot/auto/)
+> [`🧰` Gemini Chats](http://dave-omega/rtj/rt-gemini-chats.html)
+
+> [`⛔` TiGG](./dot/auto/)
+> [`⛔` MathJax](./dot/auto/)
+> [`⛔` Lissajous](./dot/auto/)
+> [`⛔` Zephyr](./dot/auto/)
+> [`⛔` My Notepad](./dot/auto/)
 
 ----------------------------------------------------------------
 
-## Latex
-
-- [Latex](http://dave-omega/demo/latex/)
-- [Latex Area](http://dave-omega/demo/latex/area/)
-- [Integral Curves](http://dave-omega/demo/latex/area/integral-curves.md)
-- [Integral Curves Peach](http://dave-omega/demo/web/peaches/math/integral-curves.js)
+# `🧑‍💻` Current Projects
 
 ----------------------------------------------------------------
 
-## HUD
+## `🧑‍💻` Latex
 
-- [Editor](http://dave-omega/app/hud/hud.html)
+- [`🧑‍💻` Latex](http://dave-omega/demo/latex/)
+- [`🧑‍💻` Latex Area](http://dave-omega/demo/latex/area/)
+- [`🧑‍💻` Integral Curves](http://dave-omega/demo/latex/area/integral-curves.md)
+- [`🧑‍💻` Integral Curves Peach](http://dave-omega/demo/web/peaches/math/integral-curves.js)
 
 ----------------------------------------------------------------
 
-## Chad
+## `🧑‍💻` HUD
 
-- [Chatter](http://dave-omega/app/chatter/chatter.html#integral-curves.json)
-- [Chatter Menu](http://dave-omega/app/chatter/chatter-menu.html)
-- [Chatter Menu Checklist](http://dave-omega/app/chatter/notes/table/menu-checklist.html)
+- [`🧑‍💻` Editor](http://dave-omega/app/hud/hud.html)
+
+----------------------------------------------------------------
+
+## `🧑‍💻` Chad
+
+- [`🧑‍💻` Chatter](http://dave-omega/app/chatter/chatter.html#integral-curves.json)
+- [`🧑‍💻` Chatter Menu](http://dave-omega/app/chatter/chatter-menu.html)
+- [`🧑‍💻` Chatter Menu Checklist](http://dave-omega/app/chatter/notes/table/menu-checklist.html)
 
 ----------------------------------------------------------------
 
