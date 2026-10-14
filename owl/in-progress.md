@@ -196,10 +196,10 @@
 > [`🧰` Gemini Chats](http://dave-omega/rtj/rt-gemini-chats.html)
 
 > [`🧰` TiGG](https://nyteowldave.github.io/tigg/tigg.html)
-> [`🧰` MathJax](http://dave-legacy/math/latex/mathjax.html)
-> [`🧰` Lissajous](http://dave-omega/demo/web/lissajous/lissajous.html)
-> [`🧰` Zephyr](http://dave-omega/demo/web/zephyr/zephyr.html)
 > [`🧰` ZSOM Editor](http://dave-omega/app/bluto/toolkit/jsom-script-editor.html)
+> [`🧰` Manuel Editor](http://dave-legacy/app/zed/toolkit/manuscript/editor.html#hiss)
+> [`🧰` Store Key Notes](http://dave-tower/jefr/sknm/sknm.html)
+> [`🧰` Key Magic](https://nyteowldave.github.io/std/art/bgi/key-magic.html)
 
 > [`🧰` Zeek](https://codepen.io/NyteOwlDave/full/vEKWZBB)
 > [`🧰` Jangle](http://dave-probook/~/pms/jangle/)
@@ -207,16 +207,23 @@
 > [`🧰` Goldie](http://dave-legacy/app/gloria/menu-md.html)
 > [`🧰` CAS Record Form](http://dave-legacy/app/norma/atm/db/cas-form.html)
 
-> [`🧰` Store Key Notes](http://dave-tower/jefr/sknm/sknm.html)
-> [`🧰` Key Magic](https://nyteowldave.github.io/std/art/bgi/key-magic.html)
+> [`🧰` Q-Editor](http://dave-omega/Q/Editor/q-editor.html)
+> [`🧰` Teddi](http://dave-ryzen/teddi/teddi.html#ch60)
+> [`🧰` Plenum](http://dave-probook/std/waypoints/plenum/sandbox/n-script.html)
 > [`🧰` Fonzie](http://dave-legacy/jefr/fonzie/fonzie.html)
 > [`🧰` Odin](https://sites.google.com/view/ncs-odin/home)
-> [`🧰` Plenum](http://dave-probook/std/waypoints/plenum/sandbox/n-script.html)
 
 > [`🧰` My Notepad](https://nyteowldave.github.io/notes/mynotepad.html)
 > [`🧰` Session Editor](https://nyteowldave.github.io/notes/session-editor.html)
 > [`🧰` Notepad Coordinator](https://nyteowldave.github.io/notes/mynotepad-coordinator.html)
-> [`🧰` Manuel Editor](http://dave-legacy/app/zed/toolkit/manuscript/editor.html#hiss)
+> [`🧰` Quick Test](https://codepen.io/NyteOwlDave/full/KwKpzVq)
+> [`🧰` Sandbox](https://codepen.io/NyteOwlDave/full/KKOavWo)
+
+> [`🧰` MathJax](http://dave-legacy/math/latex/mathjax.html)
+> [`🧰` Lissajous](http://dave-omega/demo/web/lissajous/lissajous.html)
+> [`🧰` Zephyr](http://dave-omega/demo/web/zephyr/zephyr.html)
+> [`🧰` Palette Analyzer](http://dave-omega/demo/web/palette-analyzer.html)
+> [`🧰` Stereogram](http://dave-legacy/42/app/stereogram/docs/biblio.html)
 
 ----------------------------------------------------------------
 
