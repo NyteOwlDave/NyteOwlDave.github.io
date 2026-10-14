@@ -13,6 +13,20 @@
 [tk-007]: <./dot/snek.html> "Snek"
 [tk-008]: <./dot/key-magic.html> "Key Magic"
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+[lan-omega]:
+<http://dave-omega/app/morpheus/owl/test.html>
+"Owl System Test ~ Omega Edition"
+
+[lan-tower]:
+<http://dave-tower/app/morpheus/owl/test.html>
+"Owl System Test ~ Tower Edition"
+
+[lan-legacy]:
+<http://dave-legacy/app/morpheus/owl/test.html>
+"Owl System Test ~ Legacy Edition"
+
 ----------------------------------------------------------------
 
 <div center>
@@ -25,17 +39,20 @@
 
 ----------------------------------------------------------------
 
-> [Morpheus](https://nyteowldave.github.io/owl/owl-help.html)
-> [Project Notes](https://nyteowldave.github.io/owl/owl-notes.html)
-> [System Test](https://nyteowldave.github.io/owl/test.html)
+> [`🦉` Morpheus](https://nyteowldave.github.io/owl/owl-help.html)
+> [`🦉` Project Notes](https://nyteowldave.github.io/owl/owl-notes.html)
+> [`🦉` System Test](https://nyteowldave.github.io/owl/test.html)
 
 ----------------------------------------------------------------
 
-# `🗒️` Usage Notes
+# `🗒️` Concept Documents
 
 ----------------------------------------------------------------
 
-- ( pending )
+> [`🗒️` Owl System Concept](./notes/owl-concept.pdf)
+> [`🗒️` Owl Usage Notes](./notes/owl-usage.pdf)
+> [`🗒️` Owl Examples](./notes/owl-examples.pdf)
+> [`🗒️` Owl Ideas](./notes/owl-ideas.pdf)
 
 ----------------------------------------------------------------
 
@@ -58,6 +75,14 @@
 > [`🛠️` Snek][tk-007]
 
 > [`🛠️` Key Magic][tk-008]
+
+----------------------------------------------------------------
+
+# `📡` LAN Hosts
+
+> [`🖥️` Omega][lan-omega]
+> [`🖥️` Tower][lan-tower]
+> [`🖥️` Legacy][lan-legacy]
 
 ----------------------------------------------------------------
 

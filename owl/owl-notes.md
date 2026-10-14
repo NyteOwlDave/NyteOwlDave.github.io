@@ -20,6 +20,10 @@
 
 # Current Projects
 
+> [In Progress](./in-progress.html)
+
+----------------------------------------------------------------
+
 - Finish Integral Curves
 - Finish Cantankerous API for Morpheus
 - Finish Athena (Neo City)
@@ -28,6 +32,8 @@
 ----------------------------------------------------------------
 
 # Owl System
+
+----------------------------------------------------------------
 
 - Finish Owl API
 - Sync This Via Proton Mail

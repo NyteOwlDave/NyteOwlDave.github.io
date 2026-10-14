@@ -1,0 +1,81 @@
+.
+├── dot
+│   ├── athena.html
+│   ├── caspar.html
+│   ├── daves-notes.html
+│   ├── dot.html
+│   ├── explore.list
+│   ├── express-lane.html
+│   ├── favicon.ico
+│   ├── file.list
+│   ├── folder.list
+│   ├── key-magic.html
+│   ├── morpheus.html
+│   ├── owl.png
+│   ├── page.list
+│   ├── snek.html
+│   ├── todo.html
+│   ├── todo.md
+│   ├── tree.php
+│   ├── venus.html
+│   └── venus-omega.html
+├── dot.html
+├── explore.list
+├── express-lane.html
+├── favicon.ico
+├── file.list
+├── folder.list
+├── gems
+│   ├── dot.html
+│   ├── explore.list
+│   ├── express-lane.html
+│   ├── favicon.ico
+│   ├── file.list
+│   ├── folder.list
+│   ├── gem.list
+│   ├── gems.png
+│   ├── list-dot-pages-01.js
+│   ├── owl.png
+│   ├── test.md
+│   └── tree.txt
+├── index.html
+├── index.md
+├── in-progress.html
+├── in-progress.md
+├── key-magic.html
+├── list-manager.js
+├── markdown.list
+├── module.list
+├── notes
+│   ├── dot.html
+│   ├── express-lane.html
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── notes.png
+│   ├── owl-concept.odt
+│   ├── owl-concept.pdf
+│   ├── owl-examples.odt
+│   ├── owl-examples.pdf
+│   ├── owl-ideas.odt
+│   ├── owl-ideas.pdf
+│   ├── owl.mm
+│   ├── owl.png
+│   ├── owl-usage.odt
+│   ├── owl-usage.pdf
+│   └── tree.php
+├── owl.css
+├── owl-help.html
+├── owl-help.md
+├── owl.js
+├── owl-notes.html
+├── owl-notes.md
+├── owl.png
+├── owl-prolog.js
+├── owl-test.js
+├── page.list
+├── test.html
+├── test.md
+├── tree.php
+└── tree.txt
+
+3 directories, 75 files
