@@ -62,8 +62,15 @@
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-; who =( o )=> ( ( o=god( o ) ) ? ( o.id ) : ( "?" ) )
-; see =( o )=> alert( who( o ) )
+; who   =( o )=> ( ( o=god( o ) ) ? ( o.id ) : ( "?" ) )
+; see   =( o )=> alert( who( o ) )
+; type  =( o )=> alert( typeof o )
+; ntype =( o )=> alert( o.nodeName )
+; oname =( o )=> alert( o.constructor.name || o.name )
+; cname =( o )=> alert( o.className )
+; clist =( o )=> alert( o.classList.join( "\n" ) )
+; asize =( o )=> alert( o.length )
+; osize =( o )=> alert( o.size )
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -72,7 +79,6 @@
 ; rsk =( i    )=> stg.key( i )
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 ; mem =( o )=> ( Object.keys( o || window ).sort() )
 ; dir =( o )=> ( mem( o || stg || {} ) )
@@ -96,6 +102,26 @@
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+; nop =( o )=> ( o )
+; qlc =( o, sep="\n" )=> ( o.join( sep ) )
+; qlp =( o, sep="\n" )=> {
+    o = ( o ).split( sep ).map( str );
+    return ( o ).filter( nop );
+}
+;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+; wop =( u )=> window.open( u, u )
+; wap =( u )=> {
+    const a = elx( "A" );
+    a . href = ( u );
+    a . click();
+}
+;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 function qoh() {
     hut( QuarkOpsHints );
 }
@@ -103,18 +129,25 @@ function qoh() {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 QuarkOps = {
-    str , arr , unq ,
-    psk , ksp ,
-    jsp , psj ,
-    jsx , jst , jso ,
-    all , one , elx ,
-    gad , gid , god ,
-    wse , rse , rsk ,
-    mem , dir , tmp ,
-    zak , zek , zik ,
-    zok , zuk , zck ,
-    zjk , qoh ,
-    hut , hum , hun
+  str , arr , unq
+, psk , ksp
+, jsp , psj
+, jsx , jst , jso
+, all , one , elx
+, gad , gid , god
+, wse , rse , rsk
+, mem , dir , tmp
+, zak , zek , zik
+, zok , zuk , zck
+, zjk , qoh
+, hut , hum , hun
+, who, see
+/* ====== [[ NEW ]] ===== */
+, type
+, ntype , oname , cname
+, clist , asize, osize
+, qlc , qlp , nop
+, wop , wap
 };
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>sqlite-examples</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<!-- [[ sqlite-examples.md ]] -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+<h1>SQLite Examples</h1>
+<hr>
+<h1>Example 1</h1>
+<h2>Insert Multiple Records</h2>
+<hr>
+<pre><code class="language-sql">BEGIN TRANSACTION;
+INSERT INTO users (name, age, email) VALUES ('Alice', 30, 'alice@example.com');
+INSERT INTO users (name, age, email) VALUES ('Bob', 25, 'bob@example.com');
+INSERT INTO users (name, age, email) VALUES ('Charlie', 35, 'charlie@example.com');
+COMMIT;
+</code></pre>
+<hr>
+<blockquote>
+<p>Example 1 wraps several <code>INSERT</code> statements within a single
+<code>TRANSACTION</code> block.</p>
+</blockquote>
+<hr>
+<h1>Example 2</h1>
+<h2>Insert Multiple Records</h2>
+<hr>
+<pre><code class="language-sql">
+INSERT INTO users (name, age)
+VALUES
+    ( 'Alice'   , 30 ),
+    ( 'Bob'     , 25 ),
+    ( 'Charlie' , 44 );
+
+</code></pre>
+<hr>
+<blockquote>
+<p>Example 2 uses a single <code>INSERT</code> statement to add multiple
+records to the <code>user</code> table.</p>
+</blockquote>
+<hr>
+<h1>Example 3</h1>
+<h2>Create Table if Missing</h2>
+<hr>
+<pre><code class="language-sql">
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  age INTEGER
+
+</code></pre>
+<hr>
+<hr>
+<h1>Toolkit</h1>
+<hr>
+<blockquote>
+<p><a href="">SQLite Online</a></p>
+</blockquote>
+<hr>
+<script>
+; doc = ( document )
+; doc . title = ( "SQLite Examples" )
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+</body>
+</html>
