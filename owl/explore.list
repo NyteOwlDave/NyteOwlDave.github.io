@@ -1,6 +1,8 @@
+client
 dot
 gems
 notes
+server
 dot.html
 explore.list
 express-lane.html
@@ -25,7 +27,9 @@ owl.png
 owl-prolog.js
 owl-test.js
 page.list
+table-manager.js
 test.html
 test.md
 tree.php
 tree.txt
+update-list-files.sh

@@ -4,6 +4,12 @@
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+[sql-snek]:
+<https://nyteowldave.github.io/zed/hysteresis/alpha/pen.html#sqlite-examples.json>
+"Morpheus Edition"
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 <div center>
  <img src="owl.png" />
 </div>
@@ -14,6 +20,19 @@
 
 > [`☰` Owl Menu](./owl-menu.html)
 > [`🗒️` Owl Notes](./owl-notes.html)
+
+> [`🗒️` Owl Dots To-Do](./dot/todo.html)
+
+> [`🗂️` Owl Client Example](./client/example/)
+> [`🗂️` Owl Server Example](./server/example/)
+
+----------------------------------------------------------------
+
+# `🐍` Snek Manuscripts
+
+----------------------------------------------------------------
+
+> [`🐍` SQLite Examples Snek][sql-snek]
 
 ----------------------------------------------------------------
 
@@ -39,6 +58,8 @@
 - [`🖋️` Owl System Test](./test.md)
 - [`🖋️` Owl Help](./owl-help.md)
 - [`🖋️` Owl Notes](./owl-notes.md)
+- [`🖋️` Owl Index](./index.md)
+- [`🖋️` Owl In Progress](./in-progress.md)
 
 ----------------------------------------------------------------
 
@@ -49,6 +70,7 @@
 - [`🅜` owl.js](./owl.js)
 - [`🅜` owl-test.js](./owl-test.js)
 - [`🅜` list-manager.js](./list-manager.js)
+- [`🅜` table-manager.js](./table-manager.js)
 
 ----------------------------------------------------------------
 

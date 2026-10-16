@@ -1,0 +1,393 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>drive-index-example</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<p><head> <link rel="icon" href="favicon.ico" /> </head></p>
+<style> @import url("./../owl.css"); </style>
+
+<style>
+td input {
+    width : 90%;
+}
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h1><code>⛃</code> Drive Index Example</h1>
+<h2><code>🦉</code> Owl System for Morpheus</h2>
+<hr>
+<blockquote>
+<p><a href="http://dave-omega/app/morpheus/owl/notes/drive-index-example.html"><code>💻</code> Omega</a>
+<a href="./../owl-notes.html"><code>📘</code> Owl Notes</a></p>
+<p><a href="./"><code>🗃️</code> File System</a></p>
+</blockquote>
+<hr>
+<h1><code>☶</code> Drive Card Table</h1>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Drive</th>
+<th>Symbol</th>
+<th>Label</th>
+<th>Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A:</td>
+<td><code>💿</code></td>
+<td>Project Notes</td>
+<td>https://ticktick.com/webapp/#p/6a99f28e8f086b72edb5a98b/tasks</td>
+</tr>
+<tr>
+<td>B:</td>
+<td><code>💿</code></td>
+<td>Idea Flip</td>
+<td>https://ideaflip.com/b/sv99ag69aj8f/</td>
+</tr>
+<tr>
+<td>C:</td>
+<td><code>💿</code></td>
+<td>Simple Mind Map</td>
+<td>https://simplemindmap.com/</td>
+</tr>
+<tr>
+<td>D:</td>
+<td><code>💿</code></td>
+<td>Voice Notes</td>
+<td>https://voice.google.com/u/0/messages?itemId=t.%2B13187283242</td>
+</tr>
+<tr>
+<td>E:</td>
+<td><code>💿</code></td>
+<td>Keep Notes</td>
+<td>https://keep.google.com/</td>
+</tr>
+<tr>
+<td>F:</td>
+<td><code>💿</code></td>
+<td>Outlook Notes</td>
+<td>https://outlook.live.com/mail/0/notes</td>
+</tr>
+<tr>
+<td>G:</td>
+<td><code>💿</code></td>
+<td>Calendar</td>
+<td>https://calendar.google.com</td>
+</tr>
+<tr>
+<td>H:</td>
+<td><code>💿</code></td>
+<td>Sites</td>
+<td>https://sites.google.com</td>
+</tr>
+<tr>
+<td>I:</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Table Operations</h2>
+<div center>
+  <button id="btn_edit_mode">Toggle Edit Mode</button>
+  <button id="btn_exp_sql">Export SQL Insert</button>
+  <button id="btn_exp_html">Export HTML</button>
+  <button id="btn_exp_json">Export JSON</button>
+  <button id="btn_imp_html">Import HTML</button>
+  <button id="btn_imp_json">Import JSON</button>
+  <button id="btn_persist">Persist</button>
+  <button id="btn_recover">Recover</button>
+</div>
+
+<hr>
+<h2>Record Operations</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>drive_from</td>
+<td><input value="I:" /></td>
+</tr>
+<tr>
+<td>drive_to</td>
+<td><input value="Z:" /></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div center>
+  <button id="btn_add_records">Add</button>
+  <button id="btn_remove_records">Remove</button>
+  <button id="btn_clear_records">Clear</button>
+</div>
+
+<hr>
+<h2>Current Drive Assignments</h2>
+<ul>
+<li>[<code>A:</code>] ~ <code>💿</code> Project Notes</li>
+<li>[<code>B:</code>] ~ <code>💿</code> Idea Flip</li>
+<li>[<code>C:</code>] ~ <code>💿</code> Simple Mind Map</li>
+<li>[<code>D:</code>] ~ <code>💿</code> Voice Notes</li>
+<li>[<code>E:</code>] ~ <code>💿</code> Keep Notes</li>
+<li>[<code>F:</code>] ~ <code>💿</code> Outlook Notes</li>
+<li>[<code>G:</code>] ~ <code>💿</code> Calendar</li>
+<li>[<code>H:</code>] ~ <code>💿</code> Sites</li>
+</ul>
+<hr>
+<blockquote>
+<p><code>🧝</code> The <strong>Drive Card Table</strong> is used by
+the <a href="http://dave-owl/gadgets/grid//tools-grid.html">Grid Gadget</a> from
+the <a href="http://dave-owl/dave-owl.html">Owl Host</a>.</p>
+</blockquote>
+<hr>
+<h1><code>👀</code> Example 1</h1>
+<h2><code>⛃</code> Create Card Table</h2>
+<hr>
+<pre><code class="language-sql">
+CREATE TABLE IF NOT EXISTS cards( 
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    drive TEXT NOT NULL UNIQUE ,
+    symbol TEXT NOT NULL  ,
+    label TEXT NOT NULL   ,
+    address TEXT NOT NULL
+);
+
+</code></pre>
+<hr>
+<blockquote>
+<p><a href="https://sqliteonline.com/"><code>🧑‍🎓</code> Practice Online</a></p>
+</blockquote>
+<hr>
+<h1><code>👀</code> Example 2</h1>
+<h2><code>⛃</code> Insert Card Records</h2>
+<hr>
+<pre><code class="language-sql">
+INSERT INTO cards( drive, symbol, label, address )
+VALUES ( 'A:', '?', '?', '?' ) ,
+VALUES ( 'B:', '?', '?', '?' ) ,
+VALUES ( 'C:', '...', '...', '...' ) ;
+
+</code></pre>
+<hr>
+<blockquote>
+<p><a href="https://sqliteonline.com/"><code>🧑‍🎓</code> Practice Online</a></p>
+</blockquote>
+<hr>
+<h1><code>👀</code> Example 3</h1>
+<h2><code>⛃</code> Create User Table</h2>
+<hr>
+<pre><code class="language-sql">
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    email TEXT NOT NULL,
+    age INTEGER CHECK(age &gt;= 18),
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+</code></pre>
+<hr>
+<blockquote>
+<p><a href="https://sqliteonline.com/"><code>🧑‍🎓</code> Practice Online</a></p>
+</blockquote>
+<hr>
+<h1><code>🧰</code> Toolkit</h1>
+<hr>
+<blockquote>
+<p><a href="http://dave-omega/app/sqlite/sqlite-menu.html"><code>☰</code> SQLite Menu</a>
+<a href="https://sqliteonline.com/"><code>🌐</code> SQLite Online</a>
+<a href="https://notebook.google.com/notebook/fab55194-c7dc-4f45-b48c-257af9aa564a"><code>📘</code> SQLite Notebook</a>
+<a href="http://dave-omega/app/morpheus/owl/notes/sqlite-examples.html"><code>👀</code> SQLite Examples</a></p>
+</blockquote>
+<hr>
+<script>
+; doc = ( document )
+; doc . title = ( "Drive Index Example" )
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+<script>
+function bummer( e ) {
+    console.error ( e );
+    window .alert ( e );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+<script>
+
+function table_choose( index=0 ) {
+    const q = "TABLE";
+    const m = Array.from( doc.querySelectorAll( q ) );
+    const te = m[ parseInt( index ) ];
+    if ( te ) { return ( te ); }
+    throw new Error(
+        `Invalid Table Index : "${index}"`
+    );
+}
+
+</script>
+<script>
+
+function table_toggle_mode( index=0 ) {
+    try {
+        const te = table_choose( index );
+        const en = (! te.edit_mode );
+        table_edit_mode( index, en );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+
+</script>
+<script>
+
+function table_edit_mode( index, en=true ) {
+    try {
+        const te = table_choose( index );
+        te . edit_mode = ( en );
+        const be = te.tBodies[ 0 ];
+        const q = "TD";
+        const m = Array.from( doc.querySelectorAll( q ) );
+        let err_count = 0;
+        m . forEach(
+            ( ce ) => {
+                try {
+                    edit_mode( ce, en );
+                } catch ( e ) {
+                    console.error( e );
+                    err_count += 1;
+                }
+            }
+        );
+        if ( err_count > 0 ) {
+            const s = ( `Error Count : ${err_count}` );
+            throw new Error( s );
+        }
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+<script>
+
+function edit_mode( ge, en=true ) {
+    if ( en ) {
+        ge.setAttribute( _CE, "true" );
+    } else {
+        ge.removeAttribute( _CE );
+    }
+}
+
+;
+; _CE = "contenteditable"
+;
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+<script>
+
+table_edit_mode( 0 );
+
+</script>
+<script>
+
+; ( btn_edit_mode )
+. onclick = function( event ) {
+    table_toggle_mode( 0 );
+};
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+<script>
+
+function table_read( index ) {
+    function read_cell( ce ) {
+        const s = ( ce.textContent || "" ).trim();
+        return ( s || "?" );
+    }
+    function read_row( re ) {
+        const m = Array.from( re.cells );
+        return ( m ).map( read_cell );
+    }
+    function read_rows( be ) {
+        const m = Array.from( be.rows );
+        return ( m ).map( read_row );
+    }
+    function read_schema( he ) {
+        return read_row( he.rows[ 0 ] );
+    }
+    let table_name = ( "practice" );
+    let schema     = [];
+    let records    = [];
+    try {
+        const te = table_choose( index );
+        table_name  = ( te.title || table_name );
+        schema  = read_schema( te.tHead );
+        records = read_rows( te.tBodies[ 0 ] );
+    } catch ( e ) {
+        bummer( e );
+    }
+    const results = { table_name, schema, records };
+    console.debug( { "[ Results ]" : results } );
+    return ( results );
+}
+
+</script>
+
+<script>
+function table_write( index, records ) {
+    try {
+        throw new Error( "INCOMPLETE!" );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<script>
+function table_sql_insert( records, schema, table_name ) {
+    try {
+        throw new Error( "INCOMPLETE!" );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+</body>
+</html>
