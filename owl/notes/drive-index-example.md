@@ -8,6 +8,40 @@ td input {
 }
 </style>
 
+<style>
+fieldset {
+    border : 1px dotted gold;
+    border-radius : 3ch;
+    padding : 3ch;
+}
+</style>
+
+<style>
+legend {
+    display : inline-block;
+    border-radius : 3ch;
+    padding : 0.25ch 1.25ch;
+    background : #EE95;
+    color : black;
+}
+legend[onclick] {
+    cursor : pointer;
+    user-select : none;
+}
+legend[onclick]:hover {
+    box-shadow : 0px 0px 16px gold;
+    background : black;
+    color : mintcream;
+}
+legend h3 {
+    margin  : 0;
+    padding : 0;
+    border  : none;
+    color   : inherit;
+    background : transparent;
+}
+</style>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 [owl-grid]: <http://dave-owl/gadgets/grid//tools-grid.html>
@@ -90,6 +124,12 @@ td input {
 
 ----------------------------------------------------------------
 
+> `🧝` The __Drive Card Table__ is used by
+> the [Grid Gadget][owl-grid] from
+> the [Owl Host][owl-host].
+
+----------------------------------------------------------------
+
 ## Current Drive Assignments
 
 - [`A:`] ~ `💿` Project Notes
@@ -103,9 +143,45 @@ td input {
 
 ----------------------------------------------------------------
 
-> `🧝` The __Drive Card Table__ is used by
-> the [Grid Gadget][owl-grid] from
-> the [Owl Host][owl-host].
+<fieldset>
+<legend onclick="do_toggle_section(event)"> <h3> Tables </h3> </legend>
+<section id="table_section"></section>
+</fieldset>
+
+----------------------------------------------------------------
+
+<fieldset>
+<legend onclick="do_toggle_section(event)"> <h3> Lists </h3> </legend>
+<section id="list_section"></section>
+</fieldset>
+
+----------------------------------------------------------------
+
+<fieldset>
+<legend onclick="do_toggle_section(event)"> <h3> Drop Lists </h3> </legend>
+<section id="droplist_section"></section>
+</fieldset>
+
+----------------------------------------------------------------
+
+<fieldset>
+<legend onclick="do_toggle_section(event)"> <h3> Editors </h3> </legend>
+<section id="editor_section"></section>
+</fieldset>
+
+----------------------------------------------------------------
+
+<fieldset>
+<legend onclick="do_toggle_section(event)"> <h3> Viewers </h3> </legend>
+<section id="viewer_section"></section>
+</fieldset>
+
+----------------------------------------------------------------
+
+<fieldset>
+<legend onclick="do_toggle_section(event)"> <h3> Articles </h3> </legend>
+<section id="article_section"></section>
+</fieldset>
 
 ----------------------------------------------------------------
 
@@ -196,11 +272,278 @@ CREATE TABLE IF NOT EXISTS users (
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
 
+<script src="https://nyteowldave.github.io/owl/owl.js"></script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+<script>
+function main( event ) {
+    try {
+        table_edit_mode( 0 );
+        init_buttons();
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<script>
+addEventListener( "load", main );
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+<script>
+
+links_table = {};
+
+</script>
+
+<script>
+
+; ( ( ops ) => {
+
+ops . name = "links";
+ops . type = "links-table";
+ops . key  = "links-table.json";
+
+ops . records = [
+  [ "Project Notes" , "?", false ]
+, [ "Keep Notes"    , "?", false ]
+, [ "Voice Notes"   , "?", false ]
+, [ "Outlook Notes" , "?", false ]
+, [ "Sites"         , "?", false ]
+, [ "Calendar"      , "?", false ]
+, [ "My Notebook"   , "?", false ]
+];
+
+ops . schema = [
+  [ "Title", "Address", "Assigned" ]
+];
+
+ops . json = function() {
+    const jst =( o )=> JSON.stringify( o, null, 2 );
+    const name    = ( ops.name    );
+    const type    = ( ops.type    );
+    const key     = ( ops.key     );
+    const schema  = ( ops.schema  );
+    const records = ( ops.records );
+    const man = {
+        name   , type    , key
+      , schema , records
+    };
+    return ( jst( man ) );
+};
+
+ops . parse = function( manuscript ) {
+    function oops() {
+        throw new Error( `Invalid Store Entry` );
+    }
+    const jso =( o )=> JSON.parse( o );
+    const iar =( o )=> Array.isArray( o );
+    let man = manuscript;
+    if ( "string" === typeof man ) {
+        man = jso( man );
+    }
+    if (! ( man instanceof Object ) ) {
+        oops();
+    }
+    if ( man . type !== ops . type ) {
+        oops();
+    }
+    const _os = man . schema;
+    if (! iar( _os ) ) { oops(); }
+    const _or = man . records;
+    if (! iar( _or ) ) { oops(); }
+    ops . schema  = ( _os );
+    ops . records = ( _or );
+    ops . key  = str( man . key  ) || ( ops . key  );
+    ops . name = str( man . name ) || ( ops . name );
+};
+
+ops . store = function() {
+    const o = localStorage;
+    if ( null === o ) {
+        return sessionStorage;
+    }
+    return ( o );
+};
+
+ops . persist = function() {
+    const s = ops . store();
+    const k = ops . key;
+    const v = ops . json();
+    s . setItem( k, v );
+    console . log( `Wrote Links Table to Store` );
+};
+
+ops . recover = function() {
+    const s = ops . store();
+    const k = ops . key;
+    const v = s . getItem( k );
+    if ( null === v ) {
+        return ( ops.persist() );
+    }
+    ops . parse( v );
+    console . log( `Read Links Table from Store` );
+};
+
+ops . list = function( owner, invert ) {
+    const le = elx( "UL" );
+    const iar =( o )=> Array.isArray( o );
+    const rd  =( s )=> ( str( s ) || "?" );
+    const add =( link )=> {
+        if (! iar( link ) ) { return; }
+        const t = rd( link[ 0 ] );
+        const u = rd( link[ 1 ] );
+        const ie = elx( "LI" );
+        if ( invert ) {
+            ie . value       = ( t );
+            ie . textContent = ( u );
+        } else {
+            ie . textContent = ( t );
+            ie . value       = ( u );
+        }
+        le . appendChild( ie );
+    };
+    const m = ops . links;
+    m . forEach( add );
+    return owner . appendChild( le );
+};
+
+ops . droplist = function( owner, invert ) {
+    const le = elx( "SELECT" );
+    const iar =( o )=> Array.isArray( o );
+    const rd  =( s )=> ( str( s ) || "?" );
+    const add =( link )=> {
+        if (! iar( link ) ) { return; }
+        const t = rd( link[ 0 ] );
+        const u = rd( link[ 1 ] );
+        const ie = elx( "OPTION" );
+        if ( invert ) {
+            ie . value       = ( t );
+            ie . textContent = ( u );
+        } else {
+            ie . textContent = ( t );
+            ie . value       = ( u );
+        }
+        le . appendChild( ie );
+    };
+    const m = ops . links;
+    m . forEach( add );
+    return owner . appendChild( le );
+};
+
+ops . datalist = function( owner, invert ) {
+    const le = elx( "DATALIST" );
+    const iar =( o )=> Array.isArray( o );
+    const rd  =( s )=> ( str( s ) || "?" );
+    const add =( link )=> {
+        if (! iar( link ) ) { return; }
+        const t = rd( link[ 0 ] );
+        const u = rd( link[ 1 ] );
+        const ie = elx( "OPTION" );
+        if ( invert ) {
+            ie . value       = ( t );
+            ie . textContent = ( u );
+        } else {
+            ie . textContent = ( t );
+            ie . value       = ( u );
+        }
+    };
+    const m = ops . links;
+    m . forEach( add );
+    return owner . appendChild( le );
+};
+
+ops . populate = function( owner ) {
+    const te = elx( "TABLE" );
+    const ne = te.createCaption();
+    const he = te.createTHead();
+    const be = te.createTBody();
+    ne . textContent = ( "Links Table" );
+    const cell =( s, re )=> {
+        s = str( s ) || "?";
+        const ce = re.insertCell();
+        ce . textContent = ( s );
+    }
+    const add =( link )=> {
+        const re = be . insertRow();
+        cell( link[ 0 ], re );
+        cell( link[ 1 ], re );
+        cell( link[ 2 ], re );
+    }
+    let m = ops . links;
+    m . forEach( add );
+    const re = he.insertRow();
+    m = ops . schema;
+    m . forEach( ( s ) => cell( s, re ) );
+    return owner . appendChild( te );
+};
+
+function _persist() {
+    ops . persist();
+}
+
+ops . recover();
+
+addEventListener( "beforeunload", _persist );
+
+} ) ( links_table )
+;
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
 <script>
 function bummer( e ) {
     console.error ( e );
     window .alert ( e );
 }
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+<script>
+
+function edit_mode( ge, en=true ) {
+    if ( en ) {
+        ge.setAttribute( _CE, "true" );
+    } else {
+        ge.removeAttribute( _CE );
+    }
+}
+
+;
+; _CE = "contenteditable"
+;
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+<script>
+
+function drive_index( s ) {
+    s = str( s ).toUpperCase().replace( ":", "" );
+    if (! s ) { return -1; }
+    let i = ( s.charCodeAt( 0 ) - 65 );
+    if ( i <  0 ) { return -1; }
+    if ( i > 25 ) { return -1; }
+    return ( i );
+}
+
+function drive_letter( i=0 ) {
+    i = parseInt( i );
+    if ( isFinite( i ) ) {
+        if ( i <  0 ) { return "?"; }
+        if ( i > 25 ) { return "?"; }
+        return String.fromCharCode( 65 + i );
+    }
+    return "?";
+}
+
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
@@ -260,37 +603,6 @@ function table_edit_mode( index, en=true ) {
     }
 }
 </script>
-<script>
-
-function edit_mode( ge, en=true ) {
-    if ( en ) {
-        ge.setAttribute( _CE, "true" );
-    } else {
-        ge.removeAttribute( _CE );
-    }
-}
-
-;
-; _CE = "contenteditable"
-;
-
-</script>
-
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
-
-<script>
-
-table_edit_mode( 0 );
-
-</script>
-<script>
-
-; ( btn_edit_mode )
-. onclick = function( event ) {
-    table_toggle_mode( 0 );
-};
-
-</script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
 
@@ -330,6 +642,8 @@ function table_read( index ) {
 
 </script>
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
 <script>
 function table_write( index, records ) {
     try {
@@ -340,6 +654,8 @@ function table_write( index, records ) {
 }
 </script>
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
 <script>
 function table_sql_insert( records, schema, table_name ) {
     try {
@@ -348,6 +664,148 @@ function table_sql_insert( records, schema, table_name ) {
         bummer( e );
     }
 }
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+<script>
+
+function do_incomplete( event ) {
+    throw new Error( "INCOMPLETE!" );
+}
+
+function do_edit_mode( event ) {
+    try {
+        table_toggle_mode( 0 );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
+
+function do_exp_sql( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
+function do_exp_html( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
+function do_exp_json( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
+function do_imp_html( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
+function do_imp_json( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
+function do_persist( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
+function do_recover( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
+function do_add_records( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
+function do_remove_records( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
+function do_clear_records( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
+function do_toggle_section( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
+
+<script>
+
+function init_buttons() {
+
+    btn_edit_mode  . title = "Toggle Table Edit Mode";
+    btn_exp_sql    . title = "Export Table as SQL INSERT";
+    btn_exp_html   . title = "Export Table as HTML";
+    btn_exp_json   . title = "Export Table as JSON";
+    btn_imp_html   . title = "Import Table from HTML";
+    btn_imp_json   . title = "Import Table from JSON";
+    btn_persist    . title = "Persist Table to Store";
+    btn_recover    . title = "Recover Table from Store";
+
+    btn_add_records    . title = "Add Empty Records"
+    btn_remove_records . title = "Remove Records"
+    btn_clear_records  . title = "Make Records Empty"
+
+    btn_edit_mode . onclick = do_edit_mode;
+    btn_exp_sql   . onclick = do_exp_sql;
+    btn_exp_html  . onclick = do_exp_html;
+    btn_exp_json  . onclick = do_exp_json;
+    btn_imp_html  . onclick = do_imp_html;
+    btn_imp_json  . onclick = do_imp_json;
+    btn_persist   . onclick = do_persist;
+    btn_recover   . onclick = do_recover;
+
+    btn_add_records    . onclick = do_add_records;
+    btn_remove_records . onclick = do_remove_records;
+    btn_clear_records  . onclick = do_clear_records;
+}
+
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
