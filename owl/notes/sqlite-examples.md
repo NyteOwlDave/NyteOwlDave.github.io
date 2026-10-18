@@ -4,7 +4,6 @@
 
 <style> @import url("./../owl.css"); </style>
 
-
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
 
 [sql-practice]:   <https://sqliteonline.com/>
@@ -119,11 +118,18 @@ CREATE TABLE IF NOT EXISTS users (
 
 ----------------------------------------------------------------
 
+> ( Updated ~ 2026-OCT-18 ~ Omega )
+
+----------------------------------------------------------------
+
+<script>
+; iwm = Object.keys( window ).sort()
+</script>
+
 <script>
 ; doc = ( document )
 ; doc . title = ( "SQLite Examples" )
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~! -->
-
 
