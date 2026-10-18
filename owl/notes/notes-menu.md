@@ -199,7 +199,7 @@ addEventListener(
 </script>
 
 <script>
-; str =( s )=> String( s || " ).trim()
+; str =( s )=> String( s || "" ).trim()
 ; arr =( o )=> Array.from( o || [] )
 </script>
 

@@ -109,7 +109,7 @@ updated.inspect = function() {
 
 // NOTE : Call this @ page load
 updated.restore = function() {
-    if ( null === localStorage() ) {
+    if ( null === localStorage ) {
         return;
     }
     const ge = updated.gadget();
