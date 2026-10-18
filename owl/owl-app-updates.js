@@ -94,7 +94,7 @@ updated.inspect = function() {
     function table( m ) {
         const u = Object.keys( m );
         const record =( k )=> {
-            return ( [ k, m[ k ] );
+            return ( [ k, m[ k ] ] );
         }
         return m.map( record );
     }

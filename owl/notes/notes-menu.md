@@ -10,7 +10,7 @@
 }
 </style>
 
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <div center>
  <img src="notes.png" />
@@ -176,7 +176,9 @@ Updated ~ 2026-OCT-18 ~ Omega
   <button onclick="updated()">Accept</button>
 </div>
 <script>
-addEventListener( "load", ()=>( updated.restore() );
+addEventListener(
+    "load", ()=>( updated.restore() )
+);
 </script>
 </div>
 
@@ -211,6 +213,46 @@ addEventListener( "load", ()=>( updated.restore() );
 <script src="https://nyteowldave.github.io/owl/visit-ultra.js"></script>
 <script src="https://nyteowldave.github.io/owl/owl-app-updates.js"></script>
 
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+<script>
+chatter = {};
+</script>
+
+<script>
+chatter . remarks = ( `
+
+# Chatter Remarks
+
+- Chat JSON is not yet Published to Morpheus
+
+` );
+</script>
+
+<script>
+chatter . pass = {
+  p : "http://dave-omega"
+, s : "app/chatter"
+, k : "chatter.html#owl-notes-morpheus-01.json"
+};
+</script>
+
+<script>
+chatter . address = function() {
+    const ops = chatter;
+    const pass = ops.pass;
+    const p = pass . p ;
+    const s = pass . s ;
+    const k = padd . k ;
+    return ( [ p, s, k ] . join( "/" ) );
+};
+</script>
+
+<script>
+chatter . visit = function() {
+    return window.open( u, u );
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
