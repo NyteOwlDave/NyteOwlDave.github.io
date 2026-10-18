@@ -23,6 +23,7 @@
  <img hand id="img_ebook"       src="./ebook.png" />
  <img hand id="img_sqlite"      src="./sqlite.png" />
  <img hand id="img_drive_index" src="./drive-index.png" />
+ <img hand id="img_editions"    src="./editions.png" />
  <img hand id="img_pending"     src="./pending.png" />
 </div>
 
@@ -42,6 +43,7 @@
 | EBook        | Finished |
 | SQLite       | Finished |
 | Drive Index  | Finished |
+| Editions     | Finished |
 | Pending      | Finished |
 
 ----------------------------------------------------------------
@@ -56,6 +58,7 @@
 | EBook        | img_ebook        | ebook.png       |
 | SQLite       | img_sqlite       | sqlite.png      |
 | Drive Index  | img_drive_index  | drive-index.png |
+| Editions     | img_editions     | editions.png    |
 | Pending      | img_pending      | pending.png     |
 
 ----------------------------------------------------------------
@@ -147,6 +150,7 @@ function init_titles() {
     img_ebook        . title = "EBook";
     img_sqlite       . title = "SQLite";
     img_drive_index  . title = "Drive Index";
+    img_editions     . title = "Editions";
     img_pending      . title = "Pending";
 }
 </script>
@@ -160,6 +164,7 @@ function init_actions() {
     img_ebook        . onclick = clicked;
     img_sqlite       . onclick = clicked;
     img_drive_index  . onclick = clicked;
+    img_editions     . onclick = clicked;
     img_pending      . onclick = clicked;
 }
 </script>

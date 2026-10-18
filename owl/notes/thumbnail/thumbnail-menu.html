@@ -35,6 +35,7 @@ img { max-width: 100%; }
  <img hand id="img_ebook"       src="./ebook.png" />
  <img hand id="img_sqlite"      src="./sqlite.png" />
  <img hand id="img_drive_index" src="./drive-index.png" />
+ <img hand id="img_editions"    src="./editions.png" />
  <img hand id="img_pending"     src="./pending.png" />
 </div>
 
@@ -72,6 +73,10 @@ img { max-width: 100%; }
 </tr>
 <tr>
 <td>Drive Index</td>
+<td>Finished</td>
+</tr>
+<tr>
+<td>Editions</td>
 <td>Finished</td>
 </tr>
 <tr>
@@ -120,6 +125,11 @@ img { max-width: 100%; }
 <td>Drive Index</td>
 <td>img_drive_index</td>
 <td>drive-index.png</td>
+</tr>
+<tr>
+<td>Editions</td>
+<td>img_editions</td>
+<td>editions.png</td>
 </tr>
 <tr>
 <td>Pending</td>
@@ -206,6 +216,7 @@ function init_titles() {
     img_ebook        . title = "EBook";
     img_sqlite       . title = "SQLite";
     img_drive_index  . title = "Drive Index";
+    img_editions     . title = "Editions";
     img_pending      . title = "Pending";
 }
 </script>
@@ -219,6 +230,7 @@ function init_actions() {
     img_ebook        . onclick = clicked;
     img_sqlite       . onclick = clicked;
     img_drive_index  . onclick = clicked;
+    img_editions     . onclick = clicked;
     img_pending      . onclick = clicked;
 }
 </script>
