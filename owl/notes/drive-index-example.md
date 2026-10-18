@@ -610,6 +610,9 @@ function do_clear_records( event ) {
 function do_toggle_section( event ) {
     try {
         let sender = event.target;
+		if ( sender.nodeName === "H3" ) {
+			sender = sender . parentElement;
+		}
 		if ( sender.nodeName === "LEGEND" ) {
 			sender = sender . parentElement;
 		}
