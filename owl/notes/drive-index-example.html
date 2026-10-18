@@ -56,6 +56,19 @@ legend h3 {
 }
 </style>
 
+<style>
+[clickable] {
+    display : inline-block;
+    border-radius : 3ch;
+    padding : 0.25ch 1.25ch;
+    background : #EE86;
+    color : mintcream;;
+    border : none;
+}
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -156,14 +169,21 @@ legend h3 {
 <hr>
 <h2>Table Operations</h2>
 <div center>
-  <button id="btn_edit_mode">Toggle Edit Mode</button>
-  <button id="btn_exp_sql">Export SQL Insert</button>
-  <button id="btn_exp_html">Export HTML</button>
-  <button id="btn_exp_json">Export JSON</button>
-  <button id="btn_imp_html">Import HTML</button>
-  <button id="btn_imp_json">Import JSON</button>
-  <button id="btn_persist">Persist</button>
-  <button id="btn_recover">Recover</button>
+  <button clickable id="btn_edit_mode">Toggle Edit Mode</button>
+</div>
+
+<div center>
+  <button clickable id="btn_exp_sql">Export SQL Insert</button>
+  <button clickable id="btn_exp_html">Export HTML</button>
+  <button clickable id="btn_exp_json">Export JSON</button>
+  <button clickable id="btn_imp_html">Import HTML</button>
+  <button clickable id="btn_imp_json">Import JSON</button>
+</div>
+
+<div center>
+  <button clickable id="btn_persist">🔏 Persist</button>
+  <button clickable id="btn_recover">🔓 Recover</button>
+  <button clickable id="btn_reset">♻️ Reset</button>
 </div>
 
 <hr>
@@ -188,9 +208,9 @@ legend h3 {
 </table>
 <hr>
 <div center>
-  <button id="btn_add_records">Add</button>
-  <button id="btn_remove_records">Remove</button>
-  <button id="btn_clear_records">Clear</button>
+  <button clickable id="btn_add_records">Add</button>
+  <button clickable id="btn_remove_records">Remove</button>
+  <button clickable id="btn_clear_records">Clear</button>
 </div>
 
 <hr>
@@ -198,6 +218,11 @@ legend h3 {
 <p><code>🧝</code> The <strong>Drive Card Table</strong> is used by
 <a href="http://dave-owl/gadgets/grid//tools-grid.html">Project Tools</a> from
 the <a href="http://dave-owl/dave-owl.html">Owl LAN Host</a>.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>🧝</code> Version 1.1 of <a href="http://dave-tower/ramdisk/toolkit/project-tools-v1p1.html" title="Project Tools Version 1.1 (in Progress)">Project Tools</a> is in Progress
+on the <a href="http://dave-tower/">Tower LAN Host</a>.</p>
 </blockquote>
 <hr>
 <h2>Current Drive Assignments</h2>
@@ -310,6 +335,10 @@ CREATE TABLE IF NOT EXISTS users (
 <a href="http://dave-omega/app/morpheus/owl/notes/sqlite-examples.html"><code>👀</code> SQLite Examples</a></p>
 </blockquote>
 <hr>
+<script>
+; iwm = Object.keys( window ).sort()
+</script>
+
 <script>
 ; doc = ( document )
 ; doc . title = ( "Drive Index Example" )
@@ -582,6 +611,14 @@ function do_recover( event ) {
     }
 };
 
+function do_reset( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
 function do_add_records( event ) {
     try {
         do_incomplete( event );
@@ -645,6 +682,7 @@ function init_buttons() {
     btn_imp_json   . title = "Import Table from JSON";
     btn_persist    . title = "Persist Table to Store";
     btn_recover    . title = "Recover Table from Store";
+    btn_reset      . title = "Remove Table from Store";
 
     btn_add_records    . title = "Add Empty Records"
     btn_remove_records . title = "Remove Records"
@@ -658,6 +696,7 @@ function init_buttons() {
     btn_imp_json  . onclick = do_imp_json;
     btn_persist   . onclick = do_persist;
     btn_recover   . onclick = do_recover;
+    btn_reset     . onclick = do_reset;
 
     btn_add_records    . onclick = do_add_records;
     btn_remove_records . onclick = do_remove_records;

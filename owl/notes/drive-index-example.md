@@ -42,10 +42,28 @@ legend h3 {
 }
 </style>
 
+<style>
+[clickable] {
+    display : inline-block;
+    border-radius : 3ch;
+    padding : 0.25ch 1.25ch;
+    background : #EE86;
+    color : mintcream;;
+	border : none;
+}
+</style>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-[owl-grid]: <http://dave-owl/gadgets/grid//tools-grid.html>
-[owl-host]: <http://dave-owl/dave-owl.html>
+[owl-grid]:   <http://dave-owl/gadgets/grid//tools-grid.html>
+[owl-host]:   <http://dave-owl/dave-owl.html>
+[tower-host]: <http://dave-tower/>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+[pt-v1p1]:
+<http://dave-tower/ramdisk/toolkit/project-tools-v1p1.html>
+"Project Tools Version 1.1 (in Progress)"
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
@@ -89,22 +107,29 @@ legend h3 {
 | G:    | `💿`   | Calendar        | https://calendar.google.com |
 | H:    | `💿`   | Sites           | https://sites.google.com |
 | I:    |  ...   | ...             |  ...    |
-| Y:    |  `💿`  | Short URLs      | https://tiny.cc/tiny/manage |
-| Z:    |  `💿`  | Emojis          | https://emojigraph.org/copy-keyboard/ |
+| Y:    | `💿`   | Short URLs      | https://tiny.cc/tiny/manage |
+| Z:    | `💿`   | Emojis          | https://emojigraph.org/copy-keyboard/ |
 
 ----------------------------------------------------------------
 
 ## Table Operations
 
 <div center>
-  <button id="btn_edit_mode">Toggle Edit Mode</button>
-  <button id="btn_exp_sql">Export SQL Insert</button>
-  <button id="btn_exp_html">Export HTML</button>
-  <button id="btn_exp_json">Export JSON</button>
-  <button id="btn_imp_html">Import HTML</button>
-  <button id="btn_imp_json">Import JSON</button>
-  <button id="btn_persist">Persist</button>
-  <button id="btn_recover">Recover</button>
+  <button clickable id="btn_edit_mode">Toggle Edit Mode</button>
+</div>
+
+<div center>
+  <button clickable id="btn_exp_sql">Export SQL Insert</button>
+  <button clickable id="btn_exp_html">Export HTML</button>
+  <button clickable id="btn_exp_json">Export JSON</button>
+  <button clickable id="btn_imp_html">Import HTML</button>
+  <button clickable id="btn_imp_json">Import JSON</button>
+</div>
+
+<div center>
+  <button clickable id="btn_persist">🔏 Persist</button>
+  <button clickable id="btn_recover">🔓 Recover</button>
+  <button clickable id="btn_reset">♻️ Reset</button>
 </div>
 
 ----------------------------------------------------------------
@@ -119,9 +144,9 @@ legend h3 {
 ----------------------------------------------------------------
 
 <div center>
-  <button id="btn_add_records">Add</button>
-  <button id="btn_remove_records">Remove</button>
-  <button id="btn_clear_records">Clear</button>
+  <button clickable id="btn_add_records">Add</button>
+  <button clickable id="btn_remove_records">Remove</button>
+  <button clickable id="btn_clear_records">Clear</button>
 </div>
 
 ----------------------------------------------------------------
@@ -129,6 +154,11 @@ legend h3 {
 > `🧝` The __Drive Card Table__ is used by
 > [Project Tools][owl-grid] from
 > the [Owl LAN Host][owl-host].
+
+----------------------------------------------------------------
+
+> `🧝` Version 1.1 of [Project Tools][pt-v1p1] is in Progress
+> on the [Tower LAN Host][tower-host].
 
 ----------------------------------------------------------------
 
@@ -268,6 +298,10 @@ CREATE TABLE IF NOT EXISTS users (
 > [`👀` SQLite Examples][sql-examples]
 
 ----------------------------------------------------------------
+
+<script>
+; iwm = Object.keys( window ).sort()
+</script>
 
 <script>
 ; doc = ( document )
@@ -541,6 +575,14 @@ function do_recover( event ) {
     }
 };
 
+function do_reset( event ) {
+    try {
+        do_incomplete( event );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+
 function do_add_records( event ) {
     try {
         do_incomplete( event );
@@ -604,6 +646,7 @@ function init_buttons() {
     btn_imp_json   . title = "Import Table from JSON";
     btn_persist    . title = "Persist Table to Store";
     btn_recover    . title = "Recover Table from Store";
+    btn_reset      . title = "Remove Table from Store";
 
     btn_add_records    . title = "Add Empty Records"
     btn_remove_records . title = "Remove Records"
@@ -617,6 +660,7 @@ function init_buttons() {
     btn_imp_json  . onclick = do_imp_json;
     btn_persist   . onclick = do_persist;
     btn_recover   . onclick = do_recover;
+    btn_reset     . onclick = do_reset;
 
     btn_add_records    . onclick = do_add_records;
     btn_remove_records . onclick = do_remove_records;
