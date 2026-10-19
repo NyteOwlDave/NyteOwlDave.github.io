@@ -12,6 +12,16 @@
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+[capm]:
+<https://sites.google.com/view/morning-swill/captains-log>
+"Captain's Log"
+
+[chat]:
+<http://dave-omega/app/chatter/chatter.html#owl-notes-morpheus-02.json>
+"Chad the Chatter (LAN Only!)"
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 <div center>
  <img src="notes.png" />
 </div>
@@ -19,6 +29,9 @@
 ----------------------------------------------------------------
 
 # Owl Notes Menu
+
+> [Chad][chat]
+> [Captain's Log][capm]
 
 ----------------------------------------------------------------
 
@@ -162,7 +175,7 @@
 ## Private ( LAN Only! )
 
 > [`🟢` Omega][me-omega]
-> [`⛔` Tower][me-tower]
+> [`🟢` Tower][me-tower]
 > [`⛔` Legacy][me-legacy]
 > [`⛔` Owl][me-owl]
 
