@@ -40,8 +40,9 @@
 ----------------------------------------------------------------
 
 > [`🦉` Morpheus](https://nyteowldave.github.io/owl/owl-help.html)
-> [`🦉` Project Notes](https://nyteowldave.github.io/owl/owl-notes.html)
 > [`🦉` System Test](https://nyteowldave.github.io/owl/test.html)
+> [`🦉` Project Notes](https://nyteowldave.github.io/owl/owl-notes.html)
+> [`🦉` In Progress](https://nyteowldave.github.io/owl/in-progress.html)
 
 ----------------------------------------------------------------
 
