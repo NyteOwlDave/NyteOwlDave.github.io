@@ -1,0 +1,38 @@
+/*
+	owl-jsom.css
+	owl-jsom.js
+
+	EXAMPLE : sqlite-jsom-001.md
+    WHERE   : Tower SQLITE downloads
+*/
+
+@import url("https://nyteowldave.github.io/owl/owl.css");
+
+html {
+	background-image : url("https://nyteowldave.github.io/art/png/galaxy-station-bgi.png");
+    background-size: auto 100%;
+    background-repeat: repeat-y;
+    background-position: top;
+}
+
+body {
+	background : transparent;
+}
+
+.jsom {
+	position   : fixed;
+	margin     : 0;
+	border     : none;
+	outline    : none;
+	box-sizing : border-box;
+	overflow   : scroll;
+	resize     : both;
+	background : #FF8;
+	color      : #002;
+	left       : 0;
+	top        : 0;
+	width      : 50vw;
+	height     : 50vh;
+	max-width  : 100vw;
+	max-height : 100vh;
+}
