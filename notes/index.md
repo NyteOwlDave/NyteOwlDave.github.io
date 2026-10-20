@@ -1,6 +1,3 @@
-
-# Menu
-
-- [Workspace](./)
-- [Local Host](http://localhost)
-
+<script>
+location = "mynotepad.html";
+</script>

@@ -1,5 +1,6 @@
 dot.html
 explore.list
+explore.md
 express-lane.html
 favicon.ico
 file.list
@@ -9,13 +10,17 @@ index.md
 in-progress.html
 in-progress.md
 key-magic.html
+links-table.js
 list-manager.js
 markdown.list
 module.list
+owl-app-updates.js
 owl.css
 owl-help.html
 owl-help.md
 owl.js
+owl-jsom.css
+owl-jsom.js
 owl-notes.html
 owl-notes.md
 owl.png
@@ -28,3 +33,4 @@ test.md
 tree.php
 tree.txt
 update-list-files.sh
+visit-ultra.js
