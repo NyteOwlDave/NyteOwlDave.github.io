@@ -314,15 +314,15 @@ OwlRecommends = function() {
 
 OwlRecommends . mods = [
   "links-table.js"
-, "list-manager"
-, "table-manager"
+, "list-manager.js"
+, "table-manager.js"
 , "owl-app-updates.js"
 , "owl-jsom.js"
 , "visit-ultra.js"
 ];
 
 OwlRecommends.acquire = function( u, id ) {
-    const file( s ) {
+    function file( s ) {
         const p = ( s ).split();
         return    ( p ).pop();
     }
