@@ -321,14 +321,14 @@ OwlRecommends . mods = [
 , "visit-ultra.js"
 ];
 
-OwlRecommends.acquire = function( u, id ) {
+OwlRecommends.acquire = function( url, id ) {
     function file( s ) {
         const p = ( s ).split();
         return    ( p ).pop();
     }
     const se = elx( `SCRIPT` );
     doc . head . appendChild( se );
-    se . id  = ( id || file( u ) );
+    se . id  = ( id || file( url ) );
     se . src = ( url );
     return ( se );
 };
