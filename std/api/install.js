@@ -82,7 +82,7 @@ install.suggest.action = function( s ) {
         const id = ( "footer_input" );
         const ie = document.getElementById( id );
         if ( ie ) {
-            ie . value = ( cmd );
+            ie . value = ( s );
         } else {
             console.warn( `No Footer Input was located` );
         }
