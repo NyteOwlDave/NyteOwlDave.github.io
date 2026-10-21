@@ -17,7 +17,7 @@
                 border-radius : 3ch;
                 background : rgba( 242, 242, 182 , 0.2 );
                 text-align : center;
-            }        
+            }
             nav > button {
                 color : mintcream;
                 background-color: transparent;
@@ -96,16 +96,21 @@
 <!-- button onclick="onClickZed()">🦌 Zed</button -->
 <button onclick="onClickZeek()">🌌 Zeek</button>
 <button onclick="onClickHysteresis()">🐍 Hysteresis</button>
+<button onclick="onClickKMagic()">🔑 Key Magic</button>
+<button onclick="onClickTred()">🪴 Tree Editor</button>
         </nav>
         <h3>Dev Ops Support</h3>
         <nav>
 <button onclick="onClick3P()">🎲 Third Party Content</button>
 <button onclick="onClickDevIcons()">🃏 Design / DevOps Icons</button>
 <button onclick="onClickSiimpleIcons()">🃏 Josemi's Siimple Icons</button>
+<button onclick="onClickBGI()">🎴 Background Image</button>
 <button onclick="onClickSnips()">🦜 Chippy's Snippets</button>
 <button onclick="onClickLegends()">🚔 Squad Legends Roll Call</button>
 <button onclick="onClickRepo()">📦 Repository</button>
 <button onclick="onClickExamples()">🧑‍🎓 Examples</button>
+<button onclick="onClickDownloads()">📥 Downloads</button>
+<button onclick="onClickMyNotepad()">📝 My Notepad</button>
 <button onclick="onClickTickTick()">🗒️ Tick Tick</button>
 <button onclick="onClickKeepNotes()">🗒️ Keep Notes</button>
 <button onclick="onClickVoiceNotes()">🗒️ Voice Notes</button>
@@ -113,11 +118,8 @@
         </nav>
         <h3>New Arrivals</h3>
         <nav>
-<button onclick="onClickMyNotepad()">📝 My Notepad</button>
-<button onclick="onClickDownloads()">📥 Downloads</button>
-<button onclick="onClickBGI()">🎴 Background Image</button>
-<button onclick="onClickKMagic()">🔑 Key Magic</button>
-<button onclick="onClickTred()">🪴 Tree Editor</button>
+<button onclick="onClickOwlSystem()">🦉 Owl System</button>
+<button onclick="onClickConcepts()">🧠 Concepts</button>
         </nav>
         <h3>Contact Dave</h3>
         <nav>
@@ -125,8 +127,7 @@
 <button onclick="onClickBIO()">😎 Link-in-Bio</button>
         </nav>
         <h3>Dave's Domains</h3>
-        <nav> 
-<button onclick="onClickMe()">🖥️ NyteOwlDave.me</button>
+        <nav>
 <button onclick="onClickWork()">🖥️ NyteOwlDave.work</button>
 <button onclick="onClickLAN()">📡 Wellsted Home Network (Private)</button>
         </nav>
@@ -163,14 +164,14 @@
             function onClickThalia(){
                 energize( "thalia" );
             } 
-            // 🌌 Venus <================== [ NEW! ]
+            // 🌌 Venus
             function onClickVenus(){
                 location="./venus/";
             } 
-            // 📝 My Notepad <================== [ NEW! ]
+            // 📝 My Notepad
             function onClickMyNotepad(){
                 location="./notes/mynotepad.html";
-            } 
+            }
             // 🧭 Sulu
             function onClickSulu() {
                 location="./sulu/";
@@ -203,6 +204,10 @@
             function onClickSiimpleIcons(evt) {
                 location="https://siimple.josemi.xyz/";
             }
+            // 🎴 Background Images
+            function onClickBGI(evt) {
+                location="./dot/bgi.html";
+            }
             // 🦜 Chippy's Snippets
             function onClickSnips(evt) {
                 location="./snippets.html";
@@ -210,6 +215,14 @@
             // 🚔 Squad Legends Roll Call
             function onClickLegends(evt) {
                 location="./dev-icons/help/members.html";
+            }
+            // 🔑 Key Magic
+            function onClickKMagic(evt) {
+                location="./dot/key-magic.html";
+            }
+            // 🪴 Tree Editor
+            function onClickTred(evt) {
+                location="./dot/tred.html";
             }
             // 📦 Repository
             function onClickRepo(evt) {
@@ -219,23 +232,19 @@
             function onClickExamples(evt) {
                 location="./std/examples/";
             }
-        </script>
-        <script group="Links" subgroup="New Arrivals">
             // 📥 Downloads
             function onClickDownloads(evt) {
                 location="./std/downloads/downloads-menu.html";
             }
-            // 🎴 Background Images
-            function onClickBGI(evt) {
-                location="./dot/bgi.html";
+        </script>
+        <script group="Links" subgroup="New Arrivals">
+            // 🦉 Owl System
+            function onClickOwlSystem() {
+                location="./owl/test.html";
             }
-            // 🔑 Key Magic
-            function onClickKMagic(evt) {
-                location="./dot/key-magic.html";
-            }
-            // 🪴 Tree Editor
-            function onClickTred(evt) {
-                location="./dot/tred.html";
+            // 🧠 Concepts
+            function onClickConcepts() {
+                location="./notes/concept/";
             }
         </script>
         <script group="Links" subgroup="Contact Dave">
@@ -249,14 +258,6 @@
             }
         </script>
         <script group="Links" subgroup="Dave's Domains">
-            // 🖥️ AloraLyn.org
-            function onClickAlora(evt) {
-                location="https://aloralyn.org:4242/";
-            }
-            // 🖥️ NyteOwlDave.me
-            function onClickMe(evt) {
-                location="http://nyteowldave.me";
-            }
             // 🖥️ NyteOwlDave.work
             function onClickWork(evt) {
                 location="http://nyteowldave.work";
@@ -270,14 +271,14 @@
             function readLocalStorage() {
                 const record = ( key ) => {
                     result[ key ] = localStoraage.getItem( key );
-                }  
+                }
                 const result = {};
                 let keys = readLocalStorageKeys();
                 keys.forEach( record );
                 return result;
             }
             function readLocalStorageKeys() {
-                let i = 0; 
+                let i = 0;
                 const result = [];
                 while ( localStorage.key( i ) ) {
                     result.push( key );
@@ -293,7 +294,7 @@
         </script>
     </body>
 <!--
-    UPDATED ~ 2026-JAN-25 
+    UPDATED ~ 2026-OCT-20
     WORKSTATION ~ Omega
 -->
 </html>
