@@ -1,0 +1,298 @@
+
+<style>
+* { box-sizing : border-box;
+</style>
+
+<style>
+[big] { font : 19pt monospace; }
+[ctr] { text-align : center;   }
+</style>
+
+<style>
+html { background : #468E; }
+</style>
+
+<style>
+dl, dt, dd {
+	border-radius : 1.2ch;
+	border : 1px dashed black;
+	padding : 8px;
+}
+dt {
+	margin : 4px 0px;
+	color : mintcream;
+	text-shadow : 0 0 2px black, 1px 1px 4px navy;
+}
+dl { background : #FFDD; }
+dd { background : #0082; }
+dt[x] { background : #F56; }
+dt[y] { background : #4F6; }
+dt[z] { background : #57F; }
+dt[m] { background : #FF1; }
+</style>
+
+<style>
+textarea {
+	width : 100%;
+	min-height : 8ch;
+	max-height : calc( 100vh - 300px );
+	resize : vertical;
+	overflow : scroll;
+	border : none;
+	outline : none;
+}
+</style>
+
+<dl>
+  <dt m> <h3> Rotation Matrices </h3> </dt>
+  <dd>
+<div>
+<p>
+Basic 3D rotation about the axes. No scaling or translation
+is described by these matrices.
+</p>
+</div>
+<textarea id="sip" wrap="off"></textarea>
+  </dd>
+</dl>
+
+<dl>
+  <dt x>X-Axis</dt>
+  <dd>
+<pre big ctr>
+| 1.0   0.0     0.0   |
+| 0.0  cos(t) -sin(t) |
+| 0.0  sin(t)  cos(t) |
+</pre>
+<textarea id="ed-x-axis" wrap="off"></textarea>
+  </dd>
+</dl>
+
+<dl>
+  <dt y>Y-Axis</dt>
+  <dd>
+<pre big ctr>
+|  cos(t)  0.0  sin(t) |
+|   0.0    1.0   0.0   |
+| -sin(t)  0.0  cos(t) |
+</pre>
+<textarea id="ed-y-axis" wrap="off"></textarea>
+  </dd>
+</dl>
+
+<dl>
+  <dt z>Z-Axis</dt>
+  <dd>
+<pre big ctr>
+| cos(t) -sin(t)  0.0 |
+| sin(t)  cos(t)  0.0 |
+|  0.0     0.0    1.0 |
+</pre>
+<textarea id="ed-z-axis" wrap="off"></textarea>
+  </dd>
+</dl>
+
+<dl>
+  <dt m>Identity</dt>
+  <dd>
+<pre big ctr>
+| 1.0  0.0  0.0 |
+| 0.0  1.0  0.0 |
+| 0.0  0.0  1.0 |
+</pre>
+<textarea id="ed-identity" wrap="off"></textarea>
+  </dd>
+</dl>
+
+----------------------------------------------------------------
+
+# Editions
+
+> [Tower](http://dave-tower/app/morpheus/notes/math/xform/rotate-3d.html)
+
+----------------------------------------------------------------
+
+<script>
+; iwm = Object.keys( window ).sort()
+</script>
+
+<script>
+; doc = ( document )
+; doc . title = ( `3D Rotation Matrix` )
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script src="http://dave-tower/app/morpheus/owl/owl-prolog.js">
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function mine( ev ) {
+	if ( ev instanceof Event ) {
+		ev . preventDefault ();
+		ev . stopPropagation();
+		return ( ev );
+	}
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function modkey( code ) {
+	return [ 16, 17, 18, 92, 92 ].includes( code );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function keyanna( event ) {
+	const ge = event.target;
+	if ( ge.nodeName !== "TEXTAREA" ) {
+		return keyanna.common( event );
+	}
+	const kc = event.keyCode;
+	if ( modkey( kc ) ) { return; }
+	if ( event.ctrlKey || event.shiftKey ) {
+		return;
+	}
+	if ( event.altKey ) {
+		if ( kc === 13 ) {
+			mine( event );
+			perform( event );
+			return;
+		}
+		if ( kc === 90 ) {
+			mine( event );
+			zoom( ge );
+			return;
+		}
+		if ( kc === 88 ) {
+			mine( event );
+			swap_memo( ge );
+			return;
+		}
+	}
+	if ( kc === 9 ) {
+		mine( event );
+		const lo = ed . selectionStart;
+		const s = ed .value;
+		ed . value = [
+			( s ).slice( 0, lo )
+		  , ( s ).slice( ed.selectionEnd )
+		]. join( "\t" );
+		ed . selectionStart =
+		ed . selectionEnd   = ( lo + 1 );
+		ed . focus();
+	}
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+function _keyanna( event ) {
+	try {
+		keyanna( event );
+	} catch ( e ) {
+		bummer( e )
+	}
+}
+
+addEventListener( "keydown", _keyanna );
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+keyanna.common = function( event ) {};
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function bummer( e ) {
+	console . error( e );
+	window  . alert( e );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+function perform( event ) {
+	try {
+		const sender = event.target;
+		exec( sender . value );
+	} catch ( e ) {
+		bummer( e )
+	}
+}
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+function exec( js ) {
+	const ops = exec;
+	ops . error = ( "" );
+	try {
+		if ( macro( js ) ) { return; }
+		ops . prior = String( ops . input || "" );
+		ops . input = String( js          || "" );
+		ops . output = window . eval( js );
+	} catch ( e ) {
+		ops . output = ( "" );
+		ops . error  = ( e . message );
+		bummer( e )
+	}
+}
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function zoom( ge ) {
+	ge . requestFullscreen();
+	ge . focus();
+}
+</script>
+
+<script>
+function swap_memo( ge ) {
+	const old  = ( ge.value   );
+	ge.value   = String( ge.stashed || "" );
+	ge.stashed = ( old );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+function macro( cmd ) {
+	try {
+		// <<<=====----------------------------- TODO !!!
+		// <<<=====----------------------------- TODO !!!
+		// <<<=====----------------------------- TODO !!!
+	} catch ( e ) {
+		bummer( e )
+	}
+	return ( false );
+}
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
