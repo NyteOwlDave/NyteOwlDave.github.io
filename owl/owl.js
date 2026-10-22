@@ -104,6 +104,24 @@ w.bummer =( e )=> {
 	say( e . message );
 };
 
+owl.visit = function( u ) {
+    if ( null === localStorage ) {
+        const a = d.createElement( "A" );
+        a . href = ( u );
+        a . click();
+    } else {
+        w.open( u, u );
+    }
+};
+
+owl.build = function() {
+    const p = "https://github.com";
+    const s = "NyteOwlDave/NyteOwlDave.github.io";
+    const k = "actions";
+    const u = psk( p, s, k );
+    owl.visit( u );
+};
+
 owl.button = function( decal, action, hint ) {
     const be = elx( "BUTTON" );
     be.classList.add( "dot" );
