@@ -1,0 +1,14 @@
+
+/* fieldset-gold-border.css */
+
+fieldset {
+    padding : 20px;
+    border-radius : 20px;
+    border : 1px dotted gold;
+    background : #0003;
+}
+
+legend {
+    padding : 0.25ch 1.0ch;
+    font : 18pt sans-serif;
+}
