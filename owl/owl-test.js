@@ -61,7 +61,8 @@ function init_buttons() {
     footer_input.style.width = "calc( 100vw - 16em )";
     owl.button( "▶️", "sce.run()"    , "▶️ Run Editor Script" );
     owl.button( "💠", "sce.zoom()"   , "💠 Zoom Editor" );
-    owl.button( "◩", "sce.toggle()"  , "◩ Toggle Editor" );
+    owl.button( "◩" , "sce.toggle()" , "◩ Toggle Editor" );
     owl.button( "🧝", "assist()"     , "🧝 Help" );
+    owl.button( "⚙️", "owl.build()"  , "⚙️ Morpheus Build Action" );
 }
 
