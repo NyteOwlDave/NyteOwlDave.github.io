@@ -33,13 +33,16 @@ dt[m] { background : #FF1; }
 
 <style>
 textarea {
-	width : 100%;
+	width      : 100%;
 	min-height : 8ch;
 	max-height : calc( 100vh - 300px );
-	resize : vertical;
-	overflow : scroll;
-	border : none;
-	outline : none;
+	resize     : vertical;
+	overflow   : scroll;
+	border     : none;
+	outline    : none;
+	tab-size   : 4;
+	font	   : 12pt "Noto Mono", monospace;
+	padding    : 0.25ch 1.25ch;
 }
 </style>
 
@@ -126,6 +129,8 @@ is described by these matrices.
 <script src="http://dave-tower/app/morpheus/owl/owl-prolog.js">
 </script>
 
+<script src="./gems/rotate-3d.js"></script>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script>
@@ -154,6 +159,7 @@ function keyanna( event ) {
 	if ( ge.nodeName !== "TEXTAREA" ) {
 		return keyanna.common( event );
 	}
+	const ed = ge;
 	const kc = event.keyCode;
 	if ( modkey( kc ) ) { return; }
 	if ( event.ctrlKey || event.shiftKey ) {
@@ -167,12 +173,17 @@ function keyanna( event ) {
 		}
 		if ( kc === 90 ) {
 			mine( event );
-			zoom( ge );
+			zoom( ed );
 			return;
 		}
 		if ( kc === 88 ) {
 			mine( event );
-			swap_memo( ge );
+			swap_memo( ed );
+			return;
+		}
+		if ( kc === 71 ) { // G
+			mine( event );
+			alert( gems.list().join( "\n" ) );
 			return;
 		}
 	}
@@ -189,6 +200,20 @@ function keyanna( event ) {
 		ed . focus();
 	}
 }
+/*
+| 65 A | 66 B | 67 C | 68 D | 69 E |
+| 70 F | 71 G | 72 H | 73 I | 74 J |
+| 75 K | 76 L | 77 M | 78 N | 79 O |
+| 80 P | 81 Q | 82 R | 83 S | 84 T |
+| 85 U | 86 V | 87 W | 88 X | 89 Y |
+| 90 Z |
+*/
+/*
+| CODE | LETTER | ACTION |
+|------|--------|--------|
+|  65  |   A    |  nop() |
+| ...  |  ...   |  ...   |
+*/
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

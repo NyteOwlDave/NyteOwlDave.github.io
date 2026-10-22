@@ -1,0 +1,357 @@
+<style>
+* { box-sizing : border-box; }
+@keyframes fleeber {
+	 0%  { background : midnightblue; }
+	50%  { background : #49371B;      }
+	100% { background : midnightblue; }
+}
+html {
+	color : mintcream;
+	background : midnightblue;
+	border  : none;
+	padding : 0;
+	margin  : 0;
+	animation : linear 9s fleeber infinite;
+}
+body {
+	border  : none;
+	padding : 0;
+	margin  : 10em;
+	border-left   : 5px solid rgba( 255, 205, 15, 0.42 );
+	border-right  : 3px solid rgba( 255, 205, 15, 0.42 );
+	background    : #1102;
+}
+table {
+	margin  : 2em;
+}
+hr {
+	margin     : 0;
+	border     : 1px solid gold;
+	background : gold;
+	min-height : 1ch;
+	opacity    : 0.4242;
+}
+h1, h2, h3 {
+	margin     : 0;
+	text-align : center;
+}
+h2 {
+	margin-top : 20px;
+}
+h1 {
+	padding     : 20px 0px;
+	background  : #DDFFEEC0;
+	color       : black;
+}
+h2 span ,
+legend h2 {
+	padding : 5px 1.2ch;
+	border-left   : 5px solid gold;
+	border-right  : 3px solid gold;
+	border-radius : 1ch;
+}
+fieldset {
+	max-width : calc( 100vw - 20em );
+	border : 1px dashed gold;
+	border-radius : 20px;
+	padding : 20px;
+	margin  : 20px 5px;
+}
+#sip {
+	display  : inline-block;
+	width    : calc( 100% );
+	resize   : vertical;
+	overflow : scroll;
+}
+[center] ,
+blockquote { text-align : center; }
+blockquote code {
+	font  : 16pt monospace;
+	color : gold;
+}
+[dot] {
+	display       : inline-block;
+	min-width     : 42px;
+	min-height    : 42px;
+	max-width     : 42px;
+	max-height    : 42px;
+	text-align    : center;
+	border-radius : 100%;
+ 	background    : transparent;
+	opacity       : 0.555;
+	padding       : 4px;
+	cursor        : pointer;
+}
+[dot]:hover {
+ 	background    : black;
+	opacity : 1.0;
+	box-shadow : 0 0 16px gold;
+}
+[onclick] {
+	user-select : none !important;
+	cursor      : pointer;
+}
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+# Lexical Analysis
+
+----------------------------------------------------------------
+
+## <span> Table Definition </span>
+
+> ( `LINKS` )
+
+|    1   |   2   | 3  |  4  |   5    |    6    |
+|--------|-------|----|-----|--------|---------|
+| CREATE | TABLE | IF | NOT | EXISTS | links() |
+
+----------------------------------------------------------------
+
+## <span> Field Definition </span>
+
+> ( `ID` )
+
+| 1  |    2    |    3    |  4  |       5       |
+|----|---------|---------|-----|---------------|
+| id | INTEGER | PRIMARY | KEY | AUTOINCREMENT |
+
+----------------------------------------------------------------
+
+## <span> Field Definition </span>
+
+> ( `ADDRESS` )
+
+|    1    |   2  |  3  |  4   |    5   |
+|---------|------|-----|------|--------|
+| address | TEXT | NOT | NULL | UNIQUE |
+
+----------------------------------------------------------------
+
+## <span> Field Definition </span>
+
+> ( `TITLE` )
+
+|   1   |   2  |  3  |  4   |
+|-------|------|-----|------|
+| title | TEXT | NOT | NULL |
+
+----------------------------------------------------------------
+
+## <span> Field Definition </span>
+
+> ( `CREATED` )
+
+|    1    |   2  |    3    |         4         |
+|---------|------|---------|-------------------|
+| created | TEXT | DEFAULT | CURRENT_TIMESTAMP |
+
+----------------------------------------------------------------
+
+<fieldset center>
+<legend>
+  <h2 title="Rename" onclick="do_rename(event)"> Editor </h2>
+</legend>
+<textarea id="sip" wrap="off"></textarea>
+<div center>
+ <div dot onclick="do_run(event)">
+   <img src="./../../icons/32/run.png" />
+ </div>
+ <div dot onclick="do_zoom(event)">
+   <img src="./../../icons/32/zoom.png" />
+ </div>
+ <div dot onclick="do_home(event)">
+   <img src="./../../icons/32/home.png" />
+ </div>
+ <div dot onclick="do_crucial(event)">
+   <img src="./../../icons/32/crucial.png" />
+ </div>
+ <div dot onclick="do_build(event)">
+   <img src="./../../icons/32/build.png" />
+ </div>
+ <div dot onclick="do_peaches(event)">
+   <img src="./../../icons/32/peaches.png" />
+ </div>
+</div>
+</fieldset>
+
+----------------------------------------------------------------
+
+<script>
+; mem =( o )=> ( Object.keys( o || window ).sort() )
+; iwm = mem()
+</script>
+
+<script>
+; doc = ( document )
+; doc . title = ( "SQLite Lex-An" );
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script src="https://nyteowldave.github.io/owl/owl-prolog.js"></script>
+<script src="https://nyteowldave.github.io/std/api/install.js"></script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function X() {
+	alert( "|-=((( INCOMPLETE )))=-|" );
+}
+</script>
+
+<script>
+nomen = {};
+</script>
+
+<script>
+nomen.records = [
+  [ "name"     , "Editor Name"      ]
+, [ "id"       , "Editor ID"        ]
+, [ "title"    , "Editor Title"     ]
+, [ "tikey"    , "Editor TiKey"     ]
+, [ "storekey" , "Editor Store Key" ]
+, [ "peachkey" , "Editor Peach Key" ]
+, [ "chatkey"  , "Editor Chat Key"  ]
+];
+</script>
+
+<script>
+nomen.table = ( `
+| # | S | C | A | Key      |
+|---|---|---|---|----------|
+| 0 | 0 | 0 | 0 | name     |
+| 1 | 0 | 0 | 1 | id       |
+| 2 | 0 | 1 | 0 | title    |
+| 3 | 0 | 1 | 1 | tikey    |
+| 4 | 1 | 0 | 0 | storekey |
+| 5 | 1 | 0 | 1 | peachkey |
+| 6 | 1 | 1 | 0 | chatkey  |
+| 7 | 1 | 1 | 1 | hints    |
+` );
+</script>
+
+</script>
+
+<script>
+nomen.keymap = ( `
+[ Key Combinations ]
+
+Name : = none
+ID : = [A]
+Title := [C]
+TiKey := [A]+[C]
+StoreKey := [S]
+PeachKey := [A]+[S]
+ChatKey := [C]+[S]
+Hints := [A]+[C]+[S]
+` );
+</script>
+
+<script>
+nomen.prompt = function( ed, index ) {
+	index = parseInt( index || 0 );
+	if (! isFinite( index ) ) {
+		index = 7;
+	}
+	if ( index >= 7 ) {
+		window.alert( nomen.keymap );
+		return;
+	}
+	const record = nomen.records[ index ];
+	const k = record[ 0 ];
+	const t = record[ 1 ];
+	const v = str( ed . getAttribute( k ) );
+	const s = str( window.prompt( t, v ) );
+	if (! s ) { return; }
+	ed . setAttribute( k, s );
+};
+</script>
+
+<script>
+nomen.modkeys = function( event ) {
+	const ka = ( event.altKey   ? 0x01 : 0 );
+	const kc = ( event.ctrlKey  ? 0x02 : 0 );
+	const ks = ( event.shiftKey ? 0x04 : 0 );
+	return ( ka | kc | ks );
+};
+</script>
+
+<script>
+
+function do_rename( event ) {
+	const index = nomen.modkeys( event );
+	const ed = ( gid( "sip" ) || one( "TEXTAREA" ) );
+	nomen . prompt( ed, index );
+}
+
+function do_run( event ){
+	try {
+		window.eval( sip.value );
+	} catch ( e ) {
+		alert( e );
+	}
+}
+
+function do_peaches( event ) {
+	try {
+		let u = (
+			"http://tiny.cc/ncs-cloud-peaches"
+		);
+		wap( u );
+	} catch ( e ) {
+		alert( e );
+	}
+}
+
+function do_zoom( event ) {
+	try {
+		sip.requestFullscreen();
+		sip.focus();
+	} catch ( e ) {
+		alert( e );
+	}
+}
+
+function do_crucial( event ) {
+	try {
+		let u = (
+			"http://tiny.cc/crucial-projects"
+		);
+		wap( u );
+	} catch ( e ) {
+		alert( e );
+	}
+}
+
+function do_build(event)   {
+	try {
+		let u = (
+"https://github.com/NyteOwlDave/NyteOwlDave.github.io/actions"
+		);
+		wap( u );
+	} catch ( e ) {
+		alert( e );
+	}
+}
+function do_home(event) {
+	try {
+		let u;
+		if ( event.altKey ) {
+			u = (
+"http://dave-tower/app/morpheus/owl/notes/sqlite-lexan.html"
+			);
+		} else {
+			u = (
+"https://nyteowldave.github.io/owl/notes/sqlite-lexan.html"
+			);
+		}
+		wap( u );
+	} catch ( e ) {
+		alert( e );
+	}
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
