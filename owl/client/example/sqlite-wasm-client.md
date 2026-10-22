@@ -11,17 +11,31 @@ header,
 footer {
     text-align : left;
 }
+</style>
+
+<style>
 header div {
-    display : inline-block;
+    display : inline-block !important;
 }
+</style>
+
+<style>
 header a {
     background : black !important;
     color : mintcream  !important;
 }
-#messages ,
+</style>
+
+<style>
+#messages {
+    width : calc( 100vw - 280px ) !important;
+}
 #footer_input {
     width : calc( 100vw - 240px ) !important;
 }
+</style>
+
+<style>
 .siox {
     background : mintcream;
     color : #080822;
@@ -33,7 +47,6 @@ header a {
     opacity : 1.0;
 }
 </style>
-
 
 <style>
 fieldset {
@@ -95,7 +108,8 @@ legend {
 ---------------------------------------------------------------
 
 <div center>
- <img src="http://dave-omega/app/morpheus/art/png/featuring.png" />
+ <!-- img src="http://dave-omega/app/morpheus/art/png/featuring.png" / -->
+ <img src="https://nyteowldave.github.io/art/png/featuring.png" />
 </div>
 
 > Jennie Scraper API
@@ -168,10 +182,10 @@ links.records = function() {
 links.find = function( address ) {
     const m = links . anchors();
     function match( ae ) {
-        return ( address === ae.href );
+        return ( address === ae.href )
     }
     const v = (
-        ( m ).filter( match );
+        ( m ).filter( match )
     );
     return ( v[ 0 ] );
 };
@@ -271,7 +285,9 @@ links.persist = function() {
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<script>
+<script src="./jeannie.js"></script>
+
+<script name="jeannie()" status="untested" group="jeannie.js">
 
 function jeannie( group, status, type ) {
     type = ( type || "SCRIPT" ).toUpperCase();
@@ -299,26 +315,121 @@ function jeannie( group, status, type ) {
 };
 
 </script>
-<script>
+
+<script name="jeannie.entry()" status="untested" group="jeannie.js">
+
+jeannie.entry = function( ge ) {
+    const artie   =( k )=> str( ge.getAttribute( k ) );
+    const group   = artie( "group"   );
+    const name    = artie( "name"    );
+    const status  = artie( "status"  );
+    const concept = artie( "concept" );
+    return { group, name, status, concept };
+};
+
+</script>
+
+<script name="jeannie.entries()" status="untested" group="jeannie.js">
+
+jeannie.entries = function( group, type ) {
+    const m = jeannie( group, "", type );
+    function entry( ge ) {
+        return jeannie.entry( ge );
+    };
+    const v = ( m ).map( entry );
+    return ( v );
+};
+
+</script>
+
+<script name="jeannie.schema" status="untested" group="jeannie.js">
+
+jeannie.schema = [
+  "Group", "Name", "Status", "Concept"
+];
+
+</script>
+
+<script name="jeannie.record()" status="untested" group="jeannie.js">
+
+jeannie.record = function( ge ) {
+    const artie   =( k )=> str( ge.getAttribute( k ) );
+    const group   = artie( "group"   );
+    const name    = artie( "name"    );
+    const status  = artie( "status"  );
+    const concept = artie( "concept" );
+    return [ group, name, status, concept ];
+};
+
+</script>
+
+<script name="jeannie.records()" status="untested" group="jeannie.js">
+
+jeannie.records = function( group, type ) {
+    const m = jeannie( group, "", type );
+    function record( ge ) {
+        return jeannie.record( ge );
+    };
+    const v = ( m ).map( record );
+    return ( v );
+};
+
+</script>
+
+<script name="jeannie.table()" status="untested" group="jeannie.js">
+
+jeannie.table = function( group, type ) {
+    const title   = ( "Gadget Group"    );
+    const schema  = ( jeannie.schema    );
+    const records = ( jeannie.records() );
+    return { table, schema, records };
+};
+</script>
+
+<script name="jeannie.status_names" status="untested" group="jeannie.js">
+
+jeannie.status_names = [
+  "untested"
+, "working"
+, "published"
+];
+
+</script>
+
+<script name="jeannie.untested()" status="untested" group="jeannie.js">
 
 jeannie.untested = function( group ) {
     return jeannie( group, "untested" );
 };
 
 </script>
-<script>
+
+<script name="jeannie.working()" status="untested" group="jeannie.js">
 
 jeannie.working = function( group ) {
     return jeannie( group, "working" );
 };
 
 </script>
-<script>
+
+<script name="jeannie.published()" status="untested" group="jeannie.js">
+
+jeannie.published = function( group ) {
+    return jeannie( group, "published" );
+};
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script name="jeannie.test()" status="untested" group="jeannie-tests.js">
 
 jeannie.test = [];
 
 </script>
-<script>
+
+<script name="jeannie.test[0]()" status="untested" group="jeannie-tests.js">
+
 jeannie.test[0] = function() {
     say( "Working Modules" );
     group = "sqlite-links-table.js";
@@ -328,9 +439,11 @@ jeannie.test[0] = function() {
     );
     sql_editor.value = qlc( v );
 };
-alert(123);
+
 </script>
-<script>
+
+<script name="jeannie.test[1]()" status="untested" group="jeannie-tests.js">
+
 jeannie.test[1] = function() {
     say( "Untested Modules" );
     group = "sqlite-links-table.js";
@@ -340,7 +453,8 @@ jeannie.test[1] = function() {
     );
     sql_editor.value = qlc( v );
 };
-alert(234);
+
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
