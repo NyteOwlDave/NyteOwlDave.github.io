@@ -21,13 +21,12 @@
 # Current Projects
 
 > [In Progress](./in-progress.html)
+> [Crucial Projects](http://tiny.cc/crucial-projects)
 
 ----------------------------------------------------------------
 
 - Finish Integral Curves
 - Finish Cantankerous API for Morpheus
-- Finish Athena (Neo City)
-- Finish Caspar (Pick Code)
 
 ----------------------------------------------------------------
 
@@ -39,6 +38,15 @@
 - Sync This Via Proton Mail
 - Keyboard Support
 - Memo Has Saved Gems
+
+----------------------------------------------------------------
+
+# SQLite
+
+----------------------------------------------------------------
+
+- [Server Example](./server/example/)
+- [Client Example](./client/example/)
 
 ----------------------------------------------------------------
 

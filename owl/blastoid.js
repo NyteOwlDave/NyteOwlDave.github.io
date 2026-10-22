@@ -115,6 +115,7 @@ blastoid.jsom = function( id_list, filename ) {
 
 ;
 ; console.log( `Loaded "blastoid.js" API Module` )
+; console.log( `Related : "jeannie.js"` )
 ;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
