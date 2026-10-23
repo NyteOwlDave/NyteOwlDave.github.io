@@ -1,5 +1,5 @@
 <style>
-@import url("http://dave-legacy/jefr/style/every-page.css");
+@import url("https://nyteowldave.github.io/owl/owl.css");
 </style>
 
 <script>
