@@ -40,6 +40,9 @@ install.packages = {
 , "hud-demo"   : "http://dave-omega/demo/web/gems/hud-installer.js"
 , "hud-button" : "https://nyteowldave.github.io/std/api/installer/hud-button-installer.js"
 , "hud-button-demo" : "http://dave-omega/demo/web/gems/hud-button-installer.js"
+, "jeannie"       : "https://nyteowldave.github.io/std/api/installer/jeannie-installer.js"
+, "links-table"   : "https://nyteowldave.github.io/std/api/installer/links-table-installer.js"
+, "links-table-2" : "https://nyteowldave.github.io/std/api/installer/links-table-2-installer.js"
 };
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
