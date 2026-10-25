@@ -14,6 +14,7 @@
 
 > [Morpheus](https://nyteowldave.github.io/owl/owl-notes.html)
 > [Help](https://nyteowldave.github.io/owl/owl-help.html)
+> [Ruminations](https://nyteowldave.github.io/owl/notes/ruminations.html)
 > [System Test](https://nyteowldave.github.io/owl/test.html)
 
 ----------------------------------------------------------------

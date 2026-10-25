@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>user-agents</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<style>
+@import url("http://dave-tower/style/owl.css");
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h1><a href="http://dave-tower/app/morpheus/owl/notes/user-agents.html">User Agents</a></h1>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>CAS Support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>firefox</td>
+<td></td>
+</tr>
+<tr>
+<td>chrome</td>
+<td></td>
+</tr>
+<tr>
+<td>chromium</td>
+<td></td>
+</tr>
+<tr>
+<td>brave</td>
+<td></td>
+</tr>
+<tr>
+<td>edge</td>
+<td></td>
+</tr>
+<tr>
+<td>avg</td>
+<td></td>
+</tr>
+<tr>
+<td>opera</td>
+<td></td>
+</tr>
+<tr>
+<td>operagx</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1>TODO</h1>
+<hr>
+<ul>
+<li>Populate Table based on CAS Agent Names</li>
+</ul>
+<hr>
+<script>
+; iwm = Object.keys( window ).sort()
+; mem =( o )=> Object.keys( o || window ).sort()
+</script>
+
+<script>
+; doc = ( document )
+; doc . title = ( `Owl App Starter` )
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script src="https://nyteowldave.github.io/owl/owl.js"></script>
+<script src="https://nyteowldave.github.io/std/api/install.js"></script>
+
+<!--
+<script src="https://nyteowldave.github.io/owl/cas-alpha.js"></script>
+<script src="https://nyteowldave.github.io/owl/cas-v1p0.js"></script>
+-->
+
+<script src="http://dave-tower/app/morpheus/owl/cas-alpha.js"></script>
+<script src="http://dave-tower/app/morpheus/owl/cas-v1p0.js"></script>
+<script>
+console.warn( "LAN Dependency detected!" );
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function main( event ) {
+    try {
+        install( 'hud' );
+        install( 'hud-button' );
+        CAS . advise();
+        say ( "Ready for Action!" );
+    } catch ( e ) {
+        console . error ( e );
+        window  . alert ( e );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+addEventListener( "load", main );
+</script>
+
+</body>
+</html>
