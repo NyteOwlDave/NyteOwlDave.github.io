@@ -1,0 +1,1145 @@
+<style>
+@import url("http://dave-omega/style/owl.css");
+</style>
+
+<style>
+[wide] {
+    display : inline-block;
+    width   : calc( 100% - 80px );
+}
+[medium] {
+    display : inline-block;
+    min-width : calc( 100% - 92ch );
+}
+</style>
+
+<style>
+input, select {
+    font : 12pt "Noto Mono", monospace;
+    padding : 4px 10px;
+}
+option {
+    padding : 4px 10px;
+}
+</style>
+
+<style>
+.post {
+    display : inline-block;
+    margin  : 0;
+    width   : calc( 100% );
+}
+.siox {
+    margin    : 0;
+    max-width : calc( 100vw - 80px );
+}
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+# File Transfer
+
+----------------------------------------------------------------
+
+<fieldset>
+<legend>
+ <h2> URL Address </h2>
+</legend>
+<div center>
+    <input wide id="url_input" />
+</div>
+</fieldset>
+
+----------------------------------------------------------------
+
+<fieldset>
+<legend>
+ <h2> Actions </h2>
+</legend>
+<div center>
+    <select medium id="action_droplist">
+<option value="do_download()">Download</option>
+<option value="do_upload()">Upload</option>
+<option value="do_persist()">Persist</option>
+<option value="do_recover()">Recover</option>
+<option value="do_persist()">Persist</option>
+<option value="do_save()">Save</option>
+<option value="do_open()">Open</option>
+<option value="do_mail()">Mail</option>
+<option value="do_clipboard()">Clipboard</option>
+<option value="do_cloud()">Cloud Store</option>
+<option value="do_notepad()">Cloud Notepad</option>
+<option value="do_marked()">Mark Ed</option>
+<option value="do_sites()">Sites</option>
+<option value="do_sheets()">Sheets</option>
+<option value="do_dorothy()">Dorothy</option>
+<option value="do_projects()">Projects</option>
+    </select>
+    <button onclick="do_action(event)">OK</button>
+</div>
+</fieldset>
+
+----------------------------------------------------------------
+
+<fieldset>
+<legend>
+ <h2> File Content </h2>
+</legend>
+<div center>
+    <textarea id="sip" class="siox" wrap="off"></textarea>
+</div>
+</fieldset>
+
+----------------------------------------------------------------
+
+<fieldset>
+<legend>
+ <h2> Event Log </h2>
+</legend>
+<section center id="event_section">
+</section>
+</fieldset>
+
+----------------------------------------------------------------
+
+<fieldset>
+<legend>
+ <h2> Command History </h2>
+</legend>
+<section id="history_section">
+ <ul id="history_list"></ul>
+</section>
+</fieldset>
+
+----------------------------------------------------------------
+
+<script>
+; iwm = Object.keys( window ).sort()
+; mem =( o )=> Object.keys( o || window ).sort()
+</script>
+
+<script>
+; doc = ( document )
+; doc . title = ( `File Transfer` )
+</script>
+
+<script>
+; arr =( o )=> Array.from( o || [] )
+</script>
+
+<script>
+; all =( q )=> arr( doc . querySelectorAll( q ) )
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script src="https://nyteowldave.github.io/owl/owl.js"></script>
+<script src="https://nyteowldave.github.io/std/api/install.js"></script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function main( event ) {
+    try {
+        install( 'hud' );
+        install( 'hud-button' );
+        url_input . placeholder = "http://somewhere.com";
+        address . title( "Store Download Notes" );
+        address . write(
+            "http://dave-tower/store/store-downloads-notes.jsom"
+        );
+        init_event_section();
+        let ge = footer_input;
+        ge . action = ge . onchange;
+        ge . onchange = function( event ) {
+            try {
+                const sender = footer_input;
+                commands . push( sender . value );
+                sender  . action( event );
+            } catch ( e ) {
+                bummer( e );
+            }
+        }
+        say ( "Ready for Action!" );
+    } catch ( e ) {
+        console . error ( e );
+        window  . alert ( e );
+    }
+}
+</script>
+
+<script>
+addEventListener( "load", main );
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+address = {};
+address . storekey = "file-transfer.json";
+</script>
+
+<script>
+address . title = function( title ) {
+    let s = ( str( title ) || str( sip . title ) );
+    sip . title = ( s );
+    return ( s );
+}
+</script>
+
+<script>
+address . write = function( u ) {
+    const ie = ( url_input );
+    u = str( u || ie . value );
+    ie . value = ( u );
+    return ( u );
+};
+</script>
+
+<script>
+address . read = function() {
+    return address. write( url_input . value );
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+address . store = function() {
+    const o = localStorage;
+    if ( null === o ) {
+        return ( sessionStorage );
+    }
+    return ( o );
+};
+</script>
+
+<script>
+address . persist = function() {
+    const ops = address;
+    const s = ops . store();
+    const k = ops . storekey;
+    const title = ops . title();
+    const url   = ops . read();
+    const editor = {};
+    editor . value = str( sip . value );
+    editor . memo  = str( sip . memo  );
+    const v = jst( { title, url, editor } );
+    s . setItem( k, v );
+    say( `Write Store Entry` );
+};
+</script>
+
+<script>
+address . recover = function() {
+    const ops = address;
+    const s = ops . store();
+    const k = ops . storekey;
+    const v = s . getItem( k );
+    if ( null === v ) {
+        return ( ops. persist() );
+    }
+    say( `Read Store Entry` );
+    const m = jso( v );
+    const t = ( str( m . title ) || str( sip . title ) );
+    const u = str( m . url );
+    ops . title( t );
+    ops . write( u );
+    const ed = ( m.editor );
+    if ( ed instanceof Object ) {
+        sip . value = ( str( ed . value ) || sip . value );
+        sip . memo  = ( str( ed . memo  ) || sip . memo  );
+    } else {
+        console.debug( `Missing Editor Object` );
+    }
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function do_action( event ) {
+    try {
+        const js = ( action_droplist . value );
+        exec( js );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function exec( js ) {
+    const ops = exec;
+    try {
+        ops . reset();
+        const cmd = str( js );
+        if (! cmd ) { return; }
+        if ( "function" === typeof macro ) {
+            if ( macro( cmd ) ) { return; }
+        }
+        ops . prior = String( ops . input || "" );
+        ops . input = String( js );
+        ops . output = window.eval( ops.input );
+    } catch ( e ) {
+        ops . error = ( e . message );
+        bummer( e );
+    }
+}
+</script>
+
+<script>
+exec . reset = function() {
+    const ops = exec;
+    ops . output = "";
+    ops . error  = "";
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function incomplete() {
+    alert( "INCOMPLETE!" );
+}
+</script>
+
+<script>
+function bummer( e ) {
+    console . error( e );
+    say( e . message );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function post( o ) {
+    try {
+        let value;
+        if ( o instanceof Object ) {
+            if ( "function" === typeof o ) {
+                value = qlc( mem( o ) );
+            } else {
+                value = jst( o );
+            }
+        } else {
+            value = String( o );
+        }
+        const vw = post . node( value );
+        const se = post . owner();
+        return ( se . appendChild( vw ) );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<script>
+post . owner = function() {
+    return ( event_section );
+};
+</script>
+
+<script>
+post . node = function( text ) {
+    const vw = elx( "PRE" );
+    gideon . now( vw );
+    vw . classList . add( "post" );
+    vw . innerText = str( text );
+    return ( vw );
+};
+</script>
+
+<script>
+post . clear = function() {
+    const se = post . owner();
+    se . innerHTML = "";
+};
+</script>
+
+<script>
+post . viewers = function() {
+    const se = post . owner();
+    return arr( se.querySelectorAll( "PRE" ) );
+};
+</script>
+
+<script>
+post . viewer = function( index ) {
+    const m = post . viewers();
+    const i = parseInt( index );
+    return ( m[ i ] );
+};
+</script>
+
+<script>
+post . count = function( report ) {
+    const m = post . viewers();
+    const n = ( m . length );
+    if ( report ) {
+        say( `Viewer Count := ${n}` );
+    }
+    return ( n );
+};
+</script>
+
+<script>
+post . read = function( index ) {
+    try {
+        const vw = post . viewer( index );
+        if ( vw ) {
+            return ( vw . textContent );
+        } else {
+            throw new Error(
+                `Log Viewer Index is Invalid`
+            );
+        }
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+</script>
+
+<script>
+post . edit = function( index, ed ) {
+    const s = post . read( index );
+    ed = ( ed || sip );
+    ed . value = ( s || sip.value );
+    return ( ed );
+};
+</script>
+
+<script>
+post . edit . records = function( ed, sep ) {
+    const m = post . records();
+    sep = str( sep );
+    ed = ( ed || sip );
+    ed . value = ( m ).join( `\n${sep}\n` );
+    return ( ed );
+};
+</script>
+
+<script>
+post . help = function( o ) {
+    post( o || post );
+};
+</script>
+
+<script>
+post . tip = function( index, tip ) {
+    try {
+        const vw = post . viewer( index );
+        if (! vw ) {
+            throw new Error( `Invalid Viewer Index` );
+        }
+        vw . title = str( tip ) || ( vw . title );
+        say( `Set Tip for Viewer := ${index}` );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+</script>
+
+<script>
+post . records = function() {
+    const m = post . viewers();
+    return (
+        ( m )
+        . map(
+            ( vw ) => ( vw . textContent )
+        )
+    );
+};
+</script>
+
+<script>
+post . gadget = function( o ) {
+    const value = gideon . read( o || sip );
+    if ( value ) {
+        post( value );
+    }
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function gideon( o ) {
+    const iob =( o )=> ( o instanceof Object   );
+    const ias =( o )=> ( "string" === typeof o );
+    if ( iob( o ) ) {
+        if ( gad( o ) ) {
+            return ( o );
+        }
+    } else if ( ias( o ) ) {
+        return ( gid( o ) );
+    }
+}
+</script>
+
+<script>
+gideon . now = function( o ) {
+    const now =()=> ( Date.now() );
+    o = gideon( o );
+    o . setAttribute( "epoch", now().toString() );
+};
+</script>
+
+<script>
+gideon . epoch = function( o ) {
+    o = gideon( o );
+    return ( o . getAttribute( "epoch" ) );
+};
+</script>
+
+<script>
+gideon . read = function( o ) {
+    const ge = gideon( o );
+    if ( ge ) {
+        let value;
+        switch ( ge.nodeName ) {
+        case "INPUT" : case "TEXTAREA" :
+            value = ( ge.value );
+            break;
+        case "PRE" : case "CODE" : case "VAR" :
+            value = ( ge.innerText );
+            break;
+        default :
+            value = ( ge.innerHTML );
+            break;
+        }
+        return String( value );
+    }
+    say( `Expected a Gadget ID or Reference` );
+};
+</script>
+
+<script>
+gideon . write = function( o, value ) {
+    const ge = gideon( o );
+    if ( ge ) {
+        value = String( value );
+        switch ( ge.nodeName ) {
+        case "INPUT" : case "TEXTAREA" :
+            ge.value = ( value );
+            return;
+        case "PRE" : case "CODE" : case "VAR" :
+            ge.innerText = ( value );
+            return;
+        default :
+            ge.innerHTML = ( value );
+            return;
+        }
+    }
+    say( `Expected a Gadget ID or Reference` );
+};
+</script>
+
+<script>
+gideon . choose = function( query="SCRIPT", index=0, owner ) {
+    try {
+        query = str( query );
+        if (! query ) {
+            throw new Error( `Expected a Query String` );
+        }
+        owner = (
+            gideon( owner ) || ( doc . firstElementChild )
+        );
+        const m  = arr( owner . querySelectorAll( query ) );
+        const i  = parseInt( index );
+        const ge = m[ i ];
+        if ( ge ) { return ( ge ); }
+        throw new Error(
+            `Invalid Query or Index`
+        );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+commands = {};
+</script>
+
+<script>
+commands . owner = function() {
+    return ( history_list );
+};
+</script>
+
+<script>
+commands . push = function( s ) {
+    const ops = commands;
+    s = str( s );
+    if (! s ) { return; }
+    let ie = ops . item( s );
+    if ( ie ) { return; } // Value Exists
+    ie = elx( "LI" );
+    ie . textContent = ( s );
+    gideon . now( ie );
+    const owner = ops.owner();
+    return ( owner . appendChild( ie ) );
+};
+</script>
+
+<script>
+commands . pop = function() {
+    try {
+        const ops = commands;
+        const m = ops . records();
+        const s = ( ( m ) . pop() );
+        ops . populate( m );
+        return ( s );
+    } catch ( e ) {
+        bummer( e );
+    }
+};
+</script>
+
+<script>
+commands . peek = function( index=0 ) {
+    const ops = commands;
+    const m = ops . records();
+    const i = parseInt( index );
+    const s = m[ i ];
+    if (! s ) {
+        say( `Invalid Command Index : ${index}` );
+    }
+    return ( s );
+};
+</script>
+
+<script>
+commands . clear = function() {
+    const ops = commands;
+    const owner = ops . owner();
+    owner . innerHTML = "";
+    return ( owner );
+};
+</script>
+
+<script>
+commands . populate = function( records=[] ) {
+    const ops = commands;
+    const owner = ops . clear();
+    const add =( s )=> {
+        s = str( s );
+        if (! s ) { return; }
+        const ie = elx( "LI" );
+        ie . textContent = ( s );
+        gideon . now( ie );
+        owner . appendChild( ie );
+    };
+    const m = arr( records );
+    m . forEach( add );
+    return ( owner );
+};
+</script>
+
+<script>
+commands . records = function() {
+    const ops = commands;
+    const m = ops . items();
+    return (
+        ( m )
+        . map(
+            ( ie ) => ( ie.textContent )
+        )
+    );
+};
+</script>
+
+<script>
+commands . records . post = function() {
+    const ops = commands;
+    post( ops . records() );
+};
+</script>
+
+<script>
+commands . records . count = function( report ) {
+    const ops = commands;
+};
+</script>
+
+<script>
+commands . choose = function( index ) {
+    const ops = commands;
+    const owner = ( ops.owner() );
+    return gideon . choose( "LI", index, owner );
+};
+</script>
+
+<script>
+commands . item = function( s ) {
+    const ops = commands;
+    const m = ops . items();
+    const match =( ie )=> (
+        ( s ) === ( ie.textContent )
+    );
+    const v = m.filter( match );
+    return ( v[ 0 ] );
+};
+</script>
+
+<script>
+commands . items = function() {
+    const ops = commands;
+    const owner = ops.owner();
+    return arr( owner.querySelectorAll( "LI" ) );
+};
+</script>
+
+<script>
+commands . help = function() {
+    post( commands );
+    return ( commands );
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function separator(
+  sep    = "-"
+, opener = "|"
+, closer = "|"
+, width  = 64
+) {
+    const o = str( opener );
+    const c = str( closer );
+    const s = ( str( sep ) || "-" );
+    const n = width - ( o.length + c.length );
+    let t = ( s ).repeat( n / sep.length  );
+    if ( t . length < n ) {
+        const u = sep.charAt( 0 );
+        const w = ( n - t . length );
+        t += ( ( u ).repeat( w ) );
+    }
+    return ( `${o}${t}${c}` );
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function travel( u ) {
+    u = ( str( u ) );
+    if (! u ) {
+        return travel . home();
+    }
+    if ( travel . debug ) {
+        alert( u ); return;
+    }
+    if ( null === localStorage ) {
+        return wap( u );
+    } else {
+        return wop( u );
+    }
+}
+;
+; travel . debug = ( false )
+;
+</script>
+
+<script>
+travel . home = function() {
+    const host = ( location . hostname )
+    if (! host ) {
+        return travel( places . omega );
+    }
+    if ( host.startsWith( "dave-" ) ) {
+        return travel( places . omega );
+    } else {
+        return travel( places . morpheus );
+    }
+};
+</script>
+
+<script>
+travel . popup = function( u, options ) {
+    u = ( str( u ) || places . menu );
+    const o = ( options || travel . popup . options );
+    return ( window . open( u, u, o ) );
+};
+</script>
+
+<script>
+travel . popup . options = (
+  "popup=true,left=10,top=10,width=800,height=680"
+);
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function edit( o ) {
+    sip.value = edit.prep( o );
+    return ( sip );
+}
+</script>
+
+<script>
+edit . prep = function( o ) {
+    if ( o instanceof Object ) {
+        if ( Array.isArray( o ) ) {
+            return qlc(
+                arr( o )
+                . map( str )
+                . filter( nop )
+            );
+        }
+        if ( o instanceof HTMLElement ) {
+            return gideon.read( o );
+        }
+        return qlc( mem( o ) );
+    }
+    return String( o );
+}
+</script>
+
+<script>
+post . init = function() {
+    post( "Event Log Initialized" );
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function init_event_section() {
+    post . init();
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+function do_download() { incomplete(); }
+function do_upload() { incomplete(); }
+function do_persist() { incomplete(); }
+function do_recover()  { incomplete(); }
+function do_save() { incomplete(); }
+function do_open() { incomplete(); }
+
+function do_mail() {
+    travel( places . mail );
+}
+
+function do_clipboard() {
+    travel( places.clipboard );
+}
+
+function do_cloud() {
+    travel( places.cloud );
+}
+
+function do_notepad() {
+    travel( places.notepad );
+}
+
+function do_marked() {
+    travel( places.marked );
+}
+
+function do_sites() {
+    travel( places.sites );
+}
+
+function do_sheets() {
+    travel( places.sheets );
+}
+
+function do_dorothy() {
+    travel( places.dorothy );
+}
+
+function do_projects() {
+    travel( places.projects );
+}
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+places = {
+  omega     : "http://dave-omega/app/morpheus/owl/file-transfer.html"
+, morpheus  : "https://nyteowldave.github.io/owl/file-transfer.html"
+, menu      : "https://nyteowldave.github.io/"
+, mail      : "mailto:nyteowldave@proton.me"
+, clipboard : "https://live-clipboard.netlify.app/"
+, cloud     : "http://tiny.cc/express-lane"
+, notepad   : "http://tiny.cc/cloud-notepad"
+, marked    : "https://markdowneditor.org/"
+, sites     : "https://sites.google.com"
+, sheets    : "https://docs.google.com/spreadsheets"
+, dorothy   : "https://sites.google.com/view/dorothys-rockets"
+, projects  : "http://tiny.cc/crucial-projects"
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+realm = {};
+realm . storekey = "realm-places.json";
+realm . starter  = ( places );
+realm . saved    = ( places );
+</script>
+
+<script>
+realm . store = function() {
+    return ( localStorage || sessionStorage );
+};
+</script>
+
+<script>
+realm . persist = function( k ) {
+    const s = realm . store();
+    k = ( str( k ) || realm . storekey );
+    v = jst( places );
+    s . setItem( k, v );
+    realm . say( `Wrote Realm Places to Store` );
+    return ( realm );
+};
+</script>
+
+<script>
+realm . keys = function() {
+    return mem( places );
+};
+realm . addresses = function() {
+    const m = mem( places );
+    return ( m ).map(
+        ( k ) => str( places[ k ] )
+    );
+};
+realm . records = function() {
+    const m = mem( places );
+    return (
+        ( m )
+        . map(
+            ( k ) => (
+                [ k , str( places[ k ] ) ]
+            )
+        )
+    );
+};
+realm . record = function( k ) {
+    const v = str( places[ k ] );
+    return [ k, v ];
+};
+realm . record . schema = [
+  "Key", "Address"
+];
+realm . table = function() {
+    const type    = "realm-places-table";
+    const title   = "Realm Places Table";
+    const schema  = realm . record . schema;
+    const records = realm . records();
+    return { type, title, schema, records };
+};
+</script>
+
+<script>
+realm . table . inspect = function() {
+    const table = realm . table();
+    const t = table . title;
+    const o = table . records();
+    const s = table . schema();
+    o . unshift( s );
+    jarvis.inspect( o, t );
+};
+</script>
+
+<script>
+realm . recover = function( k ) {
+    const s = realm . store();
+    k = ( str( k ) || realm . storekey );
+    const v = str( s . getItem( k ) );
+    if ( v ) {
+        const m = jso( v );
+        if ( m instanceof Object ) {
+            realm . saved = ( places );
+            places = merge( m );
+            realm . say( `Read Realm Places from Store` );
+            return ( realm );
+        }
+    }
+    function merge( addresses ) {
+        const add =( k )=> {
+            const u = str( addresses[ k ] );
+            if ( u ) {
+                places[ k ] = ( u );
+            }
+        };
+        const m = mem( addresses );
+        m . forEach( add );
+    }
+    return ( realm.persist() );
+};
+</script>
+
+<script>
+realm . say = function( s ) {
+    if ( "function" === say ) {
+        return say( s );
+    }
+    window . alert( s );
+    return ( s );
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+jarvis = function( o, rex ) {
+    const m = mem( o );
+    let want =( k )=> (! iwm.includes( k ) );
+    let v = ( m ).filter( want );
+    if ( rex = str( rex ) ) {
+        rex = new RegExp( rex );
+        want =( k )=> ( rex.test( k ) );
+        v = ( v ).filter( want );
+    }
+    return ( v );
+}
+</script>
+
+<script>
+jarvis . group = {
+  gideon
+, post
+, edit
+, commands
+, address
+, travel
+, realm
+};
+</script>
+
+<script>
+jarvis . system = {
+  incomplete
+, bummer
+, exec
+, separator
+};
+</script>
+
+<script>
+jarvis . state = { places };
+</script>
+
+<script>
+jarvis . gadgets = all( `[id]` );
+</script>
+
+<script>
+jarvis . details = ( `
+ jarvis   | Spelunking Function / Accessor
+.gadgets  | Gadget References
+.state    | Global State Variables
+.system   | Global System Functions
+.group    | Global Accessors
+.assist   | Inspect Details
+.hints    | Show Members in Popup Dialog
+.inspect  | Show Members in Console
+.forms    | Visit Form Documents
+.concepts | Visit Concept Documents
+.calender | Visit Calendar
+.repos    | Visit Dave's Repositories
+.build    | Visit Morpheus Build Monitor
+.details  | This Core Document
+` );
+</script>
+
+<script>
+jarvis . concepts = function() {
+    visit( "https://docs.google.com" );
+};
+jarvis . calendar = function() {
+    visit( "https://calendar.google.com" );
+};
+jarvis . forms = function() {
+    visit( "https://docs.google.com/forms/u/0/" );
+};
+jarvis . repos = function() {
+    visit( "https://github.com/NyteOwlDave?tab=repositories" );
+};
+jarvis . build = function() {
+    visit(
+"https://github.com/NyteOwlDave/NyteOwlDave.github.io/actions"
+    );
+};
+</script>
+
+<script>
+jarvis . assist = function() {
+    const lines = qlp( jarvis.details );
+    const records = lines.map(
+        ( s ) => qlp( s, "|" )
+    );
+    jarvis . inspect( records, "Jarvis Details" );
+};
+</script>
+
+<script>
+jarvis . hints = function( o, title ) {
+    const t = str( title || "Members" );
+    const m = mem( o || jarvis );
+    m . unshift( `〖 ${t} 〗` );
+    window . alert( qlc( m ) );
+};
+</script>
+
+<script>
+jarvis . inspect = function( o, title ) {
+    const t = ( str( title ) || "Table" );
+    const m = jarvis . inspect . prep( o || jarvis );
+    const c = console;
+    c . clear();
+    c . group( t );
+    c . table( m );
+    c . groupEnd();
+};
+</script>
+
+<script>
+jarvis . inspect . prep = function( o ) {
+    const iar =( o )=> ( Array.isArray( o ) );
+    const iob =( o )=> ( o instanceof Object );
+    if ( iob( o ) ) {
+        if ( iar( o ) ) {
+            function pure( o ) {
+                if (! iar( o ) ) {
+                    return;
+                }
+                return (
+                    ( o )
+                    . map( str )
+                );
+            }
+            if ( iar( o[ 0 ] ) ) {
+                return ( o ).map( pure ).filter( nop );
+            } else {
+                return pure( o ).filter( nop );
+            }
+        }
+        return [ mem( o ) ];
+    }
+    return [ String( o ).trim() ];
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
