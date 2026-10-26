@@ -51,6 +51,8 @@ thoughts and plans.
 
 ## Tower Open Files
 
+> ( These Open in ReText )
+
 [owl-system]:
 <file:///home/dave/Mount/WWW/app/morpheus/owl/>
 "Workspace Folder"
