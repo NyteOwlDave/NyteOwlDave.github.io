@@ -27,7 +27,13 @@ function add_hud_button() {
     be . onclick = function( e ) { hud(); };
     if ( "function" === typeof suggest ) {
         suggest( "hud.recover.hash()" );
-    }
+    } else {		
+		if ( "object" === typeof footer_input ) {
+			footer_input . value = ( 
+				"hud.recover.hash()" 
+			);
+		}
+	}
     return ( be );
 }
 

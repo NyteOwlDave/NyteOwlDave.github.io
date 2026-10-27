@@ -1,0 +1,24 @@
+
+/*
+    Debbie DB Sandbox
+    style.css
+*/
+
+@import url("https://nyteowldave.github.io/owl/owl.css");
+
+body {
+  margin-bottom : 42vh !important;
+}
+
+div textarea {
+  min-width : calc( 100vw - 80px );
+}
+
+hr {
+  height : 30px;
+}
+
+th {
+  text-align : left;
+}
+

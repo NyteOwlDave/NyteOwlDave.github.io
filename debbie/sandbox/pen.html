@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Debbie DB Sandbox</title>
+  </head>
+  <body>
+    <section id="editor_section">
+      <div center>
+        <h2>Code</h2>
+        <textarea id="id_code" wrap="off"></textarea>
+      </div>
+      <hr>
+      <div center>
+        <h2>Data</h2>
+        <textarea id="id_data" wrap="off"></textarea>
+      </div>
+    </section>
+    <section id="table_section">
+      <div>
+        <h2>Unnamed Table</h2>
+        <table>
+        <thead>
+        <tr><th>A</th><th>B</th><th>C</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>1</td><td>2</td><td>3</td></tr>
+        </tbody>
+        </table>
+      </div>
+    </section>
+    <script>
+      ; mem =( o )=> Object.keys( o || window ).sort()
+      ; iwm = mem();
+    </script>
+    <script>
+      ; doc = ( document )
+      ; cls =()=> console.clear()
+    </script>
+    <script src="./script.js"></script>
+    <script src="https://nyteowldave.github.io/owl/owl.js"></script>
+    <script src="https://nyteowldave.github.io/std/api/install.js"></script>
+    <script src="https://nyteowldave.github.io/owl/visit-ultra.js"></script>
+  </body>
+</html>
+
+<!--
+    Debbie DB Sandbox
+    Morpheus Edition
+    pen.html
+-->
+
+
