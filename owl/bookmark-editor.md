@@ -1,5 +1,5 @@
 <style>
-@import url("http://dave-omega/style/owl.css");
+@import url("https://nyteowldave.github.io/owl/owl.css");
 </style>
 
 <style>
