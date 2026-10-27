@@ -52,11 +52,12 @@ function incomplete( what ) {
 };
 
 function main( event ) {
-  try {
-      init_editors();
-  } catch ( e ) {
-      bummer( e );
-  }
+    try {
+        init_editors();
+        install( "hud" );
+    } catch ( e ) {
+          bummer( e );
+    }
 }
 
 addEventListener( "load", main )
@@ -94,12 +95,12 @@ function debbie( cool, oops, upgrade ) {
     if ( cool, db ) { return; }
     console . info( "Debbie Request Successful" );
   };
-  return ( req );  
+  return ( req );
 }
 
 debbie.tutorial = function() {
   const u = places . jsinfo_idb_tutorial;
-  visit( u );  
+  visit( u );
 };
 
 function zoom( ge, which ) {
@@ -107,9 +108,9 @@ function zoom( ge, which ) {
 	ge . requestFullscreen();
 	ge . focus();
   if ( which ) {
-  	say( `Zoom Mode Activated : ${which}` );    
+  	say( `Zoom Mode Activated : ${which}` );
   } else {
-  	say( "Zoom Mode Activated" );   
+  	say( "Zoom Mode Activated" );
   }
 };
 
@@ -122,11 +123,11 @@ zoom.data = function() {
 };
 
 zoom.editors = function() {
-    zoom( editor_section, "Editors"); 
+    zoom( editor_section, "Editors");
 };
 
 zoom.tables  = function() {
-    zoom( table_section, "Tables");  
+    zoom( table_section, "Tables");
 };
 
 gems = function() {};
