@@ -1,5 +1,5 @@
 <style>
-@import url("http://dave-omega/style/owl.css");
+@import url("https://nyteowldave.github.io/owl/owl.css");
 </style>
 
 <style>
@@ -336,6 +336,31 @@ legend * {
 
 ----------------------------------------------------------------
 
+# New Prolog Member
+
+<pre contenteditable>
+
+; mam =( o )=> {
+    const m = mem( o );
+    const val =( k )=> str( o[ k ] );
+    return ( m ).map( val );
+};
+
+</pre>
+
+----------------------------------------------------------------
+
+## NOTE
+
+This page uses some __Older Features__, used in various other
+__Web Apps__.
+
+For example, `artie` for reading __Gadget Attributes__.
+
+Also, `who` and `see` for identifying __Gadgets__.
+
+----------------------------------------------------------------
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script>
@@ -392,7 +417,7 @@ legend * {
 ; mam =( o )=> {
     const m = mem( o );
     const val =( k )=> str( o[ k ] );
-    return ( m ).map( ( k ) => ( val ) );
+    return ( m ).map( val );
 };
 </script>
 
@@ -422,6 +447,12 @@ legend * {
 , qlc , qlp
 }
 </script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script src="https://nyteowldave.github.io/owl/owl.js"></script>
+<script src="https://nyteowldave.github.io/std/api/install.js"></script>
+<script src="https://nyteowldave.github.io/owl/visit-ultra.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
@@ -693,6 +724,12 @@ function bummer( e ) {
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script>
+/*
+
+# SEE : visit-ultra.js
+
+```
+
 function visit( u ) {
     u = ( str( u ) || "./" );
     if ( null === localStorage ) {
@@ -703,6 +740,10 @@ function visit( u ) {
         window.open( u, u );
     }
 }
+
+```
+
+*/
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -730,6 +771,7 @@ canedit . all = function( q, en=1 ) {
 function main( event ) {
     try {
         init_ui();
+        install( "hud" );
     } catch ( e ) {
         bummer( e );
     }
@@ -803,6 +845,49 @@ function init_tables() {
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+suggestions = [
+  "jarvis.hints()"
+];
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+function suggest( s ) {
+    if ( "number" === typeof s ) {
+        return suggest.item( s );
+    }
+    s = str( s );
+    if ( s ) {
+        footer_input . value = ( s );
+    }
+}
+
+suggest.count = function( report ) {
+    const m = suggestions;
+    const n = ( m.length );
+    if ( report ) {
+        say( `Suggestion Count := ${n}` );
+    }
+    return ( n );
+};
+
+suggest.item = function( i ) {
+    const m = suggestions;
+    const s = m[ parseInt( i ) ];
+    if ( s ) {
+        footer_input . value = ( s );
+    } else {
+        throw new Error( `Index is Out of Range` );
+    }
+};
+
+</script>
 
 <script>
 
@@ -1193,12 +1278,13 @@ jarvis.groups = {
   gideon
 , realm
 , rico
+, suggest
 };
 </script>
 
 <script>
 jarvis.state = {
-  places
+  places, suggestions
 };
 </script>
 
@@ -1247,6 +1333,24 @@ jarvis . describe = function( o ) {
 jarvis . docify = function( o ) {
     incomplete();
 };
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+jarvis . pending = [
+  [ "dorothy" , "Dot Rocket Operations" ]
+, [ "shirley" , "Short URL Operations"  ]
+];
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+dorothy = { incomplete };
+shirley = { incomplete };
+
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

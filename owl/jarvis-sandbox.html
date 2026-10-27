@@ -14,7 +14,7 @@ img { max-width: 100%; }
 </head>
 <body>
 <style>
-@import url("http://dave-omega/style/owl.css");
+@import url("https://nyteowldave.github.io/owl/owl.css");
 </style>
 
 <style>
@@ -878,6 +878,24 @@ legend * {
 </section>
 
 <hr>
+<h1>New Prolog Member</h1>
+<pre contenteditable>
+
+; mam =( o )=> {
+    const m = mem( o );
+    const val =( k )=> str( o[ k ] );
+    return ( m ).map( val );
+};
+
+</pre>
+
+<hr>
+<h2>NOTE</h2>
+<p>This page uses some <strong>Older Features</strong>, used in various other
+<strong>Web Apps</strong>.</p>
+<p>For example, <code>artie</code> for reading <strong>Gadget Attributes</strong>.</p>
+<p>Also, <code>who</code> and <code>see</code> for identifying <strong>Gadgets</strong>.</p>
+<hr>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script>
@@ -934,7 +952,7 @@ legend * {
 ; mam =( o )=> {
     const m = mem( o );
     const val =( k )=> str( o[ k ] );
-    return ( m ).map( ( k ) => ( val ) );
+    return ( m ).map( val );
 };
 </script>
 
@@ -964,6 +982,12 @@ legend * {
 , qlc , qlp
 }
 </script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script src="https://nyteowldave.github.io/owl/owl.js"></script>
+<script src="https://nyteowldave.github.io/std/api/install.js"></script>
+<script src="https://nyteowldave.github.io/owl/visit-ultra.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
@@ -1235,16 +1259,27 @@ function bummer( e ) {
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <script>
+/*
+
+# SEE : visit-ultra.js
+
+
+<pre><code>
 function visit( u ) {
-    u = ( str( u ) || "./" );
+    u = ( str( u ) || &quot;./&quot; );
     if ( null === localStorage ) {
-        const a = elx( "A" );
+        const a = elx( &quot;A&quot; );
         a . href = ( u );
         a . click();
     } else {
         window.open( u, u );
     }
 }
+
+</code></pre>
+
+
+*/
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1272,6 +1307,7 @@ canedit . all = function( q, en=1 ) {
 function main( event ) {
     try {
         init_ui();
+        install( "hud" );
     } catch ( e ) {
         bummer( e );
     }
@@ -1345,6 +1381,49 @@ function init_tables() {
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+suggestions = [
+  "jarvis.hints()"
+];
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+function suggest( s ) {
+    if ( "number" === typeof s ) {
+        return suggest.item( s );
+    }
+    s = str( s );
+    if ( s ) {
+        footer_input . value = ( s );
+    }
+}
+
+suggest.count = function( report ) {
+    const m = suggestions;
+    const n = ( m.length );
+    if ( report ) {
+        say( `Suggestion Count := ${n}` );
+    }
+    return ( n );
+};
+
+suggest.item = function( i ) {
+    const m = suggestions;
+    const s = m[ parseInt( i ) ];
+    if ( s ) {
+        footer_input . value = ( s );
+    } else {
+        throw new Error( `Index is Out of Range` );
+    }
+};
+
+</script>
 
 <script>
 
@@ -1735,12 +1814,13 @@ jarvis.groups = {
   gideon
 , realm
 , rico
+, suggest
 };
 </script>
 
 <script>
 jarvis.state = {
-  places
+  places, suggestions
 };
 </script>
 
@@ -1789,6 +1869,24 @@ jarvis . describe = function( o ) {
 jarvis . docify = function( o ) {
     incomplete();
 };
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+jarvis . pending = [
+  [ "dorothy" , "Dot Rocket Operations" ]
+, [ "shirley" , "Short URL Operations"  ]
+];
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+dorothy = { incomplete };
+shirley = { incomplete };
+
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
