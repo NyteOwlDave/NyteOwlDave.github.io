@@ -117,6 +117,21 @@ td input {
 
 ----------------------------------------------------------------
 
++ "Bookmark Editor Concept"
+@ "http://tiny.cc/bookmark-editor-concept"
+
+----------------------------------------------------------------
+
++ Concept Project
+@ http://tiny.cc/concept-project
+
+----------------------------------------------------------------
+
++ Concept Editor
+@ https://docs.google.com
+
+----------------------------------------------------------------
+
 + Jarvis Sandbox
 @ ./../jarvis-sandbox.html
 
@@ -129,16 +144,6 @@ td input {
 
 + Jarvis Component Concept
 @ http://tiny.cc/jarvis-component-concept
-
-----------------------------------------------------------------
-
-+ Concept Editor
-@ https://docs.google.com
-
-----------------------------------------------------------------
-
-+ Concept Project
-@ http://tiny.cc/concept-project
 
 ----------------------------------------------------------------
 
@@ -183,18 +188,47 @@ td input {
 
 ----------------------------------------------------------------
 
+# Improve Me
+
+- Very Little Works Yet
+- Lots of Ideas, Little Logic
+
+----------------------------------------------------------------
+
+# Editions
+
+> [Morpheus](https://nyteowldave.github.io/owl/bookmark-editor.html)
+> [Omega](http://dave-omega/app/morpheus/owl/bookmark-editor.html)
+
+----------------------------------------------------------------
+
+# Related Links
+
+> [Concept](http://tiny.cc/bookmark-editor-concept)
+> [Manuscript](./dot/auto/bookmarks.json)
+
+----------------------------------------------------------------
+
+<script>
+; mem =( o )=> Object.keys( o || window ).sort()
+; iwm = mem()
+</script>
+
+<script>
+; doc = ( document )
+; doc . title = ( "Bookmark Editor" )
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 <script>
 bookmarks = function() {}
 sql = function() {}
 debbie = function() {}
 dave = function() {}
-dave = function() {}
-dave = function() {}
-dave = function() {}
-dave = function() {}
-dave = function() {}
-dave = function() {}
 </script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 
 

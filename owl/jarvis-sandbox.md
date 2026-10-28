@@ -1094,6 +1094,19 @@ function jarvis( o, rex ) {
 </script>
 
 <script>
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Version Once Extracted
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+jarvis . version = "2.0";
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Version Already in Owl System Folder
+// Not 100% Compatible!
+// TODO : Document Differences in Concept Doc
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+jarvis . navlink_version = "1.0";
+</script>
+
+<script>
 jarvis . categories = [
   "Groups"
 , "Gadgets"
