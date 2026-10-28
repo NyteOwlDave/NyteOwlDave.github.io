@@ -145,8 +145,7 @@ jarvis.ideas = ( `
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 jarvis.manifest = {
-  "title": "Jarvis Code Analysis"
-  "title": "List Manager for Owl System",
+  "title": "Jarvis Code Analysis",
   "tikey": "( pending )",
   "tidate": "( pending )",
   "updated": "2026-OCT-28",
