@@ -1,0 +1,548 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>editable-list</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<style>
+@import url("http://dave-omega/style/owl.css");
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<style>
+li[value] {
+    cursor : pointer;
+}
+li[value]:hover {
+    background : gold;
+    color      : black;
+}
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<style>
+.shout {
+    color      : lemonchiffon;
+    background : crimson;
+}
+.whisper {
+    color      : "default";
+    background : "default";
+}
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h1 id="_T_"> Editable List Example </h1>
+
+<hr>
+<h2>Magic List</h2>
+<ul class="magic-list">
+  <li value="123" onclick="change(this)" onmouseenter="reveal(this)"> First Item </li>
+  <li value="345" onclick="change(this)" onmouseenter="reveal(this)"> Second Item </li>
+  <li value="3.1415" onclick="change(this)" onmouseenter="reveal(this)"> Greek PI </li>
+</ul>
+
+<hr>
+<div center>
+<h2> Item Viewer </h2>
+<div id="value_preview"> ? </div>
+</div>
+
+<div center>
+<h2> Item Editor </h2>
+<input id="value_input" />
+</div>
+
+<hr>
+<div center>
+ <button onclick="do_accept(event)">Accept</button>
+ <button onclick="do_reject(event)">Reject</button>
+ <button onclick="do_clear(event)">Clear</button>
+</div>
+
+<hr>
+<h1>Hints</h1>
+<ul>
+<li>Hover over any List Item to Reveal its Value</li>
+<li>Click to Modify</li>
+</ul>
+<hr>
+<script>
+; mem =( o )=> Object.keys( o || window ).sort()
+; iwm = mem()
+</script>
+
+<script>
+; RTX = ( null === localStorage )
+</script>
+
+<script>
+; arr  =( o )=> Array.from( o || [] )
+; str  =( o )=> String( o || "" ).trim()
+; earl =( u )=> ( str( u ) || "./" )
+</script>
+
+<script>
+; doc = ( document )
+; doc . title = str( _T_.textContent )
+</script>
+
+<script>
+; tips =( o )=> alert( qlc( mem( o ) ) )
+</script>
+
+<script>
+; iat =( t, o )=> ( t === typeof o   )
+; ias =( o )=> iat( "string"   , o   )
+; iaf =( o )=> iat( "function" , o   )
+; ian =( o )=> iat( "number"   , o   )
+; iob =( o )=> ( o instanceof Object )
+; iar =( o )=> ( Array.isArray( o )  )
+</script>
+
+<script>
+; wap =( u )=> {
+    const a = elx( "A" );
+    a . href = earl( u );
+    a . click();
+}
+; wop =( u )=> {
+    if ( RTX ) { return wap( u ); }
+    u = earl( u );
+    return window . open( u, u );
+}
+; dlg =( u )=> {
+    if ( RTX ) { return wap( u ); }
+    u = earl( u );
+    return window . open( u, u, dlg.options );
+}
+; dlg . options = (
+  "popup=true,width=800,height=680,left=10,right=10"
+)
+;
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script src="https://nyteowldave.github.io/owl/owl.js"></script>
+<script src="https://nyteowldave.github.io/owl/visit-ultra.js"></script>
+<script src="https://nyteowldave.github.io/owl/jarvis-v1p0.js"></script>
+<script src="https://nyteowldave.github.io/std/api/install.js"></script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+; CAPTION =( s )=> ( `〖 ${s} 〗` );
+</script>
+
+<script>
+; CANCELED$    = CAPTION( "canceled"    )
+; INVALID$     = CAPTION( "invalid"     )
+; MISSING$     = CAPTION( "missing"     )
+; UNDEFINED$   = CAPTION( "undefined"   )
+; UNAVAILABLE$ = CAPTION( "unavailable" )
+</script>
+
+<script>
+prolog$ = {
+  mem
+, arr, str, earl
+, tips
+, wap, wop, dlg
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function incomplete( s ) {
+    s = str( s );
+    if ( s ) {
+        shout( "INCOMPLETE!" );
+    } else {
+        shout( `INCOMPLETE! ${s}` );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function shout( s ) {
+    const dst = ( value_preview );
+    dst . textContent = ( s );
+    dst . className = "shout";
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function whisper( s ) {
+    const ge = ( value_preview );
+    ge . textContent = ( s );
+    ge . className = "whisper";
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function bummer( e ) {
+    shout( e . message );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function reveal( src ) {
+    try {
+        const io = item( src );
+        const k = ( src.textContent );
+        const v = ( io . read() );
+        const s = ( `${k} := ${v}` );
+        whisper( s );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function change( src ) {
+    try {
+        const io = item( src );
+        modify . item = ( io );
+        modify( io . read() );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function modify( s ) {
+    try {
+        const dst = ( value_input );
+        dst . value = ( s );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+;
+; modify . item = ( null );
+;
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+modify . clear  = function() {
+    modify . item = ( null );
+    modify( "?" );
+    whisper( "Ready!" );
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+modify . accept = function() {
+    const io = modify.item;
+    if ( io ) {
+        const src = ( value_input );
+        io . write( src . value );
+        reveal( io . source );
+    } else {
+        modify . missing();
+    }
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+modify . reject = function() {
+    const io = modify.item;
+    if ( io ) {
+        const dst = ( value_input );
+        dst . value  = io . read();
+    } else {
+        modify . missing();
+    }
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+modify . missing =  function() {
+    shout( "No Element is Being Modified" );
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function item( gadget ) {
+    if ( gad( gadget ) ) {
+        item . source = ( gadget );
+    } else {
+        item . source = ( null );
+        item . missing();
+    }
+    return ( item );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+item . read = function() {
+    const rd =( o )=> ( o.getAttribute( "value" ) );
+    const src = ( item . source );
+    if ( gad( src ) ) {
+        return rd( src );
+    } else {
+        item . missing();
+        return ( "?" );
+    }
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+item . write = function( s ) {
+    s = str( s );
+    const wr =( o )=> ( o.setAttribute( "value", s ) );
+    const dst = ( item . source );
+    if ( gad( dst ) ) {
+        wr( dst );
+    } else {
+        item . missing();
+    }
+    return ( item );
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+item . missing =  function() {
+    shout( "Missing or Invalid HTML Element" );
+};
+</script>
+
+<script>
+item . usage = UNAVAILABLE$;
+item . read . usage = UNAVAILABLE$;
+item . write . usage = UNAVAILABLE$;
+item . missing . usage = UNAVAILABLE$;
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function main( event ) {
+    try {
+        buttons . add( "[H]", "home()", "[H]ome"
+        install( 'hud' );
+        whisper( "Hello!" );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+main . usage = "main( event )";
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function do_action( action, options ) {
+    try {
+        return action( options );
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+do_action .usage = (
+  "do_action( action, options )"
+);
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+
+function do_accept( event ) {
+    const action =()=> ( modify.accept() );
+    do_action( action );
+}
+
+function do_reject( event ) {
+    const action =()=> ( modify.reject() );
+    do_action( action );
+}
+
+function do_clear( event ) {
+    const action =()=> ( modify.clear() );
+    do_action( action );
+}
+
+</script>
+
+<script>
+
+do_accept . usage = "do_accept( event )";
+do_reject . usage = "do_reject( event )";
+do_clear  . usage = "do_clear( event )";
+
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function codec() {
+    tips( codec );
+}
+codec .usage = "codec()";
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function buttons() {
+    tips( buttons );
+}
+buttons . usage = "buttons()";
+</script>
+
+<script>
+buttons . add = function( title, action, hint ) {
+    console . warn( "INCOMPLETE! buttons.add()" );
+}
+buttons . add . usage = (
+  "buttons.add( title, action, hint )"
+);
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<script>
+function usage( o ) {
+    if (! iob( o ) ) {
+        say( INVALID$ );
+        return;
+    }
+    o = ( o || usage );
+    if ( s = str( o . usage ) ) {
+        say( s );
+    } else {
+        usage . edit( o );
+    }
+}
+usage . usage = "usage( object )";
+</script>
+
+<script>
+usage . edit = function( o ) {
+    if (! iob( o ) ) {
+        say( INVALID$ );
+        return;
+    }
+    let m = "Usage?";
+    let s = "name( args ... )";
+    s = str( window.prompt( m, s ) );
+    if (! s ) {
+        say( CANCELED$ );
+        return;
+    }
+    o . usage = ( s );
+    say( o . usage );
+};
+usage . edit . usage = "usage.edit( object )";
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function travel( place ) {
+    const url = earl( places$[ place ] );
+    return visit( url );
+}
+travel . usage = "travel( place )";
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function home() {
+    if ( null === localStorage ) {
+        home . omega();
+    } else {
+        home . morpheus();
+    }
+}
+home . usage = "home()";
+</script>
+
+<script>
+home . omega = function() {
+    travel( "Omega Editable List Demo" );
+};
+home . omega . usage = "home.omega()";
+</script>
+
+<script>
+home . morpheus = function() {
+    travel( "Morpheus Editable List Demo" );
+};
+home . morpheus . usage = "home.morpheus()";
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+places$ = {
+
+  "Omega Editable List Demo"
+: "http://dave-omega/app/morpheus/owl/examples/editable-list.html"
+
+, "Morpheus Editable List Demo"
+: "https://nyteowldave.github.io/owl/examples/editable-list.html"
+
+, "Morpheus Home"
+: "https://nyteowldave.github.io/"
+
+, "Owl System"
+: "https://nyteowldave.github.io/owl/owl.test"
+
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+</body>
+</html>

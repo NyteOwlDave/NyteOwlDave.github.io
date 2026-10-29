@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>mount-samba-share</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<!-- [[ TODO ]]
+
+- Icon Link
+- Viewport META Tag
+
+-->
+
+<style>
+@import url("https://nyteowldave.github.io/owl/owl.css");
+</style>
+
+<style>
+li input {
+    width : calc( 100vw - 120px );
+}
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h3 id="_T_"> Mount Samba Share </h3>
+
+<h1>AI Overview</h1>
+<hr>
+<h2>Prompt</h2>
+<ul>
+<li><input value="how to mount an smb share from the ubuntu terminal" /></li>
+</ul>
+<hr>
+<h2>Response</h2>
+<p>To mount an <code>SMB</code> share from the <code>Ubuntu</code> terminal, you use the
+<code>mount -t cifs</code> command.</p>
+<p>Here is how to do it manually, followed by how to set up an
+automatic persistent mount.</p>
+<hr>
+<h2>Step 1: Install Dependencies</h2>
+<p>You need the <code>cifs-utils</code> package installed to handle
+<code>SMB/CIFS</code> connections.</p>
+<hr>
+<h2>Bash Scripts</h2>
+<pre><code class="language-bash">
+sudo apt update &amp;&amp; sudo apt install cifs-utils -y
+
+</code></pre>
+<hr>
+<h2>Step 2: Create a Local Mount Point</h2>
+<p>Create the local directory where you want the network folder to appear.</p>
+<hr>
+<h2>Bash Scripts</h2>
+<pre><code class="language-bash">
+sudo mkdir -p /mnt/[VOLUME]
+
+</code></pre>
+<div center>
+ <b>Where:</b> <code>[VOLUME]</code> is a placeholder
+</div>
+
+<hr>
+<h2>Method A: Mount Manually (Temporary)</h2>
+<p>Run the following command, replacing the placeholder information
+with your actual server IP, share name, and username:</p>
+<p>Be advised that mounting will request a password to log in
+to the Samba Service. This means the process can't be
+automated using this Method.</p>
+<hr>
+<h2>Bash Scripts</h2>
+<pre><code class="language-bash">
+# Mount
+
+sudo mount \
+-t cifs    \
+-o username=YOUR_USERNAME,uid=$(id -u),gid=$(id -g)  \
+//[IP]/[SHARE] \
+/mnt/[VOLUME]
+
+# Unmount
+
+sudo umount /mnt/[VOLUME]
+
+</code></pre>
+<div center>
+ <b>Where:</b>
+<br>
+ <ul>
+  <li><code>[IP]</code> is a placeholder</li>
+  <li><code>[SHARE]</code> is a placeholder</li>
+  <li><code>[VOLUME]</code> is a placeholder</li>
+ </ul>
+</div>
+
+<hr>
+<h2>Method B: Mount Automatically on Boot (Persistent)</h2>
+<p>Instead of putting your password directly in a public text
+file, create a hidden credentials file for security.</p>
+<hr>
+<h3>Step 1. Create a credentials file:</h3>
+<hr>
+<h3>Bash Scripts</h3>
+<pre><code class="language-bash">
+nano ~/.smbcredentials
+
+</code></pre>
+<hr>
+<h3>Step 2. Add Credentials</h3>
+<hr>
+<h3>Bash Scripts</h3>
+<pre><code class="language-bash">
+username=YOUR_USERNAME
+password=YOUR_PASSWORD
+
+</code></pre>
+<p>Save and exit.</p>
+<hr>
+<h3>Step 3. Secure File Permissions</h3>
+<hr>
+<h3>Bash Scripts</h3>
+<pre><code class="language-bash">
+chmod 600 ~/.smbcredentials
+
+</code></pre>
+<hr>
+<h3>Step 4. Edit the <code>FSTAB</code> Table</h3>
+<hr>
+<pre><code class="language-bash">
+sudo nano /etc/fstab
+
+</code></pre>
+<hr>
+<h3>Step 5. Make These Changes</h3>
+<hr>
+<pre><code class="language-bash">
+# Append at bottom of fstab
+
+//SERVER_IP/SHARE_NAME     \
+/mnt/[VOLUME] cifs         \
+credentials=/home/[USER]/.smbcredentials,uid=[UID],gid=[GID],iocharset=utf8 0 0
+
+</code></pre>
+<hr>
+<div center>
+<details>
+<summary>TIP</summary>
+<p>
+Use the <code>id</code> command for <code>[UID]</code>
+and <code>[GID]</code>.
+</p>
+<p>
+The <code>[VOLUME]</code> placeholder was chosen earlier.
+</p>
+</details>
+</div>
+
+<hr>
+<h3>Step 6. Test</h3>
+<hr>
+<pre><code class="language-bash">
+sudo mount -a
+
+</code></pre>
+<hr>
+<div center>
+<details>
+<summary>TIP</summary>
+<p>
+Step 6 reads config details from <code>fstab</code>
+</p>
+<p>
+This means that multiple mount points are possible. Just
+repeat the process for editing that file.
+</p>
+</details>
+</div>
+
+<hr>
+<hr>
+<h1>Remarks</h1>
+<p>I've created a <strong>Bash</strong> script named <code>sambo.sh</code> on the Omega.</p>
+<p>It can open either Nautilus or the default Browser to the
+given share name.</p>
+<p>It can also display BOTH addresses (SMB and HTTP), given the
+relative share path.</p>
+<p>The root paths are:</p>
+<ul>
+<li><input value="smb://neo" /></li>
+<li><input value="http://neo/shares" /></li>
+</ul>
+<p>Neither root name needs to be specified. In fact, doing is
+would result in duplication.</p>
+<h2>Root Shares</h2>
+<ul>
+<li><code>42</code></li>
+<li><code>backups</code></li>
+<li><code>bookmarks</code></li>
+<li><code>galadore</code></li>
+<li><code>media</code></li>
+<li><code>peaches</code></li>
+<li><code>ryzen</code></li>
+<li><code>tilly</code></li>
+<li><code>today</code></li>
+<li><code>workspace</code></li>
+<li><code>zed</code></li>
+</ul>
+<hr>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+</body>
+</html>
