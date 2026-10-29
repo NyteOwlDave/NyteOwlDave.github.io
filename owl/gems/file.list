@@ -1,5 +1,6 @@
 dot.html
 explore.list
+explore.md
 express-lane.html
 favicon.ico
 file.list
@@ -11,5 +12,6 @@ list-ebooks-01.js
 list-ebooks-02.js
 list-modules-01.js
 owl.png
+request-ebook-list.js
 test.md
 tree.txt
