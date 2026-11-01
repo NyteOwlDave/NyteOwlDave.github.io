@@ -1,4 +1,5 @@
 <script>
-location="http://tiny.cc/daves-notes";
+// location="http://tiny.cc/daves-notes";
+location="./owl-login.html";
 </script>
 

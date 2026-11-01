@@ -59,14 +59,17 @@ td input {
 | Member       | Description |
 |--------------|-------------|
 | .str_opt     | <input />   |
+| .pass        | <input />   |
 | .store       | <input />   |
 | .tips        | <input />   |
 | .report      | <input />   |
-| .bummer      | <input />   |
-| .scoobie     | <input />   |
-| .expected    | <input />   |
+| .loaded      | <input />   |
+| .reminder    | <input />   |
 | .incomplete  | <input />   |
 | .initialized | <input />   |
+| .scoobie     | <input />   |
+| .expected    | <input />   |
+| .bummer      | <input />   |
 | ...          | <input />   |
 
 ----------------------------------------------------------------
@@ -102,9 +105,13 @@ td input {
 
 <!-- [ owl-script-core-imports.md ] -->
 <script src="https://nyteowldave.github.io/owl/owl.js"></script>
-<script src="https://nyteowldave.github.io/owl/owl-basics.js"></script>
 <script src="https://nyteowldave.github.io/owl/visit-ultra.js"></script>
 <script src="https://nyteowldave.github.io/std/api/install.js"></script>
+
+<!--
+<script src="https://nyteowldave.github.io/owl/owl-basics.js"></script>
+-->
+
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
@@ -114,6 +121,7 @@ function main( event ) {
         install( 'hud' );
         install( 'hud-button' );
         init_basics();
+        init_gems();
     } catch ( e ) {
         console . error ( e );
         window  . alert ( e );
@@ -127,3 +135,7 @@ addEventListener( "load", main );
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+<script src="http://dave-omega/app/morpheus/owl/owl-basics.js"></script>
+<script src="http://dave-omega/app/morpheus/owl/owl-gems.js"></script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

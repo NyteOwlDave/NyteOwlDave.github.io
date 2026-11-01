@@ -1,0 +1,352 @@
+<style>
+<!--
+@import url("http://dave-omega/style/owl.css");
+@import url("https://nyteowldave.github.io/owl/owl.css");
+-->
+@import url("http://dave-omega/style/owl.css");
+@import url("https://nyteowldave.github.io/owl/style/wide-input.css");
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h3 id="_T_"> Owl Folders </h3>
+
+----------------------------------------------------------------
+
+<fieldset center>
+<legend>
+  <h3> Folder Address </h3>
+</legend>
+<section center id="address_section">
+ <input wide id="owl_address" / >
+</section>
+<section center id="action_section">
+ <button id="btn_visit"  > Go      </button>
+ <button id="btn_refresh"> Refresh </button>
+</section>
+</fieldset>
+
+----------------------------------------------------------------
+
+<fieldset center>
+<legend>
+  <h3> Owl Folders </h3>
+</legend>
+<section center id="folder_section">
+<select wide id="folder_droplist">
+ <option value="."> ( prompt ) </option>
+ <option value="chats">Chats</option>
+ <option value="client">Client</option>
+ <option value="dot">Dot</option>
+ <option value="examples">Examples</option>
+ <option value="gems">Gems</option>
+ <option value="notes">Notes</option>
+ <option value="server">Server</option>
+ <option value="style">Style</option>
+</select>
+</section>
+</fieldset>
+
+----------------------------------------------------------------
+
+<fieldset center>
+<legend>
+  <h3> Owl Providers </h3>
+</legend>
+<section center id="provider_section">
+<select wide id="provider_droplist">
+ <option value="."> ( prompt ) </option>
+ <option id="opt_omega"    > Omega    </option>
+ <option id="opt_tower"    > Tower    </option>
+ <option id="opt_legacy"   > Legacy   </option>
+ <option id="opt_lenovo"   > Lenovo   </option>
+ <option id="opt_probook"  > Probook  </option>
+ <option id="opt_pi"       > Pi       </option>
+ <option id="opt_jefr"     > Jefr     </option>
+ <option id="opt_ryzen"    > Ryzen    </option>
+ <option id="opt_morpheus" > Morpheus </option>
+</select>
+</section>
+</fieldset>
+
+----------------------------------------------------------------
+
+<script>
+; iwm = Object.keys( window ).sort()
+; mem =( o )=> Object.keys( o || window ).sort()
+</script>
+
+<script>
+; doc = ( document )
+; doc . title = ( `Owl Style Example` )
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- |~~~~~~~~~~~~~~~~ [[ Owl 🦉 System ]] ~~~~~~~~~~~~~~~~| -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- [ owl-script-core-imports.md ] -->
+<script src="https://nyteowldave.github.io/owl/owl.js"></script>
+<script src="https://nyteowldave.github.io/owl/visit-ultra.js"></script>
+<script src="https://nyteowldave.github.io/std/api/install.js"></script>
+
+<!--
+<script src="https://nyteowldave.github.io/owl/owl-basics.js"></script>
+-->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function main( event ) {
+    try {
+        install( 'hud' );
+        install( 'hud-button' );
+        init_basics();
+        init_gems();
+        init_providers();
+        init_buttons()
+        address . init();
+    } catch ( e ) {
+        console . error ( e );
+        window  . alert ( e );
+    }
+}
+</script>
+
+<script>
+addEventListener( "load", main );
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function lanhost( k ) {
+    return [
+      "http://dave-"
+    , "/app/morpheus/owl"
+    ] . join( k );
+}
+</script>
+
+<script>
+( lanhost )
+. match = function( s, rex="dave\-.+" ) {
+    s = str( s );
+    const r = new RegExp( rex );
+    return ( r . test( s ) );
+}
+</script>
+
+<script>
+( lanhost )
+. shorten = function( s ) {
+    const ops = ( lanhost );
+    s = str( s );
+    if ( ops . match( s ) ) {
+        return ( s ).slice( 5 );
+    }
+    return ( s );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+providers$ = {
+  omega   : lanhost( "omega"   )
+, tower   : lanhost( "tower"   )
+, legacy  : lanhost( "legacy"  )
+, lenovo  : lanhost( "lenovo"  )
+, probook : lanhost( "probook" )
+, pi      : lanhost( "pi"      )
+, jefr    : lanhost( "jefr"    )
+, ryzen   : lanhost( "ryzen"   )
+, morpheus
+: "https://nyteowldave.github.io/owl"
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function init_providers() {
+  const m = ( providers$ );
+  const txt =( ce )=> str( ce . textContent );
+  const key =( ce )=> txt( ce ).toLowerCase();
+  opt_omega   . value = m[ key( opt_omega    ) ];
+  opt_tower   . value = m[ key( opt_tower    ) ];
+  opt_legacy  . value = m[ key( opt_legacy   ) ];
+  opt_lenovo  . value = m[ key( opt_lenovo   ) ];
+  opt_probook . value = m[ key( opt_probook  ) ];
+  opt_pi      . value = m[ key( opt_pi       ) ];
+  opt_jefr    . value = m[ key( opt_jefr     ) ];
+  opt_ryzen   . value = m[ key( opt_ryzen    ) ];
+  opt_morpheus. value = m[ key( opt_morpheus ) ];
+  say( "Intialized Providers" );
+};
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function init_buttons() {
+    init_button_titles ();
+    init_button_actions();
+}
+</script>
+
+<script>
+function init_button_titles () {
+    btn_visit   . title = "Visit Current URL Address"  ;
+    btn_refresh . title = "Refresh Owl Folder Address" ;
+}
+</script>
+
+<script>
+function init_button_actions() {
+    btn_visit   . onclick = do_visit;
+    btn_refresh . onclick = do_refresh;
+}
+</script>
+
+<script>
+function do_visit( event ) {
+    try {
+        const ops = ( address );
+        const url = ( ops.read() );
+        if ( url ) {
+            ops.visit( url );
+        }
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<script>
+function do_refresh( event ) {
+    try {
+        address.refresh();
+    } catch ( e ) {
+        bummer( e );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function address() {
+    tips( address );
+}
+</script>
+
+<script>
+( address )
+. read = function() {
+    const ops = ( address );
+    return ( ops . write( "" ) );
+}
+</script>
+
+<script>
+( address )
+. write = function( url ) {
+    const ge = ( owl_address );
+    const u1 = str( url );
+    const u2 = str( ge . value );
+    return ( ge.value = ( u1 || u2 ) );
+}
+</script>
+
+<script>
+( address )
+. refresh = function() {
+    const ops = ( address );
+    const cancel =()=> {
+        say( "Canceled" );
+    }
+    const accept =( url )=> {
+        say( ops . write( url ) );
+    }
+    let p = ( provider_droplist.value );
+    if ( "." === p ) {
+        const host = (
+             ( location.hostname )
+          || ( "dave-omega"      )
+        );
+        p = ops . prompt(
+            "Provider's Host Name"
+           , host
+        );
+        if (! p ) {
+            return cancel();
+        }
+    }
+    p = ( lanhost . shorten( p ) );
+    p = providers$[ p ];
+    if (! p ) {
+        cancel();
+        expected( "Known Host Name" );
+        return;
+    };
+    let k = ( folder_droplist.value );
+    if ( "." === k ) {
+        k = ops . prompt(
+            "Owl Folder Name"
+           , ( k )
+        );
+        if (! k ) {
+            return cancel();
+        }
+    }
+    const url = ( [ p, k ].join( "/" ) );
+    return accept( url );
+}
+</script>
+
+<script>
+( address )
+. visit = function( url ) {
+    url = str( url );
+    if (! url ) { url = "./"; }
+    say( `Visit : ${url}` );
+    const msg = [
+      ( "Visit Address?" )
+    , ( url )
+    ] . join( "\n\n" );
+    if ( window.confirm( msg ) ) {
+        window . visit( url );
+    } else {
+        say( `Canceled` );
+    }
+}
+</script>
+
+<script>
+( address )
+. prompt = function( msg, orelse ) {
+    return str(
+        window . prompt( msg, orelse )
+    );
+}
+</script>
+
+<script>
+( address )
+. init = function() {
+    const k = ( location . hostname || "omega" );
+    const url = providers$[ k ];
+    address . write( url );
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script src="http://dave-omega/app/morpheus/owl/owl-basics.js"></script>
+<script src="http://dave-omega/app/morpheus/owl/owl-gems.js"></script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+

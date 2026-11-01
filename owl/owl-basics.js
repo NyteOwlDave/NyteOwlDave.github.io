@@ -17,6 +17,9 @@
 ; FF$ = "\n\n"
 ; RT$ = ( null === localStorage )
 ;
+; STR$ =( o )=> String( o || "" ).trim()
+;
+; str = ( window.str ? str : STR$ )
 ; str.opt =( s, t="?" ) => ( str( s ) || str( t ) || "?" )
 ;
 
@@ -33,12 +36,17 @@ function store() {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function tips( o, title ) {
-    const ops = ( tips );
-    const s = ops . identify( o );
-    const t = ( str . opt( title , s ) );
-    const m = mem( o );
-    m . unshift( tips . bracket( t ) + LF$ );
-    window . alert( m . join( LF$ ) );
+    try {
+        const ops = ( tips );
+        const s = ops . identify( o );
+        const t = ( str . opt( title , s ) );
+        const m = mem( o );
+        m . unshift( tips . bracket( t ) + LF$ );
+        window . alert( m . join( LF$ ) );
+    } catch ( e ) {
+        console . error( e );
+        window  . alert( e );
+    }
 }
 
 ( tips )
@@ -55,15 +63,42 @@ function tips( o, title ) {
 
 ( tips )
 . identify = function( o ) {
+    const _pn =( s )=> ( tips . proper( s ) );
     if ( o instanceof Object ) {
         return (
-             str( o . title    )
-          || str( o . name     )
-          || str( o . id       )
-          || str( o . nodeName )
+             _pn( o . title    )
+          || _pn( o . name     )
+          || _pn( o . id       )
+          || _pn( o . nodeName )
         );
     }
     expected( "Object" );
+};
+
+( tips )
+. proper = function( s ) {
+    s = str( s );
+    if ( s ) {
+        const pfx = ( s ).slice( 0, 1 ).toUpperCase();
+        const sfx = ( s ).slice(    1 ).toLowerCase();
+        return ( pfx + sfx );
+    }
+    return ( s );
+};
+
+( tips )
+. kebob = function( s ) {
+    s = str( s );
+    if ( s ) {
+        const p = (
+            ( s )
+            . split( " " )
+            . map( str )
+            . filter( nop )
+        );
+        s = ( p ).join( "-" );
+    }
+    return ( s );
 };
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,351 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>owl-login</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<p><head> <link rel="icon" href="favicon.ico" /> </head></p>
+<style> @import url("./owl.css"); </style>
+
+<style>
+body {
+    text-align : center;
+}
+</style>
+
+<style>
+table {
+    margin : 20px 0px;
+}
+table {
+    color      : unset !important;
+    background : unset !important;
+    width      : unset !important;
+    max-width  : unset !important;
+    min-width  : unset !important;
+    border     : none  !important;
+}
+thead {
+    color      : unset !important;
+    background : unset !important;
+    width      : unset !important;
+    max-width  : unset !important;
+    min-width  : unset !important;
+    border     : none  !important;
+}
+tbody {
+    color      : unset !important;
+    background : unset !important;
+    width      : unset !important;
+    max-width  : unset !important;
+    min-width  : unset !important;
+    border     : none  !important;
+}
+tr {
+    color      : unset !important;
+    background : unset !important;
+    width      : unset !important;
+    max-width  : unset !important;
+    min-width  : unset !important;
+    border     : none  !important;
+}
+th {
+    opacity : 0;
+    border     : none  !important;
+}
+td {
+    color      : unset !important;
+    background : unset !important;
+    width      : unset !important;
+    max-width  : unset !important;
+    min-width  : unset !important;
+    border     : none  !important;
+    font       : 16pt monospace;
+}
+</style>
+
+<style>
+:root {
+    --nice      : 3px dashed navy;
+    --nice-hide : 3px dashed transparent;
+}
+</style>
+
+<style>
+div[blip] {
+    cursor  : pointer;
+    font    : 14pt monospace;
+    padding : 0.6ch;
+    text-align : center;
+    background : mintcream;
+    color      : midnightblue;
+    border-radius : 100%;
+}
+div[blip]:hover {
+    box-shadow : 0 0 11px gold;
+    transform  : scale( 1.2 );
+}
+</style>
+
+<style>
+input[cool] {
+    font    : 16pt monospace;
+    display : inline-block;
+    width   : 30ch;
+    border  : var( --nice-hide );
+    outline : none;
+    padding : 0.2ch 1.0ch;
+    background : mintcream;
+    color      : midnightblue;
+    border-radius : 3ch;
+    opacity : 0.84;
+}
+input[cool]:focus {
+    border     : var( --nice );
+    background : #BFD;
+    opacity    : 1.0;
+}
+</style>
+
+<style>
+button[cool] {
+    font    : 18pt sans-serif;
+    display : inline-block;
+    width   : 20ch;
+    border  : 3px solid transparent;
+    outline : none;
+    border-radius : 3ch;
+    padding       : 0.2ch 1.0ch;
+    background : mintcream;
+    color      : midnightblue;
+}
+button[cool]:focus {
+    border : var( --nice );
+}
+</style>
+
+<style>
+button.hide {
+    display : none !important;
+}
+</style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<div center>
+ <img src="owl.png" />
+</div>
+
+<hr>
+<h1><code>🦉</code> Owl Login</h1>
+<hr>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User Name</td>
+<td><input id="ip_uid" cool /></td>
+<td><div id="btn_strong" blip>💪</div></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input id="ip_pwd" cool type="password" /></td>
+<td><div id="btn_show"   blip>👀</div></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<section id="action_section">
+ <button class="hide" cool id="btn_login" > 🔓 Login   </button>
+<hr>
+ <button class="hide" cool id="btn_signup"> 👥 Sign Up </button>
+<hr>
+ <button cool id="btn_reset"> ♻️ Reset </button>
+</section>
+
+<hr>
+<script>
+; doc = ( document )
+; doc . title = ( "Owl Login" )
+</script>
+
+<script>
+; str =( o )=> String( o || "" ).trim()
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function todo( event ) {
+    try {
+        alert( "This feature is under development." );
+    } catch ( e ) {
+        console . error ( e );
+        alert ( e );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function do_show_pwd( event ) {
+    try {
+        const st = ip_pwd . style;
+        const b = ( ip_pwd . revealed );
+        if ( b ) {
+            ip_pwd . type = "password";
+            st . background = "";
+            btn_show . textContent = "👀";
+            btn_show . title = "👀 Show Password";
+        } else {
+            ip_pwd . type = "text";
+            st . background = "#F88";
+            btn_show . textContent = "🚫";
+            btn_show . title = "🚫 Hide Password";
+        }
+        ip_pwd . revealed = (! b );
+        ip_pwd . focus();
+    } catch ( e ) {
+        console . error ( e );
+        alert ( e );
+    }
+}
+</script>
+<script>
+function do_strong_pwd( event ) {
+    try {
+        ip_pwd . value = generateStrongPassword();
+        ip_pwd . focus();
+    } catch ( e ) {
+        console . error ( e );
+        alert ( e );
+    }
+}
+</script>
+<script>
+function do_reset( event ) {
+    try {
+        LOCKED = false;
+        ip_uid . value = "";
+        ip_pwd . type = "password";
+        ip_pwd . revealed = false;
+        ip_pwd . value = "";
+        const st = ip_pwd . style;
+        st . background = "";
+        btn_show . textContent = "👀";
+        btn_show . title = "👀 Show Password";
+//      btn_show . textContent = "🚫";
+//      btn_show . title = "🚫 Hide Password";
+    } catch ( e ) {
+        console . error ( e );
+        alert ( e );
+    }
+}
+</script>
+<script>
+function do_login( event ) {
+    try {
+        todo( event );
+    } catch ( e ) {
+        console . error ( e );
+        alert ( e );
+    }
+}
+</script>
+<script>
+function do_signup( event ) {
+    try {
+        todo( event );
+    } catch ( e ) {
+        console . error ( e );
+        alert ( e );
+    }
+}
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+btn_login  . onclick = do_login;
+btn_signup . onclick = do_signup;
+btn_strong . onclick = do_strong_pwd;
+btn_show   . onclick = do_show_pwd;
+btn_reset  . onclick = do_reset;
+</script>
+
+<script>
+// 🦉 NyteOwl
+// 💪 Strong Password
+// 👀 Show Password
+// 🚫 Hide Password
+// 🔓 Login
+// 👥 Sign Up
+// ♻️ Reset
+btn_login  . title   = "🔓 Login to Your Account";
+btn_signup . title   = "👥 Create a New User Account";
+btn_strong . title   = "💪 Suggest Strong Password";
+btn_show   . title   = "👀 Show Password";
+btn_reset  . title   = "♻️ Reset the Form";
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function pulse( event ) {
+    function _hide() {
+        btn_login  . classList . add( "hide" );
+        btn_signup . classList . add( "hide" );
+    }
+    function _show() {
+        btn_login  . classList . remove( "hide" );
+        btn_signup . classList . remove( "hide" );
+    }
+    if ( LOCKED ) { return _show(); }
+    try  {
+        const s = str( ip_uid.value );
+        if ( s.length < 1 ) { return _hide(); }
+        const t = str( ip_pwd.value );
+        if ( t.length < 4 ) { return _hide(); }
+        return _show();
+    } catch ( e ) {
+        LOCKED = true;
+        console . error ( e );
+        window  . alert ( e );
+    }
+}
+;
+; LOCKED = 0
+; ( 0 ) && alert( 123 )
+;
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+setInterval( pulse, 200 );
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script src="./strong-password.js"></script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+</body>
+</html>
