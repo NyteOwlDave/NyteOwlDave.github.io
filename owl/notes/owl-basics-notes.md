@@ -1,3 +1,7 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" href="./favicon.ico" />
+
 <style>
 <!--
 @import url("http://dave-omega/style/owl.css");
@@ -29,7 +33,13 @@ td input {
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-# Owl Basics Notes
+<div center>
+  <img src="./favicon.ico" />
+</div>
+
+----------------------------------------------------------------
+
+<h3 id="_T_"> Owl Basics Notes </h3>
 
 ----------------------------------------------------------------
 
@@ -80,10 +90,100 @@ td input {
 
 ----------------------------------------------------------------
 
+# Finish Me
+
+- Table Reader Component
+- Persistent State
+- Add Link to Ruminations ( Captain's Log )
+
+----------------------------------------------------------------
+
+# Related Components
+
+- Owl Basics ( common methods like `tips` and `bummer` )
+- Owl Gems ( generic Gem Manager )
+- Owl Clipper ( clipboard )
+
+----------------------------------------------------------------
+
+# Related Notes
+
+- Notes Menu
+    - API Component Names
+    - CORS Notes
+    - Drive Index Example
+    - Drive Index Omega Edition
+    - Jarvis Sandbox Notes
+    - Mount Samba Share
+    - Pending Styles
+    - Ruminations
+    - Snag Editor Notes
+    - SQLite Examples
+    - SQLite Lex-An
+    - User Agents
+
+----------------------------------------------------------------
+
+# Recent Activities
+
+## Web Pages
+
+- Owl Login
+- Owl Help
+- Owl Folders
+
+## Web Components
+
+- App Features
+- Cool Address Bar
+- Editable List
+- App Boilerplate
+- Script Core Imports ( outdated )
+
+----------------------------------------------------------------
+
+# Earlier Activities
+
+- Owl Bookmark Editor
+- Owl File Transfer
+- Owl-Notes
+- Owl System
+- Jarvis Sandbox
+
+----------------------------------------------------------------
+
+# Comments
+
+- None of the Components is fully debugged
+- The Apps Contain __LAN__ Refs to These Components
+- __LAN__ References are for Testing
+- `CORS` makes this an Issue for Access via Morpheus
+- Latest Gems (Downloads) contains `owl-basics-gems.md`
+
+----------------------------------------------------------------
+
+# Open Files
+
+## Markdown
+
+- owl-basics-notes.md
+- owl-basics-gems.md
+- owl-folders.md
+
+## JavaScript
+
+- owl-basics.js
+- owl-gems.js
+- owl-clipper.js
+
+----------------------------------------------------------------
+
 # Editions
 
 > [Omega][me-omega]
 > [Morpheus][me-morpheus]
+
+> [Notes Menu](./notes-menu.html)
 
 ----------------------------------------------------------------
 
@@ -94,7 +194,7 @@ td input {
 
 <script>
 ; doc = ( document )
-; doc . title = ( `Owl Style Example` )
+; doc . title = ( _T_.textContent ).trim()
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -137,5 +237,6 @@ addEventListener( "load", main );
 
 <script src="http://dave-omega/app/morpheus/owl/owl-basics.js"></script>
 <script src="http://dave-omega/app/morpheus/owl/owl-gems.js"></script>
+<script src="http://dave-omega/app/morpheus/owl/owl-clipper.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

@@ -1,3 +1,7 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" href="./favicon.ico" />
+
 <style>
 <!--
 @import url("http://dave-omega/style/owl.css");
@@ -8,6 +12,17 @@
 </style>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+[me-omega]:    <http://dave-omega/app/morpheus/owl/owl-folders.html> "Omega Edition"
+[me-morpheus]: <https://nyteowldave.github.io/owl/owl-folders.html>  "Morpheus Edition"
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<div center>
+  <img src="./favicon.ico" />
+</div>
+
+----------------------------------------------------------------
 
 <h3 id="_T_"> Owl Folders </h3>
 
@@ -67,7 +82,17 @@
  <option id="opt_morpheus" > Morpheus </option>
 </select>
 </section>
+  <hr>
+<h3> Host Name </h3>
+<div center id="host_name"> ( pending ) </div>
 </fieldset>
+
+----------------------------------------------------------------
+
+# Editions
+
+> [Omega][me-omega]
+> [Morpheus][me-morpheus]
 
 ----------------------------------------------------------------
 
@@ -78,7 +103,7 @@
 
 <script>
 ; doc = ( document )
-; doc . title = ( `Owl Style Example` )
+; doc . title = ( _T_.textContent ).trim()
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -273,25 +298,25 @@ function address() {
     }
     let p = ( provider_droplist.value );
     if ( "." === p ) {
-        const host = (
+        let h = (
              ( location.hostname )
           || ( "dave-omega"      )
         );
-        p = ops . prompt(
+        h = ops . prompt(
             "Provider's Host Name"
-           , host
+           , h
         );
-        if (! p ) {
+        if (! h ) {
             return cancel();
         }
+        h = ( lanhost . shorten( h ) );
+        p = providers$[ h ];
+        if (! p ) {
+            say ( "Host Entered : " + h );
+            expected( "Known Host" );
+            return;
+        };
     }
-    p = ( lanhost . shorten( p ) );
-    p = providers$[ p ];
-    if (! p ) {
-        cancel();
-        expected( "Known Host Name" );
-        return;
-    };
     let k = ( folder_droplist.value );
     if ( "." === k ) {
         k = ops . prompt(
@@ -341,6 +366,34 @@ function address() {
     const url = providers$[ k ];
     address . write( url );
 }
+</script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<script>
+function pulse( event ) {
+    const s = provider_droplist . value;
+    const l = location;
+    let host;
+    if ( s === "." ) {
+        host = (
+             l . hostname
+          || "dave-omega"
+        );
+    } else {
+        const u = new URL( s );
+        host = (
+             u . hostname
+          || l . hostname
+          || "dave-omega"
+        );
+    }
+    host_name . textContent = ( host );
+}
+</script>
+
+<script>
+setInterval( pulse, 300 );
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

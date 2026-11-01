@@ -13,6 +13,8 @@ img { max-width: 100%; }
 </style>
 </head>
 <body>
+<p><meta name="viewport" content="width=device-width, initial-scale=1.0"></p>
+<p><link rel="icon" href="./favicon.ico" /></p>
 <style>
 <!--
 @import url("http://dave-omega/style/owl.css");
@@ -41,7 +43,13 @@ td input {
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<h1>Owl Basics Notes</h1>
+<div center>
+  <img src="./favicon.ico" />
+</div>
+
+<hr>
+<h3 id="_T_"> Owl Basics Notes </h3>
+
 <hr>
 <h1>Symbol Table</h1>
 <hr>
@@ -152,10 +160,92 @@ td input {
 </section>
 
 <hr>
+<h1>Finish Me</h1>
+<ul>
+<li>Table Reader Component</li>
+<li>Persistent State</li>
+<li>Add Link to Ruminations ( Captain's Log )</li>
+</ul>
+<hr>
+<h1>Related Components</h1>
+<ul>
+<li>Owl Basics ( common methods like <code>tips</code> and <code>bummer</code> )</li>
+<li>Owl Gems ( generic Gem Manager )</li>
+<li>Owl Clipper ( clipboard )</li>
+</ul>
+<hr>
+<h1>Related Notes</h1>
+<ul>
+<li>Notes Menu<ul>
+<li>API Component Names</li>
+<li>CORS Notes</li>
+<li>Drive Index Example</li>
+<li>Drive Index Omega Edition</li>
+<li>Jarvis Sandbox Notes</li>
+<li>Mount Samba Share</li>
+<li>Pending Styles</li>
+<li>Ruminations</li>
+<li>Snag Editor Notes</li>
+<li>SQLite Examples</li>
+<li>SQLite Lex-An</li>
+<li>User Agents</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1>Recent Activities</h1>
+<h2>Web Pages</h2>
+<ul>
+<li>Owl Login</li>
+<li>Owl Help</li>
+<li>Owl Folders</li>
+</ul>
+<h2>Web Components</h2>
+<ul>
+<li>App Features</li>
+<li>Cool Address Bar</li>
+<li>Editable List</li>
+<li>App Boilerplate</li>
+<li>Script Core Imports ( outdated )</li>
+</ul>
+<hr>
+<h1>Earlier Activities</h1>
+<ul>
+<li>Owl Bookmark Editor</li>
+<li>Owl File Transfer</li>
+<li>Owl-Notes</li>
+<li>Owl System</li>
+<li>Jarvis Sandbox</li>
+</ul>
+<hr>
+<h1>Comments</h1>
+<ul>
+<li>None of the Components is fully debugged</li>
+<li>The Apps Contain <strong>LAN</strong> Refs to These Components</li>
+<li><strong>LAN</strong> References are for Testing</li>
+<li><code>CORS</code> makes this an Issue for Access via Morpheus</li>
+<li>Latest Gems (Downloads) contains <code>owl-basics-gems.md</code></li>
+</ul>
+<hr>
+<h1>Open Files</h1>
+<h2>Markdown</h2>
+<ul>
+<li>owl-basics-notes.md</li>
+<li>owl-basics-gems.md</li>
+<li>owl-folders.md</li>
+</ul>
+<h2>JavaScript</h2>
+<ul>
+<li>owl-basics.js</li>
+<li>owl-gems.js</li>
+<li>owl-clipper.js</li>
+</ul>
+<hr>
 <h1>Editions</h1>
 <blockquote>
 <p><a href="http://dave-omega/app/morpheus/owl/notes/owl-basics-notes.html" title="Omega Edition">Omega</a>
 <a href="https://nyteowldave.github.io/owl/notes/owl-basics-notes.html" title="Morpheus Edition">Morpheus</a></p>
+<p><a href="./notes-menu.html">Notes Menu</a></p>
 </blockquote>
 <hr>
 <script>
@@ -165,7 +255,7 @@ td input {
 
 <script>
 ; doc = ( document )
-; doc . title = ( `Owl Style Example` )
+; doc . title = ( _T_.textContent ).trim()
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -205,26 +295,9 @@ addEventListener( "load", main );
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<script>
-function Gems() {
-    tips( Gems );
-}
-</script>
-
-<script>
-function init_gems( ops ) {
-
-; ops = ( ops || Gems )
-;
-; tips( tips )
-;
-
-}
-</script>
-
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
 <script src="http://dave-omega/app/morpheus/owl/owl-basics.js"></script>
+<script src="http://dave-omega/app/morpheus/owl/owl-gems.js"></script>
+<script src="http://dave-omega/app/morpheus/owl/owl-clipper.js"></script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
