@@ -1,5 +1,3 @@
-.
-..
 dots
 bonfire.js
 chachi.js
@@ -13,6 +11,7 @@ editables.js
 energize.js
 eratothenes.js
 explore.list
+explore.md
 factors.js
 file.list
 folder.list
