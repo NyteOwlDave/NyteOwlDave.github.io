@@ -6,6 +6,8 @@
 @import url("http://dave-omega/style/owl.css");
 </style>
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 <style>
 .action-section { text-align : center; }
 </style>
@@ -19,6 +21,11 @@ td input {
     width : inherit;
 }
 </style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+[me-omega]:    <http://dave-omega/app/morpheus/owl/notes/owl-basics-notes.html> "Omega Edition"
+[me-morpheus]: <https://nyteowldave.github.io/owl/notes/owl-basics-notes.html> "Morpheus Edition"
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
@@ -67,6 +74,13 @@ td input {
 <section class="action-section" table="OwlBasics Members">
   <strong> ( menu pending ) </strong>
 </section>
+
+----------------------------------------------------------------
+
+# Editions
+
+> [Omega][me-omega]
+> [Morpheus][me-morpheus]
 
 ----------------------------------------------------------------
 

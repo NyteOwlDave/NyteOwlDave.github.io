@@ -17,7 +17,7 @@
 ; FF$ = "\n\n"
 ; RT$ = ( null === localStorage )
 ;
-; ( str ).opt =( s, t="?" ) => ( str( s ) || str( t ) || "?" )
+; str.opt =( s, t="?" ) => ( str( s ) || str( t ) || "?" )
 ;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,10 +123,14 @@ function expected( s ) {
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-function incomplete( s ) {
-    s = str.opt( s );
-    report( "Incomplete : " + s );
-};
+function loaded( s ) {
+    s = ( str( s ) );
+    if ( s ) {
+        console . info( "Loaded Component : " + s );
+    } else {
+        console . info( "Loaded Component : ( ? )" );
+    }
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -134,6 +138,20 @@ function initialized( s ) {
     s = ( str( s ) || "Component" );
     console . info( "Initialized : " + s );
 }
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+function incomplete( s ) {
+    s = str.opt( s );
+    report( "Incomplete : " + s );
+};
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+function reminder( s ) {
+    s = str.opt( s );
+    console . info( "REMINDER : " + s );
+};
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -149,23 +167,33 @@ function init_basics( ops ) {
 ; ops = ( ops || OwlBasics )
 ;
 
-; ( ops )
-. pass = {
+const _pass = {
   p : "https://nyteowldave.github.io"
 , s : "owl"
 , k : "owl-basics.js"
-}
-;
+};
 
-; ( ops ) . str_opt     = ( str . opt   )
+( _pass )
+. url = function() {
+    const o = ( _pass );
+    const p = ( o . p );
+    const s = ( o . s );
+    const k = ( o . k );
+    return ( [ p, s, k ] . join( "/" ) );
+};
+
+; ( ops ) . pass        = ( _pass       )
+; ( ops ) . str_opt     = ( str.opt     )
 ; ( ops ) . store       = ( store       )
 ; ( ops ) . tips        = ( tips        )
 ; ( ops ) . report      = ( report      )
-; ( ops ) . bummer      = ( bummer      )
-; ( ops ) . scoobie     = ( scoobie     )
-; ( ops ) . expected    = ( expected    )
+; ( ops ) . loaded      = ( loaded      )
+; ( ops ) . reminder    = ( reminder    )
 ; ( ops ) . incomplete  = ( incomplete  )
 ; ( ops ) . initialized = ( initialized )
+; ( ops ) . scoobie     = ( scoobie     )
+; ( ops ) . expected    = ( expected    )
+; ( ops ) . bummer      = ( bummer      )
 
 initialized( "Owl Basics" )
 
