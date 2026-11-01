@@ -1,6 +1,15 @@
 // APP : Owl System Test
 // GEM : request-ebook-list.js
-function request_ebook_list() {
+
+/*
+	function request( url, accept, reject ) { ... }
+*/
+
+request . list = function() {
+	tips( request . list );
+};
+
+request . list . ebooks = function() {
    t = "EBook List";
    i = "list-ebooks";
    p = "https://nyteowldave.github.io";

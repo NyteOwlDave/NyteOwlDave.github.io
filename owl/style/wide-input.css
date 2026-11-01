@@ -1,0 +1,23 @@
+
+.wide ,
+[wide] {
+    width   : calc( 100vw - 160px );
+    outline : none;
+    border  : none;
+    padding : 7px 1em;
+    font    : 11pt monospace;
+    border-radius : 3ch;
+}
+.wide:focus ,
+[wide]:focus {
+    box-shadow : var( --glow );
+    transform  : scale( 1.07 );
+}
+
+
+/*
+
+| File Name | wide-input.css  |
+| Project   | Owl System      |
+
+*/
