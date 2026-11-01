@@ -17,12 +17,12 @@
 ; FF$ = "\n\n"
 ; RT$ = ( null === localStorage )
 ;
-; ( str ).opt = ( str( s ) || "?" )
+; ( str ).opt =( s, t="?" ) => ( str( s ) || str( t ) || "?" )
 ;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-function store = function() {
+function store() {
     return (
         ( RT$ )
       ? ( sessionStorage )
@@ -33,8 +33,9 @@ function store = function() {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function tips( o, title ) {
-    const s = tips . identify( o );
-    const t = str( title ) || s );
+    const ops = ( tips );
+    const s = ops . identify( o );
+    const t = ( str . opt( title , s ) );
     const m = mem( o );
     m . unshift( tips . bracket( t ) + LF$ );
     window . alert( m . join( LF$ ) );
@@ -67,7 +68,7 @@ function tips( o, title ) {
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-function report = function( s ) {
+function report( s ) {
     let _f;
     const _w  =( window );
     const _fn =( k )=> ( ( _w[ k ] ) instanceof Function );
@@ -92,6 +93,29 @@ function report = function( s ) {
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+function bummer( e ) {
+    console . error( e );
+    window  . alert( e );
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+function scoobie( a, b, c, d ) {
+    try {
+        return a( b, c );
+    } catch ( e ) {
+        if ( d instanceof Function ) {
+            const o = {
+                error : e
+              , args: { a, b, c }
+            };
+            return d( o );
+        };
+    }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 function expected( s ) {
     s = str.opt( s );
     throw new Error( "Expected : " + s );
@@ -113,7 +137,7 @@ function initialized( s ) {
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-function OwlBasics = () {
+function OwlBasics() {
     tips( OwlBasics );
 }
 
@@ -137,6 +161,8 @@ function init_basics( ops ) {
 ; ( ops ) . store       = ( store       )
 ; ( ops ) . tips        = ( tips        )
 ; ( ops ) . report      = ( report      )
+; ( ops ) . bummer      = ( bummer      )
+; ( ops ) . scoobie     = ( scoobie     )
 ; ( ops ) . expected    = ( expected    )
 ; ( ops ) . incomplete  = ( incomplete  )
 ; ( ops ) . initialized = ( initialized )
