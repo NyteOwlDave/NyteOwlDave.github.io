@@ -25,6 +25,10 @@ li strong {
 }
 </style>
 
+<style>
+iframe { resize : both; }
+</style>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <style name="gold-glow.css" project="Owl System">
@@ -86,12 +90,42 @@ li strong {
 <h1>Gadget Client Apps</h1>
 <ul>
 <li>Pending Themes ~ Owl System Notes</li>
+<li>App Boilerplate ~ Owl Examples</li>
+<li>Downloader Idea</li>
 <li>( To Be Determined )</li>
 </ul>
+<hr>
+<h1>Example</h1>
+<div center>
+  <iframe id="frame01" src="http://dave-omega/rtj/rt-downloader-idea.html"></iframe>
+</div>
+
+<hr>
+<blockquote>
+<p><a href="http://dave-omega/rtj/rt-downloader-idea.html">Downloader Idea</a></p>
+</blockquote>
 <hr>
 <script>
 ; doc = ( document )
 ; doc . title = ( _T_.textContent ).trim()
+</script>
+
+<script>
+; gid =( i )=> doc . getElementById( i )
+</script>
+
+<script>
+function rz() {
+    try {
+        const fe = gid( "frame01" );
+        const st = fe . style;
+        st . width  = "800px";
+        st . height = "640px";
+    } catch ( e ) {
+        alert( e );
+    }
+}
+addEventListener( "load", rz );
 </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

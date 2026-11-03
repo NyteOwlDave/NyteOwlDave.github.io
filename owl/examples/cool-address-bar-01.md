@@ -10,6 +10,10 @@ li strong {
 }
 </style>
 
+<style>
+iframe { resize : both; }
+</style>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <style name="gold-glow.css" project="Owl System">
@@ -76,7 +80,21 @@ This is just the CSS ~~ Gadgets are provided elsewhere.
 # Gadget Client Apps
 
 - Pending Themes ~ Owl System Notes
+- App Boilerplate ~ Owl Examples
+- Downloader Idea
 - ( To Be Determined )
+
+----------------------------------------------------------------
+
+# Example
+
+<div center>
+  <iframe id="frame01" src="http://dave-omega/rtj/rt-downloader-idea.html"></iframe>
+</div>
+
+----------------------------------------------------------------
+
+> [Downloader Idea](http://dave-omega/rtj/rt-downloader-idea.html)
 
 ----------------------------------------------------------------
 
@@ -85,6 +103,26 @@ This is just the CSS ~~ Gadgets are provided elsewhere.
 ; doc . title = ( _T_.textContent ).trim()
 </script>
 
+<script>
+; gid =( i )=> doc . getElementById( i )
+</script>
+
+<script>
+function rz() {
+    try {
+        const fe = gid( "frame01" );
+        const st = fe . style;
+        st . width  = "800px";
+        st . height = "640px";
+    } catch ( e ) {
+        alert( e );
+    }
+}
+addEventListener( "load", rz );
+</script>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <!-- |~~~~~~~~ [[ TODO : Owl System and Prologs ]] ~~~~~~~~| -->
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
