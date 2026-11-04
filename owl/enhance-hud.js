@@ -80,6 +80,31 @@ function _download( url ) {
     return _request( url );
 };
 
+function _test( accept ) {
+    const p = "https://nyteowldave.github.io";
+    const s = "owl";
+    const k = "enhance-hud.js";
+    const u = psk( p, s, k );
+    if ( "function" === typeof accept ) {
+        return accept( u );
+    }
+    return _download( u );
+}
+
+_prompt   . hint = "Prompt for Address";
+_request  . hint = "Send File Request to Server";
+_download . hint = "Prompt then Request";
+_origin   . hint = "Return location.origin";
+_recent   . hint = "Return Most Recent Request Address";
+_test     . hint = "Test Download Feature";
+
+_prompt   . title = "Ask";
+_request  . title = "Request";
+_download . title = "Download";
+_origin   . title = "Origin";
+_recent   . title = "Recent";
+_test     . title = "Test";
+
 ; ( ops )
 . transporter = {
   title    : "HUD Transporter"
@@ -88,6 +113,7 @@ function _download( url ) {
 , download : _download
 , origin   : _origin
 , recent   : _recent
+, test     : _test
 }
 ;
 
