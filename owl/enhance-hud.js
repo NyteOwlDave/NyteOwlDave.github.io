@@ -38,7 +38,7 @@ function _request( url ) {
     function accept( s ) {
         say( "File Request Succeeded" );
         const ed = hud . editor();
-        ed . value = ( s );
+        ed . payload = ( ed . value = ( s ) );
     }
     function reject( s ) {
         const msg = "File Request Failed";

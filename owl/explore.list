@@ -2,6 +2,7 @@ chats
 client
 dot
 examples
+gadgets
 gems
 notes
 server
@@ -12,6 +13,7 @@ bookmark-editor.md
 cas-alpha.js
 cas-v1p0.js
 dot.html
+enhance-hud.js
 explore.list
 explore.md
 express-lane.html
@@ -38,12 +40,16 @@ owl-app-updates.js
 owl-basics.js
 owl-clipper.js
 owl.css
+owl-folders.html
+owl-folders.md
 owl-gems.js
 owl-help.html
 owl-help.md
 owl.js
 owl-jsom.css
 owl-jsom.js
+owl-login.html
+owl-login.md
 owl-main.js
 owl-notes.html
 owl-notes.md
@@ -52,6 +58,8 @@ owl-prolog.js
 owl-test.js
 page.list
 parse-config-file.js
+stella.js
+strong-password.js
 table-manager.js
 test.html
 test.md

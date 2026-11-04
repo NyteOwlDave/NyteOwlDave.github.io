@@ -1,6 +1,7 @@
 blastoid.js
 cas-alpha.js
 cas-v1p0.js
+enhance-hud.js
 jarvis-v1p0.js
 jeannie.js
 links-table-2.js
@@ -16,5 +17,7 @@ owl-main.js
 owl-prolog.js
 owl-test.js
 parse-config-file.js
+stella.js
+strong-password.js
 table-manager.js
 visit-ultra.js
