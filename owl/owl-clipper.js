@@ -18,6 +18,24 @@ function Clipper() {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ; ( Clipper )
+. prepare = function( source ) {
+    const prep = ( Clipper.prepare );
+    const o = ( source );
+    let s;
+    if ( o instanceof Object ) {
+        return ( prep . object( o ) );
+    } else if ( "string" === typeof o ) {
+        s = ( o );
+    } else {
+        s = String( o ).trim();
+    }
+    return ( s );
+}
+;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+; ( Clipper )
 . prepare
 . gadget = function( source ) {
     if ( o instanceof HTMLElement ) {
@@ -69,24 +87,6 @@ function Clipper() {
     } else {
         expected( "Object" );
     }
-}
-;
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-; ( Clipper )
-. prepare = function( source ) {
-    const prep = ( Clipper.prepare );
-    const o = ( source );
-    let s;
-    if ( o instanceof Object ) {
-        return ( prep . object( o ) );
-    } else if ( "string" === typeof o ) {
-        s = ( o );
-    } else {
-        s = String( o ).trim();
-    }
-    return ( s );
 }
 ;
 
