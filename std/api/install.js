@@ -3,7 +3,7 @@
     install.js
     Morpheus Gems
 
-    Updated ~ 2026-OCT-12 ~ Omega
+    Updated ~ 2026-NOV-05 ~ Omega
 */
 
 
@@ -50,7 +50,7 @@ install.packages = {
 install.hints = function() {
     const m = Object.keys( install.packages ).sort();
     const t = ( "Installable Packages" );
-    m . unshift( `[ ${t} ]\n` );
+    m . unshift( `〖 ${t} 〗\n` );
     window . alert( m.join( "\n" ) );
 };
 
@@ -60,7 +60,7 @@ install.inspect = function() {
     const ops = install;
     const t = Object.keys( ops.packages ).sort();
     delete t[ "?" ];
-    const g = "[ Installable Packages ]";
+    const g = "〖 Installable Packages 〗";
     const c = console;
     c.clear();
     c.group( g );
@@ -90,6 +90,7 @@ install.suggest.action = function( s ) {
             console.warn( `No Footer Input was located` );
         }
     }
+    ops.indicator();
 };
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -104,6 +105,15 @@ install.message = function( s, loud ) {
         }
     }
 };
+
+install.indicator = function() {
+    const ce = doc . querySelector( "footer" );
+    if ( ce ) {
+        const st = ce . style;
+        st . borderRight = "10px solid #70F0A0E7";
+    }
+    return;
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
