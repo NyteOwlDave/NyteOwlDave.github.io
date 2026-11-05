@@ -112,11 +112,11 @@ function Clipper() {
 	ed = d . createElement( "TEXTAREA" );
 	ed . id = ( ed );
     const st = ed . style;
-	st . position = fixed ;
-	st . opacity  = 0;
-	st . left     = -2000px;
-	st . width    = 2px;
-	st . height   = 2px;
+	st . position = "fixed";
+	st . opacity  = "0";
+	st . left     = "-2000px";
+	st . width    = "2px";
+	st . height   = "2px";
 	return ( d . body . appendChild( ed ) );
 }
 
