@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+@import url("http://nyteowldave.github.io/owl/owl.css");
+</style>
+<meta name="generator" content="ReText 7.2.3">
+<title>filter-tree-output</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<style>
+@import url("https://nyteowldave.github.io/owl/owl.css");
+</style>
+
+<hr>
+<h1>Owl Test Gems</h1>
+<blockquote>
+<p>( GEM_KEY : <code>filter-tree-output.js</code> )</p>
+</blockquote>
+<hr>
+<h1>Description</h1>
+<hr>
+<p>This gem was created to filter unique JS filenames from the
+output of the <code>tree</code> command.</p>
+<p>The algorithm is simple:</p>
+<ul>
+<li>Reverse all lines</li>
+<li>Filter all not starting with ".js"</li>
+<li>Trim away line-drawing characters</li>
+<li>Reverse lines back to normal</li>
+</ul>
+<p>Trimming line drawing characters uses this algorithm:</p>
+<ul>
+<li>Split on blank space</li>
+<li>Use array shift to grab the first element (word token)</li>
+</ul>
+<p>One caveat is that any filename that contains blank space(s)
+will be mangled (only the part nearest the extension is
+preserved).</p>
+<hr>
+<h1>Source Code</h1>
+<pre contenteditable>
+
+say("~");
+nop=(o)=>(o);
+boo=doc.body;
+ED="TEXTAREA";
+zed=(s)=>{
+  id="sip"
+  ed=gid("id");
+  if (!ed) {
+    ed=elx( ED );
+    ed.id=id;
+  }
+  ed.value=(s);
+  return boo.appendChild(ed);
+};
+// zed("Dave");
+backward=(s)=>(s.split("").reverse().join(""));
+reverso=function() {
+  m = qlp( sip.value );
+  m = m.map(backward);
+  sip . value = qlc( m );
+}
+filter=function() {
+  m = qlp( sip.value );
+  w =( s )=> ( s.startsWith( "sj." ) );
+  m = m.filter( w );
+  sip . value = qlc( m );
+};
+// filter();
+chop=function() {
+  m = qlp( sip.value );
+  w =( s )=> {
+     p = s.split( " " );
+     return ( p.shift() );
+  };
+  m = m.map( w ).filter( nop );
+  sip . value = qlc( m );
+};
+// chop();
+pretty=function() {
+  m = new Set( qlp( sip.value ) );
+  m = arr( m ).sort();
+  sip . value = qlc( m );
+};
+
+</pre>
+
+<hr>
+
+</body>
+</html>
