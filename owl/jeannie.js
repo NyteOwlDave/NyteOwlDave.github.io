@@ -1,7 +1,8 @@
 
 /*
-    jeannie.js
     Owl System for Morpheus
+    Code Diagnostics
+    jeannie.js
 */
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
